@@ -1,0 +1,28 @@
+@CHARSET "Utf-8";
+
+html, body{
+	height:100%;
+	margin:0; padding:0;
+	/*디자인상 넣은 마진 패딩*/
+}
+
+#wrap{
+	width:100%;
+	height:100%;
+	margin:0 auto;
+	background-color:white;
+}
+
+div.side_menu{
+	width:15%;
+	background-color:#FFFFFF;
+}
+div.cover{
+	height:100%;
+	right:0px;
+	background-color:#66FFFF;
+	
+}
+span.side_button{
+	background-color:green;
+}
