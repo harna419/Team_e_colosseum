@@ -9,4 +9,5 @@ public class DateUtil {
 	public static String format(Date date){
 		return sdf.format(date);
 	}
+	//test
 }//class end
