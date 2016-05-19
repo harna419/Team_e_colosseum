@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  
+<title>버젼 5-19 통합</title>  
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
@@ -41,14 +41,22 @@ $(window).resize(function() { //윈도우 리사이즈 이벤트 발생시!
 	$(this).attr('data-height', $(this).css('height'));
 	$(this).attr('data-status', 'move_end');
 		
-});
+	});
 //====================================================================================================
-$('.menu_button> span').each(function() {
-	$(this).attr('class', 'button');
-});
-	//====================================================================================================
+	$('.menu_button> span').each(function() {
+		$(this).attr('class', 'button');
+	});
+//====================================================================================================
 
-$('.menu_button').on("click", function(){
+$('#content_block').on("click",'#menu2_to_input' , function(){ 
+	//alert('test');
+	$('#content_block').load('./Board/Quiz_input/Quiz_RegisterForm.jsp');
+	
+});		
+//====================================================================================================
+		
+		
+$(this).on("click",'.menu_button' ,function(){
 		
 	$('.Intro_menu > span').each(function() { //속성 값을 준 다음에, 패딩 액션 확인.
 	$(this).attr('data-status', 'move');
@@ -80,19 +88,20 @@ $('.menu_button').on("click", function(){
 	        }, 1000 );*/
 		//$('#main').stop().animate({ 'background-color': $(this).attr("data-color")}, 350);
 	       // $('#main').animate({backgroundColor: $(this).attr("data-color")}, 1000 );
-		
-		
-		
+				
 		$('#content_block').load('JoinMember.jsp');
 		
 	}else if($(this).attr('id') == 'menu2'){
-		$('#main').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
-		$('#top').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
-		$('#content_block').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		
-		$('#content_block').load('Menu2.jsp');
+		$('#content_block').load('./Board/Quiz_view/Quiz_list.jsp', function(){
+			$('#main').stop().animate({'backgroundColor': $(this).attr("data-color")}, 400 );
+			$('#top').stop().animate({'backgroundColor': $(this).attr("data-color")}, 400 );
+			$('#content_block').stop().animate({'backgroundColor': $(this).attr("data-color")}, 400 );
+			
+		});
 		
 	}else if($(this).attr('id') == 'menu3'){
+		
 		$('#main').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		$('#top').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		$('#content_block').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
@@ -100,34 +109,36 @@ $('.menu_button').on("click", function(){
 		$('#content_block').load('Menu3.jsp');
 		
 	}else if($(this).attr('id') == 'menu4'){
+		
 		$('#main').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		$('#top').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		$('#content_block').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		
 	}else if($(this).attr('id') == 'menu5'){
+		
 		$('#main').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		$('#top').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		$('#content_block').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		
 	}else if($(this).attr('id') == 'menu6'){
+		
 		$('#main').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		$('#top').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		$('#content_block').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		
 	}else if($(this).attr('id') == 'menu7'){
+		
 		$('#main').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		$('#top').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		$('#content_block').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		
 	}else if($(this).attr('id') == 'menu8'){
+	
 		$('#main').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		$('#top').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		$('#content_block').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
 		
 	}
-		
-	
-	
 	//복수의 클래스의 인덱스 값을 반환 한다.
 	//alert($(".Intro_menu > span").find('#menu1'));
 	//var test= $(this).attr('id')
@@ -257,7 +268,7 @@ width: 100%;
 .menu_button{ display:block; width:100%; position: relative; height: 50px; }
 
 #menu1{ 
-background-image: url('../Imgs/opti1-01.svg');
+background-image: url('./imgs/opti1-01.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
@@ -265,21 +276,21 @@ background-size: 60px 60px;
 
 
 #menu2{ 
-background-image: url('../Imgs/opti1-01.svg');
+background-image: url('./imgs/opti1-01.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
 }
 
 #menu3{ 
-background-image: url('../Imgs/opti1-01.svg');
+background-image: url('./imgs/opti1-01.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
 }
 
 #menu4{ 
-background-image: url('../Imgs/opti1-01.svg');
+background-image: url('./imgs/opti1-01.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
@@ -287,7 +298,7 @@ background-size: 60px 60px;
 }
 
 #menu5{ 
-background-image: url('../Imgs/opti1-01.svg');
+background-image: url('./imgs/opti1-01.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
@@ -295,7 +306,7 @@ background-size: 60px 60px;
 }
 
 #menu6{ 
-background-image: url('../Imgs/opti1-01.svg');
+background-image: url('./imgs/opti1-01.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
@@ -303,7 +314,7 @@ background-size: 60px 60px;
 }
 
 #menu7{ 
-background-image: url('../Imgs/opti1-01.svg');
+background-image: url('./imgs/opti1-01.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
@@ -311,7 +322,7 @@ background-size: 60px 60px;
 }
 
 #menu8{ 
-background-image: url('../Imgs/opti1-01.svg');
+background-image: url('./imgs/opti1-01.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
@@ -330,28 +341,30 @@ background-size: 60px 60px;
 
 <div class="Intro_left">
 <font align=center><h1>Colosseum</h1></font>
+<%=request.getContextPath() %>
+
 </div> <!-- home block end -->
 
 <div class="circle">
-<img src="../Imgs/Ellipse 1.svg" height="100%">
+<img src="./imgs/Ellipse 1.svg" height="100%">
 </div>
 
 <div class="Intro_menu">
 
 <span id="menu1" data-color="#f2b701" class="menu_button"  style="background-color: #f2b701;"> 
- <span  >Join Us</span> </span>
+ <span  >회원 가입</span> </span>
 
 
 <span id="menu2" data-color="#e57d04" class="menu_button" style="background-color: #e57d04;"> 
-<span >What is Colosseum?</span>  </span>
+<span >문제 리스트</span>  </span>
 
 
 <span id="menu3" data-color="#dc0030" class="menu_button"  style="background-color: #dc0030;"> 
-<span >What is Colosseum?</span> </span>
+<span > 회원 정보 </span> </span>
 
 
 <span id="menu4" data-color="#b10058" class="menu_button"  style="background-color: #b10058;"> 
-<span >What is Colosseum?</span>  </span>
+<span > 콜로세움 이란?</span>  </span>
 
 
 <span id="menu5" data-color="#7c378a" class="menu_button"  style="background-color: #7c378a;"> 
@@ -380,7 +393,7 @@ background-size: 60px 60px;
 <div id="content_block"></div>
 
 <div id="back_intro">
-<img src="../Imgs/test.png">
+<img src="./imgs/test.png">
 </div>
 
 
