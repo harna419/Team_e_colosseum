@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-test 
-
-top.jsp 들어갑니다.
+<form action="" method="post" name="form">
+<center>
+<input type="text" name="id" align="right" placeholder="id 입력 하는 곳">&nbsp;&nbsp;&nbsp;
+<input type="text" name="id" align="right" placeholder="pwd 입력 하는 곳">
+</center>
+</form>
