@@ -12,9 +12,7 @@ List quizList;
 %>
 <html>
 	<head>
-		<link href="style.css" rel="stylesheet" type="text/css">
-		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script type="text/javascript" src="script.js">
+	
 		</script>
 		<center><h1>퀴즈리스트</h1></center>
 	</head>
