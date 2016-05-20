@@ -26,10 +26,17 @@ java.text.SimpleDateFormat sdf=new java.text.SimpleDateFormat("yyyy-MM-dd H:mm:s
    <%
    Quiz_StudyMgr study=Quiz_StudyMgr.getInstance();//DAO객체 얻기
    //Quiz_ListMgr listmgr=Quiz_ListMgr.getInstance();
+<<<<<<< HEAD
    
    int q_dep_num=Integer.parseInt(request.getParameter("q_dep_num"));
    int q_dep_step=Integer.parseInt(request.getParameter("q_dep_step"));
    
+=======
+   
+   int q_dep_num=Integer.parseInt(request.getParameter("q_dep_num"));
+   int q_dep_step=Integer.parseInt(request.getParameter("q_dep_step"));
+   
+>>>>>>> f979ebe9fab80a62abad1df61e7e8873fe0163e9
    Quiz_ListBean bean=study.quizSolve(q_dep_num,q_dep_step);//DAO메서드 호출
    Quiz_ListBean cnt=study.quizCount(q_dep_num);//DAO메서드 호출
    %>
@@ -222,9 +229,16 @@ java.text.SimpleDateFormat sdf=new java.text.SimpleDateFormat("yyyy-MM-dd H:mm:s
 		<input type="text" value="<%=cnt.getCnt() %>">
 		<%
 		int rowCnt=cnt.getCnt();//선택한 퀴즈의 문제개수
+<<<<<<< HEAD
 		int endPage = rowCnt; //마지막페이지
 		int nowPage = 1; // now 페이지 기본 1
 		int starPage = 1; // 시작페이지 기본 1
+=======
+		int endPage=rowCnt;				
+		int nowPage=1;
+		int startPage=1;
+		
+>>>>>>> f979ebe9fab80a62abad1df61e7e8873fe0163e9
 		%>
 		 
 		<%--
@@ -232,8 +246,13 @@ java.text.SimpleDateFormat sdf=new java.text.SimpleDateFormat("yyyy-MM-dd H:mm:s
 		--%>
 		<tr>
 			<td align="center">
+<<<<<<< HEAD
 
 				<input type="button" id="before" name="before" onclick="location.href='Quiz_Study_View.jsp?q_dep_num=<%=bean.getQ_dep_num()%>&q_dep_step=<%=bean.getQ_dep_step()%>'" value="이전">
+=======
+<%-- onclick="location.href='Quiz_Study_View.jsp?q_dep_num=<%=bean.getQ_dep_num()%>&q_dep_step=<%=bean.getQ_dep_step()%>'" --%>
+				<input type="button" id="before" name="before" onclick="location.href='Quiz_Study_View.jsp?q_dep_num=1&q_dep_step=1'" value="이전">
+>>>>>>> f979ebe9fab80a62abad1df61e7e8873fe0163e9
 				
 				<input type="button" id="next" name="next" onclick="location.href='Quiz_Study_View.jsp?q_dep_num=<%=bean.getQ_dep_num()%>&q_dep_step=<%=bean.getQ_dep_step()%>'" value="다음">&nbsp;
 			
@@ -249,4 +268,9 @@ java.text.SimpleDateFormat sdf=new java.text.SimpleDateFormat("yyyy-MM-dd H:mm:s
 			</td>
 		</tr>
 		</table>	
+<<<<<<< HEAD
 	</form>
+=======
+	</form>
+  
+>>>>>>> f979ebe9fab80a62abad1df61e7e8873fe0163e9

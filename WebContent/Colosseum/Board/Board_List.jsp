@@ -22,7 +22,8 @@
     String keyWord="";//검색 단어
     Vector vec=null;
   
-    String nickname="test"; //나중에 세션으로 받아와야 함  
+    String nickname="test"; //나중에 세션으로 받아와야 함
+    //String mem_id=(String)session.getAttribute("mem_id");
 %>
 <%
     String im=request.getParameter("keyWord");
@@ -65,7 +66,7 @@
 	    <head>
 		    <style type="text/css">
 		    
-		    span#test1{
+		    span#wbtn{
 		    position: absolute;
 		    right:22.25%;
 		    
@@ -81,10 +82,8 @@
 		    span.test{
 		    position: fixed;
 		    top:50%; right:50%;
-		    
 		    height:100px;
 		    width:50px;
-		    
 			background-color: black;
 		    
 		    }
@@ -103,7 +102,9 @@
 		    
 		    </style>
 		    
-	    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	    <!--  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	    -->
+	    
 	    <script type="text/javascript">
 	    
 	    	function check(){//검색어가 없는데 검색 눌렀을 때
@@ -125,6 +126,7 @@
 	    		document.readForm.q_num.value=value;//글번호
 	    		document.readForm.submit();
 	    	}//read() end
+	    	
 	    	
 	    	$(this).ready(function(){ 		        
 	    		$('.receive').on('click',function(e){
@@ -168,7 +170,9 @@
 	   				});
 	    		});	//.receive click funciton	
 	    	});//ready function()
-	    </script>
+	   
+	    	</script>
+	    	 
 	    </head>
     
     <body id="content">
@@ -315,7 +319,7 @@
     	%>
     	</span>
     	
-    	<span id="test1">
+    	<span id="wbtn">
     		<a href="Board_Write.jsp?q_nickname=<%=nickname%>"><input type="button" value="글쓰기"></a>
     	</span>
     	</div>
