@@ -1,15 +1,19 @@
 package quiz_colosseum;
 import java.sql.*;
 import java.util.*;
+
 import javax.sql.*;//DataSource
 import javax.naming.*;//lookup
+
 //상품 등록 하려고, 파일 업로드, cos.jar 사용
 // jdk/jre/lib/ext/cos.jar
 // Tomcat7/lib/cos.jar
 // 현재 프로젝트 WEB-INF/lib/cos.jar
 import com.oreilly.servlet.*;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import javax.servlet.http.HttpServletRequest;//서블릿
+
 import java.io.*;//그림파일 삭제 하기 위해서
 
 //커넥션풀 사용
@@ -43,27 +47,31 @@ public class Quiz_RegisterMgr {
 	
 	public boolean Quiz_insert(HttpServletRequest req){
 		boolean result=false;
-		//JSP경우 : 실제경로 얻기 : 그림등록
-		//<%= config.getServletContext().getrealPath("/")%>
-		//<%= application.getrealPath("/")%>
-		
-		//서블릿에서 실제 경로 얻기 : 그림등록
-		//request.getrealPath("/");
-		//request.getServletContext().getrealPath("/"); => 이것이 더 정확함
-		//jsp 웹 경로 얻기 : 그림을 가져와 웹으로 출력할 때
-		//<%=request.getContextPath()%> ==> 프로젝트 이름이 컨텍스트 이름이다
+			
+			int q_dep_num=0;//퀴즈 그룹 번호
+			int q_dep_step=0;//퀴즈 그룹 문제 순서 및 번호
 		
 			try{
 			//처리문
 			con=getConnection();//커넥션 얻기
+			
+			//q_q_dep_num 구하기
+			String sql2="select max(q_dep_num) from qz_quiz_info";
+			stmt=con.createStatement();//Statement 생성
+			rs=stmt.executeQuery(sql2);
+			
+			if(rs.next()){
+				q_dep_num=rs.getInt(1)+1;
+			}
+			
+			//------------------------------------------------------------------------
+			
 			String real_path=req.getServletContext().getRealPath("/");//실제 경로 얻기
 			String upload_Dir=real_path+"/imgs/";//상품 등록 하려고
 			
 			//cos.jar 사용, 파일 업로드
 			MultipartRequest multi=new MultipartRequest(req, upload_Dir, 5*1024*1024, "utf-8", new DefaultFileRenamePolicy());
-			
 			int cnt=Integer.parseInt(multi.getParameter("count"));
-			
 			for(int i=1;i<=cnt;i++){
 				
 			String type=multi.getParameter("q_quiz_type"+i);
@@ -103,26 +111,138 @@ public class Quiz_RegisterMgr {
 				pstmt.setString(9, "NoImage.png");
 			}//else
 			
-			pstmt.setString(10, multi.getParameter("q_reply"+i+1));
-			pstmt.setString(11, multi.getParameter("q_reply"+i+2));
-			pstmt.setString(12, multi.getParameter("q_reply"+i+3));
-			pstmt.setString(13, multi.getParameter("q_reply"+i+4));
-			pstmt.setString(14, multi.getParameter("q_reply"+i+5));
-			pstmt.setString(15, multi.getParameter("q_reply"+i+6));
-			pstmt.setString(16, multi.getParameter("q_reply"+i+7));
-			pstmt.setString(17, multi.getParameter("q_reply"+i+8));
-			pstmt.setString(18, multi.getParameter("q_reply"+i+9));
-			pstmt.setString(19, multi.getParameter("q_reply"+i+10));
-			pstmt.setString(20, multi.getParameter("q_real_reply"+i+1));
-			pstmt.setString(21, multi.getParameter("q_real_reply"+i+2));
-			pstmt.setString(22, multi.getParameter("q_real_reply"+i+3));
-			pstmt.setString(23, multi.getParameter("q_real_reply"+i+4));
-			pstmt.setString(24, multi.getParameter("q_real_reply"+i+5));
-			pstmt.setString(25, multi.getParameter("q_real_reply"+i+6));
-			pstmt.setString(26, multi.getParameter("q_real_reply"+i+7));
-			pstmt.setString(27, multi.getParameter("q_real_reply"+i+8));
-			pstmt.setString(28, multi.getParameter("q_real_reply"+i+9));
-			pstmt.setString(29, multi.getParameter("q_real_reply"+i+10));
+			if(multi.getParameter("q_reply"+i+1)!=null){//답이 있을 때
+				pstmt.setString(10, multi.getParameter("q_reply"+i+1));
+			}else{//그림파일이 없을 때
+				pstmt.setString(10, "");
+			}//else
+			//pstmt.setString(10, multi.getParameter("q_reply"+i+1));
+			if(multi.getParameter("q_reply"+i+2)!=null){//답이 있을 때
+				pstmt.setString(11, multi.getParameter("q_reply"+i+2));
+			}else{//그림파일이 없을 때
+				pstmt.setString(11, "");
+			}//else
+			//pstmt.setString(11, multi.getParameter("q_reply"+i+2));
+			if(multi.getParameter("q_reply"+i+3)!=null){//답이 있을 때
+				pstmt.setString(12, multi.getParameter("q_reply"+i+3));
+			}else{//그림파일이 없을 때
+				pstmt.setString(12, "");
+			}//else
+			//pstmt.setString(12, multi.getParameter("q_reply"+i+3));
+			if(multi.getParameter("q_reply"+i+4)!=null){//답이 있을 때
+				pstmt.setString(13, multi.getParameter("q_reply"+i+4));
+			}else{//그림파일이 없을 때
+				pstmt.setString(13, "");
+			}//else
+			//pstmt.setString(13, multi.getParameter("q_reply"+i+4));
+			if(multi.getParameter("q_reply"+i+5)!=null){//답이 있을 때
+				pstmt.setString(14, multi.getParameter("q_reply"+i+5));
+			}else{//그림파일이 없을 때
+				pstmt.setString(14, "");
+			}//else
+			//pstmt.setString(14, multi.getParameter("q_reply"+i+5));
+			if(multi.getParameter("q_reply"+i+6)!=null){//답이 있을 때
+				pstmt.setString(15, multi.getParameter("q_reply"+i+6));
+			}else{//그림파일이 없을 때
+				pstmt.setString(15, "");
+			}//else
+			//pstmt.setString(15, multi.getParameter("q_reply"+i+6));
+			if(multi.getParameter("q_reply"+i+7)!=null){//답이 있을 때
+				pstmt.setString(16, multi.getParameter("q_reply"+i+7));
+			}else{//그림파일이 없을 때
+				pstmt.setString(16, "");
+			}//else
+			
+			//pstmt.setString(16, multi.getParameter("q_reply"+i+7));
+			if(multi.getParameter("q_reply"+i+8)!=null){//답이 있을 때
+				pstmt.setString(17, multi.getParameter("q_reply"+i+8));
+			}else{//그림파일이 없을 때
+				pstmt.setString(17, "");
+			}//else
+			//pstmt.setString(17, multi.getParameter("q_reply"+i+8));
+			if(multi.getParameter("q_reply"+i+9)!=null){//답이 있을 때
+				pstmt.setString(18, multi.getParameter("q_reply"+i+9));
+			}else{//그림파일이 없을 때
+				pstmt.setString(18, "");
+			}//else
+			//pstmt.setString(18, multi.getParameter("q_reply"+i+9));
+
+			if(multi.getParameter("q_reply"+i+10)!=null){//답이 있을 때
+				pstmt.setString(19, multi.getParameter("q_reply"+i+10));
+			}else{//그림파일이 없을 때
+				pstmt.setString(19, "");
+			}//else			
+			//pstmt.setString(19, multi.getParameter("q_reply"+i+10));
+			
+			if(multi.getParameter("q_real_reply"+i+1)!=null){//답이 있을 때
+				pstmt.setString(20, multi.getParameter("q_real_reply"+i+1));
+			}else{//그림파일이 없을 때
+				pstmt.setString(20, "");
+			}//else			
+			//pstmt.setString(20, multi.getParameter("q_real_reply"+i+1));
+			
+			if(multi.getParameter("q_real_reply"+i+2)!=null){//답이 있을 때
+				pstmt.setString(21, multi.getParameter("q_real_reply"+i+2));
+			}else{//그림파일이 없을 때
+				pstmt.setString(21, "");
+			}//else
+			//pstmt.setString(21, multi.getParameter("q_real_reply"+i+2));
+			
+			if(multi.getParameter("q_real_reply"+i+3)!=null){//답이 있을 때
+				pstmt.setString(22, multi.getParameter("q_real_reply"+i+3));
+			}else{//그림파일이 없을 때
+				pstmt.setString(22, "");
+			}//else
+			//pstmt.setString(22, multi.getParameter("q_real_reply"+i+3));
+			
+			if(multi.getParameter("q_real_reply"+i+4)!=null){//답이 있을 때
+				pstmt.setString(23, multi.getParameter("q_real_reply"+i+4));
+			}else{//그림파일이 없을 때
+				pstmt.setString(23, "");
+			}//else
+			//pstmt.setString(23, multi.getParameter("q_real_reply"+i+4));
+			
+			if(multi.getParameter("q_real_reply"+i+5)!=null){//답이 있을 때
+				pstmt.setString(24, multi.getParameter("q_real_reply"+i+5));
+			}else{//그림파일이 없을 때
+				pstmt.setString(24, "");
+			}//else
+			//pstmt.setString(24, multi.getParameter("q_real_reply"+i+5));
+			
+			if(multi.getParameter("q_real_reply"+i+6)!=null){//답이 있을 때
+				pstmt.setString(25, multi.getParameter("q_real_reply"+i+6));
+			}else{//그림파일이 없을 때
+				pstmt.setString(25, "");
+			}//else
+			//pstmt.setString(25, multi.getParameter("q_real_reply"+i+6));
+			
+			if(multi.getParameter("q_real_reply"+i+7)!=null){//답이 있을 때
+				pstmt.setString(26, multi.getParameter("q_real_reply"+i+7));
+			}else{//그림파일이 없을 때
+				pstmt.setString(26, "");
+			}//else
+			//pstmt.setString(26, multi.getParameter("q_real_reply"+i+7));
+			
+			if(multi.getParameter("q_real_reply"+i+8)!=null){//답이 있을 때
+				pstmt.setString(27, multi.getParameter("q_real_reply"+i+8));
+			}else{//그림파일이 없을 때
+				pstmt.setString(27, "");
+			}//else
+			//pstmt.setString(27, multi.getParameter("q_real_reply"+i+8));
+			
+			if(multi.getParameter("q_real_reply"+i+9)!=null){//답이 있을 때
+				pstmt.setString(28, multi.getParameter("q_real_reply"+i+9));
+			}else{//그림파일이 없을 때
+				pstmt.setString(28, "");
+			}//else
+			//pstmt.setString(28, multi.getParameter("q_real_reply"+i+9));
+			
+			if(multi.getParameter("q_real_reply"+i+10)!=null){//답이 있을 때
+				pstmt.setString(29, multi.getParameter("q_real_reply"+i+10));
+			}else{//그림파일이 없을 때
+				pstmt.setString(29, "");
+			}//else
+			//pstmt.setString(29, multi.getParameter("q_real_reply"+i+10));
 			
 			if(multi.getFilesystemName("q_reply"+i+"_img1")!=null){//그림파일이 있을 때
 				pstmt.setString(30, multi.getFilesystemName("q_reply"+i+"_img1"));
@@ -184,9 +304,9 @@ public class Quiz_RegisterMgr {
 				pstmt.setString(39, "NoImage.png");
 			}//else
 			
-			pstmt.setInt(40, 1);//수정
-			pstmt.setInt(41, 1);//수정
-			pstmt.setInt(42, 1);//수정
+			pstmt.setInt(40, q_dep_num);//퀴즈그룹 번호 : q_dep_num
+			pstmt.setInt(41, q_dep_step+i);//퀴즈그룹 번호의 순번 : q_dep_step
+			pstmt.setInt(42, 0);//조회수 : q_read_count 기본 0
 			pstmt.setString(43, multi.getParameter("q_group_type"+i));
 			pstmt.setString(44, multi.getParameter("q_group_num"+i));
 			pstmt.setString(45, multi.getParameter("q_group_name"+i));
@@ -200,18 +320,24 @@ public class Quiz_RegisterMgr {
 			if(count==1){
 				result=true;
 			}//if
+			
 			}else if(type.equals("400")){
 				System.out.println("OX타입");
+			
 			}else if(type.equals("500")){
 				System.out.println("표타입");
 			}
+			
 		  }//for
 		}catch(Exception ex1){
 			System.out.println("Quiz_insert예외:"+ex1);
 		}finally{
 			try{
+				if(rs!=null){rs.close();}
+				if(stmt!=null){stmt.close();}
 				if(pstmt!=null){pstmt.close();}
 				if(con!=null){con.close();}
+				
 			}catch(Exception exx){}
 		}//finally
 		

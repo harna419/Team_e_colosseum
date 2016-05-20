@@ -49,8 +49,8 @@ public class Quiz_ListMgr {
 		try{
 			//처리내용
 			con=getConnection();
-			sql="select * from qz_quiz_info";
-			
+			sql="select * from qz_quiz_info where q_dep_step=1";
+			//group q_dep_num
 			stmt=con.createStatement();//Statement 생성
 			rs=stmt.executeQuery(sql);//실행시 인자 들어감
 			
@@ -58,6 +58,8 @@ public class Quiz_ListMgr {
 				Quiz_ListBean bean=new Quiz_ListBean(); 
 				
 				bean.setQ_num(rs.getInt("q_num"));
+				bean.setQ_dep_num(rs.getInt("Q_dep_num"));
+				bean.setQ_dep_step(rs.getInt("Q_dep_step"));
 				bean.setQ_title(rs.getString("q_title"));
 				bean.setQ_title_img(rs.getString("q_title_img"));
 				
@@ -79,15 +81,7 @@ public class Quiz_ListMgr {
 		return getQuizList;
 		
 	}//getQuizList () end
-	
-	//공백제거
-	public String zero100(String ss){
-		if(ss.equals("")||ss.equals(null)||ss.length()<0){
-			return "";
-		}
-		return ss;
-	}	
-	
+
 }//class end
 
 

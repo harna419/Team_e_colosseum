@@ -41,13 +41,23 @@ public class Quiz_StudyMgr {
 	//---------------------------------------
 	//  상세 보기
 	//---------------------------------------
-		public Quiz_ListBean quizSolve(int q_Num){
+		public Quiz_ListBean quizSolve(int q_dep_num,int q_dep_step){
 			Quiz_ListBean quiz=new Quiz_ListBean();
 			
 			try{
-				//처리문
+				
 				con=getConnection();//커넥션 얻기
-				sql="select * from qz_quiz_info where q_num="+q_Num;
+				
+				//q_readcount 증가
+				
+				String sql2="update qz_quiz_info set q_read_count=q_read_count+1 where q_dep_num="+q_dep_num+" and q_dep_step="+q_dep_step;
+				stmt=con.createStatement();//Statement 생성
+				stmt.executeUpdate(sql2);//실행시 인자 들어감
+		
+				//------------------------------------------------------
+				//처리문
+				
+				sql="select * from qz_quiz_info where q_dep_num="+q_dep_num+" and q_dep_step="+q_dep_step+" order by q_dep_step desc";
 				stmt=con.createStatement();
 				rs=stmt.executeQuery(sql);
 				
@@ -78,13 +88,13 @@ public class Quiz_StudyMgr {
 					quiz.setQ_reply8_img(rs.getString("q_reply8_img"));
 					quiz.setQ_reply9_img(rs.getString("q_reply9_img"));
 					quiz.setQ_reply10_img(rs.getString("q_reply10_img"));
+					quiz.setQ_dep_num(rs.getInt("q_dep_num"));
+					quiz.setQ_dep_step(rs.getInt("q_dep_step"));
 					quiz.setQ_read_count(Integer.parseInt(rs.getString("q_read_count")));
 					quiz.setQ_create_time(rs.getTimestamp("q_create_time"));
-					
-					
-					
-					
-					
+					quiz.setQ_quiz_type(rs.getString("q_quiz_type"));
+			
+
 				}//while end
 			}catch(Exception ex){
 				System.out.println("quizSolve()예외:"+ex);
@@ -97,5 +107,51 @@ public class Quiz_StudyMgr {
 			}//finally
 			return quiz;
 		}//getDetails()
-	
+		
+		//---------------------------------------
+		//  문제 개수 구하기
+		//---------------------------------------
+		public Quiz_ListBean quizCount(int q_dep_num){
+			Quiz_ListBean quiz=new Quiz_ListBean();
+			
+			try{
+				//처리문
+				con=getConnection();//커넥션얻기
+				sql="select count(*) as cnt from qz_quiz_info where q_dep_num="+q_dep_num;
+				stmt=con.createStatement();
+				rs=stmt.executeQuery(sql);
+				
+				while(rs.next()){
+					quiz.setCnt(rs.getInt("cnt"));	
+				}//while end
+				
+				
+			}catch(Exception ex1){
+				System.out.println("quizCount()예외 :"+ex1);
+			}finally{
+				try{
+					if(rs!=null){rs.close();}
+					if(stmt!=null){stmt.close();}
+					if(con!=null){con.close();}
+				}catch(Exception ex2){}
+			}
+			return quiz;
+		}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,9 +12,10 @@ List quizList;
 %>
 <html>
 	<head>
-		
-		<!--  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-	-->
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="script.js">
+		</script>
 		<center><h1>퀴즈리스트</h1></center>
 	</head>
 	
@@ -50,8 +51,8 @@ List quizList;
 				<td>
 					<table border=0 align="center">
 						<tr>
-							<td align="center">
-								<a href="Quiz_Study_View.jsp?q_num=<%=bean.getQ_num()%>">
+							<td align="center"><%-- --%>
+								<a href="Quiz_Study_View.jsp?q_dep_num=<%=bean.getQ_dep_num()%>&q_dep_step=<%=bean.getQ_dep_step() %>">
 									<img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_title_img() %>" width="250" height="100">
 								</a>
 							</td>
@@ -72,12 +73,5 @@ List quizList;
 	<%
 		}//else
 	%>
-	<center>
-	<!-- 
-	<a href="../Quiz_input/Quiz_RegisterForm.jsp"><button>임시 문제 입력 버튼</button></a>
-	 -->
-	 
-	 <button id="menu2_to_input">임시 문제 입력 버튼</button>
-	</center>
 	</body>
 </html>
