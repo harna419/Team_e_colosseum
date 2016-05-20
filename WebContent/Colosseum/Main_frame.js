@@ -2,7 +2,7 @@
  * 
  */
 
-function check(url, nowColor, nextColor){
+function movePageUrl(url, nowColor, nextColor){
 	
 	//alert("url:"+url+" nowColor:"+nowColor+" nextColor:"+nextColor);
 	document.hiddenForm.pageUrl.value=url;
@@ -94,43 +94,43 @@ $(this).on("click",'.menu_link' ,function(event){
 	
 	if($(this).children().first().attr('id') == 'menu1'){
 		
-		check('Menu1.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		movePageUrl('Menu1.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 	}else if($(this).children().first().attr('id') == 'menu2'){
 		
-		check('JoinMember.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		movePageUrl('JoinMember.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 		
 	}else if($(this).children().first().attr('id') == 'menu3'){
 	
-		check('Menu3.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		movePageUrl('../Colosseum/Board/Board_List.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 		
 	}else if($(this).children().first().attr('id') == 'menu4'){
 	
-		check('Menu4.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		movePageUrl('./Board/Quiz_view/Quiz_list.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 		
 	}else if($(this).children().first().attr('id') == 'menu5'){
 		
 	
-		check('Menu5.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		movePageUrl('Menu5.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 		
 	}else if($(this).children().first().attr('id') == 'menu6'){
 		
-		check('Menu6.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		movePageUrl('Menu6.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 		
 	}else if($(this).children().first().attr('id') == 'menu7'){
 		
 		
-		check('Menu7.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		movePageUrl('Menu7.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 		
 	}else if($(this).children().first().attr('id') == 'menu8'){
 	
-		check('Menu8.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		movePageUrl('Menu8.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 				
 	}
 });

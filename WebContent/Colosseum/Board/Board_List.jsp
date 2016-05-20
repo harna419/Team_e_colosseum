@@ -102,7 +102,9 @@
 		    
 		    </style>
 		    
-	    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	    <!--  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	    -->
+	    
 	    <script type="text/javascript">
 	    
 	    	function check(){//검색어가 없는데 검색 눌렀을 때
@@ -124,6 +126,7 @@
 	    		document.readForm.q_num.value=value;//글번호
 	    		document.readForm.submit();
 	    	}//read() end
+	    	
 	    	
 	    	$(this).ready(function(){ 		        
 	    		$('.receive').on('click',function(e){
@@ -167,7 +170,9 @@
 	   				});
 	    		});	//.receive click funciton	
 	    	});//ready function()
-	    </script>
+	   
+	    	</script>
+	    	 
 	    </head>
     
     <body id="content">

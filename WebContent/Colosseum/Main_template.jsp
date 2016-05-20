@@ -74,7 +74,7 @@ width: 100%;
 }
 
 
-#home_wrapper{width:100%; height:100%; z-index:1; position:absolute; right: 0%;}
+#home_wrapper{width:100%; height:100%; z-index:1; position:absolute; right: 100%;}
 .Intro_left{position:absolute; height:100%; left:0px; width:40%; background-color: #ffffff; z-index: 3;margin-right: 0px;]}
 .circle{position: absolute; left: 40%; z-index:3; height:100%;}
 .Intro_menu{position: absolute; height:100%; right:0px; width:60%; z-index: 2}

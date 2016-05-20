@@ -13,8 +13,8 @@ List quizList;
 <html>
 	<head>
 		
-		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-	
+		<!--  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	-->
 		<center><h1>퀴즈리스트</h1></center>
 	</head>
 	
