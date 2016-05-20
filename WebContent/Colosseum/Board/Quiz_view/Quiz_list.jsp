@@ -12,10 +12,9 @@ List quizList;
 %>
 <html>
 	<head>
-		<link href="style.css" rel="stylesheet" type="text/css">
-		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script type="text/javascript" src="script.js">
-		</script>
+		
+		<!--  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	-->
 		<center><h1>퀴즈리스트</h1></center>
 	</head>
 	
@@ -73,5 +72,12 @@ List quizList;
 	<%
 		}//else
 	%>
+	<center>
+	<!-- 
+	<a href="../Quiz_input/Quiz_RegisterForm.jsp"><button>임시 문제 입력 버튼</button></a>
+	 -->
+	 
+	 <button id="menu2_to_input">임시 문제 입력 버튼</button>
+	</center>
 	</body>
 </html>
