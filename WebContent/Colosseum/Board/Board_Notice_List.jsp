@@ -31,32 +31,38 @@ String keyWord2=request.getParameter("keyWord");
 		document.readForm2.submit();
 	}
 	</script>
+	
+	<style type="text/css">
+		#btable{
+		    border:0;
+		    border-collapse:collapse;
+		    border-spacing:0;
+		    empty-cells:show;
+		    border-color:#f6f6f6;
+		    border-bottom:#d0d0d0;
+		    background-color:#f6f6f6;
+		    }
+		#btr{
+			border-color:#f6f6f6;
+			border-top:3px solid black;
+			height:20%;
+			}
+	</style>
 
 	<div>	
     	<div align="center" width="60%">
     	<span>
     	
     	<%
-    	if(keyField2!=null || keyWord2!=null){ //검색어가 없으면
-    	%>
-    		<table id=test2 border=1 width="56%" cellpadding=2 cellspacing=0>
-    		<thead>
-    		<tr align=center bgcolor="#d0d0d0" height="120%">
-    		<td width="5%">번호</td>
-    		<td width="45%">제목</td>
-    		<td width="20%">이름</td>
-    		<td wdith="20%">날짜</td>
-    		<td width="10%">조회수</td>
-    		</tr>
-    		</thead>
-    		</table>
-    	<%
+    	if(vec3.isEmpty()){
+    		out.println("등록한 글이 없습니다");
+  
     	}else{//등록한 글이 있으면
     		%>
     		
-    		<table id=test2 border=1 width="56%" cellpadding=2 cellspacing=0>
+    		<table id=btable border=1 width="56%" cellpadding=2 cellspacing=0>
     		<thead>
-    		<tr align=center bgcolor="#d0d0d0" height="120%">
+    		<tr id=btr align=center bgcolor="#d0d0d0" height="120%">
     		<td width="5%">번호</td>
     		<td width="45%">제목</td>
     		<td width="20%">이름</td>
@@ -83,18 +89,7 @@ String keyWord2=request.getParameter("keyWord");
     			int q_read_count3=dto3.getQ_read_count();
     			int q_notice_num3=dto3.getQ_notice_num();
     			int q_notice_group4=dto3.getQ_notice_group();
-    			
-				SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd");
-    			
-    			Date regdate= df.parse(q_create_time3);
-    			
-    			Calendar now = Calendar.getInstance(); 
-    			
-    		    Calendar cal = Calendar.getInstance();
-    		    cal.setTime(regdate);
-    		    
-    		    long dateTime1 = now.getTimeInMillis();
-    		    long dateTime2 = cal.getTimeInMillis();
+
     			%>
     			
     			<tr>
@@ -114,11 +109,11 @@ String keyWord2=request.getParameter("keyWord");
     		<%} %>
     			
     		<%
-    		for(int i=0; i<vec2.size();i++){
-    			//if(i==3){break;}//for 탈출
+    		for(int j=0; j<vec2.size();j++){
+    			if(j==2){break;}//for 탈출
     			
     			
-    			BoardDto dto2=(BoardDto)vec2.get(i);
+    			BoardDto dto2=(BoardDto)vec2.get(j);
     			
     			String q_nickname2=dto2.getQ_nickname();
     			String q_subject2=dto2.getQ_subject();
@@ -135,7 +130,7 @@ String keyWord2=request.getParameter("keyWord");
     		
     			<tr>
     			<!--  번호를 역순으로, num와 다르다 -->
-    			<td align=center><%=totalRecord2-i %></td>
+    			<td align=center>공지</td>
     			<td>
   
     			<a href="javascript:content2('<%=q_num2 %>')"><%=q_subject2 %></a>	
