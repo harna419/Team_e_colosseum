@@ -41,9 +41,10 @@ request.setCharacterEncoding("utf-8");
 				+"<input type='hidden' name='q_quiz_type"+totalCnt+"' value='100'>'").appendTo("#Quiz_RegisterForm");
 				
 				$("<hr size='1' color='blue'>").appendTo("#Quiz_RegisterForm");
+				
 
 			}else if(m2=="200"){//객관식단일
-							
+			
 				$("<table align='center' id='single"+totalCnt+"'>"
 				+"<tr><td>항목 제목</td>"
 				+"<td><input type='text' name='q_subject"+totalCnt+"' id='Single_subject"+totalCnt+"' size='40' value=''></td>"
@@ -53,7 +54,7 @@ request.setCharacterEncoding("utf-8");
 				+"<td><input type='file' name='q_content_img"+totalCnt+"' id='Single_file"+totalCnt+"'></td>"
 				+"</tr>"
 				+"<tr><td align='center'>답   변</td>"
-				+"<td><input type='radio' name='Single_option"+totalCnt+"' id='Single_option1'>"
+				+"<td><input type='radio' name='q_real_reply"+totalCnt+"1' id='Single_option1' value='1'>"
 				+"<input type='text' name='q_reply"+totalCnt+"1'></td>"
 				+"<td><input type='file' name='q_reply"+totalCnt+"_img1' id='Single_file1'></td>"
 				+"<td><input type='button' name='Single_add' id='Single_add' onclick='single_add"+totalCnt+"()' value='항목추가'></td>"
@@ -61,6 +62,27 @@ request.setCharacterEncoding("utf-8");
 				+"</table>'").appendTo("#Quiz_RegisterForm");
 				
 				$("<hr size='1' color='blue'>").appendTo("#Quiz_RegisterForm");
+			/*
+				$("input Single_option"+totalCnt).attr("q_reply"+totalCnt+"1'",val());
+				
+				if($("input:checked + #Single_option1").val()==1){
+					$("input:checked + #Single_option1").val("O")
+					$("input:not(:checked) + #Single_option1").val("")
+					
+				}else if($("input:checked + #Single_option1").val()==2){
+					$("input:checked + #Single_option1").val("O")
+					$("input:not(:checked) + #Single_option1").val("")
+					
+				}else if($("input:checked + #Single_option1").val()==3){
+					$("input:checked + #Single_option1").val("O")
+					$("input:not(:checked) + #Single_option1").val("")
+					
+				}else if($("input:checked + #Single_option1").val()==4){
+					$("input:checked + #Single_option1").val("O")
+					$("input:not(:checked) + #Single_option1").val("")
+				}
+				*/
+				
 				
 			}else if(m2=="300"){//객관식복수
 				//alert("300");
@@ -110,7 +132,7 @@ request.setCharacterEncoding("utf-8");
 		<table align="center" id="quizform">
 		<tr>
 			<td>
-				<select name="quiz" id="quiz" >
+				<select name="quiz" id="quiz">
 				<option value="100" selected>주관식</option>
 				<option value="200">객관식단일</option>
 				<option value="300">객관식복수</option>

@@ -3,7 +3,7 @@ var singleCnt1=2
 			//alert("dd");
 			
 			$("<tr><td></td>"
-   			+"<td><input type='radio' name='Single_option1'>"
+   			+"<td><input type='radio' name='q_real_reply11' value='"+singleCnt1+"'>"
    			+"<input type='text' name='q_reply1"+singleCnt1+"' value=''></td>"
    			+"<td><input type='file' name='q_reply1_img"+singleCnt1+"' id='Single_file"+singleCnt1+"'></td>"
    			+"</tr>").appendTo("#single1")
@@ -14,7 +14,7 @@ var singleCnt1=2
 			//alert("dd");
 			
 			$("<tr><td></td>"
-   			+"<td><input type='radio' name='Single_option2'>"
+   			+"<td><input type='radio' name='q_real_reply21' value='"+singleCnt2+"'>"
    			+"<input type='text' name='q_reply2"+singleCnt2+"' value=''></td>"
    			+"<td><input type='file' name='q_reply2_img"+singleCnt2+"' id='Single_file"+singleCnt2+"'></td>"
    			+"</tr>").appendTo("#single2")
@@ -26,7 +26,7 @@ var singleCnt1=2
 			//alert("dd");
 			
 			$("<tr><td></td>"
-   			+"<td><input type='radio' name='Single_option3'>"
+   			+"<td><input type='radio' name='q_real_reply31' value='"+singleCnt3+"'>"
    			+"<input type='text' name='q_reply3"+singleCnt3+"' value=''></td>"
    			+"<td><input type='file' name='q_reply3_img"+singleCnt3+"' id='Single_file"+singleCnt3+"'></td>"
    			+"</tr>").appendTo("#single3")
@@ -38,7 +38,7 @@ var singleCnt1=2
 			//alert("dd");
 			
 			$("<tr><td></td>"
-   			+"<td><input type='radio' name='Single_option4'>"
+   			+"<td><input type='radio' name='q_real_reply41' value='"+singleCnt4+"'>"
    			+"<input type='text' name='q_reply4"+singleCnt4+"' value=''></td>"
    			+"<td><input type='file' name='q_reply4_img"+singleCnt4+"' id='Single_file"+singleCnt4+"'></td>"
    			+"</tr>").appendTo("#single4")
@@ -50,7 +50,7 @@ var singleCnt1=2
 			//alert("dd");
 			
 			$("<tr><td></td>"
-   			+"<td><input type='radio' name='Single_option5'>"
+   			+"<td><input type='radio' name='q_real_reply51' value='"+singleCnt5+"'>"
    			+"<input type='text' name='q_reply5"+singleCnt5+"' value=''></td>"
    			+"<td><input type='file' name='q_reply5_img"+singleCnt5+"' id='Single_file"+singleCnt5+"'></td>"
    			+"</tr>").appendTo("#single5")
@@ -62,7 +62,7 @@ var singleCnt1=2
 			//alert("dd");
 			
 			$("<tr><td></td>"
-   			+"<td><input type='radio' name='Single_option6'>"
+   			+"<td><input type='radio' name='q_real_reply61' value='"+singleCnt6+"'>"
    			+"<input type='text' name='q_reply6"+singleCnt6+"' value=''></td>"
    			+"<td><input type='file' name='q_reply6_img"+singleCnt6+"' id='Single_file"+singleCnt6+"'></td>"
    			+"</tr>").appendTo("#single6")
@@ -74,7 +74,7 @@ var singleCnt1=2
 			//alert("dd");
 			
 			$("<tr><td></td>"
-   			+"<td><input type='radio' name='Single_option7'>"
+   			+"<td><input type='radio' name='q_real_reply71' value='"+singleCnt7+"'>"
    			+"<input type='text' name='q_reply7"+singleCnt7+"' value=''></td>"
    			+"<td><input type='file' name='q_reply7_img"+singleCnt7+"' id='Single_file"+singleCnt7+"'></td>"
    			+"</tr>").appendTo("#single7")
@@ -86,7 +86,7 @@ var singleCnt1=2
 			//alert("dd");
 			
 			$("<tr><td></td>"
-   			+"<td><input type='radio' name='Single_option8'>"
+   			+"<td><input type='radio' name='q_real_reply81' value='"+singleCnt8+"'>"
    			+"<input type='text' name='q_reply8"+singleCnt8+"' value=''></td>"
    			+"<td><input type='file' name='q_reply8_img"+singleCnt8+"' id='Single_file"+singleCnt8+"'></td>"
    			+"</tr>").appendTo("#single8")
@@ -98,7 +98,7 @@ var singleCnt1=2
 			//alert("dd");
 			
 			$("<tr><td></td>"
-   			+"<td><input type='radio' name='Single_option9'>"
+   			+"<td><input type='radio' name='q_real_reply91' value='"+singleCnt9+"'>"
    			+"<input type='text' name='q_reply9"+singleCnt9+"' value=''></td>"
    			+"<td><input type='file' name='q_reply9_img"+singleCnt9+"' id='Single_file"+singleCnt9+"'></td>"
    			+"</tr>").appendTo("#single9")
@@ -110,7 +110,7 @@ var singleCnt1=2
 			//alert("dd");
 			
 			$("<tr><td></td>"
-   			+"<td><input type='radio' name='Single_option10'>"
+   			+"<td><input type='radio' name='q_real_reply101' value='"+singleCnt10+"'>"
    			+"<input type='text' name='q_reply10"+singleCnt10+"' value=''></td>"
    			+"<td><input type='file' name='q_reply10_img"+singleCnt10+"' id='Single_file"+singleCnt10+"'></td>"
    			+"</tr>").appendTo("#single10")

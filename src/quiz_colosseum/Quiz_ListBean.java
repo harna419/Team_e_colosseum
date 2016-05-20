@@ -52,7 +52,27 @@ public class Quiz_ListBean {
 	private String q_group_name;//퀴즈 그룹 이름
 	private Date q_create_time;//퀴즈 생성일
 	private Date q_modify_time;//퀴즈 수정일
+	private String q_quiz_type;
 	
+	private int cnt;//문제 개수 구하기 
+	
+	public int getCnt() {
+		return cnt;
+	}
+
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
+
+	
+	public String getQ_quiz_type() {
+		return q_quiz_type;
+	}
+
+	public void setQ_quiz_type(String q_quiz_type) {
+		this.q_quiz_type = q_quiz_type;
+	}
+
 	public Quiz_ListBean() {
 	}// 디폴트 생성자
 

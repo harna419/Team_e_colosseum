@@ -52,6 +52,7 @@ public class Quiz_StudyBean {
 	private String q_group_name;//퀴즈 그룹 이름
 	private Date q_create_time;//퀴즈 생성일
 	private Date q_modify_time;//퀴즈 수정일
+	private String Q_quiz_type;
 	
 	public Quiz_StudyBean() {
 	}// 디폴트 생성자
@@ -447,4 +448,15 @@ public class Quiz_StudyBean {
 	public void setQ_modify_time(Date q_modify_time) {
 		this.q_modify_time = q_modify_time;
 	}
+
+	public String getQ_quiz_type() {
+		return Q_quiz_type;
+	}
+
+	public void setQ_quiz_type(String q_quiz_type) {
+		Q_quiz_type = q_quiz_type;
+	}
+	
+
+	
 }
