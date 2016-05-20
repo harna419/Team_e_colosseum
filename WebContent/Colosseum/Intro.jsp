@@ -37,9 +37,9 @@ $(window).resize(function() { //윈도우 리사이즈 이벤트 발생시!
 	
 	});
 //====================================================================================================	
-	$('.Intro_menu > span').each(function() {
-	$(this).attr('data-height', $(this).css('height'));
-	$(this).attr('data-status', 'move_end');
+	$('.Intro_menu > a').each(function() {
+		$(this).children().first().attr('data-height', $(this).css('height'));
+		$(this).children().first().attr('data-status', 'move_end');
 		
 	});
 //====================================================================================================
@@ -54,13 +54,15 @@ $('#content_block').on("click",'#menu2_to_input' , function(){
 	
 });		
 //====================================================================================================
+
 		
-		
-$(this).on("click",'.menu_button' ,function(){
-		
-	$('.Intro_menu > span').each(function() { //속성 값을 준 다음에, 패딩 액션 확인.
-	$(this).attr('data-status', 'move');
-	$(this).css({'padding-top': '0', 'margin-top': '0'}, 800);
+$(this).on("click",'.menu_link' ,function(event){
+	//alert(event);
+	event.preventDefault();
+	
+	$('.Intro_menu > a ').each(function() { //속성 값을 준 다음에, 패딩 액션 확인.
+		$(this).children().first().attr('data-status', 'move');
+		$(this).children().first().css({'padding-top': '0', 'margin-top': '0'}, 800);
 	});
 	
 	$('#home_wrapper').stop().animate({ right: "100%"}, 350); //커버 걷히는 속도 위치.
@@ -74,11 +76,12 @@ $(this).on("click",'.menu_button' ,function(){
 	//var test= $(this).attr('id')
 	//alert(test);
 	
-	if($(this).attr('id') == 'menu1'){
+	if($(this).children().first().attr('id') == 'menu1'){
 		
-		$('#main').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
-		$('#top').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
-		$('#content_block').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
+		//alert("test");
+		$('#main').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
+		$('#top').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
+		$('#content_block').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
 		
 		/*
 		animate({
@@ -89,54 +92,53 @@ $(this).on("click",'.menu_button' ,function(){
 		//$('#main').stop().animate({ 'background-color': $(this).attr("data-color")}, 350);
 	       // $('#main').animate({backgroundColor: $(this).attr("data-color")}, 1000 );
 				
-		$('#content_block').load('JoinMember.jsp');
+		//$('#content_block').load('JoinMember.jsp');
 		
-	}else if($(this).attr('id') == 'menu2'){
+	}else if($(this).children().first().attr('id') == 'menu2'){
+		//alert("test");
+		$('#main').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
+		$('#top').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
+		$('#content_block').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
 		
-		$('#content_block').load('./Board/Quiz_view/Quiz_list.jsp', function(){
-			$('#main').stop().animate({'backgroundColor': $(this).attr("data-color")}, 400 );
-			$('#top').stop().animate({'backgroundColor': $(this).attr("data-color")}, 400 );
-			$('#content_block').stop().animate({'backgroundColor': $(this).attr("data-color")}, 400 );
-			
-		});
+		//$('#content_block').load('./Board/Board_List.jsp');
 		
-	}else if($(this).attr('id') == 'menu3'){
+	}else if($(this).children().first().attr('id') == 'menu3'){
 		
-		$('#main').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
-		$('#top').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
-		$('#content_block').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
+		$('#main').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
+		$('#top').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
+		$('#content_block').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
 		
 		$('#content_block').load('Menu3.jsp');
 		
-	}else if($(this).attr('id') == 'menu4'){
+	}else if($(this).children().first().attr('id') == 'menu4'){
 		
-		$('#main').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
-		$('#top').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
-		$('#content_block').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
+		$('#main').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
+		$('#top').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
+		$('#content_block').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
 		
-	}else if($(this).attr('id') == 'menu5'){
+	}else if($(this).children().first().attr('id') == 'menu5'){
 		
-		$('#main').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
-		$('#top').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
-		$('#content_block').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
+		$('#main').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
+		$('#top').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
+		$('#content_block').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
 		
-	}else if($(this).attr('id') == 'menu6'){
+	}else if($(this).children().first().attr('id') == 'menu6'){
 		
-		$('#main').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
-		$('#top').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
-		$('#content_block').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
+		$('#main').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
+		$('#top').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
+		$('#content_block').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
 		
-	}else if($(this).attr('id') == 'menu7'){
+	}else if($(this).children().first().attr('id') == 'menu7'){
 		
-		$('#main').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
-		$('#top').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
-		$('#content_block').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
+		$('#main').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
+		$('#top').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
+		$('#content_block').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
 		
-	}else if($(this).attr('id') == 'menu8'){
+	}else if($(this).children().first().attr('id') == 'menu8'){
 	
-		$('#main').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
-		$('#top').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
-		$('#content_block').stop().animate({backgroundColor: $(this).attr("data-color")}, 400 );
+		$('#main').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
+		$('#top').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
+		$('#content_block').stop().animate({backgroundColor: $(this).children().first().attr("data-color")}, 400 );
 		
 	}
 	//복수의 클래스의 인덱스 값을 반환 한다.
@@ -155,8 +157,8 @@ $(this).on("click",'.menu_button' ,function(){
 //====================================================================================================
 $('#back_intro').on("click", function(){ //초상화 클릭시 메인 화면으로 간다. 임시
 	
-	$('.Intro_menu > span').each(function() {
-	$(this).attr('data-status', 'move_end');
+	$('.Intro_menu > a').each(function() {
+		$(this).children().first().attr('data-status', 'move_end');
 	});
 	$('.menu_button').css({'right': '0px'});
 	$('.menu_button').css({'margin-left': '0px'});	
@@ -166,7 +168,7 @@ $('#back_intro').on("click", function(){ //초상화 클릭시 메인 화면으�
 });
 //====================================================================================================
 
-$('.menu_button').hover(
+$('.menu_link').hover(
 	
 	function(){
 		//alert("마우스 오버");
@@ -176,15 +178,17 @@ $('.menu_button').hover(
 		//$(this).stop().animate({ height: "0%"}, 500);
 		
 		//이동전
-		if($('.Intro_menu > span').attr('data-status')=='move_end'){
-			$(this).css({'padding-top': '20px', 'margin-top': '-20px'}, 800);
+		if($('.Intro_menu > a > span').attr('data-status')=='move_end'){
+			//alert('test');
+			
+			$(this).children().first().css({'padding-top': '20px', 'margin-top': '-20px'}, 800);
 			}
 		
 		
 		//이동후
-		if($('.Intro_menu > span').attr('data-status')=='move'){
+		if($('.Intro_menu > a > span').attr('data-status')=='move'){
 			
-			$(this).stop().animate({ 'margin-left': "8%"}, 250);
+			$(this).children().first().stop().animate({ 'margin-left': "8%"}, 250);
 			//$('.menu_button > .button').css({ right: "0%"});
 			//$('.menu_button').css({'margin-left': '0px'});
 		}
@@ -197,13 +201,13 @@ $('.menu_button').hover(
 		//$(this).stop().animate({ height: $(this).attr('data-height')}, 500);
 		//{'padding-top': '0', 'margin-top': '0'}
 		
-		if($('.Intro_menu > span').attr('data-status')=='move_end'){
-		$(this).css({'padding-top': '0', 'margin-top': '0'}, 800);
+		if($('.Intro_menu > a > span').attr('data-status')=='move_end'){
+			$(this).children().first().css({'padding-top': '0', 'margin-top': '0'}, 800);
 		}
 		
-		if($('.Intro_menu > span').attr('data-status')=='move'){
+		if($('.Intro_menu > a > span').attr('data-status')=='move'){
 			
-			$(this).stop().animate({ 'margin-left': "-90px"}, 250);
+			$(this).children().first().stop().animate({ 'margin-left': "-90px"}, 250);
 			//$('.menu_button>span').css({ right: "0%"});
 			
 		}
@@ -217,7 +221,12 @@ $('.menu_button').hover(
 
 <style>
 html body{height: 100%; margin: 0px;padding: 0px;}
-div {border:1px solid black;}
+div {/*border:1px solid black;*/}
+a {border:0px;
+	margin: 0;
+    padding: 0;
+    border: 0;
+}
 
 #back_intro{
 position: absolute;
@@ -351,38 +360,45 @@ background-size: 60px 60px;
 
 <div class="Intro_menu">
 
+<a href="Menu1.jsp" class="menu_link" target="">
 <span id="menu1" data-color="#f2b701" class="menu_button"  style="background-color: #f2b701;"> 
  <span  >회원 가입</span> </span>
+</a>
 
-
+<a href="Menu2.jsp" class="menu_link">
 <span id="menu2" data-color="#e57d04" class="menu_button" style="background-color: #e57d04;"> 
 <span >문제 리스트</span>  </span>
+</a>
 
-
+<a href="Menu3.jsp" class="menu_link">
 <span id="menu3" data-color="#dc0030" class="menu_button"  style="background-color: #dc0030;"> 
 <span > 회원 정보 </span> </span>
+</a>
 
-
+<a href="Menu4.jsp" class="menu_link">
 <span id="menu4" data-color="#b10058" class="menu_button"  style="background-color: #b10058;"> 
 <span > 콜로세움 이란?</span>  </span>
+</a>
 
-
+<a href="Menu5.jsp" class="menu_link">
 <span id="menu5" data-color="#7c378a" class="menu_button"  style="background-color: #7c378a;"> 
 <span >What is Colosseum?</span> </span>
+</a>
 
-
+<a href="Menu6.jsp" class="menu_link">
 <span id="menu6" data-color="#3465aa" class="menu_button"  style="background-color: #3465aa;"> 
 <span >What is Colosseum?</span>  </span>
+</a>
 
-
+<a href="Menu7.jsp" class="menu_link">
 <span id="menu7" data-color="#7cb854" class="menu_button"  style="background-color: #7cb854;"> 
 <span >What is Colosseum?</span>  </span>
+</a>
 
-
-
+<a href="Menu8.jsp" class="menu_link">
 <span id="menu8" data-color="#09a275" class="menu_button"  style="background-color: #09a275;"> 
 <span >What is Colosseum?</span> </span>
-
+</a>
 
 </div>	<!-- Intro_menu end -->
 
