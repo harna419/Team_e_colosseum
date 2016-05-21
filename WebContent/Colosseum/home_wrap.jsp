@@ -9,7 +9,6 @@
 <font align=center><h1>Colosseum</h1></font>
 <%=request.getContextPath() %>
 
-</div> <!-- home block end -->
 </div> <!-- 마이페이지 들어 올 곳  -->
 
 <div class="circle">
