@@ -54,15 +54,7 @@ public class Quiz_ListBean {
 	private Date q_modify_time;//퀴즈 수정일
 	private String q_quiz_type;
 	
-	private int cnt;//문제 개수 구하기 
 	
-	public int getCnt() {
-		return cnt;
-	}
-
-	public void setCnt(int cnt) {
-		this.cnt = cnt;
-	}
 
 	
 	public String getQ_quiz_type() {

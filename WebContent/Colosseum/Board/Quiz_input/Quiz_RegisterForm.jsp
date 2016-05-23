@@ -29,13 +29,13 @@ request.setCharacterEncoding("utf-8");
 						
 				$("<table align='center' id='"+totalCnt+"'>"
 				+"<tr><td>항목 제목</td>"+
-				"<td><input type='text' name='q_subject"+totalCnt+"' id='Word_subject"+totalCnt+"' size='40' value=''></td>"
+				"<td><input type='text' name='q_subject"+totalCnt+"' id='Word_subject"+totalCnt+"' size='60' value=''></td>"
 				+"</tr>"
 				+"<tr><td>항목 설명</td>"
-				+"<td><input type='text' name='q_content"+totalCnt+"' id='Word_content"+totalCnt+"' size='40' value=''></td>"
+				+"<td><input type='text' name='q_content"+totalCnt+"' id='Word_content"+totalCnt+"' size='60' value=''></td>"
 				+"<td><input type='file' name='q_content_img"+totalCnt+"' id='Word_file"+totalCnt+"'></td>"
 				+"</tr>"
-				+"<tr><td>답변</td><td><input type='text' name='q_real_reply"+totalCnt+"1' size='40 value=''></td>"
+				+"<tr><td>답변</td><td><input type='text' name='q_real_reply"+totalCnt+"1' size='60' value=''></td>"
 				+"</tr>"
 				+"</table>"
 				+"<input type='hidden' name='q_quiz_type"+totalCnt+"' value='100'>'").appendTo("#Quiz_RegisterForm");
@@ -47,10 +47,10 @@ request.setCharacterEncoding("utf-8");
 			
 				$("<table align='center' id='single"+totalCnt+"'>"
 				+"<tr><td>항목 제목</td>"
-				+"<td><input type='text' name='q_subject"+totalCnt+"' id='Single_subject"+totalCnt+"' size='40' value=''></td>"
+				+"<td><input type='text' name='q_subject"+totalCnt+"' id='Single_subject"+totalCnt+"' size='60' value=''></td>"
 				+"</tr>"
 				+"<tr><td>항목 설명</td>"
-				+"<td><input type='text' name='q_content"+totalCnt+"' id='Single_content"+totalCnt+"' size='40' value=''></td>"
+				+"<td><input type='text' name='q_content"+totalCnt+"' id='Single_content"+totalCnt+"' size='60' value=''></td>"
 				+"<td><input type='file' name='q_content_img"+totalCnt+"' id='Single_file"+totalCnt+"'></td>"
 				+"</tr>"
 				+"<tr><td align='center'>답   변</td>"
@@ -62,7 +62,8 @@ request.setCharacterEncoding("utf-8");
 				+"</table>'").appendTo("#Quiz_RegisterForm");
 				
 				$("<hr size='1' color='blue'>").appendTo("#Quiz_RegisterForm");
-			/*
+				
+				/*
 				$("input Single_option"+totalCnt).attr("q_reply"+totalCnt+"1'",val());
 				
 				if($("input:checked + #Single_option1").val()==1){
@@ -89,10 +90,10 @@ request.setCharacterEncoding("utf-8");
 				//$("<table align='center' id='multi"+a+"'><tr><td>항목 제목</td><td><input type='text' name='q_subject' id='Multi_subject' size='40' value=''></td></tr><tr><td>항목 설명</td><td><input type='text' name='q_content' id='Multi_content' size='40' value=''></td><td><input type='file' name='q_content_img' id='Multi_file'></td></tr><tr><td align='center'>답   변</td><td><input type='checkbox' name='Multi_option' id='Multi_option1'><input type='text' name='q_reply1' value=''></td><td><input type='file' name='q_reply1_img' id='Multi_file1'></td><td><input type='button' name='Multi_add' id='Multi_add' value='옵션추가'></td></tr></table><input type='hidden' name='300' value='300'>'").appendTo("#Quiz_RegisterForm");
 				$("<table align='center' id='multi"+a+"'>"
 				+"<tr><td>항목 제목</td>"
-				+"<td><input type='text' name='q_subject"+a+"' id='Word_subject"+a+"' size='40' value=''></td>"
+				+"<td><input type='text' name='q_subject"+a+"' id='Word_subject"+a+"' size='60' value=''></td>"
 				+"</tr>"
 				+"<tr><td>항목 설명</td>"
-				+"<td><input type='text' name='q_content"+a+"' id='Single_content"+a+"' size='40' value=''></td>"
+				+"<td><input type='text' name='q_content"+a+"' id='Single_content"+a+"' size='60' value=''></td>"
 				+"<td><input type='file' name='q_content_img"+a+"' id='Single_file"+a+"'></td>"
 				+"</tr>"
 				+"<tr><td align='center'>답   변</td>"
@@ -125,7 +126,7 @@ request.setCharacterEncoding("utf-8");
 	<form name="Quiz_RegisterForm" id="Quiz_RegisterForm" method="post" action="Quiz_RegisterProc.jsp" enctype="multipart/form-data">
 		<table align="center">
 		<tr>
-			<td><input type="text" name="q_title" id="subject" value="제목입력폼" size=50></td>
+			<td><input type="text" name="q_title" id="subject" value="제목입력폼" size=60></td>
 			<td><input type="file" name="q_title_img" id="file" value="첨부버튼"></td>
 		</tr>
 		</table>
@@ -148,8 +149,8 @@ request.setCharacterEncoding("utf-8");
 			<input type="submit" value="저장">
 			<input type="button" onclick="add()" value="추가">
 			<input type="reset" value="취소">
-			<input type="button" name="check" id="check" value="개수구하기">
-			<input type="text" name="count" value="0">
+			<input type="hidden" name="check" id="check" value="개수구하기">
+			<input type="hidden" name="count" value="0">
 		</center>
 		
 

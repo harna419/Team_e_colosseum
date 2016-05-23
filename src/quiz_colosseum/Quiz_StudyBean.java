@@ -53,6 +53,15 @@ public class Quiz_StudyBean {
 	private Date q_create_time;//퀴즈 생성일
 	private Date q_modify_time;//퀴즈 수정일
 	private String Q_quiz_type;
+	private int cnt;//문제 개수 구하기 
+	
+	public int getCnt() {
+		return cnt;
+	}
+
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
 	
 	public Quiz_StudyBean() {
 	}// 디폴트 생성자

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="quiz_colosseum.*" %>
+
 <%--Quiz_list.jsp --%>
 
 <%
@@ -12,9 +13,12 @@ List quizList;
 %>
 <html>
 	<head>
-	
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="script.js">
 		</script>
 		<center><h1>퀴즈리스트</h1></center>
+		<a href="../Quiz_input/Quiz_RegisterForm.jsp"><button>퀴즈등록</button></a>
 	</head>
 	
 	<body bgcolor="white" topmargin="30">
@@ -22,9 +26,8 @@ List quizList;
 	<%
 	quiz_colosseum.Quiz_ListMgr quiz = Quiz_ListMgr.getInstance();//dao 객체 얻기
 	quizList = quiz.getQuizList();//dao 메서드 호출
-	
 	%>
-
+	
 	<%
 		if(quizList.isEmpty()){
 	%>
@@ -35,7 +38,7 @@ List quizList;
 			
 			//등록된 문제가 있으면
 	%>
-		<table border=1 width=80 cellpadding=2 cellspacing=0 align=center>
+		<table border=0 width=80 cellpadding=2 cellspacing=0 align=center>
 			<tr>
 			<%	for(int i=0; i<quizList.size(); i++){
 				
@@ -51,7 +54,7 @@ List quizList;
 						<tr>
 							<td align="center"><%-- --%>
 								<a href="Quiz_Study_View.jsp?q_dep_num=<%=bean.getQ_dep_num()%>&q_dep_step=<%=bean.getQ_dep_step() %>">
-									<img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_title_img() %>" width="250" height="100">
+									<img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_title_img() %>" width="250" height="200">
 								</a>
 							</td>
 						</tr>
