@@ -50,11 +50,12 @@ public class Quiz_ScoreMgr {
 				
 				
 				int nowcount=0;
+				//String userid="admin";
+						
 	
-				
 				try{
 					con=getConnection();//커넥션 얻기
-					/*
+					
 					//방금 푼 문제 개수 구하기 문제 개수 구하기
 					String sql2="select count(*) as cnt from qz_quiz_info where q_dep_num="+q_dep_num;
 					stmt=con.createStatement();
@@ -64,9 +65,14 @@ public class Quiz_ScoreMgr {
 						
 						nowcount=rs.getInt(1);
 					}//while end
-					*/
-								
-					sql="select * from qz_quiz_history where q_quiz_num="+q_dep_num+"   order by q_quiz_step asc";
+					
+					System.out.println(nowcount);
+					
+					//sql="select * from qz_quiz_history where q_quiz_num="+q_dep_num+" order by q_quiz_step asc";
+					sql="select * from qz_quiz_history where q_quiz_num="+q_dep_num+" and q_id=admin"
+							+ " order by q_quiz_step asc limit 1,"+nowcount;
+							
+					
 					stmt=con.createStatement();
 					rs=stmt.executeQuery(sql);
 					
