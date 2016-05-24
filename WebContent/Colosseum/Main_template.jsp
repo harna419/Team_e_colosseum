@@ -60,7 +60,7 @@ padding-right: 10px;
 
 color: #fff;
 display: block;
-font-size: 50px;
+font-size: 30px;
 font-weight: bold;
 letter-spacing: 1px;
 line-height: 30px;
@@ -75,10 +75,10 @@ width: 100%;
 
 
 #home_wrapper{width:100%; height:100%; z-index:1; position:absolute; right: 100%;}
-.Intro_left{position:absolute; height:100%; left:0px; width:40%; background-color: #ffffff; z-index: 3;margin-right: 0px;]}
-.circle{position: absolute; left: 40%; z-index:3; height:100%;}
+.Intro_left{position:absolute; height:100%; left:0px; width:60%; background-color: #ffffff; z-index: 3; margin-right: 0px;]}
+.circle{position: absolute; left: 60%; z-index:3; height:100%;}
 .Intro_menu{position: absolute; height:100%; right:0px; width:60%; z-index: 2}
-.menu_button{ display:block; width:100%; position: relative; height: 50px; }
+.menu_button{ display:block; width:100%; position: relative; height: 50px; } 
 
 #menu1{ 
 background-image: url('./imgs/opti1-01.svg');
