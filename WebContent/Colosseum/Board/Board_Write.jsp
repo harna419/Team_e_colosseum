@@ -57,7 +57,7 @@ function check(){
 			<table border="0" width="100%" align="center">
 			<tr>
 				<td width="10%">이름</td>
-				<td width="90%"><input type="text" name="q_nickname" size=10 value="<%=q_nickname%>"></td>
+				<td width="90%"><%=q_nickname%></td>
 			</tr>
 			
 			<tr>
@@ -107,6 +107,7 @@ function check(){
 				<td colspan="2" align="center">
 				<input type="button" value="글등록" onClick="check()">
 				<input type="reset" value="다시쓰기">
+				<input type="hidden" name="q_nickname" value="<%=q_nickname%>">
 				<input type="hidden" name="ip" value="<%=request.getRemoteAddr()%>">
 				</td>
 			</tr>

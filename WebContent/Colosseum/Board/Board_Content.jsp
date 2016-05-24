@@ -2,10 +2,11 @@
     pageEncoding="UTF-8"
     import="Board.*"
     import="java.util.*"
+    import="Member.*"
 %>
 <%
 request.setCharacterEncoding("utf-8");
- 
+
 BoardDao dao=BoardDao.getInstance(); //dao 메소드 호출
   
 int q_num=Integer.parseInt(request.getParameter("q_num"));
@@ -24,7 +25,10 @@ String q_modify_time= dto.getQ_modify_time();
 int q_notice_num=dto.getQ_notice_num();
 int q_read_count=dto.getQ_read_count();
 
-String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아이디로 변경
+String q_id=(String)session.getAttribute("q_id");
+MemberDao mdao=MemberDao.getInstance();
+MemberDto mdto=mdao.getMember(q_id);
+String q_nickname2=mdto.getQ_nickname();
 %>
 
 <html>

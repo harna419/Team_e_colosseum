@@ -248,7 +248,7 @@ public class BoardDao {
 	//Notice list
 	//----------------------------------
 	
-	public Vector getNoticeList(int q_notice_group){
+	public Vector getNoticeList(int q_notice_num){
 		Vector vec=new Vector();
 		sql="";
 		try{
@@ -256,7 +256,7 @@ public class BoardDao {
 			con=getConnection();
 			stmt=con.createStatement();
 			
-			sql="select * from qz_board_notice where Q_NOTICE_GROUP="+q_notice_group+" order by Q_NUM desc";
+			sql="select * from qz_board_notice where Q_NOTICE_NUM="+q_notice_num+" order by Q_NUM desc";
 			rs=stmt.executeQuery(sql);
 			
 			

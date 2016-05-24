@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="Board.*"
+    import="Member.*"
     import="java.util.*"
     import="java.text.ParseException"
     import="java.text.SimpleDateFormat"
@@ -21,9 +22,10 @@
     String keyField="";//키 필드
     String keyWord="";//검색 단어
     Vector vec=null;
-  
-    String nickname="test"; //나중에 세션으로 받아와야 함
-    //String mem_id=(String)session.getAttribute("mem_id");
+    String q_id=(String)session.getAttribute("q_id");
+    MemberDao mdao=MemberDao.getInstance();
+    MemberDto mdto=mdao.getMember(q_id);
+    String nickname=mdto.getQ_nickname();
 %>
 <%
     String im=request.getParameter("keyWord");
@@ -66,7 +68,7 @@
 	    <head>
 		    <style type="text/css">
 		    
-		    span#wbtn{
+		    span#test1{
 		    position: absolute;
 		    right:22.25%;
 		    
@@ -82,8 +84,10 @@
 		    span.test{
 		    position: fixed;
 		    top:50%; right:50%;
+		    
 		    height:100px;
 		    width:50px;
+		    
 			background-color: black;
 		    
 		    }
@@ -97,14 +101,12 @@
 		    z-index: 1;
 		    }
 		    .asdf{
-		    margin-top:0.01%;
+		    margin-top:-22px;
 		    }
 		    
 		    </style>
 		    
-	    <!--  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-	    -->
-	    
+	    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	    <script type="text/javascript">
 	    
 	    	function check(){//검색어가 없는데 검색 눌렀을 때
@@ -127,7 +129,6 @@
 	    		document.readForm.submit();
 	    	}//read() end
 	    	
-	    	
 	    	$(this).ready(function(){ 		        
 	    		$('.receive').on('click',function(e){
 	   			    var x=e.pageX;
@@ -140,7 +141,7 @@
 	   				$("#content").append('<div id="messagebox"><table><tr><td id="123">'+recname+'</td></tr><tr><td><textarea id="456" rows=15 cols=38></textarea></td></tr></table></div>');
 	   				$("#messagebox").css('left',x);
 	   				$("#messagebox").css('top',y);
-	   				$("#messagebox").append('<div align="center"><button id="msubmit">전송</button> <button id="mreset">취소</button></div>')
+	   				$("#messagebox").append('<div align="center"><button id="msubmit">전송</button> <button id="mreset">취소</button></div>');
 
 	   			    }else{
 	   			     $("#messagebox").remove();	     
@@ -170,9 +171,7 @@
 	   				});
 	    		});	//.receive click funciton	
 	    	});//ready function()
-	   
-	    	</script>
-	    	 
+	    </script>
 	    </head>
     
     <body id="content">
@@ -319,7 +318,7 @@
     	%>
     	</span>
     	
-    	<span id="wbtn">
+    	<span id="test1">
     		<a href="Board_Write.jsp?q_nickname=<%=nickname%>"><input type="button" value="글쓰기"></a>
     	</span>
     	</div>
