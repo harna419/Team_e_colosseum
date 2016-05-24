@@ -2,6 +2,7 @@ package Member;
 
 import java.sql.*;
 import java.util.Vector;
+
 import javax.sql.*;//DataSource
 import javax.naming.*;//lookup
 
@@ -256,5 +257,137 @@ public class MemberDao {
 		}//finally end
 		return x;		
 	}//deleteMember() end 
+	
+	//---------------------------
+	//비밀번호 찾기
+	//---------------------------
+	
+	public int pwdFind(String q_id,String q_name,int q_jumin1, int q_jumin2) throws Exception{
+		Connection con = null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String dbq_name="";
+		int dbq_jumin1=0;
+		int dbq_jumin2=0;
+		int x=-1;
+			
+		try{
+			con=getConnection();//커넥션 얻기
+			pstmt=con.prepareStatement("select * from qz_user_info where q_id=?");
+			pstmt.setString(1, q_id);
+			rs=pstmt.executeQuery();//쿼리 수행
+			
+			if(rs.next()){
+				dbq_name=rs.getString("q_name");
+				dbq_jumin1=rs.getInt("q_jumin1");
+				dbq_jumin2=rs.getInt("q_jumin2");
+				if(q_name.equals(dbq_name) && q_jumin1==(dbq_jumin1) && q_jumin2==(dbq_jumin2)){
+					x=1;//인증성공
+				}else{
+					x=0;//암호가 틀림
+				}
+			}else{
+				x=-1;//해당 아이디 없음
+			}//else
+				
+		}catch(Exception ex){
+			System.out.println("pwdFind() 예외:"+ex);
+		}finally{
+			try{
+				if(rs!=null){rs.close();}
+				if(pstmt!=null){pstmt.close();}
+				if(con!=null){con.close();}
+			}catch(Exception exx){}
+			
+		}//finally end
+		return x;
+	}//pwdFind() end
+	
+	//--------------------------
+	//비밀번호 질문 가져오기
+	//--------------------------
+	public MemberDto pwdQuestion(String q_id) throws Exception{
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		MemberDto dto=null;
+		
+		try{
+			con=getConnection();//커넥션 연결얻기
+			pstmt=con.prepareStatement("select q_pw_question, q_pw_reply from qz_user_info where q_id='"+q_id+"'");
+			rs=pstmt.executeQuery();//쿼리 수행
+			if(rs.next()){
+					
+				dto=new MemberDto();
+				
+				dto.setQ_pw_question(rs.getString("q_pw_question"));
+				dto.setQ_pw_reply(rs.getString("q_pw_reply"));
+
+			}//if
+				
+		}catch(Exception ex){
+			System.out.println("pwdQuestion() 예외:"+ex);
+		}finally{
+			try{
+				if(rs!=null){rs.close();}
+				if(pstmt!=null){pstmt.close();}
+				if(con!=null){con.close();}
+			}catch(Exception exx){}
+		}//finally end
+		return dto;
+	}//pwdQuestion() end
+	
+	//-------------------------------
+	//비밀번호 재설정
+	//-------------------------------
+	public void updatePwd(MemberDto dto) throws Exception{
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		
+		try{
+			con=getConnection();//커넥션 얻기
+			String sql="update qz_user_info set q_pwd=? where q_id=?";
+			pstmt=con.prepareStatement(sql);//생성시 인자 들어간다 
+			
+			pstmt.setString( 1, dto.getQ_pwd());
+			pstmt.setString( 2, dto.getQ_id());
+		
+			pstmt.executeUpdate();//쿼리 수행
+			
+		}catch(Exception ex){
+			System.out.println("updatePwd() 예외:"+ex);
+		}finally{
+			try{
+				if(pstmt!=null){pstmt.close();}
+				if(con!=null){con.close();}
+			}catch(Exception ex){}
+		}//finally end
+	}//updatePwd() end
+	
+	
+	public String showId(String q_name,int q_jumin1,int q_jumin2) throws Exception{
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String id=null;
+		try{
+			con=getConnection();//커넥션 연결얻기
+			pstmt=con.prepareStatement("select q_id from qz_user_info where q_name='"+q_name+"' and q_jumin1='"+q_jumin1+"'and q_jumin2='"+q_jumin2+"'");
+			rs=pstmt.executeQuery();//쿼리 수행
+			if(rs.next()){				
+				id = rs.getString("q_id");
+			}//if
+				
+		}catch(Exception ex){
+			System.out.println("showId() 예외:"+ex);
+		}finally{
+			try{
+				if(rs!=null){rs.close();}
+				if(pstmt!=null){pstmt.close();}
+				if(con!=null){con.close();}
+			}catch(Exception exx){}
+		}//finally end
+		return id;
+	}//showId() end
 
 }//class
