@@ -190,6 +190,7 @@ Vector vec=null;
     		  
       }//goo(a,b,c) end
       */
+      
     </script>
   </head>  
   <body topmargin="30">
@@ -202,12 +203,15 @@ Vector vec=null;
    session.setAttribute("q_dep_num",new Integer(q_dep_num));
    
    int q_dep_step=Integer.parseInt(request.getParameter("q_dep_step"));
+   //q_dep_step1=study.quizCount(q_dep_num);
+   
+   
    
    vec=study.quizSolve(q_dep_num,q_dep_step);//DAO메서드 호출
    Quiz_StudyBean cnt=study.quizCount(q_dep_num);//DAO메서드 호출
    %>
    <form name="Quiz_Study_View" id="Quiz_Study_View" method="post" action="Quiz_Study_ViewProc.jsp">
-  
+    <input type="hidden" name="q_dep_step" value="<%=vec.size()%>">
 	<%
    for(int i=0;i<vec.size();i++){
 	   
@@ -232,13 +236,13 @@ Vector vec=null;
 	%>
 	        <tr>
 	          <td>
-	          <input type="text" name="q_subject<%=num %>" id="Word_subject<%=num %>" size="60" value="<%=bean.getQ_subject() %>">
+	          <input type="text" name="q_subject<%=num %>" readOnly id="Word_subject<%=num %>" size="60" value="<%=bean.getQ_subject() %>">
 	          </td>
 	        </tr>
 	        
 	        <tr>
 	          <td>
-	          <input type="text" name="q_content<%=num %>" id="Word_content<%=num %>" size="60" value="<%=bean.getQ_content() %>">
+	          <input type="text" name="q_content<%=num %>" readOnly id="Word_content<%=num %>" size="60" value="<%=bean.getQ_content() %>">
 	          </td>
 	        </tr>
 	        <tr>
@@ -246,21 +250,22 @@ Vector vec=null;
 	        </tr>
 	        
 	        <tr>
-	            <td><input type="text" name="q_real_reply<%=num %>" id="Word_answer<%=num %>" size="60" value="asd"></td>   
+	            <td><input type="text" name="q_real_reply<%=num %>1" id="Word_answer<%=num %>1" size="60" value="asd"></td>   
 	        </tr>
+	        <input type="hidden" name="q_quiz_type<%=num %>" value="100">
 	        
 			<%
 		}else if(type.equals("200")){
 			%>
 	        <tr>
 	          <td>
-	          <input type="text" name="q_subject" id="Single_subject" size="60" value="<%=bean.getQ_subject() %>">
+	          <input type="text" name="q_subject<%=num %>" readOnly id="Single_subject<%=num %>" size="60" value="<%=bean.getQ_subject() %>">
 	          </td>
 	        </tr>
 	        
 	        <tr>
 	          <td>
-	          <input type="text" name="q_content" id="Single_content" size="60" value="<%=bean.getQ_content() %>">
+	          <input type="text" name="q_content<%=num %>" readOnly id="Single_content<%=num %>" size="60" value="<%=bean.getQ_content() %>">
 	          </td>
 	        </tr>
 	        <tr>
@@ -404,6 +409,7 @@ Vector vec=null;
 				<hr size='1' color='blue'>
 			</td>
 		</tr>
+		<input type="hidden" name="q_quiz_type<%=num %>" value="200">
 
 
 		</table>
@@ -414,9 +420,13 @@ Vector vec=null;
 		<tr>
 			<td>
 				<input type="button" onclick="inputcheck()" value="완료">
+				<input type="button" onclick="document.location.href='updateForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>'" value="수정">
+				<input type="button" onclick="document.location.href='delForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>'" value="삭제">
 			</td>
 		</tr>
 	</table>
 		
 	</form>
+  </body>
+  </html>
   

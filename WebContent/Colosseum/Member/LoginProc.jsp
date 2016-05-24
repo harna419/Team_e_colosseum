@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"
     import="Member.*"
     %>
-loginPro.jsp
+
 <%
 request.setCharacterEncoding("utf-8");
 
@@ -14,7 +14,7 @@ int check=dao.userCheck(q_id, q_pwd);//dao 메서드 호출
  
 if(check==1){//로그인 정상
 	session.setAttribute("q_id",q_id);
-	response.sendRedirect("Main_template.jsp");
+	response.sendRedirect("../Main_template.jsp");
 }else if(check==0){
 	%>
 	<script>

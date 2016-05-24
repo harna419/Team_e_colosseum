@@ -22,7 +22,7 @@ import java.io.*;//그림파일 삭제 하기 위해서
 
 public class Quiz_RegisterMgr {
 	
-//Quiz_RegisterMgr
+	//Quiz_RegisterMgr
 	//싱글톤 객체를 사용하면 메모리 절약 효과
 	private Quiz_RegisterMgr(){}
 	private static Quiz_RegisterMgr mgr=new Quiz_RegisterMgr();
@@ -49,16 +49,16 @@ public class Quiz_RegisterMgr {
 		boolean result=false;
 			
 			int q_dep_num=0;//퀴즈 그룹 번호
-			int q_dep_step=0;//퀴즈 그룹 문제 순서 및 번호
+			int q_dep_step=0;///퀴즈 그룹번호 스탭
 			
 			try{
-			//처리문
-			con=getConnection();//커넥션 얻기
-			
-			//q_q_dep_num 구하기
-			String sql2="select max(q_dep_num) from qz_quiz_info";
-			stmt=con.createStatement();//Statement 생성
-			rs=stmt.executeQuery(sql2);
+				//처리문
+				con=getConnection();//커넥션 얻기
+				
+				//q_q_dep_num 구하기
+				String sql2="select max(q_dep_num) from qz_quiz_info";
+				stmt=con.createStatement();//Statement 생성
+				rs=stmt.executeQuery(sql2);
 			
 			if(rs.next()){
 				q_dep_num=rs.getInt(1)+1;
@@ -306,7 +306,7 @@ public class Quiz_RegisterMgr {
 				}//else
 				
 				pstmt.setInt(40, q_dep_num);//퀴즈그룹 번호 : q_dep_num
-				pstmt.setInt(41, q_dep_step+i);//퀴즈그룹 번호의 순번 : q_dep_step
+				pstmt.setInt(41, q_dep_step+i);///퀴즈 그룹번호 스탭
 				pstmt.setInt(42, 0);//조회수 : q_read_count 기본 0
 				pstmt.setString(43, multi.getParameter("q_group_type"+i));
 				pstmt.setString(44, multi.getParameter("q_group_num"+i));
@@ -331,32 +331,30 @@ public class Quiz_RegisterMgr {
 			//------------------------------------------------------------------------	
 			/*qz_quiz_history 최초 생성 event history 등록*/
 			
-			String sql3="insert into qz_quiz_history(q_title, q_quiz_num, q_id, q_nickname, q_name, q_guest_id, q_guest_nickname,"
-					+"q_guest_name, q_quiz_event, q_event_time,q_group_type, q_group_num, q_group_name, q_quiz_type, q_value1, q_value2, q_value3, q_value4, q_value5"
-					+") values (?,?,?,?,?,?,?,?,'I',NOW(),?,?,?,?,?,?,?,?,?)";
+			String sql3="insert into qz_quiz_history(q_title,q_subject,q_content, q_quiz_num, q_quiz_step, q_id, q_nickname, q_name, q_guest_id, q_guest_nickname,"
+					+"q_guest_name, q_quiz_event, q_event_time,q_group_type, q_group_num, q_group_name, q_quiz_type"
+					+") values (?,?,?,?,?,?,?,?,?,?,?,'I',NOW(),?,?,?,?)";
 			
-			System.out.println("history insert");
 			pstmt=con.prepareStatement(sql3);
 			
 			pstmt.setString(1, multi.getParameter("q_title"));//타이틀
-			pstmt.setInt(2, q_dep_num);//퀴즈별 고유번호(Q_DEP_NUM)
-			pstmt.setString(3, multi.getParameter("q_id"));//퀴즈출제자 아이디
-			pstmt.setString(4, multi.getParameter("q_nickname"));//퀴즈 출제자 닉네임
-			pstmt.setString(5, multi.getParameter("q_name"));//퀴즈 출제자이름
-			pstmt.setString(6, multi.getParameter("q_guest_id"));//퀴즈 응시자
-			pstmt.setString(7, multi.getParameter("q_guest_nickname"));//퀴즈 응시자
-			pstmt.setString(8, multi.getParameter("q_guest_name"));//퀴즈 응시자
+			pstmt.setString(2, multi.getParameter("q_subject"+i));//소제목
+			pstmt.setString(3, multi.getParameter("q_content"+i));//내용
+		
+			pstmt.setInt(4, q_dep_num);//퀴즈그룹 번호(Q_DEP_NUM)
+			pstmt.setInt(5, q_dep_step+i);//퀴즈 그룹번호 스탭(Q_DEP_STEP);
+			pstmt.setString(6, multi.getParameter("q_id"));//퀴즈출제자 아이디
+			pstmt.setString(7, multi.getParameter("q_nickname"));//퀴즈 출제자 닉네임
+			pstmt.setString(8, multi.getParameter("q_name"));//퀴즈 출제자이름
+			pstmt.setString(9, multi.getParameter("q_guest_id"));//퀴즈 응시자
+			pstmt.setString(10, multi.getParameter("q_guest_nickname"));//퀴즈 응시자
+			pstmt.setString(11, multi.getParameter("q_guest_name"));//퀴즈 응시자
 			//I 퀴즈 EVENT//I(최초 등록)
 			//NOW();
-			pstmt.setString(9, multi.getParameter("q_group_type"));//퀴즈그룹 타입
-			pstmt.setString(10, multi.getParameter("q_group_num"));//퀴즈그룹 고유번호
-			pstmt.setString(11, multi.getParameter("q_group_name"));//퀴즈그룹 이름
-			pstmt.setString(12, type);//퀴즈 문제 타입(100,200,300,400,500)
-			pstmt.setString(13, multi.getParameter("q_value1"));//NULL
-			pstmt.setString(14, multi.getParameter("q_value2"));//NULL
-			pstmt.setString(15, multi.getParameter("q_value3"));//NULL
-			pstmt.setString(16, multi.getParameter("q_value4"));//NULL
-			pstmt.setString(17, multi.getParameter("q_value5"));//NULL
+			pstmt.setString(12, multi.getParameter("q_group_type"));//퀴즈그룹 타입
+			pstmt.setString(13, multi.getParameter("q_group_num"));//퀴즈그룹 고유번호
+			pstmt.setString(14, multi.getParameter("q_group_name"));//퀴즈그룹 이름
+			pstmt.setString(15, type);//퀴즈 문제 타입(100,200,300,400,500)
 			
 			int count=pstmt.executeUpdate();//쿼리 실행
 			
@@ -364,11 +362,8 @@ public class Quiz_RegisterMgr {
 			if(count==1){
 				result=true;
 			}//if
-
-			
 		  }//for
-			
-
+		
 		}catch(Exception ex1){
 			System.out.println("Quiz_insert예외:"+ex1);
 		}finally{
@@ -383,48 +378,116 @@ public class Quiz_RegisterMgr {
 		return result;
 		
 	}//Quiz_insert()
-	/*
-	public List Quiz_history(int q_dep_num){
-		List <Quiz_RegisterBean> list=new ArrayList<Quiz_RegisterBean>();
+	
+
+	//------------------------------------------------------------------------
+	
+	public Vector quizUpdate(int q_dep_num,int q_dep_step){
+		Vector vec=new Vector();
 		
 		try{
-			//처리문
-			con=getConnection();//커넥션 얻기
-			
-			//history quiz정보 얻기
-			String sql="select * from qz_quiz_info";
-			stmt=con.createStatement();//Statement 생성
+			con=getConnection();//커넥션 얻기			
+
+			sql="select * from qz_quiz_info where q_dep_num="+q_dep_num+" order by q_dep_step asc";
+			stmt=con.createStatement();
 			rs=stmt.executeQuery(sql);
+			//System.out.println("num:"+q_dep_num);
+			//System.out.println("step:"+q_dep_step);
 			
 			while(rs.next()){
-				Quiz_RegisterBean quiz=new Quiz_RegisterBean();
+				Quiz_StudyBean quiz=new Quiz_StudyBean();
 				
 				quiz.setQ_num(rs.getInt("q_Num"));
 				quiz.setQ_title(rs.getString("q_title"));
+				quiz.setQ_title_img(rs.getString("q_title_img"));
 				quiz.setQ_subject(rs.getString("q_subject"));
 				quiz.setQ_content(rs.getString("q_content"));
+				quiz.setQ_content_img(rs.getString("q_content_img"));
+				quiz.setQ_reply1(rs.getString("q_reply1"));
+				quiz.setQ_reply2(rs.getString("q_reply2"));
+				quiz.setQ_reply3(rs.getString("q_reply3"));
+				quiz.setQ_reply4(rs.getString("q_reply4"));
+				quiz.setQ_reply5(rs.getString("q_reply5"));
+				quiz.setQ_reply6(rs.getString("q_reply6"));
+				quiz.setQ_reply7(rs.getString("q_reply7"));
+				quiz.setQ_reply8(rs.getString("q_reply8"));
+				quiz.setQ_reply9(rs.getString("q_reply9"));
+				quiz.setQ_reply10(rs.getString("q_reply10"));
+				quiz.setQ_reply1_img(rs.getString("q_reply1_img"));
+				quiz.setQ_reply2_img(rs.getString("q_reply2_img"));
+				quiz.setQ_reply3_img(rs.getString("q_reply3_img"));
+				quiz.setQ_reply4_img(rs.getString("q_reply4_img"));
+				quiz.setQ_reply5_img(rs.getString("q_reply5_img"));
+				quiz.setQ_reply6_img(rs.getString("q_reply6_img"));
+				quiz.setQ_reply7_img(rs.getString("q_reply7_img"));
+				quiz.setQ_reply8_img(rs.getString("q_reply8_img"));
+				quiz.setQ_reply9_img(rs.getString("q_reply9_img"));
+				quiz.setQ_reply10_img(rs.getString("q_reply10_img"));
 				quiz.setQ_dep_num(rs.getInt("q_dep_num"));
 				quiz.setQ_dep_step(rs.getInt("q_dep_step"));
 				quiz.setQ_read_count(Integer.parseInt(rs.getString("q_read_count")));
 				quiz.setQ_create_time(rs.getTimestamp("q_create_time"));
 				quiz.setQ_quiz_type(rs.getString("q_quiz_type"));
-				
-				list.add(quiz);
-				
+				vec.add(quiz);
+		
 			}//while end
-						
-		}catch(Exception ex1){
+			
+		}catch(Exception ex){
+			System.out.println("quizSolve()예외:"+ex);
 			
 		}finally{
 			try{
+				if(rs!=null){rs.close();}
 				if(stmt!=null){stmt.close();}
+				if(con!=null){con.close();}
+			}catch(Exception exx){}
+		}//finally
+		return vec;
+		
+	}//quizUpdate()
+
+	//------------------------------------------------------------------------
+	
+	//퀴즈 삭제
+	public int quiz_del(int q_dep_num){
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String dbPwd="";
+		int x=-1;
+		try{
+			//처리문
+			con=getConnection();
+			sql="select * from qz_quiz_info where q_dep_num=?";
+			pstmt=con.prepareStatement(sql);
+			//?값 채우기
+			pstmt.setInt(1, q_dep_num);
+			rs=pstmt.executeQuery();//쿼리수행
+			/////////////////////////////////////////////
+			if(rs.next()){
+				//dbPwd=rs.getString("passwd");
+				//if(dbPwd.equals(passwd)){//비밀번호가 일치하면
+					//삭제작업
+					String sql2="delete from qz_quiz_info where q_dep_num=?";
+					pstmt=con.prepareStatement(sql2);
+					pstmt.setInt(1,q_dep_num);
+					
+					pstmt.executeUpdate();
+					x=1;//삭제 성공
+				//}else{
+				//	x=0;//삭제 실패, 비밀번호 틀림
+				//}//else
+			}//if
+			
+		}catch(Exception ex1){
+			System.out.println("quiz_del예외:"+ex1);
+		}finally{
+			try{
+				if(rs!=null){rs.close();}
 				if(pstmt!=null){pstmt.close();}
 				if(con!=null){con.close();}
-			}catch(Exception ex2){}
-		}
-		
-		
-	}//Quiz_select () end
-	
-	*/
+			}catch(Exception exx){}
+		}//finally
+		return x;
+	}
 }//class

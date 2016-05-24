@@ -3,15 +3,15 @@
     import="java.util.*"
 	import="Member.*"
     %>
-
+ 
 <%
 request.setCharacterEncoding("utf-8");
-String q_id="123";
-//String q_id=(String)session.getAttribute("q_id");
+ 
+String q_id=(String)session.getAttribute("q_id");
 MemberDao dao=MemberDao.getInstance();//dao 객체얻기
 MemberDto dto=dao.getMember(q_id);//dao 메서드 호출
 %> 
-
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,41 +28,41 @@ a { text-decoration:none; color:#000; }
 .tab_con { clear:both; margin-top:5px; border:1px solid #ddd;  width:37%;}
 .tab_con div { display:none; height:600px; background:#fff; line-height:50px; text-align:left;}
 th { background-color: #eee; display: table-cell; vertical-align: inherit; }
-
+ 
 </style>
-
+ 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-
+ 
 <script type="text/javascript">
 $(function () {	
 	tab('#tab',0);	
 	$('#modify').css('width',700);
 });
-
+ 
 function tab(e, num){
     var num = num || 0;
     var menu = $(e).children();
     var con = $(e+'_con').children();
     var select = $(menu).eq(num);
     var i = num;
-
+ 
     select.addClass('on');
     con.eq(num).show();
-
+ 
     menu.click(function(){
         if(select!==null){
             select.removeClass("on");
             con.eq(i).hide();
         }
-
+ 
         select = $(this);	
         i = $(this).index();
-
+ 
         select.addClass('on');
         con.eq(i).show();
     });
 }
-
+ 
 function checkIt(){
 	if($('#q_pwd').val()==""){
 		alert("비밀번호를 입력 해주세요");
@@ -80,9 +80,22 @@ function checkIt(){
 		$('#q_pwd').val('').focus();
 		return false;
 	}
-}//checkIt() end 
-</script>
 
+}//checkIt() end 
+
+function findPwd(){
+	
+	 url="FindPwd.jsp?check=y";
+	 window.open(url,"FindPwd","width=500,height=300,status=yes,scrollbars=yes");
+}//zipCheck() end 
+
+function findId(){
+	
+	url="FindId.jsp?check=y";
+	window.open(url,"FindId","width=500,height=300,status=yes,scrollbars=yes");
+}
+</script>
+ 
 </head>
 <body>
 <ul class="tab" id="tab">
@@ -90,7 +103,7 @@ function checkIt(){
     <li>B</li>
     <li>C</li>	
 </ul>
-
+ 
 <div class="tab_con" id="tab_con">
     <div><form method="post" name="userForm" action="ModifyProc.jsp" onSubmit="return checkIt()">
 	<strong style="font-size:15px;">내 정보 조회 및 수정</strong>
@@ -189,14 +202,17 @@ function checkIt(){
 				<input type="button" value="취소" onclick="javascript:location='../Main_template.jsp'">
 			</td>
 		</tr>
-
+ 
 	</table>
 	<br>
-	<span><input type="button" value="비밀번호 변경" onclick=""></span>
+	<span><input type="button" value="아이디찾기" onclick="findId()"></span>
+	<span>
+		 	<input type="button" value="비밀번호찾기" onclick="findPwd()">
+		</span>
 	</form></div>	
     <div>2nd Contents</div>
     <div>3rd Contents</div>
 </div>
-
+ 
 </body>
 </html>

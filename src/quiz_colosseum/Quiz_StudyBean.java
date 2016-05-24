@@ -55,6 +55,8 @@ public class Quiz_StudyBean {
 	private String Q_quiz_type;
 	private int cnt;//문제 개수 구하기 
 	
+	
+	
 	public int getCnt() {
 		return cnt;
 	}
@@ -128,14 +130,6 @@ public class Quiz_StudyBean {
 
 	public void setQ_subject(String q_subject) {
 		this.q_subject = q_subject;
-	}
-
-	public String getQ_subject_img() {
-		return q_subject_img;
-	}
-
-	public void setQ_subject_img(String q_subject_img) {
-		this.q_subject_img = q_subject_img;
 	}
 
 	public String getQ_content() {

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="Board.*"
+    import="Member.*"
     import="java.util.*"
     %>
 <%
@@ -11,7 +12,10 @@ request.setCharacterEncoding("utf-8");
 BoardDao dao=BoardDao.getInstance();//dao 객체생성
 
 int q_num=Integer.parseInt(request.getParameter("q_num2"));
-String q_nickname2="admin"; //나중에 세션으로 닉네임이나 아이디 받아와서 비교해야 합니다
+String q_id=(String)session.getAttribute("q_id");
+MemberDao mdao=MemberDao.getInstance();
+MemberDto mdto=mdao.getMember(q_id);
+String q_nickname2=mdto.getQ_nickname();
 
 BoardDto dto=dao.getNotice(q_num); 
 dao.upNoticeCount(q_num); //조회수
