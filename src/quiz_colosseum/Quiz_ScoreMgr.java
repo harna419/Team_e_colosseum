@@ -46,11 +46,11 @@ public class Quiz_ScoreMgr {
 			
 			public List quizScore(int q_dep_num){
 				List <Quiz_ScoreBean>list=new ArrayList<Quiz_ScoreBean>();
-				Quiz_ScoreBean cnt=new Quiz_ScoreBean();
+				//Quiz_ScoreBean cnt=new Quiz_ScoreBean();
 				
 				
 				int nowcount=0;
-				//String userid="admin";
+				String userid="admin";
 						
 	
 				try{
@@ -66,20 +66,16 @@ public class Quiz_ScoreMgr {
 						nowcount=rs.getInt(1);
 					}//while end
 					
-					System.out.println(nowcount);
-					
-					//sql="select * from qz_quiz_history where q_quiz_num="+q_dep_num+" order by q_quiz_step asc";
-					sql="select * from qz_quiz_history where q_quiz_num="+q_dep_num+" and q_id=admin"
-							+ " order by q_quiz_step asc limit 1,"+nowcount;
+					//결과 전송후 출력Query
+					sql="select * from qz_quiz_history where q_quiz_num="+q_dep_num+" and q_id='"+userid+"' order by q_quiz_step asc limit 1,"+nowcount;
 							
-					
 					stmt=con.createStatement();
 					rs=stmt.executeQuery(sql);
 					
 					while(rs.next()){
 						Quiz_ScoreBean quiz=new Quiz_ScoreBean();
 						
-						quiz.setQ_num(rs.getInt("q_Num"));
+						quiz.setQ_num(rs.getInt("q_num"));
 						quiz.setQ_title(rs.getString("q_title"));
 						quiz.setQ_subject(rs.getString("q_subject"));
 						quiz.setQ_content(rs.getString("q_content"));

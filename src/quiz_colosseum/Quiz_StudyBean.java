@@ -11,7 +11,6 @@ public class Quiz_StudyBean {
 	private String q_title;//퀴즈 타이틀제목
 	private String q_title_img;//퀴즈 이미지 파일
 	private String q_subject;//퀴즈 소제목
-	private String q_subject_img;//퀴즈 소제목 이미지
 	private String q_content;//퀴즈 소내용
 	private String q_content_img;//퀴즈 소내용 이미지
 	private String q_reply1;//퀴즈 답1

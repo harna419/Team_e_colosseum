@@ -19,7 +19,7 @@ List quizList;
 		<script type="text/javascript" src="script.js">
 		</script>
 		<center><h1>퀴즈리스트</h1></center>
-		<a href="../Quiz_input/Quiz_RegisterForm.jsp"><button>퀴즈등록</button></a>
+		<center><a href="../Quiz_input/Quiz_RegisterForm.jsp"><button>퀴즈등록</button></a></center>
 	</head>
 	
 	<body bgcolor="white" topmargin="30">
