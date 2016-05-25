@@ -16,6 +16,7 @@ result=quizMgr.Quiz_insert(request);//dao메서드 호출
 function ret(){
 	 alert("되돌아가기")
 	 history.go(-2);
+	//movePageUrl('/Colosseum/Board/Quiz_view/Quiz_list.jsp');
 }
 </script> 
 <html>

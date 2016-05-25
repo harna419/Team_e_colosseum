@@ -156,7 +156,15 @@ Vector vec=null;
     	
     	
     		Quiz_Study_View.submit();
+			
     	}//inputcheck() end
+    	
+   		function deletecheck(q_dep_num,q_dep_step){
+   			alert("퀴즈 삭제 진행합니다.")
+	         movePageUrl('/Colosseum/Board/Quiz_view/Quiz_DeleteForm.jsp?q_dep_num='+q_dep_num+'&q_dep_step='+q_dep_step);
+	         
+
+    	}
     	
     	
     	
@@ -210,7 +218,7 @@ Vector vec=null;
    vec=study.quizSolve(q_dep_num,q_dep_step);//DAO메서드 호출
    Quiz_StudyBean cnt=study.quizCount(q_dep_num);//DAO메서드 호출
    %>
-   <form name="Quiz_Study_View" id="Quiz_Study_View" method="post" action="Quiz_Study_ViewProc.jsp">
+   <form name="Quiz_Study_View" id="Quiz_Study_View" method="post" action="./Board/Quiz_view/Quiz_Study_ViewProc.jsp">
     <input type="hidden" name="q_dep_step" value="<%=vec.size()%>">
 	<%
    for(int i=0;i<vec.size();i++){
@@ -420,8 +428,10 @@ Vector vec=null;
 		<tr>
 			<td>
 				<input type="button" onclick="inputcheck()" value="완료">
+				
 				<input type="button" onclick="document.location.href='updateForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>'" value="수정">
-				<input type="button" onclick="document.location.href='delForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>'" value="삭제">
+				<input type="button" onclick="deletecheck(<%=q_dep_num%>,<%=q_dep_step%>)" value="삭제">
+				<%--<input type="button" onclick="document.location.href='delForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>'" value="삭제"> --%>
 			</td>
 		</tr>
 	</table>

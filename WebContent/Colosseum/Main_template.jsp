@@ -36,7 +36,8 @@ System.out.println(pageFile);
 html body{height: 100%; margin: 0px;padding: 0px;}
 #Intro_menu{}
 #main{width:100%; height:100%; position:absolute; left: 0%; background-color: #f2b701;}
-#top{position: absolute; top:0%; background-color: yellow;  right:0%; width: 90%; height: 10%; background-color: #f2b701;}
+#top{position: absolute; top:0%; background-color: yellow; right:0%; width: 90%; height: 10%; background-color: #f2b701;}
+
 #content_block{position: absolute;width:90%;height: 90%;top:10%; right:0%; background-color: #f2b701; }
 #back_intro{
 position: absolute;
@@ -140,19 +141,18 @@ background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
 
-
 </style>
 
 </head>
 <body id="main">
 <div id="Intro_menu"><jsp:include page='home_wrap.jsp'/></div>
 <div> <!-- main page-->
-<div id="top"><jsp:include page='Top.jsp'/></div>
+<div id="top"><jsp:include page="Top.jsp"/></div>
 <div id="content_block"><jsp:include page='<%=pageFile %>'/></div>
 
 <div id="back_intro">
 <font size="5">마이페이지</font>
-<img src="./imgs/test.png">
+<img src="./imgs/Twice.jpg">
 </div>
 </div><!-- main page end-->
 

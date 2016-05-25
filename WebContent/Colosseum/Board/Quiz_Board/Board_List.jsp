@@ -108,8 +108,83 @@
 		    }
 		    
 		    </style>
-		    
+		    <script type="text/javascript">
 	    
+	    	function check(){//검색어가 없는데 검색 눌렀을 때
+	    		if(document.searchForm.keyWord.value==''){
+	    			alert("검색어를 입력 하시오");
+	    			document.searchForm.keyWord.focus();
+	    			return false;
+	    		}//if
+	    		
+	    		//movePageUrl('./Board/Quiz_Board/Board_List.jsp');
+	    		document.searchForm.submit();
+	    	}//check() end
+	    	
+	    	function list(){//리스트 보여주기
+	    		document.listForm.action="Board/Quiz_Board/Board_List.jsp";
+	    		document.listForm.submit();
+	    	}//list() end
+	    	
+	    	function content(value){	
+	    		document.readForm.action="Board/Quiz_Board/Board_Content.jsp";//글 내용 보기
+	    		document.readForm.q_num.value=value;//글번호	    		
+	    		  //$(this).load("Board_Content.jsp");
+
+	    		document.readForm.submit();
+	    	}//read() end
+	    	
+	    	$(this).ready(function(){ 		        
+	    		$('.receive').on('click',function(e){
+	   			    var x=e.pageX;
+	   			    var y=e.pageY; 
+
+		    		var recname = $('.receive').eq($(".receive").index($(this))).html()
+	   			    var messagebox2= $("#messagebox").width();
+	   			    if(messagebox2 <= 0){
+	   			    
+	   				$("#content").append('<div id="messagebox"><table><tr><td id="123">'+recname+'</td></tr><tr><td><textarea id="456" rows=15 cols=38></textarea></td></tr></table></div>');
+	   				$("#messagebox").css('left',x);
+	   				$("#messagebox").css('top',y);
+	   				$("#messagebox").append('<div align="center"><button id="msubmit">전송</button> <button id="mreset">취소</button></div>');
+
+	   			    }else{
+	   			     $("#messagebox").remove();	     
+	   			    }//else
+	   			    	
+	   				 $("#mreset").on('click',function(){
+	            	 $("#messagebox").remove();
+	            	 });//mreset click function
+	            	 
+	   				$("#msubmit").on('click',function(){
+	   					$.ajax({ //
+		                  url:'./Board/Quiz_Board/Messagedb.jsp', //가져오고자하는 서버페이지 주소를 넣는다. 
+		                  type:'post', //데이터를 서버로 전송하게 된다. 
+		                  data:{ 
+		                         nickname_receive: recname,  //에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
+		                         msg_content: $('#456').val(),  
+		                         nickname_send : "<%= nickname %>"      
+		                  } , 
+		                  success : function(t){ 
+		                                alert('메세지 전송!');
+		                  } , 
+		                  error : function(){ 
+		                            alert('메세지 전송실패'); 
+		                  } 
+			           });
+		   					$("#messagebox").remove();
+	   				});
+	    		});	//.receive click funciton	
+	    	});//ready function()
+
+		    function clicked(nickname){
+		    	alert("clicked글쓰기");
+		    	
+		    	movePageUrl('./Board/Quiz_Board/Board_Write.jsp?q_nickname='+nickname);
+		    	
+		    }
+		    
+		    </script>
 	    
 	    </head>
     
@@ -129,7 +204,7 @@
     	</div> 
     	
     	<!-- 공지사항 테이블  -->
-    	<div> <%@ include file="Board_Notice_List.jsp" %> </div> 
+    	<div> <%@ include file="/Colosseum/Board/Quiz_Board/Board_Notice_List.jsp" %> </div> 
 	    
     	<div align="center" width="60%" id="content" class="asdf">	
     	<span>
@@ -217,7 +292,7 @@
     	if(totalRecord!=0){//글이 존재하면
     		if(nowBlock>0){// 이전 블럭으로 이동
     	%>
-    	<a href="Board_List.jsp?nowBlock=<%=nowBlock-1%>&
+    	<a href="./Board/Quiz_Board/Board_List.jsp?nowBlock=<%=nowBlock-1%>&
     	page=<%=((nowBlock-1)*pagePerBlock)%>&
     	keyField=<%=keyField %>&
     	keyWord=<%=keyWord %>">
@@ -230,7 +305,7 @@
     	//-------------------------페이지 처리
     	for(int i=0; i<pagePerBlock; i++){
     		%>
-    		<a href="Board_List.jsp?nowBlock=<%=nowBlock%>&page=<%=(nowBlock*pagePerBlock)+i %>">
+    		<a href="./Board/Quiz_Board/Board_List.jsp?nowBlock=<%=nowBlock%>&page=<%=(nowBlock*pagePerBlock)+i %>">
     		<%=(nowBlock*pagePerBlock)+i+1 %>
     		</a>
     		<%
@@ -243,7 +318,7 @@
     	//다음블럭
     	if(totalBlock>nowBlock+1){
     		%>
-    		<a href="Board_List.jsp?nowBlock=<%=nowBlock+1 %>&
+    		<a href="./Board/Quiz_Board/Board_List.jsp?nowBlock=<%=nowBlock+1 %>&
     		page=<%=(nowBlock+1)*pagePerBlock %>&
     		keyField=<%=keyField %>&
     		keyWord=<%=keyWord %>">
@@ -258,12 +333,13 @@
     	</span>
     	
     	<span id="test1">
-    		<a href="Board_Write.jsp?q_nickname=<%=nickname%>"><input type="button" value="글쓰기"></a>
+    		<%--<a href="Board_Write.jsp?q_nickname=<%=nickname%>"> --%>
+    		<input type="button" onclick="javascript:clicked('<%=nickname%>')" value="글쓰기"></a>
     	</span>
     	</div>
     	
     	<div>
-    		<form name="searchForm" method="post" action="Board_List.jsp">
+    		<form name="searchForm" method="post" action="./Board/Quiz_Board/Board_List.jsp">
 	    		<table width="55%" border=0 align=center cellpadding=1 cellspacing=0>
 	    		<tr>
 	    		<td align=center valign=bottom>

@@ -38,10 +38,11 @@ quizScore = scoreMgr.quizScore(q_dep_num);// 메서드 호출
 		%>
 		
 		<div><center><h2><%= titlebean.getQ_title() %></h2></center></div> --%>
-	
+	퀴즈 개수<%=quizScore.size()%>
 	<%
 	int quiz_Yes=0;
 	int quiz_No=0;
+	
 	for(int i=0;i<quizScore.size();i++){
 		
 		Quiz_ScoreBean bean=(Quiz_ScoreBean)quizScore.get(i);
@@ -61,7 +62,7 @@ quizScore = scoreMgr.quizScore(q_dep_num);// 메서드 호출
 				<li>설명     : <%=bean.getQ_content()%></li>
 			 <%
 			 	quiz_Yes++;
-			 }else{%>
+			 }else if("N".equals(bean.getQ_quiz_type())){%>
 			 	<br>오답 입니다.<br>
 			 	<li><%= i+1%> 번 문제 : <%=view.getQ_subject() %></li>		 	
 			 			 	
@@ -69,10 +70,9 @@ quizScore = scoreMgr.quizScore(q_dep_num);// 메서드 호출
 				<li>나의 답 : <%=bean.getQ_custom_reply1()%></li>
 				<li>설명     : <%=bean.getQ_content()%></li>
 			<%
-			quiz_No++;
-				}
+				quiz_No++;
+			 }
 			 %>
-			 
 			</ul>
 		</div>
 	<hr size='1' color='blue'>

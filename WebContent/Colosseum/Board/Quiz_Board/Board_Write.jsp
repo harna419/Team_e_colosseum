@@ -25,11 +25,11 @@ function check(){
 	
 	switch(document.postForm.q_notice_group.value){
 	case "0": case "1": case "2": case "3":
-		document.postForm.action="Board_Notice_WriteProc.jsp";
+		document.postForm.action="./Board/Quiz_Board/Board_Notice_WriteProc.jsp";
 		document.postForm.submit;
 		break;
 	case "4": case "5":
-		document.postForm.action="Board_WriteProc.jsp";
+		document.postForm.action="./Board/Quiz_Board/Board_WriteProc.jsp";
 		document.postForm.submit;
 	
 	}
@@ -48,7 +48,7 @@ function check(){
 		</tr>
 		
 		<br>
-		<form name="postForm" method="post" action="Board_WriteProc.jsp">
+		<form name="postForm" method="post" action="./Board/Quiz_Board/Board_WriteProc.jsp">
 			<table bordercolor="#aad5d9" width="50%" cellpacing="0" cellpadding="3" align="center">
 			<tr>
 			<td align="center">

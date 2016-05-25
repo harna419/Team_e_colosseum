@@ -29,7 +29,7 @@ int q_dep_step=Integer.parseInt(request.getParameter("q_dep_step"));
     </script>
   </head>
   <body>
-    <form name="delForm" method="post" action="deleteProc.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>" onSubmit="return deleteSave()">
+    <form name="delForm" method="post" action="Board/Quiz_view/Quiz_DeleteProc.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>" onSubmit="return deleteSave()">
       <table border="1" align="center" cellspacing="0" cellpadding="5" width="360">
       <tr height="30">
         <td align="center">

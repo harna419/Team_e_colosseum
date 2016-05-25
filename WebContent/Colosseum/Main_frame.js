@@ -98,7 +98,7 @@ $(this).on("click",'.menu_link' ,function(event){
 		
 	}else if($(this).children().first().attr('id') == 'menu2'){ //회원가입
 		
-		movePageUrl('Member/Member_JoinMember.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		movePageUrl('./Member/Member_JoinMember.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 		
 	}else if($(this).children().first().attr('id') == 'menu3'){ //문제게시판
@@ -109,13 +109,13 @@ $(this).on("click",'.menu_link' ,function(event){
 		
 	}else if($(this).children().first().attr('id') == 'menu4'){ //자유게시판
 	
-		movePageUrl('Board/Quiz_Board/Board_List.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		movePageUrl('./Board/Quiz_Board/Board_List.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 		
 	}else if($(this).children().first().attr('id') == 'menu5'){ //QNA
 		
 	
-		movePageUrl('Menu5.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		movePageUrl('./Qna/Qna_List.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 		
 	}else if($(this).children().first().attr('id') == 'menu6'){ //명예의전당
