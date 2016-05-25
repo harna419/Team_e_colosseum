@@ -136,55 +136,18 @@ $(this).on("click",'.menu_link' ,function(event){
 	}
 });
 //====================================================================================================
-//메뉴 버튼 클릭시 이벤트 컨트롤러.		
-$(this).on("click",'.menu_link' ,function(event){
-	//alert(event);
-	event.preventDefault();
 	
-	$('.Intro_menu > a ').each(function() { //속성 값을 준 다음에, 패딩 액션 확인.
-		$(this).children().first().attr('data-status', 'move');
-		$(this).children().first().css({'padding-top': '0', 'margin-top': '0'}, 800);
+//====================================================================================================
+$('#back_intro').on("click", function(){ //초상화 클릭시 메인 화면으로 간다. 임시
+	
+	$('.Intro_menu > a').each(function() {
+		$(this).children().first().attr('data-status', 'move_end');
 	});
-	
-	
-	
-	if($(this).children().first().attr('id') == 'menu1'){ //콜로세움이란?
-		
-		movePageUrl('Menu1.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
-		
-	}
+	$('.menu_button').css({'right': '0px'});
+	$('.menu_button').css({'margin-left': '0px'});	
+	$('#home_wrapper').stop().animate({ right: "0%"}, 350);
+
 });
-//====================================================================================================
-//====================================================================================================
-<<<<<<< HEAD
-
-/*
-aa=$("quiz_study_num").val();
-alert("asdas"+aa)
-$('#q_dep_num7').on("click", function(){
-	bb=$("#quiz_study_value").val();
-	movePageUrl(bb,$('#main').css("backgroundColor"), $(this).children().first().attr("data-color"));
-	
-});*/
-
-=======
-
-num=$("#quiz_study_num").val();
-dep=$("#q_dep_num").val();
-
-click=q_dep_num+dep
-$('#q_dep_num').on("click", function(){
-	aa=$("#quiz_study_value").val();
-	movePageUrl(aa);
-	
-	
-});
-
-/*
-function imageclick(){
-	alert(zxc)
-}*/
->>>>>>> 0379f4350fa97d465bb654819ebd2df67ad02ae1
 //====================================================================================================
 
 $('.menu_link').hover(
@@ -321,7 +284,7 @@ function openConfirmID(formID){
 //////////////////////////////////////////
 
 
-//Board_List.jsp/////////////////////////////
+
 function check(){//검색어가 없는데 검색 눌렀을 때
 	if(document.searchForm.keyWord.value==''){
 		alert("검색어를 입력 하시오");
@@ -342,6 +305,7 @@ function content(value){
 	document.readForm.submit();
 }//read() end
 
+////////////////////////////////////////////게시판리스트
 $(this).ready(function(){ 		        
 	$('.receive').on('click',function(e){
 		    var x=e.pageX;
@@ -371,7 +335,7 @@ $(this).ready(function(){
               data:{ 
                      nickname_receive: recname,  //에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
                      msg_content: $('#456').val(),  
-                     nickname_send : "<%= q_nickname %>"      
+                     nickname_send : "<%= nickname %>"      
               } , 
               success : function(t){ 
                             alert('메세지 전송!');
@@ -384,4 +348,11 @@ $(this).ready(function(){
 			});
 	});	//.receive click funciton	
 });//ready function()
-//Board_List.jsp/////////////////////////////
+
+
+function content2(value){
+	document.readForm2.action="Board_Notice_Content.jsp";//글 내용 보기
+	document.readForm2.q_num2.value=value;//글번호
+	document.readForm2.submit();
+}
+////////////////////////////////////////////////////

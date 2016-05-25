@@ -22,15 +22,13 @@
     String keyField="";//키 필드
     String keyWord="";//검색 단어
     Vector vec=null;
-    
-    
-    String q_id=(String)session.getAttribute("q_id");
-    String q_nickname=(String)session.getAttribute("q_nickname");
-    String q_name=(String)session.getAttribute("q_name");
-    String q_user_num=(String)session.getAttribute("q_user_num");
+    //String q_id=(String)session.getAttribute("q_id");
+    //String q_nickname=(String)session.getAttribute("q_nickname");
     //MemberDao mdao=MemberDao.getInstance();
-    //MemberDto mdto=mdao.getMember(q_id);
+    //MemberDto mdto=mdao.getMember("q_id");
     //String nickname=mdto.getQ_nickname();
+    String q_id=(String)session.getAttribute("q_id");
+    String nickname=(String)session.getAttribute("q_nickname");
 %>
 <%
     String im=request.getParameter("keyWord");
@@ -195,7 +193,7 @@
 				<%}%>
     			</td>
     			
-    			<td align=center class="receive"><%=q_nickname %></td>
+    			<td align=center class="receive"><%=nickname %></td>
     			<td align=center><%=q_create_time %></td>
     			<td align=center><%=q_read_count %></td>
     			</tr>
@@ -260,7 +258,7 @@
     	</span>
     	
     	<span id="test1">
-    		<a href="Board_Write.jsp?q_nickname=<%=q_nickname%>"><input type="button" value="글쓰기"></a>
+    		<a href="Board_Write.jsp?q_nickname=<%=nickname%>"><input type="button" value="글쓰기"></a>
     	</span>
     	</div>
     	
@@ -289,7 +287,7 @@
     			<input type="hidden" name="page" value="<%=nowPage%>">
     			<input type="hidden" name="keyField" value="<%=keyField%>">
     			<input type="hidden" name="keyWord" value="<%=keyWord%>">
-    			<input type="hidden" name="q_nickname" value="<%=q_nickname%>">
+    			<input type="hidden" name="q_nickname" value="<%=nickname%>">
     		</form>
     		
     		<%-- listForm --%>

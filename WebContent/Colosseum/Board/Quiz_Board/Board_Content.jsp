@@ -18,6 +18,7 @@ BoardDto dto=dao.getBoard(q_num);
 dao.upCount(q_num);
 
 String q_nickname=dto.getQ_nickname();
+
 String q_subject=dto.getQ_subject();  
 String q_content=dto.getQ_content();
 String q_create_time=dto.getQ_create_time();

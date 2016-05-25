@@ -391,4 +391,3 @@ public class MemberDao {
 	}//showId() end
 
 }//class
-

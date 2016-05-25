@@ -13,8 +13,8 @@ request.setCharacterEncoding("utf-8");
 //MemberDao mdao2=MemberDao.getInstance();
 //MemberDto mdto2=mdao2.getMember(q_id2);
 //String q_nickname4=mdto2.getQ_nickname();
-String q_id2="admin";
-String q_nickname4="admin";
+String q_id2=(String)session.getAttribute("q_id");
+String q_nickname4=(String)session.getAttribute("q_nickname");
 int q_notice_num3=0;
 %>
 
@@ -26,13 +26,7 @@ int totalRecord2=vec2.size();//전체 글 갯수
 String keyField2=request.getParameter("keyField");
 String keyWord2=request.getParameter("keyWord");
 %>
-	<script>
-	function content2(value){
-		document.readForm2.action="Board_Notice_Content.jsp";//글 내용 보기
-		document.readForm2.q_num2.value=value;//글번호
-		document.readForm2.submit();
-	}
-	</script>
+	
 
 	<div>	
     	<div align="center" width="60%">
