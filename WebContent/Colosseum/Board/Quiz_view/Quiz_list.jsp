@@ -14,10 +14,7 @@ List quizList;
 %>
 <html>
 	<head>
-		<link href="style.css" rel="stylesheet" type="text/css">
-		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script type="text/javascript" src="script.js">
-		</script>
+		<link href="style.css" rel="stylesheet" type="text/css">		
 		<center><h1>퀴즈리스트</h1></center>
 		<center><a href="../Quiz_input/Quiz_RegisterForm.jsp"><button>퀴즈등록</button></a></center>
 	</head>
