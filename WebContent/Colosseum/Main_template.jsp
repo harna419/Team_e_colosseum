@@ -144,9 +144,9 @@ background-size: 60px 60px;
 </style>
 
 </head>
-<body id="main">
+<body>
 <div id="Intro_menu"><jsp:include page='home_wrap.jsp'/></div>
-<div> <!-- main page-->
+<div id="main"> <!-- main page-->
 <div id="top"><jsp:include page='Top.jsp'/></div>
 <div id="content_block"><jsp:include page='<%=pageFile %>'/></div>
 

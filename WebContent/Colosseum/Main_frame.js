@@ -15,9 +15,6 @@ function startSet(nowColor, nextColor){
 	alert(" nowColor:"+nowColor+" nextColor:"+nextColor);
 }
 
-
-
-
 $(document).ready(function() {
 
 	//alert($('#nextColor').attr("value"));
@@ -92,51 +89,54 @@ $(this).on("click",'.menu_link' ,function(event){
 	//var test= $(this).attr('id')
 	//alert(test);
 	
-	if($(this).children().first().attr('id') == 'menu1'){ //콜로세움이란?
+	if($(this).children().first().attr('id') == 'menu1'){
 		
 		movePageUrl('Menu1.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
-	}else if($(this).children().first().attr('id') == 'menu2'){ //회원가입
+	}else if($(this).children().first().attr('id') == 'menu2'){
 		
-		movePageUrl('Member/Member_JoinMember.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		movePageUrl('./Member/Member_JoinMember.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 		
-	}else if($(this).children().first().attr('id') == 'menu3'){ //문제게시판
+	}else if($(this).children().first().attr('id') == 'menu3'){
 	
 		movePageUrl('./Board/Quiz_view/Quiz_list.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 		
-		
-	}else if($(this).children().first().attr('id') == 'menu4'){ //자유게시판
+	}else if($(this).children().first().attr('id') == 'menu4'){
 	
-		movePageUrl('Board/Quiz_Board/Board_List.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		movePageUrl('./Board/Quiz_Board/Board_List.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
-		
-	}else if($(this).children().first().attr('id') == 'menu5'){ //QNA
+	}else if($(this).children().first().attr('id') == 'menu5'){
 		
 	
 		movePageUrl('Menu5.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 		
-	}else if($(this).children().first().attr('id') == 'menu6'){ //명예의전당
+	}else if($(this).children().first().attr('id') == 'menu6'){
 		
 		movePageUrl('Menu6.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 		
-	}else if($(this).children().first().attr('id') == 'menu7'){ //학습모드
+	}else if($(this).children().first().attr('id') == 'menu7'){
 		
 		
 		movePageUrl('Menu7.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 		
-	}else if($(this).children().first().attr('id') == 'menu8'){ //개발진소개
+	}else if($(this).children().first().attr('id') == 'menu8'){
 	
 		movePageUrl('Menu8.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 				
 	}
 });
+
 //====================================================================================================
-	
+$("#quiz_study_view").on("click",function(event){
+		//$("#main").html(".quiz_study_view");
+		$("#content_block").html('#quiz_study_value.val()');
+});
+
 //====================================================================================================
 $('#back_intro').on("click", function(){ //초상화 클릭시 메인 화면으로 간다. 임시
 	
@@ -188,97 +188,3 @@ $('.menu_link').hover(
 
 
 });
-//회원가입시 체크하기////////////////////////////////
-var Id_Check=-1;
-function checkIt(){
-	
-	if($("#q_id").val()==""){
-		alert("ID를 입력해주세요");
-		$('#q_id').val('').focus();
-		return false;
-	}
-	
-	if($('#q_nickname').val()==""){
-		alert("닉네임을 입력 해주세요");
-		$('#q_nickname').val('').focus();
-		return false;
-	}
-	
-	if($('#q_pwd').val()==""){
-		alert("비밀번호를 입력 해주세요");
-		$('#q_pwd').val('').focus();
-		return false;
-	}
-	
-	if($('#q_pwd2').val()==""){
-		alert("비밀번호를 확인 해주세요");
-		$('#q_pwd2').val('').focus();
-		return false;
-	}
-	
-	if($('#q_pwd').val() != $('#q_pwd2').val()){
-		alert("비밀번호가 확인이 일치하지 않습니다");
-		$('#q_pwd2').val('').focus();
-		return false;
-	}
-	
-	if($('#q_name').val()==""){
-		alert("이름을 입력 해주세요");
-		$('#q_name').val('').focus();
-		return false;
-	}
-	
-	if($('#q_jumin1').val()=="" || $('#q_jumin2').val()==""){
-		alert("주민번호를 입력 해주세요");
-		$('#q_jumin1').val('').focus();
-		return false; 
-	}
-	
-	if($('#q_pw_question').val()==""){
-		alert("비밀번호 찾기 질문을 입력 해주세요");
-		$('#q_pw_question').val('').focus();
-		return false;
-	}
-	if($('#q_pw_reply').val()==""){
-		alert("비밀번호 찾기 답변을 입력 해주세요");
-		$('#q_pw_reply').val('').focus();
-		return false;
-	}
-	
-	if(Id_Check!=1){
-		alert("아이디 중복 확인 해주세요");
-		return false;
-	}
-	
-	alert("가입이 완료 되었습니다");
-}//checkIt end
-
-function openConfirmID(formID){
-
-	if($('#q_id').val()==''){
-		alert("id를 입력하세요");
-		$('#q_id').focus();
-	}else{
-
-		$.ajax({
-			type:'POST',
-			url:'confirmId.jsp',
-			data : "q_id="+$('#q_id').val(),
-			dataType:'JSON',
-			cache:false,
-			async:true,
-			success:function(data){
-				//alert(data.check); 
-				
-				if(data.check==1){
-					alert("사용중인 id");
-					$('#q_id').val('').focus();
-				}else{
-					alert("사용가능한 아이디");
-					Id_Check=1;
-				}//else
-			}//success
-		});
-	}//else
-}//openConfirmId
-//////////////////////////////////////////
