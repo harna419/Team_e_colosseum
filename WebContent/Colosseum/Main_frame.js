@@ -157,21 +157,15 @@ $(this).on("click",'.menu_link' ,function(event){
 //====================================================================================================
 //====================================================================================================
 
-num=$("#quiz_study_num").val();
-dep=$("#q_dep_num").val();
-
-click=q_dep_num+dep
-$('#q_dep_num').on("click", function(){
-	aa=$("#quiz_study_value").val();
-	movePageUrl(aa);
-	
-	
-});
-
 /*
-function imageclick(){
-	alert(zxc)
-}*/
+aa=$("quiz_study_num").val();
+alert("asdas"+aa)
+$('#q_dep_num7').on("click", function(){
+	bb=$("#quiz_study_value").val();
+	movePageUrl(bb,$('#main').css("backgroundColor"), $(this).children().first().attr("data-color"));
+	
+});*/
+
 //====================================================================================================
 
 $('.menu_link').hover(

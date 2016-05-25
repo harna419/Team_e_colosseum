@@ -17,6 +17,13 @@ List quizList;
 		<link href="style.css" rel="stylesheet" type="text/css">		
 		<center><h1>퀴즈리스트</h1></center>
 		<center><a href="../Quiz_input/Quiz_RegisterForm.jsp"><button>퀴즈등록</button></a></center>
+		<script>
+		function clicked(q_dep_num,q_dep_step){
+			alert("클릭함")
+			movePageUrl('/Colosseum/Board/Quiz_view/Quiz_Study_View.jsp?q_dep_num='+q_dep_num+'&q_dep_step='+q_dep_step);
+		}
+		</script>
+	
 	</head>
 	
 	<body bgcolor="white" topmargin="30">
@@ -53,7 +60,8 @@ List quizList;
 							<td align="center"><%-- --%>
 								
 								<%-- <a href="Main_template.jsp?page=../Colosseum/Board/Quiz_view/Form/Quiz_Study_View.jsp?q_dep_num=<%=bean.getQ_dep_num()%>&q_dep_step=<%=bean.getQ_dep_step() %>">--%>									
-								<img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_title_img() %>" id="q_dep_num<%=bean.getQ_dep_num()%>" width="250" height="200">									
+								<img onclick="javascript:clicked(<%=bean.getQ_dep_num()%>,<%=bean.getQ_dep_step()%>)" src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_title_img() %>" id="q_dep_num<%=bean.getQ_dep_num()%>" width="250" height="200">	
+														
 								<%-- </a>--%>
 								
 							</td>
@@ -63,7 +71,7 @@ List quizList;
 								<center><%=bean.getQ_title() %></center>
 							</td>
 							<input type="hidden" id="quiz_study_value" value="/Colosseum/Board/Quiz_view/Quiz_Study_View.jsp?q_dep_num=<%=bean.getQ_dep_num()%>&q_dep_step=<%=bean.getQ_dep_step() %>">
-							<input type="hidden" id="quiz_study_num" value="<%=bean.getQ_dep_num() %>">
+							<input type="hidden" id="quiz_study_num" value="<%=bean.getQ_dep_num()%>">
 						</tr>
 					</table>
 				</td>
