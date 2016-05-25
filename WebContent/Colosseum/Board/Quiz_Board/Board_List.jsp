@@ -22,10 +22,15 @@
     String keyField="";//키 필드
     String keyWord="";//검색 단어
     Vector vec=null;
+    
+    
     String q_id=(String)session.getAttribute("q_id");
-    MemberDao mdao=MemberDao.getInstance();
-    MemberDto mdto=mdao.getMember(q_id);
-    String nickname=mdto.getQ_nickname();
+    String q_nickname=(String)session.getAttribute("q_nickname");
+    String q_name=(String)session.getAttribute("q_name");
+    String q_user_num=(String)session.getAttribute("q_user_num");
+    //MemberDao mdao=MemberDao.getInstance();
+    //MemberDto mdto=mdao.getMember(q_id);
+    //String nickname=mdto.getQ_nickname();
 %>
 <%
     String im=request.getParameter("keyWord");
@@ -106,72 +111,8 @@
 		    
 		    </style>
 		    
-	    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-	    <script type="text/javascript">
 	    
-	    	function check(){//검색어가 없는데 검색 눌렀을 때
-	    		if(document.searchForm.keyWord.value==''){
-	    			alert("검색어를 입력 하시오");
-	    			document.searchForm.keyWord.focus();
-	    			return false;
-	    		}//if
-	    		document.searchForm.submit();
-	    	}//check() end
-	    	
-	    	function list(){//리스트 보여주기
-	    		document.listForm.action="Board_List.jsp";
-	    		document.listForm.submit();
-	    	}//list() end
-	    	
-	    	function content(value){	
-	    		document.readForm.action="Board_Content.jsp";//글 내용 보기
-	    		document.readForm.q_num.value=value;//글번호
-	    		document.readForm.submit();
-	    	}//read() end
-	    	
-	    	$(this).ready(function(){ 		        
-	    		$('.receive').on('click',function(e){
-	   			    var x=e.pageX;
-	   			    var y=e.pageY; 
-
-		    		var recname = $('.receive').eq($(".receive").index($(this))).html()
-	   			    var messagebox2= $("#messagebox").width();
-	   			    if(messagebox2 <= 0){
-	   			    
-	   				$("#content").append('<div id="messagebox"><table><tr><td id="123">'+recname+'</td></tr><tr><td><textarea id="456" rows=15 cols=38></textarea></td></tr></table></div>');
-	   				$("#messagebox").css('left',x);
-	   				$("#messagebox").css('top',y);
-	   				$("#messagebox").append('<div align="center"><button id="msubmit">전송</button> <button id="mreset">취소</button></div>');
-
-	   			    }else{
-	   			     $("#messagebox").remove();	     
-	   			    }//else
-	   			    	
-	   				 $("#mreset").on('click',function(){
-	            	 $("#messagebox").remove();
-	            	 });//mreset click function
-	            	 
-	   				$("#msubmit").on('click',function(){
-	   					$.ajax({ 
-		                  url:'Messagedb.jsp', //가져오고자하는 서버페이지 주소를 넣는다. 
-		                  type:'post', //데이터를 서버로 전송하게 된다. 
-		                  data:{ 
-		                         nickname_receive: recname,  //에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
-		                         msg_content: $('#456').val(),  
-		                         nickname_send : "<%= nickname %>"      
-		                  } , 
-		                  success : function(t){ 
-		                                alert('메세지 전송!');
-		                  } , 
-		                  error : function(){ 
-		                            alert('메세지 전송실패'); 
-		                  } 
-			           });
-		   					$("#messagebox").remove();
-	   				});
-	    		});	//.receive click funciton	
-	    	});//ready function()
-	    </script>
+	    
 	    </head>
     
     <body id="content">
@@ -216,7 +157,7 @@
     			
     			BoardDto dto=(BoardDto)vec.get(i);
     					
-    			String q_nickname=dto.getQ_nickname();
+    			String q_nickname1=dto.getQ_nickname();
     			String q_subject=dto.getQ_subject();
     			String q_create_time=dto.getQ_create_time();
     			String q_modify_time=dto.getQ_modify_time();
@@ -319,7 +260,7 @@
     	</span>
     	
     	<span id="test1">
-    		<a href="Board_Write.jsp?q_nickname=<%=nickname%>"><input type="button" value="글쓰기"></a>
+    		<a href="Board_Write.jsp?q_nickname=<%=q_nickname%>"><input type="button" value="글쓰기"></a>
     	</span>
     	</div>
     	
@@ -348,7 +289,7 @@
     			<input type="hidden" name="page" value="<%=nowPage%>">
     			<input type="hidden" name="keyField" value="<%=keyField%>">
     			<input type="hidden" name="keyWord" value="<%=keyWord%>">
-    			<input type="hidden" name="q_nickname" value="<%=nickname%>">
+    			<input type="hidden" name="q_nickname" value="<%=q_nickname%>">
     		</form>
     		
     		<%-- listForm --%>
