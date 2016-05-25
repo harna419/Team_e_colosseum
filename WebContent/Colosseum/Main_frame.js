@@ -262,7 +262,7 @@ function openConfirmID(formID){
 
 		$.ajax({
 			type:'POST',
-			url:'confirmId.jsp',
+			url:'./Member/Member_confirmId.jsp',
 			data : "q_id="+$('#q_id').val(),
 			dataType:'JSON',
 			cache:false,

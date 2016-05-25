@@ -8,7 +8,7 @@ request.setCharacterEncoding("utf-8");
 
 <html>
 	<head>
-		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
 		<script type="text/javascript" src="single_add.js"></script>
 		<script type="text/javascript" src="multi_add.js"></script>
 		<script type="text/javascript">
