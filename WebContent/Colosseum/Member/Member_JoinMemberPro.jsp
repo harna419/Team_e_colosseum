@@ -12,5 +12,6 @@ request.setCharacterEncoding("utf-8");
 dto.setQ_create_time(new Timestamp(System.currentTimeMillis())); 
 MemberDao dao=MemberDao.getInstance();
 dao.insertMember(dto);
-response.sendRedirect("Main_template.jsp");
+
+response.sendRedirect("../Main_template.jsp");
 %>

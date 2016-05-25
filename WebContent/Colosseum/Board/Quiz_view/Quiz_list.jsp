@@ -60,8 +60,12 @@ List quizList;
 							<td align="center"><%-- --%>
 								
 								<%-- <a href="Main_template.jsp?page=../Colosseum/Board/Quiz_view/Form/Quiz_Study_View.jsp?q_dep_num=<%=bean.getQ_dep_num()%>&q_dep_step=<%=bean.getQ_dep_step() %>">--%>									
+<<<<<<< HEAD
 								<img onclick="javascript:clicked(<%=bean.getQ_dep_num()%>,<%=bean.getQ_dep_step()%>)" src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_title_img() %>" id="q_dep_num<%=bean.getQ_dep_num()%>" width="250" height="200">	
 														
+=======
+								<img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_title_img() %>" id="q_dep_num<%=bean.getQ_dep_num()%>" width="250" height="200">									
+>>>>>>> 0379f4350fa97d465bb654819ebd2df67ad02ae1
 								<%-- </a>--%>
 								
 							</td>
@@ -71,7 +75,11 @@ List quizList;
 								<center><%=bean.getQ_title() %></center>
 							</td>
 							<input type="hidden" id="quiz_study_value" value="/Colosseum/Board/Quiz_view/Quiz_Study_View.jsp?q_dep_num=<%=bean.getQ_dep_num()%>&q_dep_step=<%=bean.getQ_dep_step() %>">
+<<<<<<< HEAD
 							<input type="hidden" id="quiz_study_num" value="<%=bean.getQ_dep_num()%>">
+=======
+							<input type="hidden" id="quiz_study_num" value="<%=bean.getQ_dep_num() %>">
+>>>>>>> 0379f4350fa97d465bb654819ebd2df67ad02ae1
 						</tr>
 					</table>
 				</td>
