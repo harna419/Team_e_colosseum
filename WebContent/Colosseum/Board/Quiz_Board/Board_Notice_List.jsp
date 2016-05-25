@@ -9,10 +9,12 @@
     
 <%
 request.setCharacterEncoding("utf-8");
-String q_id2=(String)session.getAttribute("q_id");
-MemberDao mdao2=MemberDao.getInstance();
-MemberDto mdto2=mdao2.getMember(q_id2);
-String q_nickname4=mdto2.getQ_nickname();
+//String q_id2=(String)session.getAttribute("q_id");
+//MemberDao mdao2=MemberDao.getInstance();
+//MemberDto mdto2=mdao2.getMember(q_id2);
+//String q_nickname4=mdto2.getQ_nickname();
+String q_id2="admin";
+String q_nickname4="admin";
 int q_notice_num3=0;
 %>
 

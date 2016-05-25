@@ -136,18 +136,55 @@ $(this).on("click",'.menu_link' ,function(event){
 	}
 });
 //====================================================================================================
+//메뉴 버튼 클릭시 이벤트 컨트롤러.		
+$(this).on("click",'.menu_link' ,function(event){
+	//alert(event);
+	event.preventDefault();
 	
-//====================================================================================================
-$('#back_intro').on("click", function(){ //초상화 클릭시 메인 화면으로 간다. 임시
-	
-	$('.Intro_menu > a').each(function() {
-		$(this).children().first().attr('data-status', 'move_end');
+	$('.Intro_menu > a ').each(function() { //속성 값을 준 다음에, 패딩 액션 확인.
+		$(this).children().first().attr('data-status', 'move');
+		$(this).children().first().css({'padding-top': '0', 'margin-top': '0'}, 800);
 	});
-	$('.menu_button').css({'right': '0px'});
-	$('.menu_button').css({'margin-left': '0px'});	
-	$('#home_wrapper').stop().animate({ right: "0%"}, 350);
-
+	
+	
+	
+	if($(this).children().first().attr('id') == 'menu1'){ //콜로세움이란?
+		
+		movePageUrl('Menu1.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		
+	}
 });
+//====================================================================================================
+//====================================================================================================
+<<<<<<< HEAD
+
+/*
+aa=$("quiz_study_num").val();
+alert("asdas"+aa)
+$('#q_dep_num7').on("click", function(){
+	bb=$("#quiz_study_value").val();
+	movePageUrl(bb,$('#main').css("backgroundColor"), $(this).children().first().attr("data-color"));
+	
+});*/
+
+=======
+
+num=$("#quiz_study_num").val();
+dep=$("#q_dep_num").val();
+
+click=q_dep_num+dep
+$('#q_dep_num').on("click", function(){
+	aa=$("#quiz_study_value").val();
+	movePageUrl(aa);
+	
+	
+});
+
+/*
+function imageclick(){
+	alert(zxc)
+}*/
+>>>>>>> 0379f4350fa97d465bb654819ebd2df67ad02ae1
 //====================================================================================================
 
 $('.menu_link').hover(
@@ -282,3 +319,69 @@ function openConfirmID(formID){
 	}//else
 }//openConfirmId
 //////////////////////////////////////////
+
+
+//Board_List.jsp/////////////////////////////
+function check(){//검색어가 없는데 검색 눌렀을 때
+	if(document.searchForm.keyWord.value==''){
+		alert("검색어를 입력 하시오");
+		document.searchForm.keyWord.focus();
+		return false;
+	}//if
+	document.searchForm.submit();
+}//check() end
+
+function list(){//리스트 보여주기
+	document.listForm.action="Board_List.jsp";
+	document.listForm.submit();
+}//list() end
+
+function content(value){	
+	document.readForm.action="Board_Content.jsp";//글 내용 보기
+	document.readForm.q_num.value=value;//글번호
+	document.readForm.submit();
+}//read() end
+
+$(this).ready(function(){ 		        
+	$('.receive').on('click',function(e){
+		    var x=e.pageX;
+		    var y=e.pageY; 
+
+		var recname = $('.receive').eq($(".receive").index($(this))).html()
+		    var messagebox2= $("#messagebox").width();
+		    if(messagebox2 <= 0){
+		    
+			$("#content").append('<div id="messagebox"><table><tr><td id="123">'+recname+'</td></tr><tr><td><textarea id="456" rows=15 cols=38></textarea></td></tr></table></div>');
+			$("#messagebox").css('left',x);
+			$("#messagebox").css('top',y);
+			$("#messagebox").append('<div align="center"><button id="msubmit">전송</button> <button id="mreset">취소</button></div>');
+
+		    }else{
+		     $("#messagebox").remove();	     
+		    }//else
+		    	
+			 $("#mreset").on('click',function(){
+    	 $("#messagebox").remove();
+    	 });//mreset click function
+    	 
+			$("#msubmit").on('click',function(){
+				$.ajax({ 
+              url:'Messagedb.jsp', //가져오고자하는 서버페이지 주소를 넣는다. 
+              type:'post', //데이터를 서버로 전송하게 된다. 
+              data:{ 
+                     nickname_receive: recname,  //에디터박스의 아이디를 넣으면 해당 에디터박스의 데이터를 보내준다.
+                     msg_content: $('#456').val(),  
+                     nickname_send : "<%= q_nickname %>"      
+              } , 
+              success : function(t){ 
+                            alert('메세지 전송!');
+              } , 
+              error : function(){ 
+                        alert('메세지 전송실패'); 
+              } 
+           });
+					$("#messagebox").remove();
+			});
+	});	//.receive click funciton	
+});//ready function()
+//Board_List.jsp/////////////////////////////

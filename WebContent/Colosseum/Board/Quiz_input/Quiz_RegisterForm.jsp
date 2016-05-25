@@ -151,10 +151,6 @@ request.setCharacterEncoding("utf-8");
 			<input type="reset" value="취소">
 			<input type="hidden" name="check" id="check" value="개수구하기">
 			<input type="hidden" name="count" value="0">
-			<input type="hidden" name="q_user_num" value="<%=session.getAttribute("q_user_num")%>">
-			<input type="hidden" name="q_nickname" value="<%=session.getAttribute("q_nickname")%>">
-			<input type="hidden" name="q_id" value="<%=session.getAttribute("q_id")%>">
-			<input type="hidden" name="q_name" value="<%=session.getAttribute("q_name")%>">
 		</center>
 		
 
