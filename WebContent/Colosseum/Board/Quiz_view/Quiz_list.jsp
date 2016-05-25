@@ -16,7 +16,8 @@ List quizList;
 	<head>
 		<link href="style.css" rel="stylesheet" type="text/css">		
 		<center><h1>퀴즈리스트</h1></center>
-		<center><a href="../Quiz_input/Quiz_RegisterForm.jsp"><button>퀴즈등록</button></a></center>
+		<%-- <center><a href="../Colosseum/Board/Quiz_input/Quiz_RegisterForm.jsp"><button>퀴즈등록</button></a></center>--%>
+		
 		<script type="text/javascript">
 		 
 		 function clicked(q_dep_num,q_dep_step){
@@ -26,11 +27,16 @@ List quizList;
 	         
 	      }
 		 
+		 function addbutton(){
+			 alert("문제추가")
+			 movePageUrl('../Colosseum/Board/Quiz_input/Quiz_RegisterForm.jsp');
+		 }
+		 
 		</script>
 	</head>
 	
-	<body bgcolor="white" topmargin="30">
-	
+	<body align="center" bgcolor="white" topmargin="30">
+	<input type="button" value="퀴즈등록" onclick="addbutton()">
 	<%
 	quiz_colosseum.Quiz_ListMgr quiz = Quiz_ListMgr.getInstance();//dao 객체 얻기
 	quizList = quiz.getQuizList();//dao 메서드 호출

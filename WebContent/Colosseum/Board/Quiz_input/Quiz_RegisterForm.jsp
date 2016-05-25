@@ -123,7 +123,7 @@ request.setCharacterEncoding("utf-8");
 		
 	</head>
 	<body id="body">
-	<form name="Quiz_RegisterForm" id="Quiz_RegisterForm" method="post" action="Quiz_RegisterProc.jsp" enctype="multipart/form-data">
+	<form name="Quiz_RegisterForm" id="Quiz_RegisterForm" method="post" action="Board/Quiz_input/Quiz_RegisterProc.jsp" enctype="multipart/form-data">
 		<table align="center">
 		<tr>
 			<td><input type="text" name="q_title" id="subject" value="제목입력폼" size=60></td>

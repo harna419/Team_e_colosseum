@@ -15,7 +15,7 @@ session.setAttribute("q_nickname", q_nickname);
 %>
 <form action="" method="post" name="form">
 <center>
-<input type="text" name="id" align="right" placeholder="id 입력 하는 곳">&nbsp;&nbsp;&nbsp;
-<input type="text" name="id" align="right" placeholder="pwd 입력 하는 곳">
+<input type="hidden" name="id" align="right" placeholder="id 입력 하는 곳">&nbsp;&nbsp;&nbsp;
+<input type="hidden" name="id" align="right" placeholder="pwd 입력 하는 곳">
 </center>
 </form>
