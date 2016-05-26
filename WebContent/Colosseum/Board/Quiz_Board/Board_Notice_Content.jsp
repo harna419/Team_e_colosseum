@@ -12,9 +12,13 @@ request.setCharacterEncoding("utf-8");
 BoardDao dao=BoardDao.getInstance();//dao 객체생성
 
 int q_num=Integer.parseInt(request.getParameter("q_num2"));
+
+System.out.println("q_num2 : "+q_num);
+
 String q_id=(String)session.getAttribute("q_id");
 MemberDao mdao=MemberDao.getInstance();
 MemberDto mdto=mdao.getMember(q_id);
+System.out.println("q_id :"+q_id);
 String q_nickname2=mdto.getQ_nickname();
 
 BoardDto dto=dao.getNotice(q_num); 

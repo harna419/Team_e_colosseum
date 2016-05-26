@@ -350,9 +350,4 @@ $(this).ready(function(){
 });//ready function()
 
 
-function content2(value){
-	document.readForm2.action="Board_Notice_Content.jsp";//글 내용 보기
-	document.readForm2.q_num2.value=value;//글번호
-	document.readForm2.submit();
-}
 ////////////////////////////////////////////////////

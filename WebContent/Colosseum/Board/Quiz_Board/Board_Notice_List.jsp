@@ -6,7 +6,14 @@
     import="java.text.SimpleDateFormat"
     import="java.text.*"
     %>
-    
+<script>
+
+function content2(q_num2){
+	alert(q_num2);
+	movePageUrl("./Board/Quiz_Board/Board_Notice_Content.jsp?q_num2="+q_num2);
+}
+
+</script>
 <%
 request.setCharacterEncoding("utf-8");
 //String q_id2=(String)session.getAttribute("q_id");

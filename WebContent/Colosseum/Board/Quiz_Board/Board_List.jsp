@@ -103,9 +103,6 @@
 		    display: block;
 		    z-index: 1;
 		    }
-		    .asdf{
-		    margin-top:-6px;
-		    }
 		    
 		    </style>
 		    <script type="text/javascript">

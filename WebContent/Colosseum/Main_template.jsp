@@ -181,7 +181,7 @@ background-size: 60px 60px;
 <div id="back_intro">
 <br>
 <%--<font size="5">마이페이지</font> --%>
-<img src="./imgs/coloured-lines-portable-logo.png" width="250" height="80" >
+<img src="./imgs/coloured-lines-portable-logo.png" width="250" height="60" >
 </div>
 </div><!-- main page end-->
 
