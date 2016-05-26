@@ -122,6 +122,11 @@
 	    		//document.searchForm.submit();
 	    	}//check() end
 	    	
+	    	function pageMove(nb,p){
+	    		//alert("nb:"+nb+"p:"+p)
+	    		movePageUrl('./Board/Quiz_Board/Board_List.jsp?nowBlock='+nb+'&page='+p);
+	    	}
+	    	
 	    	function list(){//리스트 보여주기
 	    		document.listForm.action="Board/Quiz_Board/Board_List.jsp";
 	    		document.listForm.submit();
@@ -311,7 +316,8 @@
     	//-------------------------페이지 처리
     	for(int i=0; i<pagePerBlock; i++){
     		%>
-    		<a href="./Board/Quiz_Board/Board_List.jsp?nowBlock=<%=nowBlock%>&page=<%=(nowBlock*pagePerBlock)+i %>">
+    		<%-- <a href="./Board/Quiz_Board/Board_List.jsp?nowBlock=<%=nowBlock%>&page=<%=(nowBlock*pagePerBlock)+i %>">--%>
+    		<a href="javascript:pageMove(<%=nowBlock%>,<%=(nowBlock*pagePerBlock)+i%>)">
     		<%=(nowBlock*pagePerBlock)+i+1 %>
     		</a>
     		<%
