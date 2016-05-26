@@ -116,9 +116,10 @@
 	    			document.searchForm.keyWord.focus();
 	    			return false;
 	    		}//if
-	    		
-	    		//movePageUrl('./Board/Quiz_Board/Board_List.jsp');
-	    		document.searchForm.submit();
+	    		var kWord=document.searchForm.keyWord.value;
+	    		var kField=document.searchForm.keyField.value;	    		
+	    		movePageUrl('./Board/Quiz_Board/Board_List.jsp?keyWord='+kWord+'&keyField='+kField);
+	    		//document.searchForm.submit();
 	    	}//check() end
 	    	
 	    	function list(){//리스트 보여주기
