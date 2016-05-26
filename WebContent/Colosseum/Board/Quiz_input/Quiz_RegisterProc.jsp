@@ -10,20 +10,14 @@ Quiz_RegisterMgr quizMgr=Quiz_RegisterMgr.getInstance();//dao객체얻기
 boolean result=false;
 
 result=quizMgr.Quiz_insert(request);//dao메서드 호출
-//response.sendRedirect("../Quiz_view/Quiz_list.jsp");
+response.sendRedirect("../../Main_template.jsp?afternum=3");
 %>
-<script>
-function ret(){
-	 alert("되돌아가기")
-	 history.go(-2);
-	//movePageUrl('/Colosseum/Board/Quiz_view/Quiz_list.jsp');
-}
-</script> 
+ 
 <html>
   <head>
   
   </head>
-  <body onload="ret()">
+  <body>
   
   </body>
 </html>

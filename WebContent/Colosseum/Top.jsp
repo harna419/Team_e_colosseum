@@ -5,7 +5,7 @@
 String q_id="admin";
 String q_name="관리자";
 String q_user_num="01";
-String q_nickname="관리자";
+String q_nickname="admin";
 
 session.setAttribute("q_id", q_id);
 session.setAttribute("q_name", q_name);

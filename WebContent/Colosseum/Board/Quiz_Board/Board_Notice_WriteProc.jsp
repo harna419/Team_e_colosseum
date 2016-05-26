@@ -16,5 +16,5 @@
 
 BoardDao dao = BoardDao.getInstance(); //dao객체 얻기
 dao.insertNotice(dto); //dao 메서드 호출
-response.sendRedirect("Board_List.jsp"); //list.jsp 이동
+response.sendRedirect("../../Main_template.jsp?afternum=4");
 %>

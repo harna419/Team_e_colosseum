@@ -104,7 +104,7 @@
 		    z-index: 1;
 		    }
 		    .asdf{
-		    margin-top:-22px;
+		    margin-top:-6px;
 		    }
 		    
 		    </style>
@@ -126,12 +126,15 @@
 	    		document.listForm.submit();
 	    	}//list() end
 	    	
-	    	function content(value){	
-	    		document.readForm.action="Board/Quiz_Board/Board_Content.jsp";//글 내용 보기
-	    		document.readForm.q_num.value=value;//글번호	    		
+	    	function content(q_num){	
+	    		//document.readForm.action="Board/Quiz_Board/Board_Content.jsp";//글 내용 보기
+	    		//document.readForm.q_num.value=value;//글번호	    		
 	    		  //$(this).load("Board_Content.jsp");
-
-	    		document.readForm.submit();
+	    		//document.readForm.submit();
+	    		
+	    		movePageUrl('/Colosseum/Board/Quiz_Board/Board_Content.jsp?q_num='+q_num);
+	    		
+	    		
 	    	}//read() end
 	    	
 	    	$(this).ready(function(){ 		        
@@ -260,7 +263,9 @@
     			<td align=center><%=totalRecord-i %></td>
     			
     			<td>
-    			<a href="javascript:content('<%=q_num %>')"><%=q_subject %></a>
+    			<%-- 글 보기 --%>
+    			<a href="javascript:content('<%=q_num%>')"><%=q_subject %></a>
+    			
     			<%
 				if(hour<24){//반올림한 시각이 24보다 작은 경우 new이미지 생성
 				%>

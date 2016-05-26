@@ -14,9 +14,9 @@ request.setCharacterEncoding("utf-8");
 <%
 BoardDao dao=BoardDao.getInstance();
 
-int nowPage=Integer.parseInt(request.getParameter("page"));
+//int nowPage=Integer.parseInt(request.getParameter("page"));
 int q_num=Integer.parseInt(request.getParameter("q_num"));
 
 dao.updateBoard(dto); 
-response.sendRedirect("Board_List.jsp?page="+nowPage);
+response.sendRedirect("../../Main_template.jsp?afternum=4");
 %>

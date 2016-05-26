@@ -31,6 +31,34 @@ System.out.println(pageFile);
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script type="text/javascript" src="Main_frame.js"></script>
+<script>
+function move(afternum){
+	if(afternum==1){
+		
+	}
+	if(afternum==2){
+		
+	}
+	if(afternum==3){
+		movePageUrl("Board/Quiz_view/Quiz_list.jsp")
+	}
+	if(afternum==4){
+		movePageUrl("Board/Quiz_Board/Board_List.jsp")
+	}
+	if(afternum==5){
+		movePageUrl("Qna/Qna_List.jsp")
+	}
+	if(afternum==6){
+		movePageUrl("Menu6.jsp")
+	}
+	if(afternum==7){
+		movePageUrl("Menu7.jsp")
+	}
+	if(afternum==8){
+		movePageUrl("Menu8.jsp")
+	}
+}//move()
+</script>
 
 <style type="text/css">
 html body{height: 100%; margin: 0px;padding: 0px;}
@@ -144,7 +172,7 @@ background-size: 60px 60px;
 </style>
 
 </head>
-<body id="main">
+<body id="main" onLoad="move(<%=request.getParameter("afternum")%>)">
 <div id="Intro_menu"><jsp:include page='home_wrap.jsp'/></div>
 <div> <!-- main page-->
 <div id="top"><jsp:include page="Top.jsp"/></div>

@@ -10,9 +10,9 @@ request.setCharacterEncoding("utf-8");
 BoardDao dao=BoardDao.getInstance(); //dao 메소드 호출
   
 int q_num=Integer.parseInt(request.getParameter("q_num"));
-int nowPage=Integer.parseInt(request.getParameter("page"));
-String keyField=request.getParameter("keyField");
-String keyWord=request.getParameter("keyWord");
+//int nowPage=Integer.parseInt(request.getParameter("page"));
+//String keyField=request.getParameter("keyField");
+//String keyWord=request.getParameter("keyWord");
 
 BoardDto dto=dao.getBoard(q_num); 
 dao.upCount(q_num);
@@ -29,7 +29,7 @@ int q_read_count=dto.getQ_read_count();
 String q_id=(String)session.getAttribute("q_id");
 MemberDao mdao=MemberDao.getInstance();
 MemberDto mdto=mdao.getMember(q_id);
-String q_nickname2=mdto.getQ_nickname();
+//String q_nickname2=mdto.getQ_nickname();
 %>
 
 <html>
@@ -38,11 +38,16 @@ String q_nickname2=mdto.getQ_nickname();
 		function deleteCheck(){ //삭제 버튼 클릭시 선택창이 뜨게 합니다
 			if (window.confirm("정말로 삭제하시겠습니까?")){
 				  alert("삭제되었습니다.");
-				  location.href="Board_Delete.jsp?page=<%=nowPage %>&q_num=<%=q_num %>";
+				  location.href="Board/Quiz_Board/Board_Delete.jsp?page=1&q_num=<%=q_num%>";
 				  }else{
 				  alert("취소되었습니다.");
 				  }
 		 }//zipCheck() end 
+		 
+		 function update(q_num){
+			 
+			 movePageUrl("Board/Quiz_Board/Board_Update.jsp?q_num="+q_num);
+		 }
 	</script>
 	</head>
 	
@@ -77,32 +82,34 @@ String q_nickname2=mdto.getQ_nickname();
 			
 			<tr>
 				<td align="right" colspan="4">
-					<a href="Reply.jsp?page=<%=nowPage %>&q_num=<%=q_num %>"><input type="button" value="댓글쓰기"></a>
-					<a href="Board_Update.jsp?page=<%=nowPage %>&q_num=<%=q_num %>"><input type="button" value="수정"></a>
+					<a href="Reply.jsp?page=1&q_num=<%=q_num %>"><input type="button" value="댓글쓰기"></a>
+					<%-- <a href="Board/Quiz_Board/Board_Update.jsp?page=1&q_num=<%=q_num %>">--%>
+					<input onClick="update(<%=q_num%>)" type="button" value="수정">
+					<%-- </a>--%>
 					<!-- 닉네임이 admin일 경우 삭제버튼 생성 -->
-					<% if(q_nickname.equals(q_nickname2) || q_nickname.equals("admin") ){ %>
+					<% if(q_nickname.equals("관리자") || q_nickname.equals("admin") ){ %>
 					<input type="button" value="삭제" onclick="deleteCheck()">
 					<%}%>
 					<a href="Board_List.jsp"><input type="button" value="리스트"></a>
 				</td>
 			</tr>
 	<%
-	if(keyWord==null||keyWord.equals("")){ //검색어가 없으면
+	//if(keyWord==null||keyWord.equals("")){ //검색어가 없으면
 	%>
 	<form name="listForm" method="post">
 		<input type="hidden" name="q_num" value="<%=q_num %>">
-		<input type="hidden" name="page" value="<%=nowPage %>">
+		<%-- <input type="hidden" name="page" value="<%=nowPage %>">--%>
 	</form>
 	
-	<%}else{//검색어가 있으면 %> 
+	<%//}else{//검색어가 있으면 %> 
 	
 	<form name="listForm" method="post">
 		<input type="hidden" name="q_num" value="<%=q_num %>">
 		<input type="hidden" name="page" value="<%=page %>">
-		<input type="hidden" name="keyWord" value="<%=keyWord %>">
-		<input type="hidden" name="keyField" value="<%=keyField %>">
+		<%-- <input type="hidden" name="keyWord" value="<%=keyWord %>">--%>
+		<%-- <input type="hidden" name="keyField" value="<%=keyField %>">--%>
 	</form>
 	
-	<%}%>
+	<%//}%>
 	</body>
 </html>

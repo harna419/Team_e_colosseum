@@ -8,7 +8,7 @@ request.setCharacterEncoding("utf-8");
 
 <%
 BoardDao dao = BoardDao.getInstance();
-int nowPage=Integer.parseInt(request.getParameter("page"));
+//int nowPage=Integer.parseInt(request.getParameter("page"));
 int q_num=Integer.parseInt(request.getParameter("q_num"));
 
 BoardDto dto=dao.getBoard(q_num);
@@ -23,7 +23,7 @@ String q_content=dto.getQ_content();
 	<body>
 		<div><h3>글수정하기</h3></div>
 		
-		<form name="editForm" method="post" action="Board_UpdateProc.jsp">
+		<form name="editForm" method="post" action="Board/Quiz_Board/Board_UpdateProc.jsp">
 			<table width="70%" cellspacing="0" cellpadding=7>
 				<tr>
 				<td align=center>
@@ -50,7 +50,7 @@ String q_content=dto.getQ_content();
 						<input type="button" value="뒤로" onclick="history.go(-1)">
 						
 						<input type="hidden" name="q_num" value="<%=q_num %>">
-						<input type="hidden" name="page" value="<%=nowPage %>">
+						<%-- <input type="hidden" name="page" value="<%=nowPage %>">--%>
 					</td>
 					</tr>
 					
