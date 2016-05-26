@@ -14,10 +14,9 @@ request.setCharacterEncoding("utf-8");
 <%
 QnaDao dao=QnaDao.getInstance();
 
-int nowPage=Integer.parseInt(request.getParameter("page"));
+//nt nowPage=Integer.parseInt(request.getParameter("page"));
 int q_num=Integer.parseInt(request.getParameter("q_num"));
  
-
 dao.updateQna(dto); 
-response.sendRedirect("Qna_List.jsp?page="+nowPage);
+response.sendRedirect("../Main_template.jsp?afternum=5");
 %>

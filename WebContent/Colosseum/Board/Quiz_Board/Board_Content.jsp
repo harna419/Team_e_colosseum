@@ -44,7 +44,7 @@ MemberDto mdto=mdao.getMember(q_id);
 				  }
 		 }//deleteCheck end 
 		 
-		 function update(q_num){
+		 function updatecheck(q_num){
 			 
 			 movePageUrl("Board/Quiz_Board/Board_Update.jsp?q_num="+q_num);
 		 }
@@ -84,7 +84,7 @@ MemberDto mdto=mdao.getMember(q_id);
 				<td align="right" colspan="4">
 					<a href="Reply.jsp?page=1&q_num=<%=q_num %>"><input type="button" value="댓글쓰기"></a>
 					<%-- <a href="Board/Quiz_Board/Board_Update.jsp?page=1&q_num=<%=q_num %>">--%>
-					<input onClick="update(<%=q_num%>)" type="button" value="수정">
+					<input onClick="updatecheck(<%=q_num%>)" type="button" value="수정">
 					<%-- </a>--%>
 					<!-- 닉네임이 admin일 경우 삭제버튼 생성 -->
 					<% if(q_nickname.equals("관리자") || q_nickname.equals("admin") ){ %>

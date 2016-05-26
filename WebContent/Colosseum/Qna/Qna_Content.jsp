@@ -157,9 +157,9 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 			  }
 	 }//deleteCheck end 
 	 
-	 function update(q_num){
+	 function updateCheck(q_num){
 		 
-		 movePageUrl("Qna_Update.jsp?&q_num="+q_num);
+		 movePageUrl("Qna/Qna_Update.jsp?&q_num="+q_num);
 		 
 	 }
 	 <%--
@@ -214,7 +214,7 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 				<%
 				if(q_nickname.equals(q_nickname2)){
 				%>
-				<img src="imgs/change.png" onclick="updateCheck()" class="btn_vim"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="imgs/change.png" onclick="updateCheck(<%=q_num %>)" class="btn_vim">
 				<img src="imgs/del.png" onclick="deleteCheck()" class="btn_vim">
 				<%
 				}else{

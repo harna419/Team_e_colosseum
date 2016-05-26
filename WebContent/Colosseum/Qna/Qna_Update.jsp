@@ -8,7 +8,7 @@ request.setCharacterEncoding("utf-8");
 
 <%
 QnaDao dao = QnaDao.getInstance();
-int nowPage=Integer.parseInt(request.getParameter("page"));
+//int nowPage=Integer.parseInt(request.getParameter("page"));
 int q_num=Integer.parseInt(request.getParameter("q_num"));
  
 QnaDto dto=dao.getQna(q_num);
@@ -25,7 +25,7 @@ String q_content=dto.getQ_content();
 	<body>
 		<div><h3>글수정하기</h3></div>
 		
-		<form name="editForm" method="post" action="Qna_UpdateProc.jsp">
+		<form name="editForm" method="post" action="Qna/Qna_UpdateProc.jsp">
 			<table width="70%" cellspacing="0" cellpadding=7>
 				<tr>
 				<td align=center>
@@ -54,7 +54,7 @@ String q_content=dto.getQ_content();
 						<input type="button" value="뒤로" onclick="history.go(-1)">
 						
 						<input type="hidden" name="q_num" value="<%=q_num %>">
-						<input type="hidden" name="page" value="<%=nowPage %>">
+						<%--<input type="hidden" name="page" value="<%=nowPage %>"> --%>
 					</td>
 					</tr>
 					
