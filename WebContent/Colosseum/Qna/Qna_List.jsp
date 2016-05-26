@@ -263,7 +263,7 @@ option{
     		document.listForm.action="Qna_List.jsp.jsp";
     		document.listForm.submit();
     	}//list() end
-    	 
+    	
     	function content(valuess){
     		
     		document.readForm.action="Qna_Content.jsp";//글 내용 보기
@@ -271,14 +271,10 @@ option{
     		document.readForm.submit();
     	}//read() end
     	
-    	 function clicked(nickname){
-		    	alert("clicked글쓰기");
-		    	
-		    	movePageUrl('./Qna/Qna_Write.jsp?q_nickname='+nickname);
-		    	
-		    }
-    	
     </script>
+    
+    <link rel="stylesheet" type="text/css" href="Qna_css.css">
+    
     </head>
     
 	<body>
@@ -381,7 +377,7 @@ option{
     	if(totalRecord!=0){//글이 존재하면
     		if(nowBlock>0){// 이전 블럭으로 이동
     	%>
-    	<a href="Qna_List.jsp.jsp?nowBlock=<%=nowBlock-1%>&
+    	<a href="Qna_List.jsp?nowBlock=<%=nowBlock-1%>&
     	page=<%=((nowBlock-1)*pagePerBlock)%>&
     	keyField=<%=keyField %>&
     	keyWord=<%=keyWord %>">
@@ -394,7 +390,7 @@ option{
     	//-------------------------페이지 처리
     	for(int i=0; i<pagePerBlock; i++){
     		%>
-    		<a href="Qna_List.jsp.jsp?nowBlock=<%=nowBlock%>&page=<%=(nowBlock*pagePerBlock)+i %>">
+    		<a href="Qna_List.jsp?nowBlock=<%=nowBlock%>&page=<%=(nowBlock*pagePerBlock)+i %>">
     		<%=(nowBlock*pagePerBlock)+i+1 %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     		</a>
     		<%
@@ -407,7 +403,7 @@ option{
     	//다음블럭
     	if(totalBlock>nowBlock+1){
     		%>
-    		<a href="Qna_List.jsp.jsp?nowBlock=<%=nowBlock+1 %>&
+    		<a href="Qna_List.jsp?nowBlock=<%=nowBlock+1 %>&
     		page=<%=(nowBlock+1)*pagePerBlock %>&
     		keyField=<%=keyField %>&
     		keyWord=<%=keyWord %>">
@@ -423,13 +419,13 @@ option{
     	</span>
     	
     	<div class=boardBtn>    	
-    		<img src="imgs/boardBtn01.png" onclick="javascript:clicked('<%=nickname%>')">
+    		<a href="Qna_Write.jsp?q_nickname=<%=nickname%>"><img src="imgs/boardBtn01.png"></a>
     	</div><!-- boardBtn -->
     	
     	</div><!-- paging -->
     	
     	<div class="searchForm">
-    		<form name="searchForm" method="post" action="Qna_List.jsp.jsp">
+    		<form name="searchForm" method="post" action="Qna_List.jsp">
     		<table width="55%" border=0 align=center cellpadding=1 cellspacing=0>
 	    		<tr>
 		    		<td align=center valign=bottom>

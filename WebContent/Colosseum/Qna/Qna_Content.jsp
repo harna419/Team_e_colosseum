@@ -6,7 +6,7 @@
 <%
 request.setCharacterEncoding("utf-8");
 %>
- 
+
 <%
 QnaDao dao=QnaDao.getInstance();
 
@@ -35,6 +35,116 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 
 <html>
 	<head>
+	<style type="text/css">
+
+.container{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.content{
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	left: 25%
+}
+.content h3.title {
+	position: absolute;
+	top: 5%;
+	width: 100%;
+	height: 26px;
+	padding: 0;    
+    line-height: 18px;
+    border-bottom: 3px solid #252525;
+}
+.content h3{
+	font-weight: bold;    
+    font-size: 17px; 
+    font-family: 맑은 고딕;
+    color: 1d1d1d;   
+    letter-spacing: 0;
+}
+.contentWrap{
+	
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 9.8%;
+	border-top: 1px solid #ccc;
+}
+.contentWrap .title_con{
+	
+	font-weight: bold;
+	font-size: 20px;
+	font-family: '맑은고딕';
+	color: #333;
+	line-height: 26px;
+	letter-spacing: -1px;
+	margin: 0;
+	padding: 5px 0 10px 20px;
+	border: 1px solid #d8d8d8;
+	border-top: 0;
+}
+.contentWrap .ContentInfo {
+	
+    height: 12px;
+    line-height: 12px;
+    margin: 0;
+    padding: 17px 20px;
+    border: 1px solid #d8d8d8;
+    border-top: 0;
+}
+.contentWrap .ContentInfo .info_write {
+	
+    float: left;
+    font-family: '맑은 고딕';
+    font-size: 12px;
+    color: #666;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+.contentWrap .ContentInfo .info_count {
+	
+    float: right;
+    font-family: '맑은 고딕';
+    font-size: 12px;
+    color: #666;
+    margin: 0 auto;
+}
+
+.ContentView {
+    border-bottom: 2px solid #444;    
+    border: 1px solid #d8d8d8;
+    border-top: 0;
+    padding-bottom: 0;
+}
+.contentWrap .ContentView .area_con {
+    min-height: 100px;
+    padding: 20px 20px 0;
+    border-top: 0;
+    margin-bottom: 40px;
+    color: #666;
+    font-family: '맑은 고딕','Malgun Gothic';
+    font-size: 12px;
+    line-height: 1.4px;
+}
+.contentWrap .btn_con {
+
+    height: 28px;
+    margin-top: 12px;
+    margin-bottom: 30px;
+    padding-top: 12px; 
+}
+.btn_con .btn_vim{
+	float: left;
+	margin: 0 auto;
+}
+.btn_con .btn_list{
+	float: right;
+	margin: 0 auto;
+}
+	</style>
+	
 	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script>
 	
@@ -66,58 +176,52 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 	 });--%>
 	 
 	</script>
+	
+	<link rel="stylesheet" type="text/css" href="Qna_css.css">
+	
 	</head>
 	<body>
-	<table width="70%" bordercolor="#e5e5e5" border=1 cellspacing=0 cellpadding=3 align=center>
-		
-			<tr>
-			<td align=center width="10%">글번호</td>
-			<td><%=q_num %></td>
-			
-			<td align=center width="15%">등록날짜</td>
-			<td><%=q_date %></td>
+  <div class="container">
+  <div class="content">
+    <h3 class="title">Q & A 게시판</h3>
+    
+    <div class="contentWrap">
 
-			</tr>
-
-			<tr>
-			<td align=center>작성자</td>
-			<td><%=q_nickname %></td>
-
-			<td align="center">조회수</td>
-			<td><%=q_count %></td>
-			</tr>
+			<p class="title_con"><%=q_subject %></p>
 			
+			<div class="ContentInfo">
+				<p class="info_write">
+					<strong><%=q_nickname %></strong>&nbsp;
+					<span class="date"><%=q_date %></span>
+				</p>
 			
-			<tr>
-				<td align="center">제목</td>
-				<td colspan=3><%=q_subject %></td>
-			</tr>
+				<p class="info_count">
+					<span class="view"><img src="imgs/view.png">&nbsp;<%=q_count %></span>&nbsp;&nbsp;&nbsp;
+					<span class="comment"><img src="imgs/cmt.png">&nbsp;0</span>				
+				</p>			
+			</div>
 			
-			<tr>
-				<td colspan=4><br>
-				<% 
-					q_content=q_content.replace("\n", "<br>");
-				%> 
-				<%= q_content %>
-				</td>
-			</tr>			 
-			
-			<tr>
-			<td align="right" colspan="4">
-			
-				<a href="Qna_Update.jsp?page=<%=nowPage %>&q_num=<%=q_num %>"><input type="button" value="수정"></a>
+			<div id="BoardView" class="ContentView">
+				<div class="area_con"><%= q_content %></div>
+			</div>
+				
+			<div class="btn_con">
+				
 				<%
 				if(q_nickname.equals(q_nickname2)){
 				%>
-				<input type="button" value="삭제" onclick="deleteCheck()">
+				<a href="Qna_Update.jsp?page=<%=nowPage %>&q_num=<%=q_num %>"><img src="imgs/change.png" class="btn_vim"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="imgs/del.png" onclick="deleteCheck()" class="btn_vim">
 				<%
+				}else{
+				%>
+				<a href="Qna_Write.jsp?q_nickname=<%=q_nickname2%>"><img src="imgs/btn_vim1.png" class="btn_vim"></a>
+				<%	
 				}
 				%>
-				<a href="Qna_List.jsp"><input type="button" value="리스트"></a>
-				
-		</td>
-		
-		</tr>
+				<a href="Qna_List.jsp"><img src="imgs/btn_vim2.png" class="btn_list"></a>
+
+			</div><!-- btn_con -->
 	<%
 	if(keyWord==null||keyWord.equals("")){
 	%>
@@ -138,10 +242,11 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 	</form>
 	<%
 	}
-	%> 
-	
+	%> 	
 	
 	<%--<%@ include file="Comment_List.jsp"%>--%>
-	
+	</div><!-- contentWrap -->
+</div><!-- content -->
+</div><!-- container -->
 	</body>
 </html>
