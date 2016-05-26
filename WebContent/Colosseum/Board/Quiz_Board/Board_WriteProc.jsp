@@ -17,16 +17,6 @@ dao.insertBoard(dto); //dao 메서드 호출
 response.sendRedirect("../../Main_template.jsp?afternum=4");
 %>
 
-<html>
-	<head>
-	
-	</head>
-	<body>
-	
-	</body>
-</html>
-
-
 
 
 

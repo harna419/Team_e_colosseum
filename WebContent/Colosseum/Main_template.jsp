@@ -33,28 +33,28 @@ System.out.println(pageFile);
 <script type="text/javascript" src="Main_frame.js"></script>
 <script>
 function move(afternum){
-	if(afternum==1){
+	if(afternum==1){ //콜로세움이란?
 		
 	}
-	if(afternum==2){
+	if(afternum==2){ //회원가입
 		
 	}
-	if(afternum==3){
+	if(afternum==3){//문제게시판
 		movePageUrl("Board/Quiz_view/Quiz_list.jsp")
 	}
-	if(afternum==4){
+	if(afternum==4){//자유게시판
 		movePageUrl("Board/Quiz_Board/Board_List.jsp")
 	}
-	if(afternum==5){
+	if(afternum==5){//QNA
 		movePageUrl("Qna/Qna_List.jsp")
 	}
-	if(afternum==6){
+	if(afternum==6){//명예의전당
 		movePageUrl("Menu6.jsp")
 	}
-	if(afternum==7){
+	if(afternum==7){//학습모드
 		movePageUrl("Menu7.jsp")
 	}
-	if(afternum==8){
+	if(afternum==8){//개발진 소개
 		movePageUrl("Menu8.jsp")
 	}
 }//move()
@@ -179,8 +179,9 @@ background-size: 60px 60px;
 <div id="content_block"><jsp:include page='<%=pageFile %>'/></div>
 
 <div id="back_intro">
-<font size="5">마이페이지</font>
-<img src="./imgs/Twice.jpg">
+<br>
+<%--<font size="5">마이페이지</font> --%>
+<img src="./imgs/coloured-lines-portable-logo.png" width="250" height="80" >
 </div>
 </div><!-- main page end-->
 

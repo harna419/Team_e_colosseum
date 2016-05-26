@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title></title>
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<%--<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>--%>
 
 <script>
 function check(){
@@ -27,15 +27,15 @@ function check(){
 	
 	switch(document.postForm.q_group.value){
 	case "0":  
-		document.postForm.action="Qna_Faq_WriteProc.jsp";
+		document.postForm.action="./Qna/Qna_Faq_WriteProc.jsp";
 		document.postForm.submit;
 		break;
 	case "1": 
-		document.postForm.action="Qna_WriteProc.jsp";
+		document.postForm.action="./Qna/Qna_WriteProc.jsp";
 		document.postForm.submit;
 		break;
 	case "2":
-		document.postForm.action="Qna_Kin_WriteProc.jsp";
+		document.postForm.action="./Qna/Qna_Kin_WriteProc.jsp";
 		document.postForm.submit;
 	
 	}
@@ -90,7 +90,7 @@ function sort(){
 		</tr>
 		
 		<br>
-		<form name="postForm" method="post" action="Qna_WriteProc.jsp">
+		<form name="postForm" method="post" action="./Qna/Qna_WriteProc.jsp">
 			<table bordercolor="#aad5d9" width="50%" cellpacing="0" cellpadding="3" align="center">
 			<tr>
 			<td align="center">

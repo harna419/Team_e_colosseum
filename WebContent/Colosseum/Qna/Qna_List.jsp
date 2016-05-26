@@ -271,6 +271,13 @@ option{
     		document.readForm.submit();
     	}//read() end
     	
+    	 function clicked(nickname){
+		    	alert("clicked글쓰기");
+		    	
+		    	movePageUrl('./Qna/Qna_Write.jsp?q_nickname='+nickname);
+		    	
+		    }
+    	
     </script>
     </head>
     
@@ -416,7 +423,7 @@ option{
     	</span>
     	
     	<div class=boardBtn>    	
-    		<a href="Qna_Write.jsp?q_nickname=<%=nickname%>"><img src="imgs/boardBtn01.png"></a>
+    		<img src="imgs/boardBtn01.png" onclick="javascript:clicked('<%=nickname%>')">
     	</div><!-- boardBtn -->
     	
     	</div><!-- paging -->

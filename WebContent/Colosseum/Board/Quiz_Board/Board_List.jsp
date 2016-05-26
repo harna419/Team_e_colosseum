@@ -339,7 +339,7 @@
     	
     	<span id="test1">
     		<%--<a href="Board_Write.jsp?q_nickname=<%=nickname%>"> --%>
-    		<input type="button" onclick="javascript:clicked('<%=nickname%>')" value="글쓰기"></a>
+    		<img src="imgs/boardBtn01.png" onclick="javascript:clicked('<%=nickname%>')">
     	</span>
     	</div>
     	
