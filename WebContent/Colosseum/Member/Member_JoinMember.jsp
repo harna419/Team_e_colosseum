@@ -6,11 +6,12 @@
 <%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
 <style type="text/css">
 td{
- color:#FFDC7E
+ color:#FFFFFF
 }
 </style>
 <script>
 	var Id_Check=-1;
+	var Nickname_Check=-1;
 	function checkIt(){
 		
 		if($("#q_id").val()==""){
@@ -70,11 +71,15 @@ td{
 			alert("아이디 중복 확인 해주세요");
 			return false;
 		}
+		if(Nickname_Check!=1){
+			alert("닉네임 중복확인 해주세요");
+			return false;
+		}
 		
 		alert("가입이 완료 되었습니다");
 	}//checkIt end
 	
-	function openConfirmID(formID){
+	function ConfirmID(formID){
 		if($('#q_id').val()==''){
 			alert("id를 입력하세요");
 			$('#q_id').focus();
@@ -104,6 +109,37 @@ td{
 		
 		}//else
 	}//openConfirmId
+	
+	function ConfirmNickname(formNickname){
+		if($('#q_nickname').val()==''){
+			alert("닉네임을 입력하세요");
+			$('#q_nickname').focus();
+		}else{
+			alert("닉네임 중복체크 확인");
+			
+			$.ajax({
+				type:'POST',
+				url:'./Member/Member_confirmNickname.jsp',
+				data : "q_nickname="+$('#q_nickname').val(),
+				dataType:'JSON',
+				cache:false,
+				async:true,
+				success:function(data){
+					alert(data.check); 
+					
+					if(data.check==1){
+						alert("사용중인 닉네임");
+						$('#q_nickname').val('').focus();
+					}else{
+						alert("사용가능한 닉네임");
+						Nickname_Check=1;
+					}//else
+						
+				}//success
+			});
+		
+		}//else
+	}//ConfirmNickname
 </script>
 </head>
 <body>
@@ -112,87 +148,117 @@ td{
 <table width="650" cellpadding="3" cellspacing="0">
 	
 	<tr>
-	<td colspan="2" height="30" align="center">	
-	<h1 style=color:#FFDC7E><b><br>가입하기</b></h1><br>
-	
-	<p style=color:#FFDC7E>간단하게 가입 합시다.<br>
-	이메일로 간단하게 콜로세움을 이용하세요!</p>
+	<td colspan="2" height="30" align="left">	
+	<h1 style=color:#FFFFFF><b><br>가입하기</b></h1><br>
+
 	</td>
 	</tr>	
 	
 	<tr>
-	<td width="200"><b>로그인 정보 입력</b></td>
+	<td width="200"><Strong>로그인 정보 입력</Strong></td>
 	<td width="400" >&nbsp;</td>
 	</tr>
 	
 	<tr>
-	<td width="200">E-mail 입력</td>
+	<td width="200"></td>
 	<td width="400">
-		<input type="text" name="q_id" size="10" id="q_id">
-		<input type="button" value="중복체크" onClick="openConfirmID()">
-	</td>
+		E-mail
+		<tr>
+		<td></td>
+		<td>
+		<input type="text" name="q_id" size="30" id="q_id">
+		<input type="button" value="중복체크" onClick="ConfirmID()">
+		</td></tr>
 	</tr>	
 	
 	<tr>
-	<td width="200">닉네임</td>
+	<td width="200"></td>
 	<td width="400">
-		<input id="q_nickname" type="text" name="q_nickname" size="15">
-	</td>
+		닉네임
+		<tr>
+		<td></td>
+		<td>
+		<input id="q_nickname" type="text" name="q_nickname" size="30">
+		<input type="button" value="중복체크" onClick="ConfirmNickname()">
+		</td></tr>
 	</tr>
 	
 	<tr>
-	<td width="200">비밀번호</td>
+	<td width="200"></td>
 	<td width="400">
-		<input id="q_pwd" type="password" name="q_pwd" size="15">
-	</td>
+		비밀번호
+		<tr>
+		<td></td>
+		<td>
+		<input id="q_pwd" type="password" name="q_pwd" size="30">
+		</td></tr>
 	</tr>	
 		
 	<tr>
-	<td width="200">비밀번호 확인</td>
+	<td width="200"></td>
 	<td width="400">
-	<input id="q_pwd2" type="password" name="q_pwd2" size="15">
-	</td>
+		비밀번호 확인
+		<tr>
+		<td></td>
+		<td>
+	<input id="q_pwd2" type="password" name="q_pwd2" size="30">
+		</td></tr>
 	</tr>
 	
 	<tr>
-	<td width="200" ><b>개인정보 입력</b></td>
+	<td width="200" ><strong>개인정보 입력</strong></td>
 	<td width="400" >&nbsp;</td>
 	</tr>
 		
 		
 	<tr>
-	<td >사용자 이름</td>
-	<td >
-	<input id="q_name" type="text" name="q_name" size="15">
+	<td ></td>
+	<td>
+	사용자 이름
+	<tr>
+		<td></td>
+		<td>
+	<input id="q_name" type="text" name="q_name" size="30">
 	</td>
 	</tr>
 
 		<tr>
-		<td>주민 등록 번호<br></td>
+		<td></td>
 		<td>
-		<input id="q_jumin1" type="text" name="q_jumin1" size="6" onkeyup="if(this.value.length==6) userForm.jumin2.focus();">-
-		<input id="q_jumin2" type="text" name="q_jumin2" size="7" onkeyup="if(this.value.length==7) userForm.qz_pw_question.focus();">
+		주민번호
+		<tr>
+		<td></td>
+		<td>
+		<input id="q_jumin1" type="text" name="q_jumin1" size="30" onkeyup="if(this.value.length==6) userForm.q_jumin2.focus();"> -<br><br>
+		<input id="q_jumin2" type="text" name="q_jumin2" size="30" onkeyup="if(this.value.length==7) userForm.q_pw_question.focus();">
 		<!-- -비밀번호 찾기시 사용 됨- 유효성 체크 -->
 		</td>
 		</tr>
 	
 		<tr>
-		<td width="200">비밀번호 찾기:<br>
-		 사용할 퀴즈 입력</td>
+		<td width="200"><strong>비밀번호 찾기</strong></td>
 		<td width="400">
-		<input type="text" id="q_pw_question" name="q_pw_question" size="40">
+		사용할 퀴즈 입력
+		<tr>
+		<td></td>
+		<td>
+		<input type="text" id="q_pw_question" name="q_pw_question" size="30">
 		</td>
 		</tr>
 		
 		<tr>
-		<td width="200">퀴즈의 답 입력하기</td>
+		<td width="200"></td>
 		<td width="400">
+		퀴즈 정답 입력
+		<tr>
+		<td></td>
+		<td>
 		<input type="text" id="q_pw_reply" name="q_pw_reply" size="30">
 		</td>
 		</tr>
 		
 		<tr>
-		<td>성별</td>
+		<td><b>성별</b></td>
 		<td>
 		<input type="radio" id="q_sex" name="q_sex" value="M">남자 &nbsp;&nbsp;&nbsp;
 		<input type="radio" id="q_sex" name="q_sex" value="W">여자

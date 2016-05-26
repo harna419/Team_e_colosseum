@@ -6,21 +6,21 @@ import java.util.Vector;
 import javax.sql.*;//DataSource
 import javax.naming.*;//lookup
 
-//DAO:ºñÁö´Ï½º·ÎÁ÷
+//DAO:ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ï¿½ï¿½
 public class MemberDao {
 
-	//½Ì±ÛÅæ °´Ã¼ »ç¿ë, °´Ã¼¸¦ ÇÏ³ª¸¸ »ç¿ëÇÏµµ·Ï ÇÑ´Ù. ¸Þ¸ð¸® Àý¾àÀÌ µÈ´Ù.
-	private static MemberDao instance=new MemberDao();//°´Ã¼»ý¼º
+	//ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½, ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½. ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È´ï¿½.
+	private static MemberDao instance=new MemberDao();//ï¿½ï¿½Ã¼ï¿½ï¿½
 	
-	//JSP °´Ã¼¸¦ ¾òÀ»¶§´Â : LoginDao.getInastance()
+	//JSP ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : LoginDao.getInastance()
 	public static MemberDao getInstance(){
 		return instance;
 	}//getInstance()
 	
-	private MemberDao(){}//µðÆúÆ® »ý¼ºÀÚ. ¿ÜºÎ¿¡¼­ °´Ã¼»ý¼º ¸øÇÑ´Ù. <jsp:useBean>µµ »ç¿ë ¸øÇÔ
+	private MemberDao(){}//ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½. ï¿½ÜºÎ¿ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½. <jsp:useBean>ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 	//---------------------
-	// Ä¿³Ø¼Ç Ç® »ç¿ë ¸Þ¼­µå
+	// Ä¿ï¿½Ø¼ï¿½ Ç® ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 	//---------------------
 	private Connection getConnection() throws Exception{
 		Context ct=new InitialContext();
@@ -29,14 +29,14 @@ public class MemberDao {
 	}//getConnection()
 	
 	//----------------------
-	// È¸¿ø °¡ÀÔ
+	// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//----------------------
 	public void insertMember(MemberDto dto) throws Exception{
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		
 		try{
-			con=getConnection();//Ä¿³Ø¼Ç ¾ò´Â´Ù
+			con=getConnection();//Ä¿ï¿½Ø¼ï¿½ ï¿½ï¿½Â´ï¿½
 			String sql="insert into qz_user_info(q_id, q_pwd, q_name, q_jumin1, q_jumin2, q_nickname, q_sex, q_pw_question, q_pw_reply, q_create_time) "
 					+ " values(?,?,?,?,?,?,?,?,?,NOW())";
 			pstmt=con.prepareStatement(sql);
@@ -52,9 +52,9 @@ public class MemberDao {
 			pstmt.setString(8, dto.getQ_pw_question());
 			pstmt.setString(9, dto.getQ_pw_reply());
 		
-			pstmt.executeUpdate();//Äõ¸®¼öÇà *********
+			pstmt.executeUpdate();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ *********
 		}catch(Exception ex1){
-			System.out.println("insertMember() ¿¹¿Ü :"+ex1);
+			System.out.println("insertMember() ï¿½ï¿½ï¿½ï¿½ :"+ex1);
 		}finally{
 			try{
 				if(pstmt!=null){pstmt.close();}
@@ -66,7 +66,7 @@ public class MemberDao {
 	}//insertMember() end 
 	
 	//------------------
-	// id Áßº¹ Ã¼Å©
+	// id ï¿½ßºï¿½ Ã¼Å©
 	//------------------
 	public int confirmId(String q_id) throws Exception{
 		Connection con=null;
@@ -75,18 +75,51 @@ public class MemberDao {
 		
 		int x=-1;
 		try{
-			con=getConnection();//Ä¿³Ø¼Ç ¾ò±â
+			con=getConnection();//Ä¿ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½
 			pstmt=con.prepareStatement("select q_id from qz_user_info where q_id=?");
 			pstmt.setString(1, q_id);
-			rs=pstmt.executeQuery();//Äõ¸® ¼öÇà
+			rs=pstmt.executeQuery();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			
-			if(rs.next()){//»ç¿ëÁßÀÎ id
+			if(rs.next()){//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ id
 				x=1;
-			}else{//»ç¿ë°¡´ÉÇÑ id
+			}else{//ï¿½ï¿½ë°¡ï¿½ï¿½ï¿½ï¿½ id
 				x=-1;
 			}
 		}catch(SQLException ex1){
-			System.out.println("confirmId() ¿¹¿Ü :"+ex1);
+			System.out.println("confirmId() ï¿½ï¿½ï¿½ï¿½ :"+ex1);
+		}finally{
+			try{
+				if(rs!=null){rs.close();}
+				if(pstmt!=null){pstmt.close();}
+				if(con!=null){con.close();}
+			}catch(Exception exx){}
+		}//finally end
+		return x;
+	}//confirmId() end
+	
+	//-----------------
+	//confirm nickname
+	//----------------
+	
+	public int confirmNickname(String q_nickname) throws Exception{
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		int x=-1;
+		try{
+			con=getConnection();//Ä¿ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½
+			pstmt=con.prepareStatement("select q_nickname from qz_user_info where q_nickname=?");
+			pstmt.setString(1, q_nickname);
+			rs=pstmt.executeQuery();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			
+			if(rs.next()){//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ id
+				x=1;
+			}else{//ï¿½ï¿½ë°¡ï¿½ï¿½ï¿½ï¿½ id
+				x=-1;
+			}
+		}catch(SQLException ex1){
+			System.out.println("confirmNickname() ï¿½ï¿½ï¿½ï¿½ :"+ex1);
 		}finally{
 			try{
 				if(rs!=null){rs.close();}
@@ -98,7 +131,7 @@ public class MemberDao {
 	}//confirmId() end
 	
 	//------------------
-	// ·Î±×ÀÎ
+	// ï¿½Î±ï¿½ï¿½ï¿½
 	//------------------
 		
 	public int userCheck(String q_id,String q_pwd) throws Exception{
@@ -109,20 +142,20 @@ public class MemberDao {
 		int x=-1;
 			
 		try{
-			con=getConnection();//Ä¿³Ø¼Ç ¾ò±â
+			con=getConnection();//Ä¿ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½
 			pstmt=con.prepareStatement("select * from qz_user_info where q_id=?");
 			pstmt.setString(1, q_id);
-			rs=pstmt.executeQuery();//Äõ¸® ¼öÇà
+			rs=pstmt.executeQuery();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			
 			if(rs.next()){
 				dbPwd=rs.getString("q_pwd");
 				if(q_pwd.equals(dbPwd)){
-					x=1;//ÀÎÁõ¼º°ø
+					x=1;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				}else{
-					x=0;//¾ÏÈ£°¡ Æ²¸²
+					x=0;//ï¿½ï¿½È£ï¿½ï¿½ Æ²ï¿½ï¿½
 				}
 			}else{
-				x=-1;//ÇØ´ç ¾ÆÀÌµð ¾øÀ½
+				x=-1;//ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 			}//else
 				
 		}catch(Exception ex){
@@ -139,7 +172,7 @@ public class MemberDao {
 	}//userCheck() end
 	
 	//-----------------------
-	//È¸¿øÁ¤º¸ ¼öÁ¤ : À¥¿¡ Ãâ·Â
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	//-----------------------
 	
 	public MemberDto getMember(String q_id) throws Exception{
@@ -149,9 +182,9 @@ public class MemberDao {
 		MemberDto dto=null;
 		
 		try{
-			con=getConnection();//Ä¿³Ø¼Ç ¿¬°á¾ò±â
+			con=getConnection();//Ä¿ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			pstmt=con.prepareStatement("select * from qz_user_info where q_id='"+q_id+"'");
-			rs=pstmt.executeQuery();//Äõ¸® ¼öÇà
+			rs=pstmt.executeQuery();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(rs.next()){
 					
 				dto=new MemberDto();
@@ -184,7 +217,7 @@ public class MemberDao {
 	}//getMember() end
 	
 	//---------------------
-	// È¸¿øÁ¤º¸ ¼öÁ¤ : DB ¼öÁ¤
+	// È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : DB ï¿½ï¿½ï¿½ï¿½
 	//---------------------
 	
 	public void updateMember(MemberDto dto) throws Exception{
@@ -192,9 +225,9 @@ public class MemberDao {
 		PreparedStatement pstmt=null;
 		
 		try{
-			con=getConnection();//Ä¿³Ø¼Ç ¾ò±â
+			con=getConnection();//Ä¿ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½
 			String sql="update qz_user_info set q_pwd=?, q_name=?, q_nickname=?, q_sex=?, q_pw_question=?, q_pw_reply=?, q_modify_time=NOW() where q_id=?";
-			pstmt=con.prepareStatement(sql);//»ý¼º½Ã ÀÎÀÚ µé¾î°£´Ù 
+			pstmt=con.prepareStatement(sql);//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°£ï¿½ï¿½ 
 			
 			//String pw=dto.getPasswd();
 			pstmt.setString( 1, dto.getQ_pwd());
@@ -205,10 +238,10 @@ public class MemberDao {
 			pstmt.setString( 6, dto.getQ_pw_reply());
 			pstmt.setString( 7, dto.getQ_id());
 		
-			pstmt.executeUpdate();//Äõ¸® ¼öÇà
+			pstmt.executeUpdate();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			
 		}catch(Exception ex){
-			System.out.println("updateMember() ¿¹¿Ü:"+ex);
+			System.out.println("updateMember() ï¿½ï¿½ï¿½ï¿½:"+ex);
 		}finally{
 			try{
 				if(pstmt!=null){pstmt.close();}
@@ -218,7 +251,7 @@ public class MemberDao {
 	}//updateMember() end
 	
 	//-----------
-	// È¸¿øÅ»Åð
+	// È¸ï¿½ï¿½Å»ï¿½ï¿½
 	//-----------
 	public int deleteMember(String q_id, String q_pwd) throws Exception{
 		Connection con=null;
@@ -232,23 +265,23 @@ public class MemberDao {
 			con=getConnection();
 			pstmt=con.prepareStatement("select q_pwd from qz_user_info where q_id=?");
 			pstmt.setString(1,q_id);
-			rs=pstmt.executeQuery();//Äõ¸® ½ÇÇà
+			rs=pstmt.executeQuery();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			
 			if(rs.next()){
 				dbPwd=rs.getString("q_pwd");
 				if(dbPwd.equals(q_pwd)){
 					pstmt2=con.prepareStatement("delete from qz_user_info where q_id=?");
 					pstmt2.setString(1, q_id);
-					pstmt2.executeUpdate();//Äõ¸® ½ÇÇà
-					x=1; // È¸¿ø Å»Åð
+					pstmt2.executeUpdate();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+					x=1; // È¸ï¿½ï¿½ Å»ï¿½ï¿½
 				}else{
-					x=-1; // ºñ¹Ð¹øÈ£ Æ²¸²
+					x=-1; // ï¿½ï¿½Ð¹ï¿½È£ Æ²ï¿½ï¿½
 				}
 			}else{
-				x=0; //Á¸ÀçÇÏÁö ¾ÊÀ» ¶§
+				x=0; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 			}			
 		}catch(Exception ex){
-			System.out.println("deleteMember() ¿¹¿Ü:"+ex);
+			System.out.println("deleteMember() ï¿½ï¿½ï¿½ï¿½:"+ex);
 		}finally{
 			try{
 				if(rs!=null){rs.close();}
@@ -261,7 +294,7 @@ public class MemberDao {
 	}//deleteMember() end 
 	
 	//---------------------------
-	//ºñ¹Ð¹øÈ£ Ã£±â
+	//ï¿½ï¿½Ð¹ï¿½È£ Ã£ï¿½ï¿½
 	//---------------------------
 	
 	public int pwdFind(String q_id,String q_name,int q_jumin1, int q_jumin2) throws Exception{
@@ -274,26 +307,26 @@ public class MemberDao {
 		int x=-1;
 			
 		try{
-			con=getConnection();//Ä¿³Ø¼Ç ¾ò±â
+			con=getConnection();//Ä¿ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½
 			pstmt=con.prepareStatement("select * from qz_user_info where q_id=?");
 			pstmt.setString(1, q_id);
-			rs=pstmt.executeQuery();//Äõ¸® ¼öÇà
+			rs=pstmt.executeQuery();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			
 			if(rs.next()){
 				dbq_name=rs.getString("q_name");
 				dbq_jumin1=rs.getInt("q_jumin1");
 				dbq_jumin2=rs.getInt("q_jumin2");
 				if(q_name.equals(dbq_name) && q_jumin1==(dbq_jumin1) && q_jumin2==(dbq_jumin2)){
-					x=1;//ÀÎÁõ¼º°ø
+					x=1;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				}else{
-					x=0;//¾ÏÈ£°¡ Æ²¸²
+					x=0;//ï¿½ï¿½È£ï¿½ï¿½ Æ²ï¿½ï¿½
 				}
 			}else{
-				x=-1;//ÇØ´ç ¾ÆÀÌµð ¾øÀ½
+				x=-1;//ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 			}//else
 				
 		}catch(Exception ex){
-			System.out.println("pwdFind() ¿¹¿Ü:"+ex);
+			System.out.println("pwdFind() ï¿½ï¿½ï¿½ï¿½:"+ex);
 		}finally{
 			try{
 				if(rs!=null){rs.close();}
@@ -306,7 +339,7 @@ public class MemberDao {
 	}//pwdFind() end
 	
 	//--------------------------
-	//ºñ¹Ð¹øÈ£ Áú¹® °¡Á®¿À±â
+	//ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	//--------------------------
 	public MemberDto pwdQuestion(String q_id) throws Exception{
 		Connection con=null;
@@ -315,9 +348,9 @@ public class MemberDao {
 		MemberDto dto=null;
 		
 		try{
-			con=getConnection();//Ä¿³Ø¼Ç ¿¬°á¾ò±â
+			con=getConnection();//Ä¿ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			pstmt=con.prepareStatement("select q_pw_question, q_pw_reply from qz_user_info where q_id='"+q_id+"'");
-			rs=pstmt.executeQuery();//Äõ¸® ¼öÇà
+			rs=pstmt.executeQuery();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(rs.next()){
 					
 				dto=new MemberDto();
@@ -328,7 +361,7 @@ public class MemberDao {
 			}//if
 				
 		}catch(Exception ex){
-			System.out.println("pwdQuestion() ¿¹¿Ü:"+ex);
+			System.out.println("pwdQuestion() ï¿½ï¿½ï¿½ï¿½:"+ex);
 		}finally{
 			try{
 				if(rs!=null){rs.close();}
@@ -340,24 +373,24 @@ public class MemberDao {
 	}//pwdQuestion() end
 	
 	//-------------------------------
-	//ºñ¹Ð¹øÈ£ Àç¼³Á¤
+	//ï¿½ï¿½Ð¹ï¿½È£ ï¿½ç¼³ï¿½ï¿½
 	//-------------------------------
 	public void updatePwd(MemberDto dto) throws Exception{
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		
 		try{
-			con=getConnection();//Ä¿³Ø¼Ç ¾ò±â
+			con=getConnection();//Ä¿ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½
 			String sql="update qz_user_info set q_pwd=? where q_id=?";
-			pstmt=con.prepareStatement(sql);//»ý¼º½Ã ÀÎÀÚ µé¾î°£´Ù 
+			pstmt=con.prepareStatement(sql);//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°£ï¿½ï¿½ 
 			
 			pstmt.setString( 1, dto.getQ_pwd());
 			pstmt.setString( 2, dto.getQ_id());
 		
-			pstmt.executeUpdate();//Äõ¸® ¼öÇà
+			pstmt.executeUpdate();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			
 		}catch(Exception ex){
-			System.out.println("updatePwd() ¿¹¿Ü:"+ex);
+			System.out.println("updatePwd() ï¿½ï¿½ï¿½ï¿½:"+ex);
 		}finally{
 			try{
 				if(pstmt!=null){pstmt.close();}
@@ -373,15 +406,15 @@ public class MemberDao {
 		ResultSet rs=null;
 		String id=null;
 		try{
-			con=getConnection();//Ä¿³Ø¼Ç ¿¬°á¾ò±â
+			con=getConnection();//Ä¿ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			pstmt=con.prepareStatement("select q_id from qz_user_info where q_name='"+q_name+"' and q_jumin1='"+q_jumin1+"'and q_jumin2='"+q_jumin2+"'");
-			rs=pstmt.executeQuery();//Äõ¸® ¼öÇà
+			rs=pstmt.executeQuery();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(rs.next()){				
 				id = rs.getString("q_id");
 			}//if
 				
 		}catch(Exception ex){
-			System.out.println("showId() ¿¹¿Ü:"+ex);
+			System.out.println("showId() ï¿½ï¿½ï¿½ï¿½:"+ex);
 		}finally{
 			try{
 				if(rs!=null){rs.close();}
