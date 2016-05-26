@@ -51,6 +51,12 @@ public class MemberDao {
 			pstmt.setString(7, dto.getQ_sex());
 			pstmt.setString(8, dto.getQ_pw_question());
 			pstmt.setString(9, dto.getQ_pw_reply());
+			
+			
+			System.out.println("Q_id"+dto.getQ_id());
+			System.out.println("Q_pwd"+dto.getQ_pwd());
+			System.out.println("Q_name"+dto.getQ_name());
+
 		
 			pstmt.executeUpdate();//Äõ¸®¼öÇà *********
 		}catch(Exception ex1){
@@ -60,6 +66,8 @@ public class MemberDao {
 				if(pstmt!=null){pstmt.close();}
 				if(con!=null){con.close();}
 			}catch(Exception exx){}
+			
+			
 		}//finally end
 	}//insertMember() end 
 	
