@@ -19,7 +19,7 @@
 
 <a href="Menu1.jsp" class="menu_link" >
 <span id="menu1" data-color="#f2b701" class="menu_button"  style="background-color: #f2b701;"> 
- <span  >콜로세움이란?</span> </span>
+ <span > 소 개 </span> </span>
 </a>
 
 <a href="Menu2.jsp" class="menu_link">
@@ -29,17 +29,17 @@
 
 <a href="Menu3.jsp" class="menu_link">
 <span id="menu3" data-color="#dc0030" class="menu_button"  style="background-color: #dc0030;"> 
-<span > 문제 게시판 </span> </span>
+<span > 퀴 즈 </span> </span>
 </a>
 
 <a href="Menu4.jsp" class="menu_link">
 <span id="menu4" data-color="#b10058" class="menu_button"  style="background-color: #b10058;"> 
-<span >자유 게시판</span>  </span>
+<span > 자유게시판 </span>  </span>
 </a>
 
 <a href="Menu5.jsp" class="menu_link">
 <span id="menu5" data-color="#7c378a" class="menu_button"  style="background-color: #7c378a;"> 
-<span >QnA</span> </span>
+<span > QnA </span> </span>
 </a>
 
 <a href="Menu6.jsp" class="menu_link">
@@ -49,12 +49,12 @@
 
 <a href="Menu7.jsp" class="menu_link">
 <span id="menu7" data-color="#7cb854" class="menu_button"  style="background-color: #7cb854;"> 
-<span >학습 모드</span>  </span>
+<span > 학습 모드 </span>  </span>
 </a>
 
 <a href="Menu8.jsp" class="menu_link">
 <span id="menu8" data-color="#09a275" class="menu_button"  style="background-color: #09a275;"> 
-<span >개발진 소개</span> </span>
+<span > 개발진 소개 </span> </span>
 </a>
 
 </div>	<!-- Intro_menu end -->

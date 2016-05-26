@@ -118,21 +118,21 @@ background-size: 60px 60px;
 
 
 #menu2{ 
-background-image: url('./imgs/opti1-01.svg');
+background-image: url('./imgs/opti1-02.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
 }
 
 #menu3{ 
-background-image: url('./imgs/opti1-01.svg');
+background-image: url('./imgs/opti1-03.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
 }
 
 #menu4{ 
-background-image: url('./imgs/opti1-01.svg');
+background-image: url('./imgs/opti1-04.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
@@ -140,7 +140,7 @@ background-size: 60px 60px;
 }
 
 #menu5{ 
-background-image: url('./imgs/opti1-01.svg');
+background-image: url('./imgs/opti1-05.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
@@ -148,7 +148,7 @@ background-size: 60px 60px;
 }
 
 #menu6{ 
-background-image: url('./imgs/opti1-01.svg');
+background-image: url('./imgs/opti1-06.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
@@ -156,7 +156,7 @@ background-size: 60px 60px;
 }
 
 #menu7{ 
-background-image: url('./imgs/opti1-01.svg');
+background-image: url('./imgs/opti1-07.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
@@ -164,7 +164,7 @@ background-size: 60px 60px;
 }
 
 #menu8{ 
-background-image: url('./imgs/opti1-01.svg');
+background-image: url('./imgs/opti1-08.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
