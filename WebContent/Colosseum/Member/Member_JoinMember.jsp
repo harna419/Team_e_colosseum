@@ -4,6 +4,11 @@
 <html>
 <head>
 <%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
+<style type="text/css">
+td{
+ color:#FFDC7E
+}
+</style>
 <script>
 	var Id_Check=-1;
 	function checkIt(){
@@ -104,18 +109,19 @@
 <body>
 
 <form method="post" name="userForm" action="./Member/Member_JoinMemberPro.jsp" onSubmit="return checkIt()">
-<table width="650" border="1" cellpadding="3" cellspacing="0">
+<table width="650" cellpadding="3" cellspacing="0">
 	
 	<tr>
 	<td colspan="2" height="30" align="center">	
-	<h1><b><br>가입하기</b></h1><br>
-	간단하게 가입 합시다.<br>
-	이메일로 간단하게 콜로세움을 이용하세요!
+	<h1 style=color:#FFDC7E><b><br>가입하기</b></h1><br>
+	
+	<p style=color:#FFDC7E>간단하게 가입 합시다.<br>
+	이메일로 간단하게 콜로세움을 이용하세요!</p>
 	</td>
 	</tr>	
 	
 	<tr>
-	<td width="200" ><b>로그인 정보 입력</b></td>
+	<td width="200"><b>로그인 정보 입력</b></td>
 	<td width="400" >&nbsp;</td>
 	</tr>
 	

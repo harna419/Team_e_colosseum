@@ -15,7 +15,7 @@ List quizList;
 <html>
 	<head>
 		<link href="style.css" rel="stylesheet" type="text/css">		
-		<center><h1>퀴즈리스트</h1></center>
+		<center><h1 style=color:#FFC6C6>퀴즈리스트</h1></center>
 		<%-- <center><a href="../Colosseum/Board/Quiz_input/Quiz_RegisterForm.jsp"><button>퀴즈등록</button></a></center>--%>
 		
 		<script type="text/javascript">
@@ -46,7 +46,7 @@ List quizList;
 		if(quizList.isEmpty()){
 	%>
 		<br><br><br><br><br><br><br>
-		<center><h1>등록된 문제가 없습니다.</h1></center>
+		<center><h1 style=color:#FFC6C6>등록된 문제가 없습니다.</h1></center>
 	<%
 		}else{
 			

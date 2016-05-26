@@ -103,6 +103,10 @@
 		    display: block;
 		    z-index: 1;
 		    }
+		    a, a:link, a:active, a:visited{
+		    	text-decoration:none;
+		    	color:#FFB4FF;
+		    }
 		    
 		    </style>
 		    <script type="text/javascript">
@@ -200,9 +204,9 @@
     	<div>
     		<table align="center" border=0 width=56%>
 	    		<tr>
-	    		<td><h3>게시판</h3></td>
+	    		<td><h3 style=color:#FFB4FF>게시판</h3></td>
 	    		<td align="right">
-	  	  			Total:<font color="red"><%=totalRecord %></font>
+	  	  			<span style=color:#FFB4FF>Total:</span><font color="#FFBB00"><%=totalRecord %></font>
 	    			
 	    		</td>
 	    		</tr>
@@ -216,7 +220,7 @@
     	<span>
     	<%
     	if(vec.isEmpty()){
-    		out.println("등록한 글이 없습니다");
+    		out.println("<div style=color:#FFB4FF>등록한 글이 없습니다</div>");
     	}else{//등록한 글이 있으면
     		%>
     		
