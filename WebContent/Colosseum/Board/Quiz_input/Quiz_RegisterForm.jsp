@@ -12,7 +12,49 @@ request.setCharacterEncoding("utf-8");
 		<script type="text/javascript" src="single_add.js"></script>
 		<script type="text/javascript" src="multi_add.js"></script>
 		<script type="text/javascript">
+		
+		
 		totalCnt=0;//문제 개수
+		
+		function checkIt(){
+			if($("#q_title").val()==""){
+				alert("퀴즈 대표제목을 입력해주세요");
+				$('#q_title').val('').focus();
+				return false;
+			}//q_title
+		
+			if($("#q_title_img").val()==""){
+				alert("퀴즈 대표 이미지를 첨부해주세요");
+				$('#q_title_img').val('').focus();
+				return false;
+			}//q_title
+			
+			if($("#word_subject"+totalCnt).val()==""){
+				alert("문제제목을 입력해주세요");
+				$('#word_subject'+totalCnt).val('').focus();
+				return false;
+			}//q_subject
+			
+			if($("#word_content"+totalCnt).val()==""){
+				alert("문제내용을 입력해주세요");
+				$('#word_content'+totalCnt).val('').focus();
+				return false;
+			}//q_content
+			
+			if($("#Word_file"+totalCnt).val()==""){
+				alert("문제내용 이미지을 첨부하세요");
+				$('#Word_file'+totalCnt).val('').focus();
+				return false;
+			}//q_content_img
+			
+			if($("#word_real_reply"+totalCnt+'1').val()==""){
+				alert("문제 정답을 입력해주세요");
+				$('#word_real_reply'+totalCnt+'1').val('').focus();
+				return false;
+			}//q_content_img
+			
+			document.Quiz_RegisterForm.submit();
+		}
 		
 		function add(){
 			
@@ -29,13 +71,13 @@ request.setCharacterEncoding("utf-8");
 						
 				$("<table align='center' id='"+totalCnt+"'>"
 				+"<tr><td>항목 제목</td>"+
-				"<td><input type='text' name='q_subject"+totalCnt+"' id='Word_subject"+totalCnt+"' size='60' value=''></td>"
+				"<td><input type='text' name='q_subject"+totalCnt+"' id='word_subject"+totalCnt+"' size='60' value=''></td>"
 				+"</tr>"
 				+"<tr><td>항목 설명</td>"
-				+"<td><input type='text' name='q_content"+totalCnt+"' id='Word_content"+totalCnt+"' size='60' value=''></td>"
-				+"<td><input type='file' name='q_content_img"+totalCnt+"' id='Word_file"+totalCnt+"'></td>"
+				+"<td><input type='text' name='q_content"+totalCnt+"' id='word_content"+totalCnt+"' size='60' value=''></td>"
+				+"<td><input type='file' name='q_content_img"+totalCnt+"' id='word_file"+totalCnt+"'></td>"
 				+"</tr>"
-				+"<tr><td>답변</td><td><input type='text' name='q_real_reply"+totalCnt+"1' size='60' value=''></td>"
+				+"<tr><td>답변</td><td><input type='text' name='q_real_reply"+totalCnt+"1' id='word_real_reply"+totalCnt+"1' size='60' value=''></td>"
 				+"</tr>"
 				+"</table>"
 				+"<input type='hidden' name='q_quiz_type"+totalCnt+"' value='100'>'").appendTo("#Quiz_RegisterForm");
@@ -126,7 +168,7 @@ request.setCharacterEncoding("utf-8");
 	<form name="Quiz_RegisterForm" id="Quiz_RegisterForm" method="post" action="Board/Quiz_input/Quiz_RegisterProc.jsp" enctype="multipart/form-data">
 		<table align="center">
 		<tr>
-			<td><input type="text" name="q_title" id="subject" value="제목입력폼" size=60></td>
+			<td><input type="text" name="q_title" id="q_title" value="제목입력폼" size=60></td>
 			<td><input type="file" name="q_title_img" id="file" value="첨부버튼"></td>
 		</tr>
 		</table>
@@ -146,7 +188,7 @@ request.setCharacterEncoding("utf-8");
 		</table>
 		
 		<center>
-			<input type="submit" value="저장">
+			<input type="button" onclick="checkIt()" value="저장">
 			<input type="button" onclick="add()" value="추가">
 			<input type="reset" value="취소">
 			<input type="hidden" name="check" id="check" value="개수구하기">
