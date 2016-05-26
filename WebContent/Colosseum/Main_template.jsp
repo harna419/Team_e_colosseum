@@ -68,9 +68,9 @@ html body{height: 100%; margin: 0px;padding: 0px;}
 
 #content_block{position: absolute;width:90%;height: 90%;top:10%; right:0%; background-color: #f2b701; }
 #back_intro{
-position: absolute;
-top: 0%;
-right: 5%;
+position: fixed;
+top: 1%;
+right: 7%;
 
   	float:left;
     /*overflow:hidden;  this is important 이 부분이 넘치는 부분을 생략해준다.*/
@@ -169,19 +169,70 @@ background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
 
+}
+
+#whitebox{
+position: absolute;
+top: 0%;
+left: 10%;
+display: block;
+background-color: white;
+width: 70%;
+height:100%;
+
+}
+
 </style>
 
 </head>
 <body id="main" onLoad="move(<%=request.getParameter("afternum")%>)">
+
 <div id="Intro_menu"><jsp:include page='home_wrap.jsp'/></div>
 <div> <!-- main page-->
 <div id="top"><jsp:include page="Top.jsp"/></div>
-<div id="content_block"><jsp:include page='<%=pageFile %>'/></div>
+<div id="content_block">
+<%
+if(pageFile.equals("Menu1.jsp")){
+	%>
+	<jsp:include page='<%=pageFile %>'/>
+	<%
+}else if(pageFile.equals("./Member/Member_JoinMember.jsp")){
+	%>
+	<jsp:include page='<%=pageFile %>'/>
+	<%
+}else if(pageFile.equals("./Board/Quiz_view/Quiz_list.jsp")){
+	%>
+	<jsp:include page='<%=pageFile %>'/>
+	<%
+}else if(pageFile.equals("./Board/Quiz_Board/Board_List.jsp")){
+	%>
+	<div id="whitebox"><jsp:include page='<%=pageFile %>'/></div>
+	<%
+}else if(pageFile.equals("./Qna/Qna_List.jsp")){
+	%>
+	<div id="whitebox"><jsp:include page='<%=pageFile %>'/></div>
+	<%
+}else if(pageFile.equals("Menu6.jsp")){
+	%>
+	<jsp:include page='<%=pageFile %>'/>
+	<%
+}else if(pageFile.equals("Menu7.jsp")){
+	%>
+	<jsp:include page='<%=pageFile %>'/>
+	<%
+}else if(pageFile.equals("Menu8.jsp")){
+	%>
+	<jsp:include page='<%=pageFile %>'/>
+	<%
+}
+%>
+</div>
+</div>
 
 <div id="back_intro">
 <br>
 <%--<font size="5">마이페이지</font> --%>
-<img src="./imgs/coloured-lines-portable-logo.png" width="250" height="60" >
+<img src="./imgs/colosseum_logo_20160527.png" width="250" height="60" >
 </div>
 </div><!-- main page end-->
 
