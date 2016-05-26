@@ -42,7 +42,7 @@ MemberDto mdto=mdao.getMember(q_id);
 				  }else{
 				  alert("취소되었습니다.");
 				  }
-		 }//zipCheck() end 
+		 }//deleteCheck end 
 		 
 		 function update(q_num){
 			 

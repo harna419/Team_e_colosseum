@@ -264,12 +264,21 @@ option{
     		document.listForm.submit();
     	}//list() end
     	
-    	function content(valuess){
+    	function content(q_num){
     		
-    		document.readForm.action="Qna_Content.jsp";//글 내용 보기
-    		document.readForm.q_num.value=valuess;//글번호
-    		document.readForm.submit();
+    		//document.readForm.action="Qna_Content.jsp";//글 내용 보기
+    		//document.readForm.q_num.value=valuess;//글번호
+    		//document.readForm.submit();
+    		movePageUrl('/Colosseum/Qna/Qna_Content.jsp?q_num='+q_num);
+    		
     	}//read() end
+    	
+    	function clicked(nickname){
+	    	alert("clicked글쓰기");
+	    	
+	    	movePageUrl('./Qna/Qna_Write.jsp?q_nickname='+nickname);
+	    	
+	    }
     	
     </script>
     
@@ -419,7 +428,8 @@ option{
     	</span>
     	
     	<div class=boardBtn>    	
-    		<a href="Qna_Write.jsp?q_nickname=<%=nickname%>"><img src="imgs/boardBtn01.png"></a>
+    		<%--<a href="Qna_Write.jsp?q_nickname=<%=nickname%>"><img src="imgs/boardBtn01.png"></a> --%>
+    		<img src="imgs/boardBtn01.png" onclick="javascript:clicked('<%=nickname%>')">
     	</div><!-- boardBtn -->
     	
     	</div><!-- paging -->

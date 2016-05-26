@@ -145,19 +145,23 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 }
 	</style>
 	
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
 	<script>
 	
-	function deleteCheck(){
-		
-		
+	function deleteCheck(){//삭제 버튼 클릭시 선택창이 뜨게 합니다
 		if (window.confirm("정말로 삭제하시겠습니까?")){
 			  alert("삭제되었습니다.");
-			  location.href="Qna_Delete.jsp?page=<%=nowPage %>&q_num=<%=q_num %>";
+			  location.href="Qna/Qna_Delete.jsp?page=1&q_num=<%=q_num %>";
 			  }else{
 			  alert("취소되었습니다.");
 			  }
-	 }//zipCheck() end 
+	 }//deleteCheck end 
+	 
+	 function update(q_num){
+		 
+		 movePageUrl("Qna_Update.jsp?&q_num="+q_num);
+		 
+	 }
 	 <%--
 	 $(function(){
 		//alert("ddd")
@@ -210,7 +214,7 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 				<%
 				if(q_nickname.equals(q_nickname2)){
 				%>
-				<a href="Qna_Update.jsp?page=<%=nowPage %>&q_num=<%=q_num %>"><img src="imgs/change.png" class="btn_vim"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="imgs/change.png" onclick="updateCheck()" class="btn_vim"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<img src="imgs/del.png" onclick="deleteCheck()" class="btn_vim">
 				<%
 				}else{
