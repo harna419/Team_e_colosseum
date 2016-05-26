@@ -224,6 +224,10 @@ if(pageFile.equals("Menu1.jsp")){
 	%>
 	<jsp:include page='<%=pageFile %>'/>
 	<%
+}else{
+	%>
+	<jsp:include page='<%=pageFile %>'/>
+	<%
 }
 %>
 </div>
