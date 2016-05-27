@@ -22,13 +22,13 @@ List quizList;
 		 
 		 function clicked(q_dep_num,q_dep_step){
 			 
-	         //alert("클릭함")
+	         alert("클릭함")
 	         movePageUrl('/Colosseum/Board/Quiz_view/Quiz_Study_View.jsp?q_dep_num='+q_dep_num+'&q_dep_step='+q_dep_step);
 	         
 	      }
 		 
 		 function addbutton(){
-			 //alert("문제추가")
+			 alert("문제추가")
 			 movePageUrl('../Colosseum/Board/Quiz_input/Quiz_RegisterForm.jsp');
 		 }
 		 
@@ -52,11 +52,11 @@ List quizList;
 			
 			//등록된 문제가 있으면
 	%>
-		<table border=0 width=80 cellpadding=2 cellspacing=0 align=center>
+		<table border=0 width=80 cellpadding=10 cellspacing=8 align=center>
 			<tr>
 			<%	for(int i=0; i<quizList.size(); i++){
 				
-				if(i%3==0){
+				if(i%4==0){
 					out.println("</tr><tr>");
 				}//if
 				
@@ -68,16 +68,19 @@ List quizList;
 						<tr>
 							<td align="center"><%-- --%>
 								<%-- <a href="Quiz_Study_View.jsp?q_dep_num=<%=bean.getQ_dep_num()%>&q_dep_step=<%=bean.getQ_dep_step() %>">--%>
-									<img onclick="javascript:clicked(<%=bean.getQ_dep_num()%>,<%=bean.getQ_dep_step()%>)" src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_title_img() %>" id="q_dep_num<%=bean.getQ_dep_num()%>" width="250" height="200">
+									<img onclick="javascript:clicked(<%=bean.getQ_dep_num()%>,<%=bean.getQ_dep_step()%>)" src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_title_img() %>" id="q_dep_num<%=bean.getQ_dep_num()%>" width="300" height="250">
+									
 								<%-- </a>--%>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<center><%=bean.getQ_title() %></center>
+								
 							</td>
 							
 						</tr>
+							
 					</table>
 				</td>
 				<%
