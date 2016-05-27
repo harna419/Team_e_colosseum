@@ -97,6 +97,40 @@ public class MemberDao {
 		return x;
 	}//confirmId() end
 	
+  //-----------------
+  //confirm nickname
+  //----------------
+  
+  public int confirmNickname(String q_nickname) throws Exception{
+      Connection con=null;
+      PreparedStatement pstmt=null;
+      ResultSet rs=null;
+      
+      int x=-1;
+      try{
+          con=getConnection();          
+          pstmt=con.prepareStatement("select q_nickname from qz_user_info where q_nickname=?");
+          pstmt.setString(1, q_nickname);
+          rs=pstmt.executeQuery();
+          
+          if(rs.next()){
+              x=1;
+          }else{
+              x=-1;
+         }
+	     }catch(SQLException ex1){
+	         System.out.println("confirmNickname() ï¿½ï¿½ï¿½ï¿½ :"+ex1);
+	      }finally{
+           try{
+        	    if(rs!=null){rs.close();}
+	            if(pstmt!=null){pstmt.close();}
+				if(con!=null){con.close();}
+		}catch(Exception exx){}
+      }//finally end
+      	return x;
+  	}//insertMember() end 
+
+	
 	//------------------
 	// ·Î±×ÀÎ
 	//------------------
