@@ -50,9 +50,7 @@ a { text-decoration:none; color:#000; }
 .tab_con { clear:both; margin-top:5px; border:1px solid #ddd;  width:80%;}
 .tab_con div { display:none; height:600px; background:#fff; line-height:50px; text-align:left;}
 th { background-color: #eee; display: table-cell; vertical-align: inherit; }
-span{
-margin-top:-50px;
-} 	
+
 </style>
  
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -60,7 +58,7 @@ margin-top:-50px;
 <script type="text/javascript">
 $(function () {	
 	tab('#tab',0);	
-	$('#modify').css('width',700);
+	//$('#modify').css('width',700);
 
   $("#selectAll").click(function(){
       //클릭되었으면
@@ -166,7 +164,7 @@ function delMsg() {
 <div class="tab_con" id="tab_con">
     <div><form method="post" name="userForm" action="ModifyProc.jsp" onSubmit="return checkIt()">
 	<strong style="font-size:15px;">내 정보 조회 및 수정</strong>
-	<table id="modify" border=1 cellspacing=0 cellpadding=3 align=center style="line-height:3; border:1px solid #aaa; border-collapse:collapse;">
+	<table id="modify" border=1 cellspacing=0 cellpadding=3 align=center width="80%" style="line-height:3; border:1px solid #aaa; border-collapse:collapse;">
 		<tr>
 			<th>사용자ID</th>
 			<td><%=dto.getQ_id() %></td>
@@ -334,7 +332,7 @@ function delMsg() {
    
     	<table align="center">
     		<tr>
-    		<td><img src="./imgs/a2.jpg" width="200px" height="200px"></td>
+    		<td><img src="../imgs/Bruce.jpg" width="200px" height="200px" style="position:relative"></td>
     		<td>
 				<p> ID : <%=q_id %></p>
 				<p> NickName : <%=q_nickname %></p>
