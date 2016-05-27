@@ -115,7 +115,7 @@ $(function(){
 	    $($(this).attr("href")).toggle();
 	        return false;
 	    });
-	    //}
+	    
 
 $('#css_tabs > div > p > a').hover(
 

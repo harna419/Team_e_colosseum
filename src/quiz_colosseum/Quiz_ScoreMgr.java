@@ -67,7 +67,7 @@ public class Quiz_ScoreMgr {
 					}//while end
 					
 					//결과 전송후 출력Query
-					sql="select * from qz_quiz_history where q_quiz_num="+q_dep_num+" and q_id='"+userid+"' order by q_quiz_step asc limit 1,"+nowcount;
+					sql="select * from qz_quiz_history where q_quiz_num="+q_dep_num+" and q_id='"+userid+"' order by q_quiz_step asc limit 0,"+nowcount;
 							
 					stmt=con.createStatement();
 					rs=stmt.executeQuery(sql);

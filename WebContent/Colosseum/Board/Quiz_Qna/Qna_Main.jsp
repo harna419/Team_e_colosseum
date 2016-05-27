@@ -19,9 +19,9 @@ html body{height: 100%; margin: 0px;padding: 0px;}
 }
 .content{
 	position: absolute;
-	width: 50%;
+	width: 70%;
 	height: 100%;
-	left: 25%	
+	left: 10%	
 }
 h3 {
 	width: 100%;
@@ -85,7 +85,7 @@ center{
 
 .boxCon #btn{
 	top: 30%;
-	left: 20%;
+	left: 25%;
 	width: 100%;
 	height: 50%;
 	position:absolute;
@@ -96,15 +96,35 @@ center{
 	margin: 0 auto;
 }
 #faq_box{
-	margin-left: 25%;
+	margin-left: 23%;
     width: 100%;
     height: 100%;
 }
 
 
 </style>
+
+<script type="text/javascript">
+
+
+function qnago(rr){
+	
+	movePageUrl('./Board/Quiz_Qna/Qna_List.jsp')
+	
+}
+function kingo(rr){
+	movePageUrl('./Board/Quiz_Qna/Qna_Kin_List.jsp')
+}
+function freego(rr){
+	movePageUrl('./Board/Quiz_Board/Board_List.jsp')
+}
+</script>
 </head>
-<body>
+<%
+String abc=request.getParameter("qnanum");
+System.out.println("abc:"+abc);
+%>
+<body onload="qkqh()">
 	<div class="container">
 	<div class="content">
 		 
@@ -119,9 +139,9 @@ center{
 	<div class="boxCon">
 	
 		<div id="btn">
-			<a href="Qna_List.jsp"><img src="imgs/qna.png"></a>
-			<a href="Qna_Kin_List.jsp"><img src="imgs/kin.png"></a>
-			<a href="../Board/Board_List.jsp"><img src="imgs/free.png"></a>
+			<a href="javascript:qnago(<%=abc%>)"><img src="imgs/qna.png"></a>
+			<a href="javascript:kingo(<%=abc%>)"><img src="imgs/kin.png"></a>
+			<a href="javascript:freego(<%=abc%>)"><img src="imgs/free.png"></a>
 		</div>
 	
 	</div>
@@ -129,6 +149,8 @@ center{
 	<div id="faq">
 		<div id="faq_box"><jsp:include page="Qna_Faq.jsp"/></div>
 	</div>
+
+	
 	</div><!-- content -->
 	</div><!-- container -->
 </body>

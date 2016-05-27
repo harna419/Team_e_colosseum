@@ -21,7 +21,6 @@ if(nextColor == null){
 	nextColor="#3D68A6";
 }
 System.out.println(pageFile);
-
 %>
 
 <html>
@@ -46,7 +45,7 @@ function move(afternum){
 		movePageUrl("Board/Quiz_Board/Board_List.jsp")
 	}
 	if(afternum==5){//QNA
-		movePageUrl("Qna/Qna_List.jsp")
+		movePageUrl("Board/Quiz_Qna/Qna_Main.jsp?qnanum=1")
 	}
 	if(afternum==6){//명예의전당
 		movePageUrl("Menu6.jsp")

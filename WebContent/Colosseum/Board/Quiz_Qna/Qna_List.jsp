@@ -280,7 +280,7 @@ option{
     	function clicked(nickname){
 	    	alert("clicked글쓰기");
 	    	
-	    	movePageUrl('./Qna/Qna_Write.jsp?q_nickname='+nickname);
+	    	movePageUrl('./Board/Quiz_Qna/Qna_Write.jsp?q_nickname='+nickname);
 	    	
 	    }
     	
