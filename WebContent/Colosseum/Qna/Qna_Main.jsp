@@ -19,9 +19,9 @@ html body{height: 100%; margin: 0px;padding: 0px;}
 }
 .content{
 	position: absolute;
-	width: 50%;
+	width: 70%;
 	height: 100%;
-	left: 25%	
+	left: 10%	
 }
 h3 {
 	width: 100%;
@@ -85,7 +85,7 @@ center{
 
 .boxCon #btn{
 	top: 30%;
-	left: 20%;
+	left: 25%;
 	width: 100%;
 	height: 50%;
 	position:absolute;
@@ -96,7 +96,7 @@ center{
 	margin: 0 auto;
 }
 #faq_box{
-	margin-left: 25%;
+	margin-left: 23%;
     width: 100%;
     height: 100%;
 }
@@ -129,6 +129,8 @@ center{
 	<div id="faq">
 		<div id="faq_box"><jsp:include page="Qna_Faq.jsp"/></div>
 	</div>
+
+	
 	</div><!-- content -->
 	</div><!-- container -->
 </body>

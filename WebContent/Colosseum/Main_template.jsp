@@ -45,7 +45,7 @@ function move(afternum){
 		movePageUrl("Board/Quiz_Board/Board_List.jsp")
 	}
 	if(afternum==5){//QNA
-		movePageUrl("Qna/Qna_List.jsp")
+		movePageUrl("Qna/Qna_Main.jsp")
 	}
 	if(afternum==6){//명예의전당
 		movePageUrl("Menu6.jsp")

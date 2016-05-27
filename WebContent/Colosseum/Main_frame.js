@@ -110,11 +110,11 @@ $(this).on("click",'.menu_link' ,function(event){
 		
 	}else if($(this).children().first().attr('id') == 'menu5'){ //게시판
 		
-		movePageUrl('./Board/Quiz_Board/Board_List.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		movePageUrl('./Qna/Qna_Main.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 	}else if($(this).children().first().attr('id') == 'menu6'){ // 명예의 전당
 		
-		movePageUrl('./Qna/Qna_List.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		movePageUrl('Menu5.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 	}else if($(this).children().first().attr('id') == 'menu7'){ //학습 모드
 		
