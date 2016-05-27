@@ -7,6 +7,6 @@ request.setCharacterEncoding("utf-8");
 String q_nickname=request.getParameter("q_nickname");
 Member.MemberDao dao=Member.MemberDao.getInstance();
 int check=dao.confirmNickname(q_nickname); 
-
+     
 %>
-{ "check":<%=check %> }
+{ "check":<%=check %> }  

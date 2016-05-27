@@ -195,7 +195,7 @@ height:100%;
 </head>
 <body id="main" onLoad="move(<%=request.getParameter("afternum")%>)">
 
-<div id="Intro_menu"><jsp:include page='home_wrap.jsp'/></div>
+<div id="Intro_menu"><jsp:include page='./home_wrap.jsp'/></div>
 <div> <!-- main page-->
 <div id="top"><jsp:include page="Top.jsp"/></div>
 <div id="content_block">
