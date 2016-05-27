@@ -12,6 +12,10 @@
 request.setCharacterEncoding("utf-8");
  
 //String q_id=(String)session.getAttribute("q_id");
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8a5dbca8a6063fccf1571920bf960f16b6e61553
 String q_id="admin@admin.com";
 MemberDao dao=MemberDao.getInstance();//dao 객체얻기
 MemberDto dto=dao.getMember(q_id);//dao 메서드 호출

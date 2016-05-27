@@ -3,9 +3,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
 String q_id="admin";
+<<<<<<< HEAD
 String q_name="admin";
 String q_user_num="01";
 String q_nickname="admin";
+=======
+<<<<<<< HEAD
+String q_pwd="admin";
+
+
+dao.userCheck(q_id,q_pwd);
+
+MemberDto dto=new MemberDto();
+
+String q_name=dto.getQ_name();
+String q_nickname=dto.getQ_nickname();
+
+=======
+String q_name="admin";
+String q_user_num="01";
+String q_nickname="admin";
+>>>>>>> 5123b0aaaf689c1d51a985c9fce2505cc156f8c7
+>>>>>>> 8a5dbca8a6063fccf1571920bf960f16b6e61553
 
 session.setAttribute("q_id", q_id);
 session.setAttribute("q_name", q_name);
