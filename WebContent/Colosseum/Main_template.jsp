@@ -14,11 +14,11 @@ if(pageFile == null){
 }
 
 if(nowColor == null){
-	nowColor="#f2b701";
+	nowColor="#3D68A6";
 }
 
 if(nextColor == null){
-	nextColor="#f2b701";
+	nextColor="#3D68A6";
 }
 System.out.println(pageFile);
 
@@ -63,16 +63,15 @@ function move(afternum){
 <style type="text/css">
 html body{height: 100%; margin: 0px;padding: 0px;}
 #Intro_menu{}
-#main{width:100%; height:100%; position:absolute; left: 0%; background-color: #f2b701;}
-<<<<<<< HEAD
-#top{position: absolute; top:0%; background-color: yellow;  right:0%; width: 90%; height: 10%; background-color: #f2b701;}
+#main{width:100%; height:100%; position:absolute; left: 0%; background-color: #3D68A6;}
+#top{position: absolute; top:0%; background-color: yellow;  right:0%; width: 90%; height: 10%; background-color: #3D68A6;}
 #content_block{
 overflow-y:scroll;  /*넘어가는 부분은 스크롤 처리*/
 position: absolute;width:90%;height: 90%;top:10%; right:0%; background-color: #f2b701; }
 =======
-#top{position: absolute; top:0%; background-color: yellow; right:0%; width: 90%; height: 10%; background-color: #f2b701;}
+#top{position: absolute; top:0%; background-color: yellow; right:0%; width: 90%; height: 10%; background-color: #3D68A6;}
 
-#content_block{position: absolute;width:90%;height: 90%;top:10%; right:0%; background-color: #f2b701; }
+#content_block{position: absolute;width:90%;height: 90%;top:10%; right:0%; background-color: #3D68A6; }
 >>>>>>> eec87ae3f62b47e6970c2afb5fa945ba0ef5213c
 #back_intro{
 position: fixed;
@@ -193,10 +192,11 @@ height:100%;
 </style>
 
 </head>
-<body id="main" onLoad="move(<%=request.getParameter("afternum")%>)">
+
+<body onLoad="move(<%=request.getParameter("afternum")%>)">
 
 <div id="Intro_menu"><jsp:include page='./home_wrap.jsp'/></div>
-<div> <!-- main page-->
+<div id="main" > <!-- main page-->
 <div id="top"><jsp:include page="Top.jsp"/></div>
 <div id="content_block">
 	<jsp:include page='<%=pageFile %>'/>
