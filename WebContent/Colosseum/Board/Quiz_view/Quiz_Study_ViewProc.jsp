@@ -44,7 +44,7 @@ quizScore = scoreMgr.quizScore(q_dep_num);// 메서드 호출
 	int quiz_No=0;
 	
 	for(int i=0;i<quizScore.size();i++){
-		
+		 
 		Quiz_ScoreBean bean=(Quiz_ScoreBean)quizScore.get(i);
 		Quiz_StudyBean view=(Quiz_StudyBean)quizView.get(i);
 		
