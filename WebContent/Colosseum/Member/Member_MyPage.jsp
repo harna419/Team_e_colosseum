@@ -12,7 +12,11 @@
 request.setCharacterEncoding("utf-8");
  
 //String q_id=(String)session.getAttribute("q_id");
+<<<<<<< HEAD
+String q_id="5555";
+=======
 String q_id="admin@admin.com";
+>>>>>>> 5123b0aaaf689c1d51a985c9fce2505cc156f8c7
 MemberDao dao=MemberDao.getInstance();//dao 객체얻기
 MemberDto dto=dao.getMember(q_id);//dao 메서드 호출
 Vector vec=null;
@@ -20,7 +24,7 @@ String q_nickname_receive=dto.getQ_nickname();
 MessageDao dao2=MessageDao.getInstance();
 //String q_nickname_receive="test";  
 vec=dao2.getMessageList(q_nickname_receive);
-
+ 
 Quiz_ScoreMgr quizMgr=Quiz_ScoreMgr.getInstance();
 Quiz_ScoreBean quizBean=quizMgr.quizScoreCount(q_id);
 
