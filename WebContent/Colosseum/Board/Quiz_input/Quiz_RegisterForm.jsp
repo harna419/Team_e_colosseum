@@ -11,10 +11,10 @@ request.setCharacterEncoding("utf-8");
 		<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
 		<script type="text/javascript" src="./Board/Quiz_input/single_add.js"></script>
 		<script type="text/javascript" src="./Board/Quiz_input/multi_add.js"></script>
-		<script type="text/javascript" src="./Board/Quiz_input/word_add.js"></script>
+		<%--<script type="text/javascript" src="./Board/Quiz_input/word_add.js"></script> --%>
 		<script type="text/javascript">
 		
-		
+
 		totalCnt=0;//문제 개수
 		function add(){
 			
@@ -31,13 +31,13 @@ request.setCharacterEncoding("utf-8");
 						
 				$("<table align='center' class='word' id='"+totalCnt+"'>"
 				+"<tr><td>항목 제목</td>"+
-				"<td><input type='text' name='q_subject"+totalCnt+"' id='word_subject"+totalCnt+"' size='60' value=''></td>"
+				"<td><input type='text' name='q_subject"+totalCnt+"' id='word_subject"+totalCnt+"' size='60' required='required' value=''></td>"
 				+"</tr>"
 				+"<tr><td>항목 설명</td>"
-				+"<td><input type='text' name='q_content"+totalCnt+"' id='word_content"+totalCnt+"' size='60' value=''></td>"
-				+"<td><input type='file' name='q_content_img"+totalCnt+"' id='word_file_img"+totalCnt+"'></td>"
+				+"<td><input type='text' name='q_content"+totalCnt+"' id='word_content"+totalCnt+"' size='60' required='required' value=''></td>"
+				+"<td><input type='file' name='q_content_img"+totalCnt+"' id='word_file_img"+totalCnt+"' required='required'></td>"
 				+"</tr>"
-				+"<tr><td>답변</td><td><input type='text' name='q_real_reply"+totalCnt+"1' id='word_real_reply"+totalCnt+"1' size='60' value=''></td>"
+				+"<tr><td>답변</td><td><input type='text' name='q_real_reply"+totalCnt+"1' id='word_real_reply"+totalCnt+"1' size='60' value='' required='required'></td>"
 				+"</tr>"
 				+"</table>"
 				+"<input type='hidden' name='q_quiz_type"+totalCnt+"' value='100'>'").appendTo("#Quiz_RegisterForm");
@@ -49,16 +49,16 @@ request.setCharacterEncoding("utf-8");
 			
 				$("<table align='center' id='single"+totalCnt+"'>"
 				+"<tr><td>항목 제목</td>"
-				+"<td><input type='text' name='q_subject"+totalCnt+"' id='single_subject"+totalCnt+"' size='60' value=''></td>"
+				+"<td><input type='text' name='q_subject"+totalCnt+"' id='single_subject"+totalCnt+"' size='60' required='required' value=''></td>"
 				+"</tr>"
 				+"<tr><td>항목 설명</td>"
-				+"<td><input type='text' name='q_content"+totalCnt+"' id='single_content"+totalCnt+"' size='60' value=''></td>"
-				+"<td><input type='file' name='q_content_img"+totalCnt+"' id='single_file_img"+totalCnt+"'></td>"
+				+"<td><input type='text' name='q_content"+totalCnt+"' id='single_content"+totalCnt+"' size='60' required='required' value=''></td>"
+				+"<td><input type='file' name='q_content_img"+totalCnt+"' id='single_file_img"+totalCnt+"' required='required'></td>"
 				+"</tr>"
 				+"<tr><td align='center'>답   변</td>"
-				+"<td><input type='radio' name='q_real_reply"+totalCnt+"1' id='single_option"+totalCnt+"' value='1'>"
-				+"<input type='text' name='q_reply"+totalCnt+"1'></td>"
-				+"<td><input type='file' name='q_reply"+totalCnt+"_img1' id='single_file1'></td>"
+				+"<td><input type='radio' name='q_real_reply"+totalCnt+"1' id='single_option"+totalCnt+"' value='1' required='required'>"
+				+"<input type='text' name='q_reply"+totalCnt+"1' required='required'></td>"
+				+"<td><input type='file' name='q_reply"+totalCnt+"_img1' id='single_file1' required='required'></td>"
 				+"<td><input type='button' name='single_add' id='single_add' onclick='single_add"+totalCnt+"()' value='항목추가'></td>"
 				+"</tr><input type='hidden' name='q_quiz_type"+totalCnt+"' value='200'>"
 				+"</table>'").appendTo("#Quiz_RegisterForm");
@@ -70,16 +70,16 @@ request.setCharacterEncoding("utf-8");
 				//$("<table align='center' id='multi"+a+"'><tr><td>항목 제목</td><td><input type='text' name='q_subject' id='Multi_subject' size='40' value=''></td></tr><tr><td>항목 설명</td><td><input type='text' name='q_content' id='Multi_content' size='40' value=''></td><td><input type='file' name='q_content_img' id='Multi_file'></td></tr><tr><td align='center'>답   변</td><td><input type='checkbox' name='Multi_option' id='Multi_option1'><input type='text' name='q_reply1' value=''></td><td><input type='file' name='q_reply1_img' id='Multi_file1'></td><td><input type='button' name='Multi_add' id='Multi_add' value='옵션추가'></td></tr></table><input type='hidden' name='300' value='300'>'").appendTo("#Quiz_RegisterForm");
 				$("<table align='center' id='multi"+a+"'>"
 				+"<tr><td>항목 제목</td>"
-				+"<td><input type='text' name='q_subject"+a+"' id='Word_subject"+a+"' size='60' value=''></td>"
+				+"<td><input type='text' name='q_subject"+a+"' id='Word_subject"+a+"' size='60' value='' required='required'></td>"
 				+"</tr>"
 				+"<tr><td>항목 설명</td>"
-				+"<td><input type='text' name='q_content"+a+"' id='Single_content"+a+"' size='60' value=''></td>"
-				+"<td><input type='file' name='q_content_img"+a+"' id='Single_file"+a+"'></td>"
+				+"<td><input type='text' name='q_content"+a+"' id='Single_content"+a+"' size='60' value='' required='required'></td>"
+				+"<td><input type='file' name='q_content_img"+a+"' id='Single_file"+a+"' required='required'></td>"
 				+"</tr>"
 				+"<tr><td align='center'>답   변</td>"
-				+"<td><input type='checkbox' name='Multi_option"+a+"' id='Multi_option1'>"
-				+"<input type='text' name='q_reply1' value=''></td>"
-				+"<td><input type='file' name='q_reply1_img' id='Multi_file1'></td>"
+				+"<td><input type='checkbox' name='Multi_option"+a+"' id='Multi_option1' required='required'>"
+				+"<input type='text' name='q_reply1' value='' required='required'></td>"
+				+"<td><input type='file' name='q_reply1_img' id='Multi_file1' required='required'></td>"
 				+"<td><input type='button' name='Multi_add' id='Multi_add' onclick='multi_add"+a+"()' value='옵션추가'></td>"
 				+"</tr>"
 				+"<input type='hidden' id='ccc' name='300' value='300'>"
@@ -90,6 +90,7 @@ request.setCharacterEncoding("utf-8");
 				//alert("400");
 				$("<form method='post' name='Quiz_OXForm"+a+"' id='Quiz_OXForm"+a+"' action='Quiz_RegisterProc.jsp'><div id='"+a+"' enctype='multipart/form-data'></div></form>").appendTo("body").load('Quiz_OXForm.jsp');
 				$("<hr size='1' color='blue'>").appendTo("body")
+				
 			}else if(m2=="500"){//표형 문제
 				//alert("500");
 				$("<form method='post' name='Quiz_TableForm"+a+"' id='Quiz_TableForm"+a+"' action='Quiz_RegisterProc.jsp'><div id='"+a+"' enctype='multipart/form-data'></div></form>").appendTo("body").load('Quiz_TableForm.jsp');
@@ -106,8 +107,8 @@ request.setCharacterEncoding("utf-8");
 	<form name="Quiz_RegisterForm" id="Quiz_RegisterForm" method="post" action="Board/Quiz_input/Quiz_RegisterProc.jsp" enctype="multipart/form-data">
 		<table align="center">
 		<tr>
-			<td><input type="text" name="q_title" id="q_title" value="제목입력폼" size=60></td>
-			<td><input type="file" name="q_title_img" id="q_title_img" value="첨부버튼"></td>
+			<td><input type="text" name="q_title" id="q_title" required="required" value="제목입력폼" size=60></td>
+			<td><input type="file" name="q_title_img" id="q_title_img" required="required" value="첨부버튼"></td>
 		</tr>
 		</table>
 		<table align="center" id="quizform">
@@ -126,7 +127,7 @@ request.setCharacterEncoding("utf-8");
 		</table>
 		
 		<center>
-			<input type="button" onclick="checkIt()" value="저장">
+			<input type="submit" value="저장">
 			<input type="button" onclick="add()" value="추가">
 			<input type="reset" value="취소">
 			<input type="hidden" name="check" id="check" value="개수구하기">
