@@ -214,7 +214,6 @@ public class BoardDao {
 	//---------------------------------
 	public BoardDto getNotice(int q_num){
 		BoardDto dto=new BoardDto();
-		
 		try{
 			//처리문
 			con=getConnection();
@@ -234,8 +233,6 @@ public class BoardDao {
 				dto.setQ_read_count(rs.getInt("q_read_count"));
 				
 			}//while end 
-			
-			
 		}catch(Exception ex){
 			System.out.println("getNotice() 예외:"+ex);
 		}finally{
@@ -245,7 +242,6 @@ public class BoardDao {
 				if(con!=null){con.close();}
 			}catch(Exception exx){}
 		}//finally
-		
 		return dto;
 	}//getNotice() end
 	//----------------------------------
@@ -389,4 +385,5 @@ public class BoardDao {
 			}catch(Exception exx){}
 		}//finally	
 	}//updateNotice() end
+	
 }//class

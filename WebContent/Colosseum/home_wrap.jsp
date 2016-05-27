@@ -7,9 +7,12 @@
 
 <div class="Intro_left">
 <font align=center><h1>Colosseum</h1></font>
-<%=request.getContextPath() %>
-
+<%--<%=request.getContextPath() 
+<%@ include file="./Member/Member_MyPage.jsp" %>--%>
+<jsp:include page="./Member/Member_MyPage.jsp"/>
+ 
 </div> <!-- 마이페이지 들어 올 곳  -->
+
 
 <div class="circle">
 <img src="./imgs/Ellipse 1.svg" height="100%">

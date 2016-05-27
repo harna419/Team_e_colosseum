@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
 String q_id="admin";
-String q_name="관리자";
+String q_name="admin";
 String q_user_num="01";
 String q_nickname="admin";
 
