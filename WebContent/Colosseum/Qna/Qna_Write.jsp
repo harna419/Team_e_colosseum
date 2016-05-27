@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title></title>
 <%--<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>--%>
-
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
 function check(){
 	if(document.postForm.q_subject.value==''){
@@ -27,15 +27,15 @@ function check(){
 	
 	switch(document.postForm.q_group.value){
 	case "0":  
-		document.postForm.action="./Qna/Qna_Faq_WriteProc.jsp";
+		document.postForm.action="./Qna_Faq_WriteProc.jsp";
 		document.postForm.submit;
 		break;
 	case "1": 
-		document.postForm.action="./Qna/Qna_WriteProc.jsp";
+		document.postForm.action="./Qna_WriteProc.jsp";
 		document.postForm.submit;
 		break;
 	case "2":
-		document.postForm.action="./Qna/Qna_Kin_WriteProc.jsp";
+		document.postForm.action="./Qna_Kin_WriteProc.jsp";
 		document.postForm.submit;
 	
 	}
@@ -45,7 +45,6 @@ function check(){
 </script>
 
 <script>
-
 $(function(){
 	 $('#q_sort').hide();
 });
