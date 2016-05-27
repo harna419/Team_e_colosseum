@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"
     import="Member.*"
     %>
-     
+       
     <%
     request.setCharacterEncoding("utf-8");
     String q_id=request.getParameter("q_id");

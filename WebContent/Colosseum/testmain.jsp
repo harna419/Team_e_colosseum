@@ -24,7 +24,7 @@ vertical-align: middle;
 
 <div id="sec_wrap">
 <div id="sec1"></div>
-<div id="sec2"><img src="./imgs/Colosseum.svg"></div>
+<div id="sec2"><img src="./imgs/Colosseum1111.svg"></div>
 <div id="sec3"></div>
 </div>
 

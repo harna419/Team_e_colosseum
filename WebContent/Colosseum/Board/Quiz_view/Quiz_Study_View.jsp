@@ -206,7 +206,7 @@ Vector vec=null;
    //q_dep_step1=study.quizCount(q_dep_num);
    
    
-   
+    
    vec=study.quizSolve(q_dep_num,q_dep_step);//DAO메서드 호출
    Quiz_StudyBean cnt=study.quizCount(q_dep_num);//DAO메서드 호출
    %>

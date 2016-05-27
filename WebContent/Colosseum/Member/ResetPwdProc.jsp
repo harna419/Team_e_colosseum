@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"
     import="Member.*"
     %> 
-<%
+<% 
 request.setCharacterEncoding("utf-8");
 %>    
 <jsp:useBean id="dto" class="Member.MemberDto">

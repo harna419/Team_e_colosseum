@@ -37,7 +37,9 @@ html body{height: 100%; margin: 0px;padding: 0px;}
 #Intro_menu{}
 #main{width:100%; height:100%; position:absolute; left: 0%; background-color: #f2b701;}
 #top{position: absolute; top:0%; background-color: yellow;  right:0%; width: 90%; height: 10%; background-color: #f2b701;}
-#content_block{position: absolute;width:90%;height: 90%;top:10%; right:0%; background-color: #f2b701; }
+#content_block{
+overflow-y:scroll;  /*넘어가는 부분은 스크롤 처리*/
+position: absolute;width:90%;height: 90%;top:10%; right:0%; background-color: #f2b701; }
 #back_intro{
 position: absolute;
 top: 0%;

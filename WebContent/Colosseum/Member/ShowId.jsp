@@ -10,7 +10,7 @@ int q_jumin1=Integer.parseInt(request.getParameter("q_jumin1"));
 int q_jumin2=Integer.parseInt(request.getParameter("q_jumin2"));
 MemberDao dao=MemberDao.getInstance();
 String q_id = dao.showId(q_name, q_jumin1, q_jumin2);
-%>
+%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
