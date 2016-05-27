@@ -87,9 +87,9 @@
 .content{
 	
 	position: absolute;
-	width: 50%;
+	width: 80%;
 	height: 100%;
-	left: 25%	
+	left: 10%	
 }
 .content h3.title {
 	position: absolute;
@@ -114,7 +114,7 @@
 	width: 100%;
 	height: 43%;
 	position:absolute;
-	top:9.754%;
+	top:11.5%;
 	
 }
 .boardList table{
