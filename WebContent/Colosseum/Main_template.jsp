@@ -89,6 +89,7 @@ padding-right: 10px;
 
 color: #fff;
 display: block;
+font-family: '맑은 고딕';
 font-size: 30px;
 font-weight: bold;
 letter-spacing: 1px;
@@ -191,47 +192,9 @@ height:100%;
 <div> <!-- main page-->
 <div id="top"><jsp:include page="Top.jsp"/></div>
 <div id="content_block">
-<%
-if(pageFile.equals("Menu1.jsp")){
-	%>
 	<jsp:include page='<%=pageFile %>'/>
-	<%
-}else if(pageFile.equals("./Member/Member_JoinMember.jsp")){
-	%>
-	<jsp:include page='<%=pageFile %>'/>
-	<%
-}else if(pageFile.equals("./Board/Quiz_view/Quiz_list.jsp")){
-	%>
-	<jsp:include page='<%=pageFile %>'/>
-	<%
-}else if(pageFile.equals("./Board/Quiz_Board/Board_List.jsp")){
-	%>
-	<div id="whitebox"><jsp:include page='<%=pageFile %>'/></div>
-	<%
-}else if(pageFile.equals("./Qna/Qna_List.jsp")){
-	%>
-	<div id="whitebox"><jsp:include page='<%=pageFile %>'/></div>
-	<%
-}else if(pageFile.equals("Menu6.jsp")){
-	%>
-	<jsp:include page='<%=pageFile %>'/>
-	<%
-}else if(pageFile.equals("Menu7.jsp")){
-	%>
-	<jsp:include page='<%=pageFile %>'/>
-	<%
-}else if(pageFile.equals("Menu8.jsp")){
-	%>
-	<jsp:include page='<%=pageFile %>'/>
-	<%
-}else{
-	%>
-	<jsp:include page='<%=pageFile %>'/>
-	<%
-}
-%>
 </div>
-</div>
+
 
 <div id="back_intro">
 <br>

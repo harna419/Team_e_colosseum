@@ -96,42 +96,34 @@ $(this).on("click",'.menu_link' ,function(event){
 		
 		movePageUrl('Menu1.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
-	}else if($(this).children().first().attr('id') == 'menu2'){ //회원가입
+	}else if($(this).children().first().attr('id') == 'menu2'){ //개발진 소개
 		
+		movePageUrl('Menu8.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		
+	}else if($(this).children().first().attr('id') == 'menu3'){ //회원 가입
+	
 		movePageUrl('./Member/Member_JoinMember.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
-		
-	}else if($(this).children().first().attr('id') == 'menu3'){ //문제게시판
+	}else if($(this).children().first().attr('id') == 'menu4'){ //퀴즈
 	
 		movePageUrl('./Board/Quiz_view/Quiz_list.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
+	}else if($(this).children().first().attr('id') == 'menu5'){ //게시판
 		
-		
-	}else if($(this).children().first().attr('id') == 'menu4'){ //자유게시판
-	
 		movePageUrl('./Board/Quiz_Board/Board_List.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
+	}else if($(this).children().first().attr('id') == 'menu6'){ // 명예의 전당
 		
-	}else if($(this).children().first().attr('id') == 'menu5'){ //QNA
-		
-	
 		movePageUrl('./Qna/Qna_List.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
-		
-	}else if($(this).children().first().attr('id') == 'menu6'){ //명예의전당
+	}else if($(this).children().first().attr('id') == 'menu7'){ //학습 모드
 		
 		movePageUrl('Menu6.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
-		
-	}else if($(this).children().first().attr('id') == 'menu7'){ //학습모드
-		
-		
+	}else if($(this).children().first().attr('id') == 'menu8'){ //??
+	
 		movePageUrl('Menu7.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
-		
-	}else if($(this).children().first().attr('id') == 'menu8'){ //개발진소개
-	
-		movePageUrl('Menu8.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 				
 	}
 });

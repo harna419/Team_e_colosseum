@@ -12,7 +12,11 @@
 request.setCharacterEncoding("utf-8");
  
 //String q_id=(String)session.getAttribute("q_id");
+<<<<<<< HEAD
 String q_id="5555";
+=======
+String q_id="admin@admin.com";
+>>>>>>> 5123b0aaaf689c1d51a985c9fce2505cc156f8c7
 MemberDao dao=MemberDao.getInstance();//dao 객체얻기
 MemberDto dto=dao.getMember(q_id);//dao 메서드 호출
 Vector vec=null;
@@ -40,16 +44,18 @@ String q_nickname=dto.getQ_nickname();
 <title>Mypage</title>
 <style type="text/css">
 * { margin:100; padding:0;}
-ul,li { list-style:none;  width:37%;}
+ul,li { list-style:none;  width:80%; align:center;}
 a { text-decoration:none; color:#000; }
 .tab { border:1px solid #ddd; border-left:none; background:#fff; overflow:hidden;}
 .tab li { float:left; width:33.3%; border-left:1px solid #ddd; text-align:center; box-sizing:border-box; }
 .tab li { display:inline-block; padding:10px; cursor:pointer; }
 .tab li.on { background-color:#eee; color:#A50000; }
-.tab_con { clear:both; margin-top:5px; border:1px solid #ddd;  width:37%;}
+.tab_con { clear:both; margin-top:5px; border:1px solid #ddd;  width:80%;}
 .tab_con div { display:none; height:600px; background:#fff; line-height:50px; text-align:left;}
 th { background-color: #eee; display: table-cell; vertical-align: inherit; }
- 	
+span{
+margin-top:-50px;
+} 	
 </style>
  
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -132,6 +138,24 @@ function content(value){
 	window.open(url,"Message_Content","width=500,height=300,status=yes,scrollbars=yes");
 }
 
+function delMsg() {
+	  alert("삭제삭제");
+	  var chkList = document.getElementsByName('select');
+	  var arr = new Array();	
+	  var cnt = 0;
+	  for ( var i = chkList.length - 1; 0 <= i; i--) {
+	   if (chkList[i].checked) {
+	    arr[cnt] = chkList[i].value;
+	    cnt++;
+	   }
+	  }
+	  if (arr.length != 0) {
+	   document.msglist.submit();
+	  } else {
+	   alert('삭제할 쪽지를 선택하세요.');
+	   return;
+	  }
+}
 </script>
  
 </head>
@@ -255,7 +279,8 @@ function content(value){
 		
     <div align="center">
     
-    <input type="button" value="삭제" onclick=""> <input type="button" value="답장" onclick="">
+    <form name="msglist" method="post" action="Member_MsgDelete.jsp" id="msgList">
+    <input type="button" value="삭제" onclick="delMsg()"> <input type="button" value="답장" onclick="">
     
 	<%
     	if(vec.isEmpty()){
@@ -305,13 +330,14 @@ function content(value){
         			<% }//for %>
         		</table> 	
 	<%}//else %>
-
+	</form>
     </div>
     
     <div>
+   
     	<table align="center">
     		<tr>
-    		<td><img src="../imgs/Bruce.jpg" width="200px" height="200px"></td>
+    		<td><img src="./imgs/a2.jpg" width="200px" height="200px"></td>
     		<td>
 				<p> ID : <%=q_id %></p>
 				<p> NickName : <%=q_nickname %></p>
