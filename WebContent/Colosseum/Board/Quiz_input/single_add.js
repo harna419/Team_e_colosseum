@@ -1,5 +1,6 @@
 var singleCnt1=2
-		function single_add1(){
+		
+	function single_add1(){
 			//alert("dd");
 			
 			$("<tr><td></td>"
@@ -116,4 +117,5 @@ var singleCnt1=2
    			+"</tr>").appendTo("#single10")
    			singleCnt10++
 		}
-		
+
+	
