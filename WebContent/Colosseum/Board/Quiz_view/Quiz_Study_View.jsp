@@ -8,13 +8,18 @@ request.setCharacterEncoding("utf-8");
 java.util.Date date=new java.util.Date();
 java.text.SimpleDateFormat sdf=new java.text.SimpleDateFormat("yyyy-MM-dd H:mm:ss");
 Vector vec=null;
+
+int quiznumtest=0;
+
+
+
 %>    
 
 <html>
   <head>
     <title>문제상세보기</title>
     <link rel="stylesheet" href="style.css" type="text/css">
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
     <script>
    		<%--유효성체크 --%>
    		
@@ -156,7 +161,15 @@ Vector vec=null;
     	
     	
     		Quiz_Study_View.submit();
+			
     	}//inputcheck() end
+    	
+   		function deletecheck(q_dep_num,q_dep_step){
+   			alert("퀴즈 삭제 진행합니다.")
+	         movePageUrl('/Colosseum/Board/Quiz_view/Quiz_DeleteForm.jsp?q_dep_num='+q_dep_num+'&q_dep_step='+q_dep_step);
+	         
+
+    	}
     	
     	
     	
@@ -191,6 +204,111 @@ Vector vec=null;
       }//goo(a,b,c) end
       */
       
+      $(function(){
+    	 $("#test1").show()
+    	 $("#test2").hide()
+    	 $("#test3").hide()
+    	 $("#test4").hide()
+    	 $("#test5").hide()
+    	 $("#test6").hide()
+    	 $("#test7").hide()
+    	 $("#test8").hide()
+    	 $("#test9").hide()
+    	 $("#test10").hide()
+      });  
+      
+      var cnt=1;
+      function prevquiz(){  //문제상세보기에서 이전문제
+    	  if(cnt==1){
+    		  alert("첫번쨰문제입니다")
+    		  return
+    	  }else{
+    		  cnt--
+    	  }
+    	  if(cnt==1){
+    		  $("#test2").hide()
+    		  $("#test1").show() 
+    	  }
+    	  if(cnt==2){
+    		  $("#test3").hide()
+    		  $("#test2").show()    	     
+    	  }if(cnt==3){
+    		  $("#test4").hide()
+    	      $("#test3").show()
+    	  }
+    	  if(cnt==4){
+    		  $("#test5").hide()
+    	      $("#test4").show()
+    	  }
+    	  if(cnt==5){
+    		  $("#test6").hide()
+    	      $("#test5").show()
+    	  }
+    	  if(cnt==6){
+    		  $("#test7").hide()
+    	      $("#test6").show()
+    	  }
+    	  if(cnt==7){
+    		  $("#test8").hide()
+    	      $("#test7").show()
+    	  }
+    	  if(cnt==8){
+    		  $("#test9").hide()
+    	      $("#test8").show()
+    	  }
+    	  if(cnt==9){
+    		  $("#test10").hide()
+    	      $("#test9").show()
+    	  }    	  
+      }//prevquiz()
+      
+      function nextquiz(quizcnt){ //문제상세보기에서 다음문제    	  
+    	  
+    	  if(quizcnt<=cnt){
+    		  alert("마지막문제입니다")
+    		  return
+    	  }else{
+    		  cnt++
+    	  }
+    	  
+    	  if(cnt==2){
+    		  $("#test1").hide()
+    		  $("#test2").show()    	     
+    	  }if(cnt==3){
+    		  $("#test2").hide()
+    	      $("#test3").show()
+    	  }
+    	  if(cnt==4){
+    		  $("#test3").hide()
+    	      $("#test4").show()
+    	  }
+    	  if(cnt==5){
+    		  $("#test4").hide()
+    	      $("#test5").show()
+    	  }
+    	  if(cnt==6){
+    		  $("#test5").hide()
+    	      $("#test6").show()
+    	  }
+    	  if(cnt==7){
+    		  $("#test6").hide()
+    	      $("#test7").show()
+    	  }
+    	  if(cnt==8){
+    		  $("#test7").hide()
+    	      $("#test8").show()
+    	  }
+    	  if(cnt==9){
+    		  $("#test8").hide()
+    	      $("#test9").show()
+    	  }
+    	  if(cnt==10){
+    		  $("#test9").hide()
+    	      $("#test10").show()
+    	  }
+    	 
+      }//nextquiz()
+      
     </script>
   </head>  
   <body topmargin="30">
@@ -208,15 +326,23 @@ Vector vec=null;
    
     
    vec=study.quizSolve(q_dep_num,q_dep_step);//DAO메서드 호출
-   Quiz_StudyBean cnt=study.quizCount(q_dep_num);//DAO메서드 호출
+   Quiz_StudyBean quiz = study.quizCount(q_dep_num);//DAO메서드 호출
+   
+   int quizcnt=quiz.getCnt();
+
+
+  
+   
    %>
-   <form name="Quiz_Study_View" id="Quiz_Study_View" method="post" action="Quiz_Study_ViewProc.jsp">
+   <form name="Quiz_Study_View" id="Quiz_Study_View" method="post" action="./Board/Quiz_view/Quiz_Study_ViewProc.jsp">
     <input type="hidden" name="q_dep_step" value="<%=vec.size()%>">
 	<%
    for(int i=0;i<vec.size();i++){
 	   
 	   Quiz_StudyBean bean=(Quiz_StudyBean)vec.get(i);
 	   int num=i+1;
+	   
+	   
 		//String numint=num+"";//숫자를 문자열로 변환
 		//System.out.println("numint : "+numint);
 		
@@ -224,7 +350,8 @@ Vector vec=null;
    %>
    
   
-		<table align="center">
+		<table align="center" id="test<%=num%>">
+		
 		<tr>
 			<td><input type="text" name="q_title" id="title" readOnly value="<%=bean.getQ_title() %>" size=60></td>
 			<td></td>
@@ -234,6 +361,7 @@ Vector vec=null;
 		String type=bean.getQ_quiz_type();
 		if(type.equals("100")){
 	%>
+	
 	        <tr>
 	          <td>
 	          <input type="text" name="q_subject<%=num %>" readOnly id="Word_subject<%=num %>" size="60" value="<%=bean.getQ_subject() %>">
@@ -253,7 +381,8 @@ Vector vec=null;
 	            <td><input type="text" name="q_real_reply<%=num %>1" id="Word_answer<%=num %>1" size="60" value="asd"></td>   
 	        </tr>
 	        <input type="hidden" name="q_quiz_type<%=num %>" value="100">
-	        
+        
+       
 			<%
 		}else if(type.equals("200")){
 			%>
@@ -419,14 +548,21 @@ Vector vec=null;
 	<table align="center">
 		<tr>
 			<td>
+			
+				<input type="button" onclick="prevquiz()" value="이전문제">
 				<input type="button" onclick="inputcheck()" value="완료">
+				
 				<input type="button" onclick="document.location.href='updateForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>'" value="수정">
-				<input type="button" onclick="document.location.href='delForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>'" value="삭제">
+				<input type="button" onclick="deletecheck(<%=q_dep_num%>,<%=q_dep_step%>)" value="삭제">
+				<%--<input type="button" onclick="document.location.href='delForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>'" value="삭제"> --%>
+				<input type="button" onclick="nextquiz(<%=quizcnt %>)" value="다음문제">
+				
 			</td>
 		</tr>
 	</table>
 		
 	</form>
+	
   </body>
   </html>
   

@@ -6,6 +6,8 @@ import java.util.Vector;
 import javax.sql.*;//DataSource
 import javax.naming.*;//lookup
 
+import Board.BoardDto;
+
 //DAO:비지니스로직
 public class MemberDao {
 
@@ -389,5 +391,46 @@ public class MemberDao {
 		}//finally end
 		return id;
 	}//showId() end
+	
+	//-------------------------
+	//닉네임으로 찾기
+	//-------------------------
+	public MemberDto getMemberNick(String q_nickname) throws Exception{
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		MemberDto dto=null;
+		
+		try{
+			con=getConnection();//커넥션 연결얻기
+			pstmt=con.prepareStatement("select * from qz_user_info where q_nickname='"+q_nickname+"'");
+			rs=pstmt.executeQuery();//쿼리 수행
+			if(rs.next()){
+					
+				dto=new MemberDto();
+				
+				dto.setQ_id(rs.getString("q_id"));
+				dto.setQ_pwd(rs.getString("q_pwd"));
+				dto.setQ_name(rs.getString("q_name"));
+				
+				dto.setQ_jumin1(rs.getInt("q_jumin1"));
+				dto.setQ_jumin2(rs.getInt("q_jumin2"));
+				
+				dto.setQ_sex(rs.getString("q_sex"));
+									
+			}//if
+				
+		}catch(Exception ex){
+				
+		}finally{
+			try{
+				if(rs!=null){rs.close();}
+				if(pstmt!=null){pstmt.close();}
+				if(con!=null){con.close();}
+			}catch(Exception exx){}
+		}//finally end
+		return dto;
+	}//getMember() end
+	
 
 }//class

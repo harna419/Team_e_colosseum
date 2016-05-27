@@ -8,12 +8,14 @@ request.setCharacterEncoding("utf-8");
 
 <html>
 	<head>
-		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script type="text/javascript" src="single_add.js"></script>
-		<script type="text/javascript" src="multi_add.js"></script>
+		<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
+		<script type="text/javascript" src="./Board/Quiz_input/single_add.js"></script>
+		<script type="text/javascript" src="./Board/Quiz_input/multi_add.js"></script>
+		<script type="text/javascript" src="./Board/Quiz_input/word_add.js"></script>
 		<script type="text/javascript">
-		totalCnt=0;//문제 개수
 		
+		
+		totalCnt=0;//문제 개수
 		function add(){
 			
 			m=document.Quiz_RegisterForm.quiz.options.selectedIndex;//선택된 인덱스 번호			
@@ -27,15 +29,15 @@ request.setCharacterEncoding("utf-8");
 			
 			if(m2=="100"){//주관식
 						
-				$("<table align='center' id='"+totalCnt+"'>"
+				$("<table align='center' class='word' id='"+totalCnt+"'>"
 				+"<tr><td>항목 제목</td>"+
-				"<td><input type='text' name='q_subject"+totalCnt+"' id='Word_subject"+totalCnt+"' size='60' value=''></td>"
+				"<td><input type='text' name='q_subject"+totalCnt+"' id='word_subject"+totalCnt+"' size='60' value=''></td>"
 				+"</tr>"
 				+"<tr><td>항목 설명</td>"
-				+"<td><input type='text' name='q_content"+totalCnt+"' id='Word_content"+totalCnt+"' size='60' value=''></td>"
-				+"<td><input type='file' name='q_content_img"+totalCnt+"' id='Word_file"+totalCnt+"'></td>"
+				+"<td><input type='text' name='q_content"+totalCnt+"' id='word_content"+totalCnt+"' size='60' value=''></td>"
+				+"<td><input type='file' name='q_content_img"+totalCnt+"' id='word_file_img"+totalCnt+"'></td>"
 				+"</tr>"
-				+"<tr><td>답변</td><td><input type='text' name='q_real_reply"+totalCnt+"1' size='60' value=''></td>"
+				+"<tr><td>답변</td><td><input type='text' name='q_real_reply"+totalCnt+"1' id='word_real_reply"+totalCnt+"1' size='60' value=''></td>"
 				+"</tr>"
 				+"</table>"
 				+"<input type='hidden' name='q_quiz_type"+totalCnt+"' value='100'>'").appendTo("#Quiz_RegisterForm");
@@ -47,43 +49,21 @@ request.setCharacterEncoding("utf-8");
 			
 				$("<table align='center' id='single"+totalCnt+"'>"
 				+"<tr><td>항목 제목</td>"
-				+"<td><input type='text' name='q_subject"+totalCnt+"' id='Single_subject"+totalCnt+"' size='60' value=''></td>"
+				+"<td><input type='text' name='q_subject"+totalCnt+"' id='single_subject"+totalCnt+"' size='60' value=''></td>"
 				+"</tr>"
 				+"<tr><td>항목 설명</td>"
-				+"<td><input type='text' name='q_content"+totalCnt+"' id='Single_content"+totalCnt+"' size='60' value=''></td>"
-				+"<td><input type='file' name='q_content_img"+totalCnt+"' id='Single_file"+totalCnt+"'></td>"
+				+"<td><input type='text' name='q_content"+totalCnt+"' id='single_content"+totalCnt+"' size='60' value=''></td>"
+				+"<td><input type='file' name='q_content_img"+totalCnt+"' id='single_file_img"+totalCnt+"'></td>"
 				+"</tr>"
 				+"<tr><td align='center'>답   변</td>"
-				+"<td><input type='radio' name='q_real_reply"+totalCnt+"1' id='Single_option1' value='1'>"
+				+"<td><input type='radio' name='q_real_reply"+totalCnt+"1' id='single_option"+totalCnt+"' value='1'>"
 				+"<input type='text' name='q_reply"+totalCnt+"1'></td>"
-				+"<td><input type='file' name='q_reply"+totalCnt+"_img1' id='Single_file1'></td>"
-				+"<td><input type='button' name='Single_add' id='Single_add' onclick='single_add"+totalCnt+"()' value='항목추가'></td>"
+				+"<td><input type='file' name='q_reply"+totalCnt+"_img1' id='single_file1'></td>"
+				+"<td><input type='button' name='single_add' id='single_add' onclick='single_add"+totalCnt+"()' value='항목추가'></td>"
 				+"</tr><input type='hidden' name='q_quiz_type"+totalCnt+"' value='200'>"
 				+"</table>'").appendTo("#Quiz_RegisterForm");
 				
-				$("<hr size='1' color='blue'>").appendTo("#Quiz_RegisterForm");
-				
-				/*
-				$("input Single_option"+totalCnt).attr("q_reply"+totalCnt+"1'",val());
-				
-				if($("input:checked + #Single_option1").val()==1){
-					$("input:checked + #Single_option1").val("O")
-					$("input:not(:checked) + #Single_option1").val("")
-					
-				}else if($("input:checked + #Single_option1").val()==2){
-					$("input:checked + #Single_option1").val("O")
-					$("input:not(:checked) + #Single_option1").val("")
-					
-				}else if($("input:checked + #Single_option1").val()==3){
-					$("input:checked + #Single_option1").val("O")
-					$("input:not(:checked) + #Single_option1").val("")
-					
-				}else if($("input:checked + #Single_option1").val()==4){
-					$("input:checked + #Single_option1").val("O")
-					$("input:not(:checked) + #Single_option1").val("")
-				}
-				*/
-				
+				$("<hr size='1' color='blue'>").appendTo("#Quiz_RegisterForm");				
 				
 			}else if(m2=="300"){//객관식복수
 				//alert("300");
@@ -123,11 +103,11 @@ request.setCharacterEncoding("utf-8");
 		
 	</head>
 	<body id="body">
-	<form name="Quiz_RegisterForm" id="Quiz_RegisterForm" method="post" action="Quiz_RegisterProc.jsp" enctype="multipart/form-data">
+	<form name="Quiz_RegisterForm" id="Quiz_RegisterForm" method="post" action="Board/Quiz_input/Quiz_RegisterProc.jsp" enctype="multipart/form-data">
 		<table align="center">
 		<tr>
-			<td><input type="text" name="q_title" id="subject" value="제목입력폼" size=60></td>
-			<td><input type="file" name="q_title_img" id="file" value="첨부버튼"></td>
+			<td><input type="text" name="q_title" id="q_title" value="제목입력폼" size=60></td>
+			<td><input type="file" name="q_title_img" id="q_title_img" value="첨부버튼"></td>
 		</tr>
 		</table>
 		<table align="center" id="quizform">
@@ -146,11 +126,15 @@ request.setCharacterEncoding("utf-8");
 		</table>
 		
 		<center>
-			<input type="submit" value="저장">
+			<input type="button" onclick="checkIt()" value="저장">
 			<input type="button" onclick="add()" value="추가">
 			<input type="reset" value="취소">
 			<input type="hidden" name="check" id="check" value="개수구하기">
 			<input type="hidden" name="count" value="0">
+			<input type="hidden" name="q_user_num" value="<%=session.getAttribute("q_user_num")%>">
+			<input type="hidden" name="q_nickname" value="<%=session.getAttribute("q_nickname")%>">
+			<input type="hidden" name="q_id" value="<%=session.getAttribute("q_id")%>">
+			<input type="hidden" name="q_name" value="<%=session.getAttribute("q_name")%>">
 		</center>
 		
 
