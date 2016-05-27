@@ -21,7 +21,6 @@ if(nextColor == null){
 	nextColor="#3D68A6";
 }
 System.out.println(pageFile);
-
 %>
 
 <html>
