@@ -151,7 +151,7 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 	function deleteCheck(){//삭제 버튼 클릭시 선택창이 뜨게 합니다
 		if (window.confirm("정말로 삭제하시겠습니까?")){
 			  alert("삭제되었습니다.");
-			  location.href="Qna/Qna_Delete.jsp?page=1&q_num=<%=q_num %>";
+			  location.href="Board/Quiz_Qna/Qna_Delete.jsp?page=1&q_num=<%=q_num %>";
 			  }else{
 			  alert("취소되었습니다.");
 			  }
@@ -159,7 +159,7 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 	 
 	 function updateCheck(q_num){
 		 
-		 movePageUrl("Qna/Qna_Update.jsp?&q_num="+q_num);
+		 movePageUrl("Board/Quiz_Qna/Qna_Update.jsp?&q_num="+q_num);
 		 
 	 }
 	 <%--
@@ -219,11 +219,11 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 				<%
 				}else{
 				%>
-				<a href="Qna_Write.jsp?q_nickname=<%=q_nickname2%>"><img src="imgs/btn_vim1.png" class="btn_vim"></a>
+				<a href="Board/Quiz_Qna/Qna_Write.jsp?q_nickname=<%=q_nickname2%>"><img src="imgs/btn_vim1.png" class="btn_vim"></a>
 				<%	
 				}
 				%>
-				<a href="Qna_List.jsp"><img src="imgs/btn_vim2.png" class="btn_list"></a>
+				<a href="Board/Quiz_Qna/Qna_List.jsp"><img src="imgs/btn_vim2.png" class="btn_list"></a>
 
 			</div><!-- btn_con -->
 	<%

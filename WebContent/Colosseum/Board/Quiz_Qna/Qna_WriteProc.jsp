@@ -17,7 +17,7 @@
 
 QnaDao dao = QnaDao.getInstance(); //dao객체 얻기
 dao.insertQna(dto); //dao 메서드 호출
-response.sendRedirect("../Main_template.jsp?afternum=5");
+response.sendRedirect("../../Main_template.jsp?afternum=5&qnanum=1");
 
 %>
 

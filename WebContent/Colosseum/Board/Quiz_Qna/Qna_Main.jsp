@@ -103,8 +103,28 @@ center{
 
 
 </style>
+
+<script type="text/javascript">
+
+
+function qnago(rr){
+	
+	movePageUrl('./Board/Quiz_Qna/Qna_List.jsp')
+	
+}
+function kingo(rr){
+	movePageUrl('./Board/Quiz_Qna/Qna_Kin_List.jsp')
+}
+function freego(rr){
+	movePageUrl('./Board/Quiz_Board/Board_List.jsp')
+}
+</script>
 </head>
-<body>
+<%
+String abc=request.getParameter("qnanum");
+System.out.println("abc:"+abc);
+%>
+<body onload="qkqh()">
 	<div class="container">
 	<div class="content">
 		 
@@ -119,9 +139,9 @@ center{
 	<div class="boxCon">
 	
 		<div id="btn">
-			<a href="Qna_List.jsp"><img src="imgs/qna.png"></a>
-			<a href="Qna_Kin_List.jsp"><img src="imgs/kin.png"></a>
-			<a href="../Board/Board_List.jsp"><img src="imgs/free.png"></a>
+			<a href="javascript:qnago(<%=abc%>)"><img src="imgs/qna.png"></a>
+			<a href="javascript:kingo(<%=abc%>)"><img src="imgs/kin.png"></a>
+			<a href="javascript:freego(<%=abc%>)"><img src="imgs/free.png"></a>
 		</div>
 	
 	</div>

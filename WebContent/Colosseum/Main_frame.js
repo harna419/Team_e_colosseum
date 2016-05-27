@@ -110,7 +110,7 @@ $(this).on("click",'.menu_link' ,function(event){
 		
 	}else if($(this).children().first().attr('id') == 'menu5'){ //게시판
 		
-		movePageUrl('./Qna/Qna_Main.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
+		movePageUrl('./Board/Quiz_Qna/Qna_Main.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
 	}else if($(this).children().first().attr('id') == 'menu6'){ // 명예의 전당
 		
