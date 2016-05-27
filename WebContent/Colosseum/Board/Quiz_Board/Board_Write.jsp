@@ -24,11 +24,11 @@ function check(){
 	}
 	
 	switch(document.postForm.q_notice_group.value){
-	case "0": 
+	case "0": case "1": case "2": case "3":
 		document.postForm.action="./Board/Quiz_Board/Board_Notice_WriteProc.jsp";
 		document.postForm.submit;
 		break;
-	case "1":
+	case "4": case "5":
 		document.postForm.action="./Board/Quiz_Board/Board_WriteProc.jsp";
 		document.postForm.submit;
 	
@@ -67,16 +67,23 @@ function check(){
 				if(q_nickname.equals("admin")){//관리자가 접근 할 수 있는 카테고리
 				%>	
 				<select name="q_notice_group">
-					
-						<option value="0">공지사항</option>
-	    				<option value="1">자유</option>
-	    			
+					<optgroup label="notice">
+						<option value="0">전체공지</option>
+	    				<option value="1">게시판공지</option>
+	    				<option value="2">자유게시판</option>
+	    				<option value="3">질문게시판</option>
+	    			</optgroup>
+	    			<optgroup label="nomal">
+	    				<option value="4">자유게시판</option>
+	    				<option value="5">질문게시판</option>
+	    			</optgroup>
 	    		</select>
 				<%
 				}else{ //일반 유저가 접근 할 수 있는 카테고리
 				%>
 				<select name="q_notice_group">
-	    			<option value="1">자유</option>
+	    			<option value="4">자유게시판</option>
+	    			<option value="5">질문게시판</option>
 	    		</select>
 	
 	    		

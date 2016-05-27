@@ -23,7 +23,7 @@
 	</head>
 	<body topmargin="20">
 	
-		<form method="post" action="Member_LoginProc.jsp">
+		<form method="post" action="LoginProc.jsp">
 		<table width="50%" border="1" align="center">
 		  <tr>
 		  	<td width="47%" align="center">ID</td>
