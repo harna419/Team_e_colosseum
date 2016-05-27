@@ -11,7 +11,8 @@
 <%
 request.setCharacterEncoding("utf-8");
  
-String q_id=(String)session.getAttribute("q_id");
+//String q_id=(String)session.getAttribute("q_id");
+String q_id="5555";
 MemberDao dao=MemberDao.getInstance();//dao 객체얻기
 MemberDto dto=dao.getMember(q_id);//dao 메서드 호출
 Vector vec=null;
@@ -19,7 +20,7 @@ String q_nickname_receive=dto.getQ_nickname();
 MessageDao dao2=MessageDao.getInstance();
 //String q_nickname_receive="test";  
 vec=dao2.getMessageList(q_nickname_receive);
-
+ 
 Quiz_ScoreMgr quizMgr=Quiz_ScoreMgr.getInstance();
 Quiz_ScoreBean quizBean=quizMgr.quizScoreCount(q_id);
 
