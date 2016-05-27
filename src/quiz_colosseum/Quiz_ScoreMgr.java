@@ -87,12 +87,12 @@ public class Quiz_ScoreMgr {
 						quiz.setQ_guest_id(rs.getString("q_guest_id"));
 						quiz.setQ_guest_nickname(rs.getString("q_guest_nickname"));
 						quiz.setQ_guest_name(rs.getString("q_guest_name"));
-						quiz.setQ_quiz_event(rs.getString("q_quiz_event"));
+						quiz.setQ_quiz_event(rs.getString("q_quiz_event"));//q_quiz_event: I(최초 등록), Y(정답), N(오답)
 						quiz.setQ_event_time(rs.getDate("q_event_time"));
 						quiz.setQ_qroup_type(rs.getString("q_group_type"));
 						quiz.setQ_group_num(rs.getString("q_group_num"));
 						quiz.setQ_group_name(rs.getString("q_group_name"));
-						quiz.setQ_quiz_type(rs.getString("q_quiz_type"));
+						quiz.setQ_quiz_type(rs.getString("q_quiz_type"));//퀴즈 문제 타입(100,200,300,400,500)
 						quiz.setQ_custom_reply1(rs.getString("q_custom_reply1"));
 						quiz.setQ_custom_reply2(rs.getString("q_custom_reply2"));
 						quiz.setQ_custom_reply3(rs.getString("q_custom_reply3"));
@@ -119,6 +119,67 @@ public class Quiz_ScoreMgr {
 					}catch(Exception exx){}
 				}//finally
 				return list;
+				
+			}//quizScroe()
+			
+			
+			public Quiz_ScoreBean quizScoreCount(String q_id){
+				
+				int totalcount=0;
+				int yescount=0;
+				int nocount=0;
+				String userid="admin";
+				Quiz_ScoreBean quiz=null;
+						
+				try{
+					quiz=new Quiz_ScoreBean();
+					con=getConnection();//커넥션 얻기
+					
+				   
+					String sql="select count(*) as totalcount from qz_quiz_history where q_id='"+q_id+"'";
+					stmt=con.createStatement();
+					rs=stmt.executeQuery(sql);
+
+					while(rs.next()){
+						
+						quiz.setTotalcount(rs.getInt(1));
+					}//while end
+					
+					
+					String sql2="select count(*) as yescount from qz_quiz_history where q_quiz_event='Y' and q_id='"+q_id+"'";
+					stmt=con.createStatement();
+					rs=stmt.executeQuery(sql2);
+
+					while(rs.next()){
+						
+						yescount=rs.getInt(1);
+						quiz.setYescount(yescount);
+					}//while end
+					
+					
+					String sql3="select count(*) as nocount from qz_quiz_history where q_quiz_event='N' and q_id='"+q_id+"'";
+					stmt=con.createStatement();
+					rs=stmt.executeQuery(sql3);
+
+					while(rs.next()){
+						
+						nocount=rs.getInt(1);
+						quiz.setNocount(nocount);
+					}//while end
+					
+					
+					
+				}catch(Exception ex){
+					System.out.println("quizScroe()예외:"+ex);
+					
+				}finally{
+					try{
+						if(rs!=null){rs.close();}
+						if(stmt!=null){stmt.close();}
+						if(con!=null){con.close();}
+					}catch(Exception exx){}
+				}//finally
+				return quiz;
 				
 			}//quizScroe()
 

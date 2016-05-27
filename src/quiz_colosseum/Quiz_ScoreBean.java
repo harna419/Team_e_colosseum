@@ -32,6 +32,32 @@ public class Quiz_ScoreBean {
 	private String q_custom_reply9;
 	private String q_custom_reply10;
 	private int cnt;//문제 개수 구하기 
+	private int totalcount;
+	private int yescount;
+	private int nocount;
+	public int getTotalcount() {
+		return totalcount;
+	}
+
+	public void setTotalcount(int totalcount) {
+		this.totalcount = totalcount;
+	}
+
+	public int getYescount() {
+		return yescount;
+	}
+
+	public void setYescount(int yescount) {
+		this.yescount = yescount;
+	}
+
+	public int getNocount() {
+		return nocount;
+	}
+
+	public void setNocount(int nocount) {
+		this.nocount = nocount;
+	}
 	
 	public int getCnt() {
 		return cnt;
