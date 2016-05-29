@@ -47,12 +47,13 @@ quizScore = scoreMgr.quizScore(q_dep_num);// 메서드 호출
 		 
 		Quiz_ScoreBean bean=(Quiz_ScoreBean)quizScore.get(i);
 		Quiz_StudyBean view=(Quiz_StudyBean)quizView.get(i);
-		
-	%>	
+		%>
+
+
 		<div>
 			<ul type="1">
 			 	<%
-			 	if("Y".equals(bean.getQ_quiz_type())){
+			 	if("Y".equals(bean.getQ_quiz_event())){
 			 	%>
 			 	<br>정답 입니다.<br>
 			 	<li><%= i+1%> 번 문제 : <%=view.getQ_subject() %></li>		 	
@@ -62,7 +63,8 @@ quizScore = scoreMgr.quizScore(q_dep_num);// 메서드 호출
 				<li>설명     : <%=bean.getQ_content()%></li>
 			 <%
 			 	quiz_Yes++;
-			 }else if("N".equals(bean.getQ_quiz_type())){%>
+			 
+			 }else if("N".equals(bean.getQ_quiz_event())){%>
 			 	<br>오답 입니다.<br>
 			 	<li><%= i+1%> 번 문제 : <%=view.getQ_subject() %></li>		 	
 			 			 	

@@ -105,6 +105,7 @@ public class Quiz_StudyMgr {
 				quiz.setQ_modify_time(rs.getTimestamp("q_modify_time"));
 				quiz.setQ_quiz_type(rs.getString("q_quiz_type"));
 				vec.add(quiz);
+				
 		
 			}//while end
 			
