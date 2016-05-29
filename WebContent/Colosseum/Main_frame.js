@@ -25,7 +25,7 @@ $(document).ready(function() {
 var window_height = $(window).height();
 
 //메인 들어오면, 해상도 잡기.
-$('.Intro_menu, .Intro_left').css({'height': window_height});
+$('.Intro_menu, .Intro_left, #main').css({'height': window_height});
 $('.menu_button').css('height', Math.floor(window_height/8) );
 $('.menu_button').last().css('height', Math.floor(window_height/8) + window_height%8);
 $('.circle, .home-block').height($('.Intro_menu').height());

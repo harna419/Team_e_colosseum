@@ -8,14 +8,29 @@
 <style type="text/css">
 html body{height: 100%; width:100%; margin: 0px;padding: 0px;}
 #sec_wrap{position:absolute; top:0%; height: 100%; width:100%;}
-#sec1{position:absolute; top:0%; height:0%; width:100%; background-color: green; }
-#sec2{position:absolute; top:0%; height:50%; width:100%; background-color: red; }
-#sec3{position:absolute; top:0%; height:0%; width:100%; background-color: blue;}
-img {
-float:inherit;
+#sec1{position:absolute; top:0%; height:50%; width:100%;  
+color: #fff;
+font-family: '맑은 고딕';
+font-size: 30px;
+font-weight: bold;
+letter-spacing: 1px;
+line-height: 30px;
+
+text-align: left;
+text-transform: uppercase;
+vertical-align: middle;
+
+z-index: 2; 
+}
+#sec2{position:absolute; top:0%; height:50%; width:100%; z-index: 1; 
+align: left;
+ }
+#main_img {
 position:absolute;  
 top:0%;
+
 vertical-align: middle;
+margin-top: -150px;
 }
 
 </style>
@@ -23,13 +38,9 @@ vertical-align: middle;
 <body>
 
 <div id="sec_wrap">
-<div id="sec1"></div>
-<<<<<<< HEAD
-<div id="sec2"><img src="./imgs/Colosseum1111.svg"></div>
-=======
-<div id="sec2"><img src="C:\00_oh\01_work\Team_e_colosseum\WebContent\Colosseum\imgs\Colosseum.svg"></div>
->>>>>>> eec87ae3f62b47e6970c2afb5fa945ba0ef5213c
-<div id="sec3"></div>
+<div id="sec1"><h1>Welcome To Colosseum</h1></div>
+<div id="sec2"><img id="main_img" src="./imgs/Colosseum1111.svg"/></div>
+
 </div>
 
 

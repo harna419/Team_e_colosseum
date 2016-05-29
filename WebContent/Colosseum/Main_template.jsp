@@ -27,9 +27,12 @@ System.out.println(pageFile);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메인 프레임</title>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script type="text/javascript" src="Main_frame.js"></script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> <!--JQuery-->
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> <!-- 제이쿼리 UI -->
+<script type="text/javascript" src="Main_frame.js"></script> <!-- 메인 프레임 스크립트 -->
+<script src="/path/to/jquery.mCustomScrollbar.concat.min.js"></script> <!-- 커스텀 스크롤바 -->
+<link rel="stylesheet" href="/path/to/jquery.mCustomScrollbar.css" />
+
 <script>
 function move(afternum){
 	if(afternum==1){ //콜로세움이란?
@@ -60,27 +63,27 @@ function move(afternum){
 </script>
 
 <style type="text/css">
-html body{height: 100%; margin: 0px;padding: 0px;}
-#Intro_menu{}
+html body{height: 100%; margin: 0px;padding: 0px; }
+
 #main{width:100%; height:100%; position:absolute; left: 0%; background-color: #3D68A6;}
-#top{position: absolute; top:0%; background-color: yellow;  right:0%; width: 90%; height: 10%; background-color: #3D68A6;}
+
+/*#top{position: absolute; top:0%; background-color: yellow; right:0%; width: 90%; height: 10%; background-color: #3D68A6;}
+*/
+
 #content_block{
 overflow-y:scroll;  /*넘어가는 부분은 스크롤 처리*/
-position: absolute;width:90%;height: 90%;top:10%; right:0%; background-color: #f2b701; }
-=======
-#top{position: absolute; top:0%; background-color: yellow; right:0%; width: 90%; height: 10%; background-color: #3D68A6;}
+position: absolute;width:90%;height: 100%;top:0%; left:10%; background-color: #3D68A6; }
 
-#content_block{position: absolute;width:90%;height: 90%;top:10%; right:0%; background-color: #3D68A6; }
->>>>>>> eec87ae3f62b47e6970c2afb5fa945ba0ef5213c
 #back_intro{
 position: fixed;
-top: 1%;
-right: 7%;
+top: 2%;
+right: 9%;
 
   	float:left;
     /*overflow:hidden;  this is important 이 부분이 넘치는 부분을 생략해준다.*/
     height:150px;
     width:150px;
+    z-index: 3;
 }
 
 
@@ -103,14 +106,17 @@ margin-top: -12px;
 
 text-align: right;
 text-transform: uppercase;
-vertical-align: middle;
 width: 100%;
 
 }
 
 
-#home_wrapper{width:100%; height:100%; z-index:1; position:absolute; right: 100%;}
-.Intro_left{position:absolute; height:100%; left:0px; width:60%; background-color: #ffffff; z-index: 3; margin-right: 0px;]}
+#home_wrapper{width:100%; height:100%; z-index:4; position:absolute; right: 100%;}
+.Intro_left{
+overflow-y:scroll;
+
+
+position:absolute; height:100%; left:0px; width:60%; background-color: #ffffff; z-index: 3; margin-right: 0px;]}
 .circle{position: absolute; left: 60%; z-index:3; height:100%;}
 .Intro_menu{position: absolute; height:100%; right:0px; width:60%; z-index: 2}
 .menu_button{ display:block; width:100%; position: relative; height: 50px; } 
@@ -196,7 +202,7 @@ height:100%;
 
 <div id="Intro_menu"><jsp:include page='./home_wrap.jsp'/></div>
 <div id="main" > <!-- main page-->
-<div id="top"><jsp:include page="Top.jsp"/></div>
+<!--<div id="top"><jsp:include page="Top.jsp"/> top 부분 제거 합니다.</div>-->
 <div id="content_block">
 	<jsp:include page='<%=pageFile %>'/>
 </div>
