@@ -56,10 +56,11 @@ request.setCharacterEncoding("utf-8");
 				+"<td><input type='file' name='q_content_img"+totalCnt+"' id='single_file_img"+totalCnt+"' required='required'></td>"
 				+"</tr>"
 				+"<tr><td align='center'>답   변</td>"
-				+"<td><input type='radio' name='q_real_reply"+totalCnt+"1' id='single_option"+totalCnt+"' value='1' required='required'>"
+				+"<td><input type='radio' name='q_real_reply"+totalCnt+"1' id='single_option"+totalCnt+"' required='required'>"
 				+"<input type='text' name='q_reply"+totalCnt+"1' required='required'></td>"
 				+"<td><input type='file' name='q_reply"+totalCnt+"_img1' id='single_file1' required='required'></td>"
 				+"<td><input type='button' name='single_add' id='single_add' onclick='single_add"+totalCnt+"()' value='항목추가'></td>"
+				
 				+"</tr><input type='hidden' name='q_quiz_type"+totalCnt+"' value='200'>"
 				+"</table>'").appendTo("#Quiz_RegisterForm");
 				
@@ -68,21 +69,21 @@ request.setCharacterEncoding("utf-8");
 			}else if(m2=="300"){//객관식복수
 				//alert("300");
 				//$("<table align='center' id='multi"+a+"'><tr><td>항목 제목</td><td><input type='text' name='q_subject' id='Multi_subject' size='40' value=''></td></tr><tr><td>항목 설명</td><td><input type='text' name='q_content' id='Multi_content' size='40' value=''></td><td><input type='file' name='q_content_img' id='Multi_file'></td></tr><tr><td align='center'>답   변</td><td><input type='checkbox' name='Multi_option' id='Multi_option1'><input type='text' name='q_reply1' value=''></td><td><input type='file' name='q_reply1_img' id='Multi_file1'></td><td><input type='button' name='Multi_add' id='Multi_add' value='옵션추가'></td></tr></table><input type='hidden' name='300' value='300'>'").appendTo("#Quiz_RegisterForm");
-				$("<table align='center' id='multi"+a+"'>"
+				$("<table align='center' id='multi"+totalCnt+"'>"
 				+"<tr><td>항목 제목</td>"
-				+"<td><input type='text' name='q_subject"+a+"' id='Word_subject"+a+"' size='60' value='' required='required'></td>"
+				+"<td><input type='text' name='q_subject"+totalCnt+"' id='multi_subject"+totalCnt+"' size='60' value='' required='required'></td>"
 				+"</tr>"
 				+"<tr><td>항목 설명</td>"
-				+"<td><input type='text' name='q_content"+a+"' id='Single_content"+a+"' size='60' value='' required='required'></td>"
-				+"<td><input type='file' name='q_content_img"+a+"' id='Single_file"+a+"' required='required'></td>"
+				+"<td><input type='text' name='q_content"+totalCnt+"' id='multi_content"+totalCnt+"' size='60' value='' required='required'></td>"
+				+"<td><input type='file' name='q_content_img"+totalCnt+"' id='multi_file_img"+totalCnt+"' required='required'></td>"
 				+"</tr>"
 				+"<tr><td align='center'>답   변</td>"
-				+"<td><input type='checkbox' name='Multi_option"+a+"' id='Multi_option1' required='required'>"
-				+"<input type='text' name='q_reply1' value='' required='required'></td>"
-				+"<td><input type='file' name='q_reply1_img' id='Multi_file1' required='required'></td>"
-				+"<td><input type='button' name='Multi_add' id='Multi_add' onclick='multi_add"+a+"()' value='옵션추가'></td>"
+				+"<td><input type='checkbox' name='multi_option"+totalCnt+"1' id='multi_option"+totalCnt+"' required='required'>"
+				+"<input type='text' name='q_reply1"+totalCnt+"1' required='required'></td>"
+				+"<td><input type='file' name='q_reply"+totalCnt+"_img1' id='multi_file1' required='required'></td>"
+				+"<td><input type='button' name='multi_add' id='multi_add' onclick='multi_add"+totalCnt+"()' value='항목추가'></td>"
 				+"</tr>"
-				+"<input type='hidden' id='ccc' name='300' value='300'>"
+				+"<input type='hidden' name='q_quiz_type"+totalCnt+"' value='300'>"
 				+"</table>").appendTo("#Quiz_RegisterForm")
 				
 				$("<hr size='1' color='blue'>").appendTo("#Quiz_RegisterForm")
