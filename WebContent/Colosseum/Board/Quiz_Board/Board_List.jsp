@@ -213,8 +213,8 @@
     		</table>
     	</div> 
     	
-    	<!-- 공지사항 테이블  -->
-    	<div> <%@ include file="/Colosseum/Board/Quiz_Board/Board_Notice_List.jsp" %> </div> 
+    	<%-- 공지사항 테이블  
+    	<div> <%@ include file="/Colosseum/Board/Quiz_Board/Board_Notice_List.jsp" %> </div>  --%>
 	    
     	<div align="center" width="60%" id="content" class="asdf">	
     	<span>
@@ -229,7 +229,7 @@
     		<div id="test3">
 	    		<tr align=center height="120%">
 	    		<!-- 이게 없으면 테이블 사이즈 조정이 안됩니다 -->
-	    		<td width="5%"></td> <td width="45%"></td><td width="20%"></td><td wdith="20%"></td><td width="10%"></td>	
+	    		<td width="5%">번호</td> <td width="45%">제목</td><td width="20%">이름</td><td wdith="20%">날짜</td><td width="10%">조회수</td>	
 	  			</tr>
     		</div>
    
@@ -263,12 +263,13 @@
     		    
     		    long result = (dateTime1 - dateTime2)/1000; //두 시간의 차이를 구해서 다시 초로 환산
     		    int hour = (int) Math.round((double)(result / 3600)); //60*60 해서 시각으로 바꾼 후 반올림
+    			
     		%>
     		
+    		<%if(q_notice_group==0){
+    			%>
     			<tr>
-    			<!--  번호를 역순으로, num와 다르다 -->
-    			<td align=center><%=totalRecord-i %></td>
-    			
+    			<td align="center">공지</td>	
     			<td>
     			<%-- 글 보기 --%>
     			<a href="javascript:content('<%=q_num%>')"><%=q_subject %></a>
@@ -284,6 +285,30 @@
     			<td align=center><%=q_create_time %></td>
     			<td align=center><%=q_read_count %></td>
     			</tr>
+    			<%
+    		}else{
+    		 %>
+    			<tr>
+    			<!--  번호를 역순으로, num와 다르다 -->
+    			<td align=center><%=totalRecord-i %></td>
+    			<td>
+    			<%-- 글 보기 --%>
+    			<a href="javascript:content('<%=q_num%>')"><%=q_subject %></a>
+    			
+    			<%
+				if(hour<24){//반올림한 시각이 24보다 작은 경우 new이미지 생성
+				%>
+				<img src = "imgs/ico_new.gif" width="10" height="10">
+				<%}%>
+    			</td>
+    			
+    			<td align=center class="receive"><%=nickname %></td>
+    			<td align=center><%=q_create_time %></td>
+    			<td align=center><%=q_read_count %></td>
+    			</tr>
+    			<%
+    			}//else
+    		 %>
     			
     			<% }//for %>
     		</table>

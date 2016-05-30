@@ -171,4 +171,20 @@ private static MessageDao instance=new MessageDao(); //½Ì±ÛÅæ »ç¿ë
 		}//finally
 		return dto;
 	}//getBoard() end
+	
+	public void deleteMessage(int q_num){
+		try{
+			con=getConnection();
+			sql="delete from qz_message_box where Q_NUM="+q_num;
+			pstmt=con.prepareStatement(sql);
+			pstmt.executeUpdate();
+		}catch(Exception ex){
+			System.out.println("deleteMessage() ¿¹¿Ü :"+ex);
+		}finally{
+			try{
+				if(pstmt!=null){pstmt.close();}
+				if(con!=null){con.close();}
+			}catch(Exception exx){}
+		}//finally
+	}//deleteNotice() end
 }
