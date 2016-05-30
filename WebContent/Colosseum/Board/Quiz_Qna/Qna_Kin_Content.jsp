@@ -40,16 +40,12 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 	<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
 	<script>
 	
-	function deleteCheck(){
+	
+	 
+	 function updatecheck(q_num){
 		
-		
-		if (window.confirm("정말로 삭제하시겠습니까?")){
-			  alert("삭제되었습니다.");
-			  location.href="Qna_Kin_Delete.jsp?page=<%=nowPage %>&q_num=<%=q_num %>";
-			  }else{
-			  alert("취소되었습니다.");
-			  }
-	 }//zipCheck() end 
+		 movePageUrl("/Board/Quiz_Qna/Qna_Kin_Update.jsp?q_num="+q_num);
+	 }
 	 <%--
 	 $(function(){
 		//alert("ddd")
@@ -66,6 +62,11 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 		
 		
 	 });--%>
+	 
+	 function deleteCheck(q_num){
+			alert("zzz"+q_num);
+			
+		 }//deleteCheck() end 
 	 
 	</script>
 	</head>
@@ -106,16 +107,16 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 			
 			<tr>
 			<td align="right" colspan="4">
-			
-				<a href="Qna_Update.jsp?page=<%=nowPage %>&q_num=<%=q_num %>"><input type="button" value="수정"></a>
+				<input onClick="updatecheck(<%=q_num%>)" type="button" value="수정">
+				<%--<a href="Qna_Update.jsp?page=<%=nowPage %>&q_num=<%=q_num %>"><input type="button" value="수정"></a> --%>
 				<%
 				if(q_nickname.equals(q_nickname2)){
 				%>
-				<input type="button" value="삭제" onclick="deleteCheck()">
+				<input type="button" value="삭제" onclick="deleteCheck(<%=q_num%>)">
 				<%
 				}
 				%>
-				<a href="Qna_Kin_List.jsp"><input type="button" value="리스트"></a>
+				<%--<a href="Qna_Kin_List.jsp"><input type="button" value="리스트"></a> --%>
 				
 		</td>
 		
