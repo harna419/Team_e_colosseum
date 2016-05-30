@@ -350,8 +350,7 @@ int quiznumtest=0;
 	position: absolute;
 	width: 100%;
 	height: 75%;
-	top: 11.593%;
-	
+	top: 11.593%;	
 }
 .board{	
 	position: absolute;
@@ -360,8 +359,7 @@ int quiznumtest=0;
 	left: 20%;
 	border-bottom: 1px solid #fff;	
 }
-.title_con{
-	
+.title_con{	
 	font-weight: bold;    
 	font-size: 16px;
 	font-family: '맑은고딕';
@@ -373,8 +371,7 @@ int quiznumtest=0;
 	border: 1px solid #d8d8d8;
 	border-top: 0; 
 }
-.content{
-	
+.content{	
 	height: 12px;
     line-height: 12px;
     font-size: 12px;
@@ -388,8 +385,7 @@ int quiznumtest=0;
 .img{	
 	position: absolute;
 	width: 100%;
-	height: 84%;
-	
+	height: 84%;	
 }
 .reply{
 	position: absolute;
@@ -409,11 +405,19 @@ int quiznumtest=0;
 .pre{
 	float:left;
 	margin-top: 22%;
-	
+	cursor: pointer;
+
 }
 .next{
 	float: right;
 	margin-top: 22%;
+	cursor: pointer;
+}
+.pre:hover{
+	border: 3px solid #fff;
+}
+.next:hover{
+	border: 3px solid #fff;
 }
 
 .submitbutton{
@@ -430,8 +434,7 @@ int quiznumtest=0;
     text-transform: uppercase;
     opacity: 1;
     width: 80px;
-    padding: 5px 10px;
-    
+    padding: 5px 10px;    
 }
 .updatebutton{
 	border:0;
@@ -731,8 +734,8 @@ margin-right: 1%;
 
 		<input type="hidden" name="q_quiz_type<%=num %>" value="200">
 		
-		<div class="pre"><img src="../Colosseum/imgs/left_key.png" onclick="prevquiz()" value="이전문제"></div>
-		<div class="next"><img src="../Colosseum/imgs/right_key.png" onclick="nextquiz(<%=quizcnt %>)" value="다음문제"></div>
+		<div class="pre"><img src="../Colosseum/imgs/left_key.png" onclick="prevquiz()" value="이전문제" width=100px height=100px></div>
+		<div class="next"><img src="../Colosseum/imgs/right_key.png" onclick="nextquiz(<%=quizcnt %>)" value="다음문제" width=100px height=100px></div>
 		</div><!-- test -->
 
 	<% 

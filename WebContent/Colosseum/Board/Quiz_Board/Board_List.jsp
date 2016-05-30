@@ -186,10 +186,9 @@
 	    	});//ready function()
 
 		    function clicked(nickname){
-		    	alert("clicked글쓰기");
-		    	
+	    		
 		    	movePageUrl('./Board/Quiz_Board/Board_Write.jsp?q_nickname='+nickname);
-		    	
+
 		    }
 		    
 		    </script>

@@ -162,6 +162,9 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 		 movePageUrl("Board/Quiz_Qna/Qna_Update.jsp?&q_num="+q_num);
 		 
 	 }
+	 function goList(){
+		 movePageUrl('./Board/Quiz_Qna/Qna_List.jsp');
+	 }
 	 <%--
 	 $(function(){
 		//alert("ddd")
@@ -223,7 +226,7 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 				<%	
 				}
 				%>
-				<a href="Board/Quiz_Qna/Qna_List.jsp"><img src="imgs/btn_vim2.png" class="btn_list"></a>
+				<%--<a href="Board/Quiz_Qna/Qna_List.jsp"> --%><img onclick="goList()" src="imgs/btn_vim2.png" class="btn_list"></a>
 
 			</div><!-- btn_con -->
 	<%

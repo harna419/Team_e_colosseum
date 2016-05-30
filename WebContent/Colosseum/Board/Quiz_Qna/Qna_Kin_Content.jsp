@@ -7,11 +7,13 @@
 request.setCharacterEncoding("utf-8");
 %>
 
+
+
 <%
 QnaDao dao=QnaDao.getInstance();
- 
-int q_num=Integer.parseInt(request.getParameter("q_num"));
 
+int q_num=Integer.parseInt(request.getParameter("q_num"));
+//System.out.println("q_num:"+q_num);
 //int nowPage=Integer.parseInt(request.getParameter("page"));
 //String keyField=request.getParameter("keyField");
 //String keyWord=request.getParameter("keyWord");
