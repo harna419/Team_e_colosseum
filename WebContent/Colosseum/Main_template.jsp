@@ -36,6 +36,7 @@ System.out.println("세션id:"+mem_id);
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> <!-- 제이쿼리 UI -->
 <script type="text/javascript" src="Main_frame.js"></script> <!-- 메인 프레임 스크립트 -->
 <script src="/path/to/jquery.mCustomScrollbar.concat.min.js"></script> <!-- 커스텀 스크롤바 -->
+
 <link rel="stylesheet" href="/path/to/jquery.mCustomScrollbar.css" />
 
 <script>
@@ -50,7 +51,7 @@ function move(afternum){
 		movePageUrl("")
 	}
 	if(afternum==4){//문제게시판
-		movePageUrl("Board/Quiz_view/Quiz_list.jsp")
+		movePageUrl("Board/Quiz_view/Quiz_list.jsp",$('#main').css("backgroundColor"),"#4E94D4")
 	}
 	if(afternum==5){//GROUP
 		movePageUrl("")

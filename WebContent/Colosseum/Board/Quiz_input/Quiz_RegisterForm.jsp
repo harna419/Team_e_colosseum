@@ -4,13 +4,14 @@
 	%>
 <%
 request.setCharacterEncoding("utf-8");
+String url22=request.getContextPath();
 %>
 
 <html>
 	<head>
 		<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
-		<script type="text/javascript" src="./Board/Quiz_input/single_add.js"></script>
-		<script type="text/javascript" src="./Board/Quiz_input/multi_add.js"></script>
+		<script type="text/javascript" src="<%=url22 %>/Colosseum/Board/Quiz_input/single_add.js"></script>
+		<script type="text/javascript" src="<%=url22 %>/Colosseum/Board/Quiz_input/multi_add.js"></script>
 		<%--<script type="text/javascript" src="./Board/Quiz_input/word_add.js"></script> --%>
 		<script type="text/javascript">
 		
@@ -56,7 +57,7 @@ request.setCharacterEncoding("utf-8");
 				+"<td><input type='file' name='q_content_img"+totalCnt+"' id='single_file_img"+totalCnt+"' required='required'></td>"
 				+"</tr>"
 				+"<tr><td align='center'>답   변</td>"
-				+"<td><input type='radio' name='q_real_reply"+totalCnt+"1' id='single_option"+totalCnt+"' required='required'>"
+				+"<td><input type='radio' name='q_real_reply"+totalCnt+"1' id='single_option"+totalCnt+"' value='1' required='required'>"
 				+"<input type='text' name='q_reply"+totalCnt+"1' required='required'></td>"
 				+"<td><input type='file' name='q_reply"+totalCnt+"_img1' id='single_file1' required='required'></td>"
 				+"<td><input type='button' name='single_add' id='single_add' onclick='single_add"+totalCnt+"()' value='항목추가'></td>"
@@ -78,8 +79,8 @@ request.setCharacterEncoding("utf-8");
 				+"<td><input type='file' name='q_content_img"+totalCnt+"' id='multi_file_img"+totalCnt+"' required='required'></td>"
 				+"</tr>"
 				+"<tr><td align='center'>답   변</td>"
-				+"<td><input type='checkbox' name='multi_option"+totalCnt+"1' id='multi_option"+totalCnt+"' required='required'>"
-				+"<input type='text' name='q_reply1"+totalCnt+"1' required='required'></td>"
+				+"<td><input type='checkbox' name='q_real_reply"+totalCnt+"1' id='multi_option"+totalCnt+"' value='1'>"
+				+"<input type='text' name='q_reply"+totalCnt+"1' required='required'></td>"
 				+"<td><input type='file' name='q_reply"+totalCnt+"_img1' id='multi_file1' required='required'></td>"
 				+"<td><input type='button' name='multi_add' id='multi_add' onclick='multi_add"+totalCnt+"()' value='항목추가'></td>"
 				+"</tr>"
