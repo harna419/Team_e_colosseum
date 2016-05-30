@@ -92,7 +92,7 @@ $(this).on("click",'.menu_link' ,function(event){
 	//var test= $(this).attr('id')
 	//alert(test);
 	
-	if($(this).children().first().attr('id') == 'menu1'){ //콜로세움이란?
+	if($(this).children().first().attr('id') == 'menu1'){ //LOGIN/OUT
 		
 		movePageUrl('Menu1.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
@@ -108,22 +108,21 @@ $(this).on("click",'.menu_link' ,function(event){
 	
 		movePageUrl('./Board/Quiz_view/Quiz_list.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
-	}else if($(this).children().first().attr('id') == 'menu5'){ //게시판
-		
-		movePageUrl('./Board/Quiz_Qna/Qna_Main.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
-		
-	}else if($(this).children().first().attr('id') == 'menu6'){ // 명예의 전당
+	}else if($(this).children().first().attr('id') == 'menu5'){ //GROUP
 		
 		movePageUrl('Menu5.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
-	}else if($(this).children().first().attr('id') == 'menu7'){ //학습 모드
+	}else if($(this).children().first().attr('id') == 'menu6'){ //명예의 전당
 		
 		movePageUrl('Menu6.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
-	}else if($(this).children().first().attr('id') == 'menu8'){ //??
-	
+	}else if($(this).children().first().attr('id') == 'menu7'){ //학습 모드
+		
 		movePageUrl('Menu7.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 		
+	}else if($(this).children().first().attr('id') == 'menu8'){ //게시판
+			
+		movePageUrl('./Board/Quiz_Qna/Qna_Main.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
 				
 	}
 });
