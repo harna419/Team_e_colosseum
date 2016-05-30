@@ -18,7 +18,7 @@ MemberDto dto=dao.getMember(q_id);//dao 메서드 호출
 Vector vec=null;
 String q_nickname_receive=dto.getQ_nickname();
 MessageDao dao2=MessageDao.getInstance();
-//String q_nickname_receive="test";  
+
 vec=dao2.getMessageList(q_nickname_receive);
 
 Quiz_ScoreMgr quizMgr=Quiz_ScoreMgr.getInstance();
@@ -30,6 +30,10 @@ int totalgame=yescount+nocount;
 double per=(double)yescount/totalgame*100;
 double percentage = Double.parseDouble(String.format("%.1f",per));
 String q_nickname=dto.getQ_nickname();
+
+System.out.println(yescount);
+System.out.println(nocount);
+System.out.println(totalgame);
 
 %> 
   
