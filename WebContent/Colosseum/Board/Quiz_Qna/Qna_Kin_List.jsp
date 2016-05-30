@@ -100,19 +100,27 @@
     	}//check() end
     	
     	function list(){
-    		document.listForm.action="Qna_Kin_List.jsp";
-    		document.listForm.submit();
+    		//document.listForm.action="Qna_Kin_List.jsp";
+    		//document.listForm.submit();
     	}//list() end
     	
-    	function content(valuess){
+    	function content(q_num){
+    		alert(q_num);
+    		//document.readForm.action="Board/Quiz_Qna/Qna_Kin_Content.jsp";//글 내용 보기
+    		//document.readForm.q_num.value=valuess;//글번호
+    		//document.readForm.submit();
+    		//movePageUrl('/Colosseum/Board/Quiz_Qna/Qna_kin_Content.jsp?q_num='+q_num);
     		
-    		document.readForm.action="Qna_Kin_Content.jsp";//글 내용 보기
-    		document.readForm.q_num.value=valuess;//글번호
-    		document.readForm.submit();
+    		movePageUrl('./Board/Quiz_Qna/Qna_kin_Content.jsp?q_num='+q_num);
+    		
     	}//read() end
     	
-    	
-    	
+    	function clicked(nickname){
+    		
+    		movePageUrl('./Board/Quiz_Qna/Qna_Write.jsp?q_nickname='+nickname);
+    		
+    	}
+ 
     </script>
     </head>
     
@@ -233,7 +241,8 @@
     	if(totalRecord!=0){//글이 존재하면
     		if(nowBlock>0){// 이전 블럭으로 이동
     	%>
-    	<a href="Qna_Kin_List.jsp?nowBlock=<%=nowBlock-1%>&
+    	
+    	<a href="./Board/Quiz_Qna/Qna_Kin_List.jsp?nowBlock=<%=nowBlock-1%>&
     	page=<%=((nowBlock-1)*pagePerBlock)%>&
     	keyField=<%=keyField %>&
     	keyWord=<%=keyWord %>">
@@ -246,7 +255,7 @@
     	//-------------------------페이지 처리
     	for(int i=0; i<pagePerBlock; i++){
     		%>
-    		<a href="Qna_Kin_List.jsp?nowBlock=<%=nowBlock%>&page=<%=(nowBlock*pagePerBlock)+i %>">
+    		<a href="./Board/Quiz_Qna/Qna_Kin_List.jsp?nowBlock=<%=nowBlock%>&page=<%=(nowBlock*pagePerBlock)+i %>">
     		<%=(nowBlock*pagePerBlock)+i+1 %>
     		</a>
     		<%
@@ -259,7 +268,7 @@
     	//다음블럭
     	if(totalBlock>nowBlock+1){
     		%>
-    		<a href="Qna_Kin_List.jsp?nowBlock=<%=nowBlock+1 %>&
+    		<a href="./Board/Quiz_Qna/Qna_Kin_List.jsp?nowBlock=<%=nowBlock+1 %>&
     		page=<%=(nowBlock+1)*pagePerBlock %>&
     		keyField=<%=keyField %>&
     		keyWord=<%=keyWord %>">
@@ -275,8 +284,9 @@
     	</span>
     	
     	<span id="test1">
-    	
-    		<a href="Qna_Write.jsp?q_nickname=<%=nickname%>"><input type="button" value="글쓰기"></a>
+    		
+    		<input type="button" value="글쓰기" onclick="javascript:clicked('<%=nickname%>')"></a>
+    		
     	</span>
     	</div>
     	<div>

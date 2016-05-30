@@ -68,6 +68,9 @@ function move(afternum){
 	if(afternum==9){
 		movePageUrl("Board/Quiz_Board/Board_List.jsp");
 	}
+	if(afternum==10){
+		movePageUrl("Board/Quiz_Qna/Qna_List.jsp");
+	}
 }//move()
 </script>
 

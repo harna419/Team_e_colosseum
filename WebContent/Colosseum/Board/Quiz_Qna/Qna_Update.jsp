@@ -25,7 +25,7 @@ String q_content=dto.getQ_content();
 	<body>
 		<div><h3>글수정하기</h3></div>
 		
-		<form name="editForm" method="post" action="Qna/Qna_UpdateProc.jsp">
+		<form name="editForm" method="post" action="Board/Quiz_Qna/Qna_UpdateProc.jsp">
 			<table width="70%" cellspacing="0" cellpadding=7>
 				<tr>
 				<td align=center>

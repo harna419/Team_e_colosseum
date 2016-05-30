@@ -17,7 +17,7 @@
 
 QnaDao dao = QnaDao.getInstance(); //dao객체 얻기
 dao.insertQna(dto); //dao 메서드 호출
-response.sendRedirect("Qna_Kin_List.jsp"); //list.jsp 이동
+response.sendRedirect("../../Main_template.jsp?afternum=8"); //list.jsp 이동
 
 %>
 
