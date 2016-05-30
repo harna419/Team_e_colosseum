@@ -1,0 +1,37 @@
+<svg id="그룹_1" data-name="그룹 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="542" height="542" viewBox="0 0 542 542">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #979797;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+        filter: url(#filter);
+      }
+
+      .cls-1, .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: red;
+        filter: url(#filter-2);
+      }
+    </style>
+    <filter id="filter" x="28" y="28" width="544" height="544" filterUnits="userSpaceOnUse">
+      <feImage preserveAspectRatio="none" x="32" y="32" width="536" height="536" result="image" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNTM2IiBoZWlnaHQ9IjUzNiIgdmlld0JveD0iMCAwIDUzNiA1MzYiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50KTsKICAgICAgfQogICAgPC9zdHlsZT4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50IiB4MT0iMjY4IiB5MT0iNTM2IiB4Mj0iMjY4IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzgyODI4MiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZmYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjUzNiIgaGVpZ2h0PSI1MzYiLz4KPC9zdmc+Cg=="/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+    <filter id="filter-2" x="46" y="46" width="509" height="509" filterUnits="userSpaceOnUse">
+      <feImage preserveAspectRatio="none" x="46" y="46" width="509" height="509" result="image" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNTA5IiBoZWlnaHQ9IjUwOSIgdmlld0JveD0iMCAwIDUwOSA1MDkiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50KTsKICAgICAgfQogICAgPC9zdHlsZT4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50IiB4MT0iMjU0LjUiIHkxPSI1MDkiIHgyPSIyNTQuNSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjODI4MjgyIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCBjbGFzcz0iY2xzLTEiIHdpZHRoPSI1MDkiIGhlaWdodD0iNTA5Ii8+Cjwvc3ZnPgo="/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="translate(-29 -29)" style="fill: #fff; filter: url(#filter)">
+    <path id="모서리가_둥근_직사각형_1_복사" data-name="모서리가 둥근 직사각형 1 복사" class="cls-1" d="M548,568H52a20,20,0,0,1-20-20V52A20,20,0,0,1,52,32H548a20,20,0,0,1,20,20V548A20,20,0,0,1,548,568ZM543,78a20,20,0,0,0-20-20H78A20,20,0,0,0,58,78V523a20,20,0,0,0,20,20H523a20,20,0,0,0,20-20V78Z" style="stroke: inherit; filter: none; fill: inherit"/>
+  </g>
+  <use transform="translate(-29 -29)" xlink:href="#모서리가_둥근_직사각형_1_복사" style="stroke: #979797; filter: none; fill: none"/>
+  <path id="모서리가_둥근_직사각형_1" data-name="모서리가 둥근 직사각형 1" class="cls-2" d="M536.007,555H64.993A18.993,18.993,0,0,1,46,536.007V64.993A18.993,18.993,0,0,1,64.993,46H536.007A18.993,18.993,0,0,1,555,64.993V536.007A18.992,18.992,0,0,1,536.007,555ZM543,78a20,20,0,0,0-20-20H78A20,20,0,0,0,58,78V523a20,20,0,0,0,20,20H523a20,20,0,0,0,20-20V78Z" transform="translate(-29 -29)"/>
+</svg>

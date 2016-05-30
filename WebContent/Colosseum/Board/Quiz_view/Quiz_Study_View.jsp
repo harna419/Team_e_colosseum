@@ -546,23 +546,22 @@ int quiznumtest=0;
 			<%
 		}else if(type.equals("200")){
 			%>
-	        <tr>
-	          <td>
-	          <input type="text" name="q_subject<%=num %>" readOnly id="Single_subject<%=num %>" size="60" value="<%=bean.getQ_subject() %>">
-	          </td>
-	        </tr>
+			
+			<div class="board">
+	          <p class="title_con" name="q_subject<%=num %>" readOnly id="Single_subject<%=num %>"><%=bean.getQ_subject() %></p>
+
+
+	          <div class="content" name="q_content<%=num %>" readOnly id="Single_content<%=num %>"><%=bean.getQ_content() %></div>
+	    
+	     
+	          <div class="img"><img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_content_img() %>" width="100%" height="100%" align="center"></div>
 	        
-	        <tr>
-	          <td>
-	          <input type="text" name="q_content<%=num %>" readOnly id="Single_content<%=num %>" size="60" value="<%=bean.getQ_content() %>">
-	          </td>
-	        </tr>
-	        <tr>
-	          <td><img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_content_img() %>" width="450" height="450"></td>
-	        </tr>
 	        
-	        <tr>
-	          <td>
+	          <p class="reply"><input type="text" name="q_real_reply<%=num %>1" id="Word_answer<%=num %>1" style="height:100%" size="53" required="required" value=""></p>
+	        
+	        <input type="hidden" name="q_quiz_type<%=num %>" value="100">
+           </div><!-- board --> 
+	        
 	          <%
 	         	//reply1~10까지 변수에 넣기
 	        	String reply1=bean.getQ_reply1();
