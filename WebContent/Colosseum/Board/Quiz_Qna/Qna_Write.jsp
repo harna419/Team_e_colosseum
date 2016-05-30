@@ -27,14 +27,13 @@ function check(){
 	
 	switch(document.postForm.q_group.value){
 	case "0":  
-		document.postForm.action="./Qna_Faq_WriteProc.jsp";
-		document.postForm.submit;
-		break;
-	case "1": 
 		document.postForm.action="Board/Quiz_Qna/Qna_Faq_WriteProc.jsp";
 		document.postForm.submit;
 		break;
-
+	case "1": 
+		document.postForm.action="./Board/Quiz_Qna/Qna_WriteProc.jsp";
+		document.postForm.submit;
+		break;
 	case "2":
 		document.postForm.action="./Qna_Kin_WriteProc.jsp";
 		document.postForm.submit;

@@ -36,43 +36,43 @@ session.setAttribute("q_nickname", q_nickname);
 <div class="Intro_menu">
 
 <a href="Menu1.jsp" class="menu_link" >
-<span id="menu1" data-color="#3D68A6" class="menu_button"  style="background-color: #3D68A6;"> 
- <span > 로그인 로그아웃</span> </span>
+<span id="menu1" data-color="#FFFFFF" class="menu_button"  style="background-color: #FFFFFF;"> 
+ <span > LOGIN/OUT </span> </span>
 </a>
 
 <a href="Menu2.jsp" class="menu_link">
-<span id="menu2" data-color="#6F95CF" class="menu_button" style="background-color: #6F95CF;"> 
-<span > 회원 가입</span>  </span>
+<span id="menu2" data-color="#2c93f3" class="menu_button" style="background-color: #2c93f3;"> 
+<span > WHO WE ARE </span>  </span>
 </a>
 
 <a href="Menu3.jsp" class="menu_link">
-<span id="menu3" data-color=#7EB5D7 class="menu_button"  style="background-color: #7EB5D7  ;"> 
-<span > 퀴즈 </span> </span>
+<span id="menu3" data-color="#015db2" class="menu_button"  style="background-color: #015db2;"> 
+<span > JOIN US </span> </span>
 </a>
 
 <a href="Menu4.jsp" class="menu_link">
-<span id="menu4" data-color="#B2E2F0" class="menu_button"  style="background-color: #B2E2F0;"> 
-<span > 게시판  </span>  </span>
+<span id="menu4" data-color="#4E94D4" class="menu_button"  style="background-color: #4E94D4;"> 
+<span > QUIZ </span>  </span>
 </a>
 
 <a href="Menu5.jsp" class="menu_link">
-<span id="menu5" data-color=#EFF0E7 class="menu_button"  style="background-color: #EFF0E7;"> 
-<span > 명예의 전당</span> </span>
+<span id="menu5" data-color="#3465AA" class="menu_button"  style="background-color:#3465AA;"> 
+<span > GROUP </span> </span>
 </a>
 
 <a href="Menu6.jsp" class="menu_link">
-<span id="menu6" data-color="#CBCAD4" class="menu_button"  style="background-color: #CBCAD4;"> 
-<span >학습 모드</span>  </span>
+<span id="menu6" data-color="#015db2" class="menu_button"  style="background-color: #015db2;"> 
+<span > THE HALL OF FAME </span>  </span>
 </a>
 
 <a href="Menu7.jsp" class="menu_link">
-<span id="menu7" data-color="#EECFD4" class="menu_button"  style="background-color: #EECFD4;"> 
-<span >  개발진 소개</span>  </span>
+<span id="menu7" data-color="#2c93f3" class="menu_button"  style="background-color: #2c93f3;"> 
+<span > LEARNING </span>  </span>
 </a>
 
 <a href="Menu8.jsp" class="menu_link">
-<span id="menu8" data-color="#C2AAC5" class="menu_button"  style="background-color: #C2AAC5;"> 
-<span > 그룹 </span> </span>
+<span id="menu8" data-color="#FFFFFF" class="menu_button"  style="background-color: #FFFFFF;"> 
+<span > BULLETIN BOARD </span> </span>
 </a>
 
 </div>	<!-- Intro_menu end -->
