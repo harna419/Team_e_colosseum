@@ -38,20 +38,20 @@ System.out.println("리퀘스트:"+q_id);
 
 <script>
 function move(afternum){
-	if(afternum==1){ //콜로세움이란?
+	if(afternum==1){ //LOGIN/OUT
 		
 	}
-	if(afternum==2){ //회원가입
+	if(afternum==2){ //개발진소개
 		
 	}
-	if(afternum==3){//문제게시판
+	if(afternum==3){//회원가입
+		movePageUrl("")
+	}
+	if(afternum==4){//문제게시판
 		movePageUrl("Board/Quiz_view/Quiz_list.jsp")
 	}
-	if(afternum==4){//자유게시판
-		movePageUrl("Board/Quiz_Board/Board_List.jsp")
-	}
-	if(afternum==5){//QNA
-		movePageUrl("Board/Quiz_Qna/Qna_Main.jsp?qnanum=1")
+	if(afternum==5){//GROUP
+		movePageUrl("")
 	}
 	if(afternum==6){//명예의전당
 		movePageUrl("Menu6.jsp")
@@ -59,8 +59,8 @@ function move(afternum){
 	if(afternum==7){//학습모드
 		movePageUrl("Menu7.jsp")
 	}
-	if(afternum==8){//개발진 소개
-		movePageUrl("Menu8.jsp")
+	if(afternum==8){//게시판
+		movePageUrl("Board/Quiz_Qna/Qna_Main.jsp?qnanum=1")
 	}
 }//move()
 </script>
@@ -100,8 +100,8 @@ padding-right: 10px;
 
 color: #fff;
 display: block;
-font-family: '맑은 고딕';
-font-size: 30px;
+font-family: "museo-sans",sans-serif;
+font-size: 14px;
 font-weight: bold;
 letter-spacing: 1px;
 line-height: 30px;

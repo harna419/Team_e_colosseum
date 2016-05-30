@@ -18,7 +18,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>비밀번호 찾기</title>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
 <script type="text/javascript">
 function check(){
 	if($('#q_pw_reply').val()==''){

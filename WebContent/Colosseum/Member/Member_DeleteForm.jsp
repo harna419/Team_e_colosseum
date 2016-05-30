@@ -3,7 +3,7 @@
 <%request.setCharacterEncoding("utf-8");%>
 <html>
 <head>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>--%>
 <script>
 	function begin(){
 		$('#q_pwd').focus();// 페이지 실행과 동시에 포커스 설정
