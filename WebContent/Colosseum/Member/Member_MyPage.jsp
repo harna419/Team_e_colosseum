@@ -56,7 +56,7 @@ th { background-color: #eee; display: table-cell; vertical-align: inherit; }
 
 </style>
  
-
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
  
 <script type="text/javascript">
 $(function () {	
@@ -119,6 +119,17 @@ function checkIt(){
 
 }//checkIt() end 
 
+function findPwd(){
+	
+	 url="FindPwd.jsp?check=y";
+	 window.open(url,"FindPwd","width=500,height=300,status=yes,scrollbars=yes");
+}//zipCheck() end 
+
+function findId(){
+	
+	url="FindId.jsp?check=y";
+	window.open(url,"FindId","width=500,height=300,status=yes,scrollbars=yes");
+}
 
 function content(value){
 	url="../MyPage/Message_Content.jsp?q_num="+value;
@@ -266,7 +277,7 @@ function delMsg() {
 		
     <div align="center">
     
-    <form name="msglist" method="post" action="Member/Member_MsgDelete.jsp" id="msgList">
+    <form name="msglist" method="post" action="Member_MsgDelete.jsp" id="msgList">
     <input type="button" value="삭제" onclick="delMsg()"> <input type="button" value="답장" onclick="">
     
 	<%
@@ -274,7 +285,7 @@ function delMsg() {
     		out.println("쪽지가 없습니다");
     	}else{//등록한 글이 있으면
     		%>
-    		<table name="message_list" width="100%">
+    		<table name="message_list" border=1 width="100%">
     		<tr align="center">
     		<th width="5%"><input type="checkbox" id="selectAll"></th><th width="20%">보낸사람</th><th width="60%">내용</th><th width="15%">날짜</th>
     		</tr>
