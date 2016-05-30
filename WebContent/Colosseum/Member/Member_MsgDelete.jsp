@@ -18,7 +18,7 @@
 	   int q_num=Integer.parseInt(selects[i]);
 	 	dao.deleteMessage(q_num);
    } 
-  }
+  } 
   catch(Exception ex) {
    out.println("exception occured");
   }
