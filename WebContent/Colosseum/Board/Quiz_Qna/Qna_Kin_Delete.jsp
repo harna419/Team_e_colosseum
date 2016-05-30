@@ -9,5 +9,5 @@ int q_num=Integer.parseInt(request.getParameter("q_num"));
 int nowPage=Integer.parseInt(request.getParameter("page"));
 
 dao.deleteQna(q_num);
-response.sendRedirect("Qna_Kin_List.jsp?page="+nowPage);
+response.sendRedirect("../../Main_template.jsp?afternum=8");
 %> 

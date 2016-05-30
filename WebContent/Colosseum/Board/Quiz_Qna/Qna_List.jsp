@@ -264,8 +264,9 @@ option{
     	}//check() end
     	
     	function list(){
-    		document.listForm.action="Qna_List.jsp.jsp";
-    		document.listForm.submit();
+    		//document.listForm.action="./Board/Quiz_Qna/Qna_List.jsp.jsp";
+    		//document.listForm.submit();
+    		//movePageUrl('./Board/Quiz_Qna/Qna_List.jsp');
     	}//list() end
     	
     	function content(q_num){
@@ -273,7 +274,7 @@ option{
     		//document.readForm.action="Qna_Content.jsp";//글 내용 보기
     		//document.readForm.q_num.value=valuess;//글번호
     		//document.readForm.submit();
-    		movePageUrl('/Colosseum/Qna/Qna_Content.jsp?q_num='+q_num);
+    		movePageUrl('./Board/Quiz_Qna/Qna_Content.jsp?q_num='+q_num);
     		
     	}//read() end
     	

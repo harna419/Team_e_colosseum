@@ -158,6 +158,8 @@ int quiznumtest=0;
 	    			return;
 	    		}//if 체크 확인
 			}//if tag 여부 확인
+			
+			
     	
     	
     		Quiz_Study_View.submit();
@@ -171,7 +173,7 @@ int quiznumtest=0;
 	         
 
     	}
-    	
+
     	
     	
 /*
@@ -466,7 +468,37 @@ int quiznumtest=0;
     width: 80px;
     padding: 5px 10px;
 }
- 
+.single1{
+	position:relative;
+	display:inline-block;
+	width:40%;
+	hegiht:40%;
+	margin-right:-170px;
+	
+}
+
+.single2{
+	position:relative;
+	display:inline-block;
+	width:40%;
+	height:40%;
+	margin-right:-170px;
+	
+}
+#si1{
+margin-top: 50%;	
+margin-left: 10px;
+margin-right: 10px;
+}
+#si2{
+display:inline-block;
+margin-top: 1%;
+margin-left: 1%;
+margin-right: 1%;
+
+}
+
+
    
 </style>
 
@@ -547,20 +579,17 @@ int quiznumtest=0;
 		}else if(type.equals("200")){
 			%>
 			
-			<div class="board">
+			<span class="board">
 	          <p class="title_con" name="q_subject<%=num %>" readOnly id="Single_subject<%=num %>"><%=bean.getQ_subject() %></p>
 
 
 	          <div class="content" name="q_content<%=num %>" readOnly id="Single_content<%=num %>"><%=bean.getQ_content() %></div>
 	    
 	     
-	          <div class="img"><img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_content_img() %>" width="100%" height="100%" align="center"></div>
+	          <div class="img"><img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_content_img() %>" width="100%" height="60%" align="center"></div>
 	        
 	        
-	          <p class="reply"><input type="text" name="q_real_reply<%=num %>1" id="Word_answer<%=num %>1" style="height:100%" size="53" required="required" value=""></p>
-	        
-	        <input type="hidden" name="q_quiz_type<%=num %>" value="100">
-           </div><!-- board --> 
+           
 	        
 	          <%
 	         	//reply1~10까지 변수에 넣기
@@ -607,89 +636,99 @@ int quiznumtest=0;
 	          		reply10="";
 	          	}//if end
 	          	%>
-	          	
+	          	<div id="si1">
 	          	<%
 	          	if(!((reply1.equals(null))||reply1.length()<=0||(reply1.equals(""))))
 	          	{
 	   			%>	
-	   				 <input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" required="required" id="Single_option<%=bean.getQ_dep_step()%>1" value="1"><%=bean.getQ_reply1() %>
-	   				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply1_img() %>" width="100" height="100">
+	   			
+	   				 <div class="single1"><input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" required="required" id="Single_option<%=bean.getQ_dep_step()%>1" value="1"><%=bean.getQ_reply1() %>
+	   				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply1_img() %>" width="30%" height="15%"></div>
 	  				<%
    				}//if end
 	  			
 	          	if(!((reply2.equals(null))||reply2.length()<=0||(reply2.equals(""))))
 	          	{
 					%>
-	  				 <input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="2"><%=bean.getQ_reply2() %>
-	  				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply2_img() %>" width="100" height="100"><br>
+	  				 <div class="single1"><input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="2"><%=bean.getQ_reply2() %>
+	  				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply2_img() %>" width="30%" height="15%"><br></div>
 	 				<%
    				}//if end//if end
 	  			
 	  			if(!((reply3.equals(null))||reply3.length()<=0||(reply3.equals(""))))
 	  			{
    					%>
-     				 <input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="3"><%=bean.getQ_reply3() %>
-     				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply3_img() %>" width="100" height="100">
+     				 <div class="single1"><input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="3"><%=bean.getQ_reply3() %>
+     				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply3_img() %>"width="30%" height="15%"></div>
     				<%
    				}//if end
 
 	  			if(!((reply4.equals(null))||reply4.length()<=0||(reply4.equals(""))))
 	  			{
    					%>
-     				 <input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="4"><%=bean.getQ_reply4() %>
-     				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply4_img() %>" width="100" height="100"><br>
+     				 <div class="single1"><input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="4"><%=bean.getQ_reply4() %>
+     				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply4_img() %>"width="30%" height="15%"><br></div>
     				<%
    				}//if end
 	  			
 	  			if(!((reply5.equals(null))||reply5.length()<=0||(reply5.equals(""))))
 	  			{
    					%>
-     				 <input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="5"><%=bean.getQ_reply5() %>
-     				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply5_img() %>" width="100" height="100">
+     				 <div class="single1"><input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="5"><%=bean.getQ_reply5() %>
+     				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply5_img() %>"width="30%" height="15%"></div>
+     				 
     				<%
    				}//if end
-	  			
+	  			%></div>
+	  			<div id="si2">
+	  			<%
 	  			if(!((reply6.equals(null))||reply6.length()<=0||(reply6.equals(""))))
 	  			{
    					%>
-     				 <input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="6"><%=bean.getQ_reply6() %>
-     				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply6_img() %>" width="100" height="100"><br>
+   					
+     				 <div class="single2"><input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="6"><%=bean.getQ_reply6() %>
+     				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply6_img() %>"width="30%" height="15%"><br></div>
     				<%
    				}//if end
 	  			
 	  			if(!((reply7.equals(null))||reply7.length()<=0||(reply7.equals(""))))
 	  			{
    					%>
-     				 <input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="7"><%=bean.getQ_reply7() %>
-     				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply7_img() %>" width="100" height="100">
+     				 <div class="single2"><input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="7"><%=bean.getQ_reply7() %>
+     				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply7_img() %>"width="30%" height="15%"></div>
     				<%
    				}//if end
 	  			
 	  			if(!((reply8.equals(null))||reply8.length()<=0||(reply8.equals(""))))
 	  			{
    					%>
-     				 <input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="8"><%=bean.getQ_reply8() %>
-     				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply8_img() %>" width="100" height="100"><br>
+     				 <div class="single2"><input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="8"><%=bean.getQ_reply8() %>
+     				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply8_img() %>"width="30%" height="15%"><br></div>
     				<%
    				}//if end
 	  			
 	  			if(!((reply9.equals(null))||reply9.length()<=0||(reply9.equals(""))))
 	  			{
    					%>
-     				 <input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="9"><%=bean.getQ_reply9() %>
-     				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply9_img() %>" width="100" height="100">
+     				 <div class="single2"><input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="9"><%=bean.getQ_reply9() %>
+     				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply9_img() %>"width="30%" height="15%"></div>
     				<%
    				}//if end
 	  			
 	  			if(!((reply10.equals(null))||reply10.length()<=0||(reply10.equals(""))))
 	  			{
 	  				%>
-    				 <input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="10"><%=bean.getQ_reply10() %>
-    				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply10_img() %>" width="100" height="100"><br>
+    				 <div class="single2"><input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="10"><%=bean.getQ_reply10() %>
+    				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply10_img() %>"width="30%" height="15%"><br></div>
+    				 
    					<%
    				}//if end
-	 	
-		}
+   				%>
+   				</div>
+   				
+	  			<input type="hidden" name="q_quiz_type<%=num %>" value="200">
+	  			</span><!-- board --> 
+	  		<%}//else if
    
 		%>
 
