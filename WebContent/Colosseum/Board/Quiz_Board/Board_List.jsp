@@ -29,6 +29,8 @@
     //String nickname=mdto.getQ_nickname();
     String q_id=(String)session.getAttribute("q_id");
     String nickname=(String)session.getAttribute("q_nickname");
+    System.out.println(q_id);
+    System.out.println(nickname);
 %>
 <%
     String im=request.getParameter("keyWord");

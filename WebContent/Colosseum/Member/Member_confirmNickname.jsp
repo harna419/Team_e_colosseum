@@ -12,5 +12,3 @@ int check=dao.confirmNickname(q_nickname);
 
 { "check":<%=check %> }  
 
-{ "check":<%=check %> } 
-

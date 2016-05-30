@@ -119,7 +119,7 @@ public class MemberDao {
               x=-1;
          }
 	     }catch(SQLException ex1){
-	         System.out.println("confirmNickname() ï¿½ï¿½ï¿½ï¿½ :"+ex1);
+	         System.out.println("confirmNickname() ¿¹¿Ü :"+ex1);
 	      }finally{
            try{
         	    if(rs!=null){rs.close();}

@@ -64,6 +64,9 @@ function move(afternum){
 	if(afternum==8){//게시판
 		movePageUrl("Board/Quiz_Qna/Qna_Main.jsp?qnanum=1")
 	}
+	if(afternum==9){
+		movePageUrl("Board/Quiz_Board/Board_List.jsp");
+	}
 }//move()
 </script>
 

@@ -9,5 +9,5 @@ int q_num=Integer.parseInt(request.getParameter("q_num"));
 int nowPage=Integer.parseInt(request.getParameter("page"));
 
 dao.deleteBoard(q_num);
-response.sendRedirect("../../Main_template.jsp?afternum=4");
+response.sendRedirect("../../Main_template.jsp?afternum=8");
 %> 
