@@ -23,7 +23,7 @@ function login(){
 	}
 	var id=document.loginForm.id.value;
 	var pwd=document.loginForm.pwd.value;
-	movePageUrl("login.jsp?id="+id+"&pwd="+pwd ,$('#main').css("backgroundColor"), "#3D68A6");
+	movePageUrl("login.jsp?id="+id+"&pwd="+pwd,$('#main').css('backgroundColor'), '#3D68A6');
 }
 
 function logout(){
@@ -35,7 +35,7 @@ function logout(){
 <body>
 
 <%
-String q_id=(String)session.getAttribute("q_id");
+String q_id=(String)session.getAttribute("mem_id");
 //String q_id=null;
 if(q_id==null || q_id.equals("") || q_id.length()<=0){
 	%>

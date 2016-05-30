@@ -1,3 +1,4 @@
+<%@page import="org.apache.catalina.ant.ReloadTask"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -20,10 +21,11 @@ if(nowColor == null){
 if(nextColor == null){
 	nextColor="#3D68A6";
 }
-System.out.println(pageFile);
+System.out.println("pageFile:"+pageFile);
 
-String q_id=request.getParameter("q_id");
-System.out.println("리퀘스트:"+q_id);
+
+String mem_id=(String)session.getAttribute("mem_id");
+System.out.println("세션id:"+mem_id);
 %>
 
 <html>
