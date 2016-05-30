@@ -4,6 +4,7 @@
 
 <%
 //top.jsp 를 첫번째 메뉴로 바꿀려고 수정중.
+/*
 String q_id="admin";
 String q_name="admin";
 String q_user_num="01";
@@ -13,6 +14,8 @@ session.setAttribute("q_id", q_id);
 session.setAttribute("q_name", q_name);
 session.setAttribute("q_user_num", q_user_num);
 session.setAttribute("q_nickname", q_nickname);
+*/
+//String q_id=request.getParameter("id");
 
 %>
 
@@ -24,8 +27,9 @@ session.setAttribute("q_nickname", q_nickname);
 <font align=center><h1>Colosseum</h1></font>
 <%--<%=request.getContextPath() 
 <%@ include file="./Member/Member_MyPage.jsp" %>--%>
+
 <jsp:include page="./Member/Member_MyPage.jsp"/>
- 
+
 </div> <!-- 마이페이지 들어 올 곳  -->
 
 

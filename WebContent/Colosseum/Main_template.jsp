@@ -21,6 +21,9 @@ if(nextColor == null){
 	nextColor="#3D68A6";
 }
 System.out.println(pageFile);
+
+String q_id=request.getParameter("q_id");
+System.out.println("리퀘스트:"+q_id);
 %>
 
 <html>
