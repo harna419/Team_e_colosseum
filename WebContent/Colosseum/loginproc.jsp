@@ -19,13 +19,10 @@ if(check==1){//로그인 정상
 	session.setAttribute("mem_id", q_id);
     %>
     <script>
-    
     alert("환영합니다")
-    location.href="Main_template.jsp"
-    //movePageUrl('Menu8.jsp',$('#main').css("backgroundColor"), $(this).children().first().attr("data-color") );
-    
+    movePageUrl("Board/Quiz_view/Quiz_list.jsp");
     </script>
-
+    
     <%
     
 }else if(check==0){	
@@ -54,7 +51,16 @@ if(check==1){//로그인 정상
 <%	
 }//else
 %>
-<form method="post" id="kkk" name="kkk" action="Main_template.jsp">
-<input type="hidden" id="zzz" name="zzz" value="">
-</form>
 
+</html><%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

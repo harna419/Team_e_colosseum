@@ -27,9 +27,17 @@ session.setAttribute("q_nickname", q_nickname);
 <font align=center><h1>Colosseum</h1></font>
 <%--<%=request.getContextPath() 
 <%@ include file="./Member/Member_MyPage.jsp" %>--%>
+<%
 
+if(session.getAttribute("mem_id")==null || session.getAttribute("mem_id").equals("")){
+	%>
+	<h1>로그인후 이용하세요</h1>
+	
+	<%
+}else{
+%>
 <jsp:include page="./Member/Member_MyPage.jsp"/>
-
+ <%}%>
 </div> <!-- 마이페이지 들어 올 곳  -->
 
 
