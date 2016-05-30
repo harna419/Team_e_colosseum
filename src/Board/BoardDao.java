@@ -172,7 +172,7 @@ public class BoardDao {
 			stmt=con.createStatement();
 			
 			if(keyWord.equals(null) || keyWord.equals("")){//ÀüÃ¼±Û
-				sql="select * from qz_board_free order by q_notice_group asc";
+				sql="select * from qz_board_free order by q_notice_group asc, q_create_time desc";
 			}else{
 				sql="select * from qz_board_free where "+keyField+" like '%"+keyWord+"%'"
 						+ " order by Q_NUM desc";

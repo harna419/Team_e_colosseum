@@ -3,7 +3,7 @@
 <%request.setCharacterEncoding("utf-8");%>
 <html>
 <head>
-<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <style type="text/css">
 td{
  color:#FFFFFF
@@ -26,21 +26,21 @@ td{
 			return false;
 		}
 		
-		if($('#q_pwd').val()==""){
+		if($('#pwd').val()==""){
 			alert("비밀번호를 입력 해주세요");
-			$('#q_pwd').val('').focus();
+			$('#pwd').val('').focus();
 			return false;
 		}
 		
-		if($('#q_pwd2').val()==""){
+		if($('#pwd2').val()==""){
 			alert("비밀번호를 확인 해주세요");
-			$('#q_pwd2').val('').focus();
+			$('#pwd2').val('').focus();
 			return false;
 		}
 		
-		if($('#q_pwd').val() != $('#q_pwd2').val()){
+		if($('#pwd').val() != $('#pwd2').val()){
 			alert("비밀번호가 확인이 일치하지 않습니다");
-			$('#q_pwd2').val('').focus();
+			$('#pwd2').val('').focus();
 			return false;
 		}
 		
@@ -170,7 +170,7 @@ td{
 		<input type="text" name="q_id" size="30" id="q_id">
 		<input type="button" value="중복체크" onClick="ConfirmID()">
 		</td></tr>
-	</tr>	
+	<%--</tr>	 --%>
 	
 	<tr>
 	<td width="200"></td>
@@ -182,7 +182,7 @@ td{
 		<input id="q_nickname" type="text" name="q_nickname" size="30">
 		<input type="button" value="중복체크" onClick="ConfirmNickname()">
 		</td></tr>
-	</tr>
+	<%--</tr>	 --%>
 	
 	<tr>
 	<td width="200"></td>
@@ -191,9 +191,9 @@ td{
 		<tr>
 		<td></td>
 		<td>
-		<input id="q_pwd" type="password" name="q_pwd" size="30">
+		<input id="pwd" type="password" name="q_pwd" size="30">
 		</td></tr>
-	</tr>	
+	<%--</tr>	 --%>	
 		
 	<tr>
 	<td width="200"></td>
@@ -202,9 +202,9 @@ td{
 		<tr>
 		<td></td>
 		<td>
-	<input id="q_pwd2" type="password" name="q_pwd2" size="30">
+	<input id="pwd2" type="password" name="q_pwd2" size="30">
 		</td></tr>
-	</tr>
+	<%--</tr>	 --%>
 	
 	<tr>
 	<td width="200" ><strong>개인정보 입력</strong></td>

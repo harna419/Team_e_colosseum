@@ -18,7 +18,7 @@ MemberDto dto=dao.getMember(q_id);//dao 메서드 호출
 Vector vec=null;
 String q_nickname_receive=dto.getQ_nickname();
 MessageDao dao2=MessageDao.getInstance();
-//String q_nickname_receive="test";  
+
 vec=dao2.getMessageList(q_nickname_receive);
 
 Quiz_ScoreMgr quizMgr=Quiz_ScoreMgr.getInstance();
@@ -30,6 +30,10 @@ int totalgame=yescount+nocount;
 double per=(double)yescount/totalgame*100;
 double percentage = Double.parseDouble(String.format("%.1f",per));
 String q_nickname=dto.getQ_nickname();
+
+System.out.println(yescount);
+System.out.println(nocount);
+System.out.println(totalgame);
 
 %> 
   
@@ -52,7 +56,7 @@ th { background-color: #eee; display: table-cell; vertical-align: inherit; }
 
 </style>
  
-
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
  
 <script type="text/javascript">
 $(function () {	
@@ -115,6 +119,17 @@ function checkIt(){
 
 }//checkIt() end 
 
+function findPwd(){
+	
+	 url="FindPwd.jsp?check=y";
+	 window.open(url,"FindPwd","width=500,height=300,status=yes,scrollbars=yes");
+}//zipCheck() end 
+
+function findId(){
+	
+	url="FindId.jsp?check=y";
+	window.open(url,"FindId","width=500,height=300,status=yes,scrollbars=yes");
+}
 
 function content(value){
 	url="../MyPage/Message_Content.jsp?q_num="+value;
@@ -262,7 +277,7 @@ function delMsg() {
 		
     <div align="center">
     
-    <form name="msglist" method="post" action="Member/Member_MsgDelete.jsp" id="msgList">
+    <form name="msglist" method="post" action="Member_MsgDelete.jsp" id="msgList">
     <input type="button" value="삭제" onclick="delMsg()"> <input type="button" value="답장" onclick="">
     
 	<%
@@ -270,7 +285,7 @@ function delMsg() {
     		out.println("쪽지가 없습니다");
     	}else{//등록한 글이 있으면
     		%>
-    		<table name="message_list" width="100%">
+    		<table name="message_list" border=1 width="100%">
     		<tr align="center">
     		<th width="5%"><input type="checkbox" id="selectAll"></th><th width="20%">보낸사람</th><th width="60%">내용</th><th width="15%">날짜</th>
     		</tr>
@@ -320,7 +335,7 @@ function delMsg() {
    
     	<table align="center">
     		<tr>
-    		<td><img src="../imgs/Bruce.jpg" width="200px" height="200px" style="position:relative"></td>
+    		<td><img src="../Colosseum/imgs/a2.jpg" width="200px" height="200px" style="position:relative"></td>
     		<td>
 				<p> ID : <%=q_id %></p>
 				<p> NickName : <%=q_nickname %></p>

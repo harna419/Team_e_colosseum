@@ -65,6 +65,9 @@ function move(afternum){
 	if(afternum==8){//게시판
 		movePageUrl("Board/Quiz_Qna/Qna_Main.jsp?qnanum=1")
 	}
+	if(afternum==9){
+		movePageUrl("Board/Quiz_Board/Board_List.jsp");
+	}
 }//move()
 </script>
 
@@ -217,7 +220,7 @@ height:100%;
 <div id="back_intro">
 <br>
 <%--<font size="5">마이페이지</font> --%>
-<img src="./imgs/colosseum_logo_20160527.png" width="250" height="60" >
+<img src="./imgs/colosseum_logo_20160530.png" width="250" height="60" >
 </div>
 </div><!-- main page end-->
 
