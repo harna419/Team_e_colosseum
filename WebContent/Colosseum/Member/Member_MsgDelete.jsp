@@ -13,7 +13,7 @@
  	
   int checklen = selects.length;
   
-  try {
+  try { 
    for(int i=0; i<checklen; i++) {
 	   int q_num=Integer.parseInt(selects[i]);
 	 	dao.deleteMessage(q_num);
