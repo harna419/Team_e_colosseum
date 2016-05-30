@@ -314,28 +314,27 @@ int quiznumtest=0;
 <style type="text/css">
    
 .container{
-	background-color:grey;
 	position: absolute;
 	width: 100%;
 	height: 100%;
 }
-.content{
+.contentWrap{
 	background-color:pink;
 	position: absolute;
 	width: 80%;
 	height: 100%;
 	left: 6.5%;		
 }
-.content h3{
+.contentWrap h3{
 	font-weight: bold;    
     font-size: 20px; 
     font-family: "맑은 고딕";
     color: 1d1d1d;   
     letter-spacing: 0;
 }
-.content h3.title {
+.contentWrap h3.title {
 	position: absolute;
-	top: 5%;	
+	top: 6.5%;	
 	width: 100%;
 	height: 26px;
 	padding: 0;    
@@ -347,23 +346,55 @@ int quiznumtest=0;
 	position: absolute;
 	width: 100%;
 	height: 65%;
-	top: 11%;
+	top: 12%;
 	border-bottom: 1px solid #e5e5e5;
 }
-.subject{
+.board{
+	background-color: green;
+	position: absolute;
+	width: 60%;
+	height: 80%;
+	left: 19%;
+	top: 13%;
 
+}
+.title_con{
+	
+	font-weight: bold;    
+	font-size: 20px;
+	font-family: '맑은고딕';
+	color: #333;
+	line-height: 26px;
+	letter-spacing: -1px;
+	margin: 0;
+	padding: 5px 0 10px 20px;
+	border: 1px solid #d8d8d8;
+	border-top: 0; 
 }
 .content{
-
+	background-color: yellow;
+	position: absolute;
+	width: 50%;
+	height: 5%;
+	top: 5%;
+	left: 19%;
 }
 .img{
-	background-color: blue;
-	position: absolute;
-	width: 70%;
-	height: 80%;
-	left: 14%;
-	top: 8%;
 	
+	position: absolute;
+	width: 100%;
+	height: 80%;
+	left: 19%;
+	top: 13%;
+	
+}
+.reply{
+	position: absolute;
+	width: 50%;
+	height: 5%;
+	left: 19%;
+	top: 93%;
+
 }
 
 .button{
@@ -372,8 +403,9 @@ int quiznumtest=0;
 	width: 50%;
 	height: 5%;
 	left: 25%;
-	top: 77%;	
+	top: 78%;	
 }
+
  
    
 </style>
@@ -403,7 +435,7 @@ int quiznumtest=0;
    
    %>
 <div class="container">
-<div class="content">
+<div class="contentWrap">
 <h3 class="title"> QUIZ </h3>
    <form name="Quiz_Study_View" id="Quiz_Study_View" method="post" action="./Board/Quiz_view/Quiz_Study_ViewProc.jsp">
     <input type="hidden" name="q_dep_step" value="<%=vec.size()%>">
@@ -436,21 +468,20 @@ int quiznumtest=0;
 		String type=bean.getQ_quiz_type();
 		if(type.equals("100")){
 	%>
+			<div class="board">
+	          <p class="title_con" name="q_subject<%=num %>" readOnly id="Word_subject<%=num %>"><%=bean.getQ_subject() %></div>
 
-	          <div class="subject" name="q_subject<%=num %>" readOnly id="Word_subject<%=num %>" value="<%=bean.getQ_subject() %>"></div>
 
-
-	          <div class="content" name="q_content<%=num %>" readOnly id="Word_content<%=num %>" size="60" value="<%=bean.getQ_content() %>"></div>
+	          <div class="content" name="q_content<%=num %>" readOnly id="Word_content<%=num %>"><%=bean.getQ_content() %></div>
 	    
 	     
-	          <div class="img"><img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_content_img() %>" width="500px" height="500px" align="center"></div>
-
+	          <div class="img"><img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_content_img() %>" width="100%" height="100%" align="center"></div>
 	        
-	        <tr>
-	            <td><input type="text" name="q_real_reply<%=num %>1" id="Word_answer<%=num %>1" size="60" value=""></td>   
-	        </tr>
+	        
+	          <p class="reply"><input type="text" name="q_real_reply<%=num %>1" id="Word_answer<%=num %>1" size="60" height="100%" value=""></p>
+	        
 	        <input type="hidden" name="q_quiz_type<%=num %>" value="100">
-        
+           </div><!-- board -->
        
 			<%
 		}else if(type.equals("200")){
@@ -628,7 +659,7 @@ int quiznumtest=0;
 	</table>
 	</div><!-- button -->		
 	</form>
-</div><!-- content -->
+</div><!-- contentWrap -->
 </div><!-- container -->
 	
   </body>
