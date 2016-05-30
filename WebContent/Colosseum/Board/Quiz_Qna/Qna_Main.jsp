@@ -24,6 +24,7 @@ html body{height: 100%; margin: 0px;padding: 0px;}
 	left: 10%	
 }
 h3 {
+	top: 6.5%;
 	width: 100%;
 	position:absolute;
 	padding: 0;
@@ -49,7 +50,7 @@ table{
 	width:100%;
 	height:20%;
 	position:absolute;
-	top:10%;
+	top:17%;
 	
 }
 
@@ -57,7 +58,7 @@ table{
 	width:100%;
 	height:15%;
 	position:absolute;
-	top:30%;
+	top:33%;
 	
 }
 
@@ -65,7 +66,7 @@ table{
 	width:100%;
 	height:25%;
 	position:absolute;
-	top:45%;
+	top:50%;
 	
 }
 

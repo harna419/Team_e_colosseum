@@ -3,12 +3,8 @@
 <%request.setCharacterEncoding("utf-8");%>
 <html>
 <head>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<style type="text/css">
-td{
- color:#FFFFFF
-}
-</style>
+<!-- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>-->
+
 <script>
 	var Id_Check=-1;
 	var Nickname_Check=-1;
@@ -142,19 +138,68 @@ td{
 		}//else
 	}//ConfirmNickname
 </script>
+<style type="text/css">
+   
+.container{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.contentWrap{
+	
+	position: absolute;
+	width: 80%;
+	height: 100%;
+	left: 6.5%;		
+}
+.contentWrap h3{
+	font-weight: bold;    
+    font-size: 20px; 
+    font-family: "museo-sans",sans-serif;
+    color: #fff;   
+    letter-spacing: 0;
+}
+.contentWrap h3.title {
+	position: absolute;
+	top: 6.5%;	
+	width: 100%;
+	height: 26px;
+	padding: 0;    
+    line-height: 18px;
+    border-bottom: 3px solid #fff;
+}
+.board{
+
+	position: absolute;
+	top: 15%;	
+	width: 100%;
+}
+
+td{
+	font-family: '맑은 고딕';
+	color: #fff;
+	font-size: 15px;
+	font-weight: bold;
+    letter-spacing: 1px;
+}
+input{
+	border: 0;
+	font-size: 13px;
+    margin-bottom: 20px;
+    padding: 5px 10px;
+}
+</style>
 </head>
 <body>
+<div class="container">
+<div class="contentWrap">
+	<h3 class="title"> JOIN </h3>
 
 <form method="post" name="userForm" action="./Member/Member_JoinMemberPro.jsp" onSubmit="return checkIt()">
-<table width="650" cellpadding="3" cellspacing="0">
+<table class="board" width="650" cellpadding="3" cellspacing="0">
 	
-	<tr>
-	<td colspan="2" height="30" align="left">	
-	<h1 style=color:#FFFFFF><b><br>가입하기</b></h1><br>
 
-	</td>
-	</tr>	
-	
+
 	<tr>
 	<td width="200"><Strong>로그인 정보 입력</Strong></td>
 	<td width="400" >&nbsp;</td>
@@ -280,5 +325,7 @@ td{
 	</table>
 
 </form>
+</div><!-- contentWrap -->
+</div><!-- container -->
 </body>
 </html>

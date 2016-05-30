@@ -87,6 +87,9 @@ List quizList;
     width: 80px;
     padding: 5px 10px;
 }
+.regist:hover{
+border: 1px solid #fff;
+}
 .list_title{
 	text-align: center;
 	font-family: '맑은 고딕';
