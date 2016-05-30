@@ -324,7 +324,7 @@ function delMsg() {
    
     	<table align="center">
     		<tr>
-    		<td><img src="../imgs/Bruce.jpg" width="200px" height="200px" style="position:relative"></td>
+    		<td><img src="../Colosseum/imgs/a2.jpg" width="200px" height="200px" style="position:relative"></td>
     		<td>
 				<p> ID : <%=q_id %></p>
 				<p> NickName : <%=q_nickname %></p>

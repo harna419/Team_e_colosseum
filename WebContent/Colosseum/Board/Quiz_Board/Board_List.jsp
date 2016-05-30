@@ -22,15 +22,11 @@
     String keyField="";//키 필드
     String keyWord="";//검색 단어
     Vector vec=null;
-    //String q_id=(String)session.getAttribute("q_id");
-    //String q_nickname=(String)session.getAttribute("q_nickname");
-    //MemberDao mdao=MemberDao.getInstance();
-    //MemberDto mdto=mdao.getMember("q_id");
-    //String nickname=mdto.getQ_nickname();
-    String q_id=(String)session.getAttribute("q_id");
-    String nickname=(String)session.getAttribute("q_nickname");
-    System.out.println(q_id);
-    System.out.println(nickname);
+
+    String q_id=(String)session.getAttribute("mem_id");
+    MemberDao mdao=MemberDao.getInstance();
+    MemberDto mdto=mdao.getMember(q_id);
+    String nickname=mdto.getQ_nickname();
 %>
 <%
     String im=request.getParameter("keyWord");
@@ -59,7 +55,7 @@
     	nowPage=Integer.parseInt(request.getParameter("page"));//현재 페이지
     }//if
     
-    beginPerPage = nowPage * numPerPage ;//시작 페이지 까지
+    beginPerPage = nowPage * numPerPage;//시작 페이지 까지
    
     totalPage=(int)Math.ceil((double)totalRecord/numPerPage);//ceil=올림값 Math.round()
     totalBlock=(int)Math.ceil((double)totalPage/pagePerBlock);//전체블럭계산
@@ -283,7 +279,7 @@
 				<%}%>
     			</td>
     			
-    			<td align=center class="receive"><%=nickname %></td>
+    			<td align=center class="receive"><%=q_nickname1 %></td>
     			<td align=center><%=q_create_time %></td>
     			<td align=center><%=q_read_count %></td>
     			</tr>
@@ -304,7 +300,7 @@
 				<%}%>
     			</td>
     			
-    			<td align=center class="receive"><%=nickname %></td>
+    			<td align=center class="receive"><%=q_nickname1 %></td>
     			<td align=center><%=q_create_time %></td>
     			<td align=center><%=q_read_count %></td>
     			</tr>
