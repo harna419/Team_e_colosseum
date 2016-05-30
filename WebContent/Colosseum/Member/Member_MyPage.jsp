@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="java.util.*"
 	import="Member.*"
@@ -11,8 +11,8 @@
 <%
 request.setCharacterEncoding("utf-8");
  
-//String q_id=(String)session.getAttribute("q_id");
-String q_id="admin@admin.com";
+String q_id=(String)session.getAttribute("mem_id");
+//String q_id="admin@admin.com";
 MemberDao dao=MemberDao.getInstance();//dao 객체얻기
 MemberDto dto=dao.getMember(q_id);//dao 메서드 호출
 Vector vec=null;
@@ -55,9 +55,7 @@ a { text-decoration:none; color:#000; }
 th { background-color: #eee; display: table-cell; vertical-align: inherit; }
 
 </style>
- 
-<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
- 
+<%-- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>--%>
 <script type="text/javascript">
 $(function () {	
 	tab('#tab',0);	

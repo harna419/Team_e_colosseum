@@ -133,62 +133,64 @@ position:absolute; height:100%; left:0px; width:60%; background-color: #ffffff; 
 .Intro_menu{position: absolute; height:100%; right:0px; width:60%; z-index: 2}
 .menu_button{ display:block; width:100%; position: relative; height: 50px; } 
 
-#menu1{ 
-background-image: url('./imgs/opti1-01.svg');
+
+<%--로그인/로그아웃 --%>
+#menu1{
+background-image: url('./imgs/01_login.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
 }
 
-
+<%--소개--%>
 #menu2{ 
-background-image: url('./imgs/opti1-02.svg');
+background-image: url('./imgs/07.whoweare.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
 }
-
+<%--회원가입 --%>
 #menu3{ 
-background-image: url('./imgs/opti1-03.svg');
+background-image: url('./imgs/02.Joinus.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
 }
-
+<%--퀴즈--%>
 #menu4{ 
-background-image: url('./imgs/opti1-04.svg');
+background-image: url('./imgs/03.Quiz.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
 
 }
-
+<%--그룹--%>
 #menu5{ 
-background-image: url('./imgs/opti1-05.svg');
+background-image: url('./imgs/08.group.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
 
 }
-
+<%--명예의전당--%>
 #menu6{ 
-background-image: url('./imgs/opti1-06.svg');
+background-image: url('./imgs/05.TheFallofFame.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
 
 }
-
+<%--학습모드--%>
 #menu7{ 
-background-image: url('./imgs/opti1-07.svg');
+background-image: url('./imgs/06.Learning.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
 
 }
-
+<%--게시판 --%>
 #menu8{ 
-background-image: url('./imgs/opti1-08.svg');
+background-image: url('./imgs/04.Board.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;

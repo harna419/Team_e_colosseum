@@ -84,6 +84,6 @@ quizScore = scoreMgr.quizScore(q_dep_num);// 메서드 호출
 	 
 	 전체 : <%=quizScore.size() %> / 정답 : <%=quiz_Yes %> / 오답 : <%=quiz_No %>
 	 <br>
-	 <input type="button" onclick="document.location.href='Quiz_list.jsp'" value="확인완료">
+	 <input type="button" onclick="document.location.href='../../Main_template.jsp?afternum=4'" value="확인완료">
 	</body>
 </html>

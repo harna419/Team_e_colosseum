@@ -162,6 +162,7 @@ int quiznumtest=0;
     	
     		Quiz_Study_View.submit();
 			
+			
     	}//inputcheck() end
     	
    		function deletecheck(q_dep_num,q_dep_step){
@@ -347,17 +348,16 @@ int quiznumtest=0;
 	position: absolute;
 	width: 100%;
 	height: 75%;
-	top: 11.593%;
-	
+	top: 11.593%;	
 }
 .board{	
 	position: absolute;
 	width: 60%;
 	height: 100%;
 	left: 20%;
+	border-bottom: 1px solid #fff;	
 }
-.title_con{
-	
+.title_con{	
 	font-weight: bold;    
 	font-size: 16px;
 	font-family: '맑은고딕';
@@ -369,8 +369,7 @@ int quiznumtest=0;
 	border: 1px solid #d8d8d8;
 	border-top: 0; 
 }
-.content{
-	
+.content{	
 	height: 12px;
     line-height: 12px;
     font-size: 12px;
@@ -384,8 +383,7 @@ int quiznumtest=0;
 .img{	
 	position: absolute;
 	width: 100%;
-	height: 84%;
-	
+	height: 84%;	
 }
 .reply{
 	position: absolute;
@@ -396,24 +394,78 @@ int quiznumtest=0;
 	left:25%;
 }
 .button{
-	background-color: lightgrey;
-	border-top: 1px solid #fff;	
 	position: absolute;
 	width: 60%;
 	height: 5%;
 	left: 20%;
-	top: 87%;	
+	top: 88%;	
 }
 .pre{
 	float:left;
 	margin-top: 22%;
-	
+	cursor: pointer;
+
 }
 .next{
 	float: right;
 	margin-top: 22%;
+	cursor: pointer;
+}
+.pre:hover{
+	border: 3px solid #fff;
+}
+.next:hover{
+	border: 3px solid #fff;
 }
 
+.submitbutton{
+	border:0;
+    background: #ffffff;
+    color: #4E94D4;
+    cursor: pointer;
+    position: absolute;
+    font-family: "museo-sans",sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    left: 69.3%;
+    text-transform: uppercase;
+    opacity: 1;
+    width: 80px;
+    padding: 5px 10px;    
+}
+.updatebutton{
+	border:0;
+ 	background: #ffffff;
+    color: #4E94D4;
+    cursor: pointer;
+    position: absolute;
+    font-family: "museo-sans",sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    left: 79.8%;
+    text-transform: uppercase;
+    opacity: 1;
+    width: 80px;
+    padding: 5px 10px;
+}
+.deletebutton{
+	border:0;
+ 	background: #ffffff;
+    color: #4E94D4;
+    cursor: pointer;
+    position: absolute;
+    font-family: "museo-sans",sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    left: 90.3%;
+    text-transform: uppercase;
+    opacity: 1;
+    width: 80px;
+    padding: 5px 10px;
+}
  
    
 </style>
@@ -486,7 +538,7 @@ int quiznumtest=0;
 	          <div class="img"><img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_content_img() %>" width="100%" height="100%" align="center"></div>
 	        
 	        
-	          <p class="reply"><input type="text" name="q_real_reply<%=num %>1" id="Word_answer<%=num %>1" style="height:100%" size="53" value=""></p>
+	          <p class="reply"><input type="text" name="q_real_reply<%=num %>1" id="Word_answer<%=num %>1" style="height:100%" size="53" required="required" value=""></p>
 	        
 	        <input type="hidden" name="q_quiz_type<%=num %>" value="100">
            </div><!-- board -->
@@ -494,23 +546,22 @@ int quiznumtest=0;
 			<%
 		}else if(type.equals("200")){
 			%>
-	        <tr>
-	          <td>
-	          <input type="text" name="q_subject<%=num %>" readOnly id="Single_subject<%=num %>" size="60" value="<%=bean.getQ_subject() %>">
-	          </td>
-	        </tr>
+			
+			<div class="board">
+	          <p class="title_con" name="q_subject<%=num %>" readOnly id="Single_subject<%=num %>"><%=bean.getQ_subject() %></p>
+
+
+	          <div class="content" name="q_content<%=num %>" readOnly id="Single_content<%=num %>"><%=bean.getQ_content() %></div>
+	    
+	     
+	          <div class="img"><img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_content_img() %>" width="100%" height="100%" align="center"></div>
 	        
-	        <tr>
-	          <td>
-	          <input type="text" name="q_content<%=num %>" readOnly id="Single_content<%=num %>" size="60" value="<%=bean.getQ_content() %>">
-	          </td>
-	        </tr>
-	        <tr>
-	          <td><img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_content_img() %>" width="450" height="450"></td>
-	        </tr>
 	        
-	        <tr>
-	          <td>
+	          <p class="reply"><input type="text" name="q_real_reply<%=num %>1" id="Word_answer<%=num %>1" style="height:100%" size="53" required="required" value=""></p>
+	        
+	        <input type="hidden" name="q_quiz_type<%=num %>" value="100">
+           </div><!-- board --> 
+	        
 	          <%
 	         	//reply1~10까지 변수에 넣기
 	        	String reply1=bean.getQ_reply1();
@@ -561,7 +612,7 @@ int quiznumtest=0;
 	          	if(!((reply1.equals(null))||reply1.length()<=0||(reply1.equals(""))))
 	          	{
 	   			%>	
-	   				 <input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" id="Single_option<%=bean.getQ_dep_step()%>1" value="1"><%=bean.getQ_reply1() %>
+	   				 <input type="radio" name="q_real_reply<%=bean.getQ_dep_step()%>1" required="required" id="Single_option<%=bean.getQ_dep_step()%>1" value="1"><%=bean.getQ_reply1() %>
 	   				 <img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_reply1_img() %>" width="100" height="100">
 	  				<%
    				}//if end
@@ -644,8 +695,8 @@ int quiznumtest=0;
 
 		<input type="hidden" name="q_quiz_type<%=num %>" value="200">
 		
-		<div class="pre"><img src="../Colosseum/imgs/left_key.png" onclick="prevquiz()" value="이전문제"></div>
-		<div class="next"><img src="../Colosseum/imgs/right_key.png" onclick="nextquiz(<%=quizcnt %>)" value="다음문제"></div>
+		<div class="pre"><img src="../Colosseum/imgs/left_key.png" onclick="prevquiz()" value="이전문제" width=100px height=100px></div>
+		<div class="next"><img src="../Colosseum/imgs/right_key.png" onclick="nextquiz(<%=quizcnt %>)" value="다음문제" width=100px height=100px></div>
 		</div><!-- test -->
 
 	<% 
@@ -656,10 +707,10 @@ int quiznumtest=0;
 			<td>
 			
 				
-				<input type="button" onclick="inputcheck()" value="완료">
+				<input type="button" class="submitbutton" onclick="inputcheck()" value="FIN">
 				
-				<input type="button" onclick="document.location.href='updateForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>'" value="수정">
-				<input type="button" onclick="deletecheck(<%=q_dep_num%>,<%=q_dep_step%>)" value="삭제">
+				<input type="button" class="updatebutton" onclick="document.location.href='updateForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>'" value="MOD">
+				<input type="button" class="deletebutton" onclick="deletecheck(<%=q_dep_num%>,<%=q_dep_step%>)" value="DEL">
 				<%--<input type="button" onclick="document.location.href='delForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>'" value="삭제"> --%>
 				
 				
