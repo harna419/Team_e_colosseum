@@ -3,8 +3,8 @@
     
     <%
     request.setCharacterEncoding("utf-8");
-   	//String q_nickname=request.getParameter("q_nickname");
-   	String q_nickname="admin";
+   	String q_nickname=request.getParameter("q_nickname");
+
     %>
 <html>
 <head>

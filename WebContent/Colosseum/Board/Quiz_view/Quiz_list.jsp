@@ -29,7 +29,7 @@ List quizList;
 		 
 		 function addbutton(){
 			 alert("문제추가")
-			 movePageUrl('../Colosseum/Board/Quiz_input/Quiz_RegisterForm.jsp');
+			 movePageUrl('../Colosseum/Board/Quiz_input/Quiz_RegisterForm.jsp',$('#main').css("backgroundColor"),"#4E94D4");
 		 }
 		 
 		</script>
