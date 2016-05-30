@@ -10,22 +10,22 @@ import com.oreilly.servlet.*;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;//¼­ºí¸´
+import javax.servlet.http.HttpServletRequest;//ï¿½ï¿½ï¿½?
 
 import quiz_colosseum.*;
 
-import java.io.*;//±×¸²ÆÄÀÏ »èÁ¦ ÇÏ±â À§ÇØ¼­
+import java.io.*;//ï¿½×¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½
 
 public class Quiz_ScoreMgr {
 		
-		//½Ì±ÛÅæ °´Ã¼¸¦ »ç¿ëÇÏ¸é ¸Þ¸ð¸® Àý¾à È¿°ú
+		//ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ È¿ï¿½ï¿½
 		private Quiz_ScoreMgr(){}
 		private static Quiz_ScoreMgr mgr=new Quiz_ScoreMgr();
-		public static Quiz_ScoreMgr getInstance(){//jsp¿¡¼­ È£ÃâÇÏ¿© °´Ã¼¸¦ ¾ò¾î°¡´Â ¸Þ¼­µå
+		public static Quiz_ScoreMgr getInstance(){//jspï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 			return mgr;
 		}//getInstance()
 		
-		//Ä¿³Ø¼Ç Ç® »ç¿ë
+		//Ä¿ï¿½Ø¼ï¿½ Ç® ï¿½ï¿½ï¿½
 		private Connection getConnection() throws Exception{
 			Context ct=new InitialContext();
 			String name="java:comp/env/jdbc/mysql";
@@ -33,7 +33,7 @@ public class Quiz_ScoreMgr {
 			return ds.getConnection();
 		}//getConnection()
 		
-		//Àü¿ªº¯¼ö
+		//ï¿½ï¿½ï¿½
 		String sql="";
 		Connection con=null;
 		Statement stmt=null;
@@ -41,7 +41,7 @@ public class Quiz_ScoreMgr {
 		ResultSet rs=null;	
 	
 			//---------------------------------------
-			//  ÄûÁî Á¤´äºñ±³
+			//  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 			//---------------------------------------
 			
 			public List quizScore(int q_dep_num){
@@ -54,9 +54,9 @@ public class Quiz_ScoreMgr {
 						
 	
 				try{
-					con=getConnection();//Ä¿³Ø¼Ç ¾ò±â
+					con=getConnection();//Ä¿ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½
 					
-					//¹æ±Ý Ç¬ ¹®Á¦ °³¼ö ±¸ÇÏ±â ¹®Á¦ °³¼ö ±¸ÇÏ±â
+					//ï¿½ï¿½ï¿½ Ç¬ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 					String sql2="select count(*) as cnt from qz_quiz_info where q_dep_num="+q_dep_num;
 					stmt=con.createStatement();
 					rs=stmt.executeQuery(sql2);
@@ -66,7 +66,7 @@ public class Quiz_ScoreMgr {
 						nowcount=rs.getInt(1);
 					}//while end
 					
-					//°á°ú Àü¼ÛÈÄ Ãâ·ÂQuery
+					//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Query
 					sql="select * from qz_quiz_history where q_quiz_num="+q_dep_num+" and q_id='"+userid+"' order by q_quiz_step asc limit 0,"+nowcount;
 							
 					stmt=con.createStatement();
@@ -87,12 +87,12 @@ public class Quiz_ScoreMgr {
 						quiz.setQ_guest_id(rs.getString("q_guest_id"));
 						quiz.setQ_guest_nickname(rs.getString("q_guest_nickname"));
 						quiz.setQ_guest_name(rs.getString("q_guest_name"));
-						quiz.setQ_quiz_event(rs.getString("q_quiz_event"));//q_quiz_event: I(ÃÖÃÊ µî·Ï), Y(Á¤´ä), N(¿À´ä)
+						quiz.setQ_quiz_event(rs.getString("q_quiz_event"));//q_quiz_event: I(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½), Y(ï¿½ï¿½ï¿½ï¿½), N(ï¿½ï¿½ï¿½ï¿½)
 						quiz.setQ_event_time(rs.getDate("q_event_time"));
 						quiz.setQ_qroup_type(rs.getString("q_group_type"));
 						quiz.setQ_group_num(rs.getString("q_group_num"));
 						quiz.setQ_group_name(rs.getString("q_group_name"));
-						quiz.setQ_quiz_type(rs.getString("q_quiz_type"));//ÄûÁî ¹®Á¦ Å¸ÀÔ(100,200,300,400,500)
+						quiz.setQ_quiz_type(rs.getString("q_quiz_type"));//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½(100,200,300,400,500)
 						quiz.setQ_custom_reply1(rs.getString("q_custom_reply1"));
 						quiz.setQ_custom_reply2(rs.getString("q_custom_reply2"));
 						quiz.setQ_custom_reply3(rs.getString("q_custom_reply3"));
@@ -109,7 +109,7 @@ public class Quiz_ScoreMgr {
 					}//while end
 					
 				}catch(Exception ex){
-					System.out.println("quizScroe()¿¹¿Ü:"+ex);
+					System.out.println("quizScroe()ï¿½ï¿½ï¿½ï¿½:"+ex);
 					
 				}finally{
 					try{
@@ -128,12 +128,12 @@ public class Quiz_ScoreMgr {
 				int totalcount=0;
 				int yescount=0;
 				int nocount=0;
-				String userid="admin";
+				
 				Quiz_ScoreBean quiz=null;
 						
 				try{
 					quiz=new Quiz_ScoreBean();
-					con=getConnection();//Ä¿³Ø¼Ç ¾ò±â
+					con=getConnection();//Ä¿ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½
 					
 				   
 					String sql="select count(*) as totalcount from qz_quiz_history where q_id='"+q_id+"'";
@@ -170,7 +170,7 @@ public class Quiz_ScoreMgr {
 					
 					
 				}catch(Exception ex){
-					System.out.println("quizScroe()¿¹¿Ü:"+ex);
+					System.out.println("quizScroe()ï¿½ï¿½ï¿½ï¿½:"+ex);
 					
 				}finally{
 					try{
@@ -180,6 +180,91 @@ public class Quiz_ScoreMgr {
 					}catch(Exception exx){}
 				}//finally
 				return quiz;
+				
+			}//quizScroe()
+			
+			public List getMyQuizList(String q_id) throws Exception{
+				sql="";//ï¿½ï¿½ï¿½ï¿½
+				con=null;
+				stmt=null;
+				rs=null;
+				List <Quiz_ScoreBean> getMyQuizList=new ArrayList<Quiz_ScoreBean>();
+				
+				try{
+					//Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+					con=getConnection();
+					sql="select * from qz_quiz_info where q_id='"+q_id+"'";
+					//group q_dep_num
+					stmt=con.createStatement();//Statement ï¿½ï¿½
+					rs=stmt.executeQuery(sql);//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¨
+					
+					while(rs.next()){
+						Quiz_ScoreBean bean=new Quiz_ScoreBean(); 
+						 
+						bean.setQ_num(rs.getInt("q_num"));
+						bean.setQ_title(rs.getString("Q_title"));
+						bean.setQ_subject(rs.getString("Q_subject"));
+				
+						
+						getMyQuizList.add(bean);//ï¿½ðµ¨ºï¿½ï¿½ï¿½ Listï¿½ï¿½ ï¿½Ö´Â´ï¿½.
+					
+					}//while end			
+					
+				}catch(Exception ex){
+					System.out.println("getMyzList() ï¿½ï¿½ï¿½ï¿½ : "+ex);
+				}finally{
+					try{
+						if(rs!=null){rs.close();}
+						if(stmt!=null){stmt.close();}
+						if(con!=null){con.close();}
+						
+					}catch(Exception ex1){}
+				}//finally
+				
+				return getMyQuizList;
+				
+			}//getQuizList () end
+			
+			public List quizPlaygame(String q_id){
+				
+				
+				sql="";//ï¿½ï¿½ï¿½ï¿½
+				con=null;
+				stmt=null;
+				rs=null;
+				List <Quiz_ScoreBean> playQuizList=new ArrayList<Quiz_ScoreBean>();
+				
+				try{
+					//Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+					con=getConnection();
+					sql="select * from qz_quiz_history where q_id='"+q_id+"' and not q_quiz_event='I'";
+					//group q_dep_num
+					stmt=con.createStatement();//Statement ï¿½ï¿½
+					rs=stmt.executeQuery(sql);//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¨
+					
+					while(rs.next()){
+						Quiz_ScoreBean bean=new Quiz_ScoreBean(); 
+						 
+						bean.setQ_num(rs.getInt("q_num"));
+						bean.setQ_title(rs.getString("Q_title"));
+						bean.setQ_subject(rs.getString("Q_subject"));
+				
+						
+						playQuizList.add(bean);//ï¿½ðµ¨ºï¿½ï¿½ï¿½ Listï¿½ï¿½ ï¿½Ö´Â´ï¿½.
+					
+					}//while end			
+					
+				}catch(Exception ex){
+					System.out.println("quizPlaygame()ï¿½ï¿½ï¿½ï¿½:"+ex);
+					
+				}finally{
+					try{
+						if(rs!=null){rs.close();}
+						if(stmt!=null){stmt.close();}
+						if(con!=null){con.close();}
+					}catch(Exception exx){}
+				}//finally
+				return playQuizList;
 				
 			}//quizScroe()
 
