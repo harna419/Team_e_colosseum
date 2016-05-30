@@ -96,7 +96,11 @@
     			document.searchForm.keyWord.focus();
     			return false;
     		}
-    		document.searchForm.submit();
+    		
+    		var kWord=document.searchForm.keyWord.value;
+    		var kField=document.searchForm.keyField.value;	    		
+    		movePageUrl('./Board/Quiz_Qna/Qna_Kin_List.jsp?keyWord='+kWord+'&keyField='+kField);
+    		
     	}//check() end
     	
     	function list(){
@@ -107,11 +111,11 @@
     	function content(q_num){
     		alert(q_num);
     		//document.readForm.action="Board/Quiz_Qna/Qna_Kin_Content.jsp";//글 내용 보기
-    		//document.readForm.q_num.value=valuess;//글번호
+    		document.readForm.q_num.value=q_num;
     		//document.readForm.submit();
     		//movePageUrl('/Colosseum/Board/Quiz_Qna/Qna_kin_Content.jsp?q_num='+q_num);
     		
-    		movePageUrl('./Board/Quiz_Qna/Qna_kin_Content.jsp?q_num='+q_num);
+    		movePageUrl('./Board/Quiz_Qna/Qna_Kin_Content.jsp?q_num='+q_num);
     		
     	}//read() end
     	
@@ -290,7 +294,7 @@
     	</span>
     	</div>
     	<div>
-    		<form name="searchForm" method="post" action="Qna_Kin_List.jsp">
+    		<form name="searchForm" method="post" action="./Board/Quiz_Qna/Qna_Kin_List.jsp">
     		<table width="55%" border=0 align=center cellpadding=1 cellspacing=0>
     		<tr>
     		<td align=center valign=bottom>
