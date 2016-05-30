@@ -101,7 +101,7 @@ int totalRecord3=vec3.size();
 
 </style>
 
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
 
 <script type="text/javascript">
 $(function(){

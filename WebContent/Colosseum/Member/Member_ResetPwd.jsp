@@ -14,7 +14,7 @@ MemberDao dao=MemberDao.getInstance();
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title></title>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>--%>
 <script type="text/javascript">
 function check(){
 	if($('#q_pwd').val()!=$('#q_pwd2').val()){

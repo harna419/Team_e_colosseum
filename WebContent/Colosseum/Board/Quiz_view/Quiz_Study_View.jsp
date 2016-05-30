@@ -310,6 +310,74 @@ int quiznumtest=0;
       }//nextquiz()
       
     </script>
+    
+<style type="text/css">
+   
+.container{
+	background-color:grey;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.content{
+	background-color:pink;
+	position: absolute;
+	width: 80%;
+	height: 100%;
+	left: 6.5%;		
+}
+.content h3{
+	font-weight: bold;    
+    font-size: 20px; 
+    font-family: "맑은 고딕";
+    color: 1d1d1d;   
+    letter-spacing: 0;
+}
+.content h3.title {
+	position: absolute;
+	top: 5%;	
+	width: 100%;
+	height: 26px;
+	padding: 0;    
+    line-height: 18px;
+    border-bottom: 3px solid #252525;
+}
+.test{
+	background-color: skyblue;
+	position: absolute;
+	width: 100%;
+	height: 65%;
+	top: 11%;
+	border-bottom: 1px solid #e5e5e5;
+}
+.subject{
+
+}
+.content{
+
+}
+.img{
+	background-color: blue;
+	position: absolute;
+	width: 70%;
+	height: 80%;
+	left: 14%;
+	top: 8%;
+	
+}
+
+.button{
+	background-color: lightgrey;
+	position: absolute;
+	width: 50%;
+	height: 5%;
+	left: 25%;
+	top: 77%;	
+}
+ 
+   
+</style>
+
   </head>  
   <body topmargin="30">
    <%
@@ -334,8 +402,14 @@ int quiznumtest=0;
   
    
    %>
+<div class="container">
+<div class="content">
+<h3 class="title"> QUIZ </h3>
    <form name="Quiz_Study_View" id="Quiz_Study_View" method="post" action="./Board/Quiz_view/Quiz_Study_ViewProc.jsp">
     <input type="hidden" name="q_dep_step" value="<%=vec.size()%>">
+    
+
+    
 	<%
    for(int i=0;i<vec.size();i++){
 	   
@@ -349,11 +423,12 @@ int quiznumtest=0;
 	   //System.out.println(vec.size());
    %>
    
-  
-		<table align="center" id="test<%=num%>">
+
+	
+		<div id="test<%=num%>" class="test">
 		
 		<tr>
-			<td><input type="text" name="q_title" id="title" readOnly value="<%=bean.getQ_title() %>" size=60></td>
+			<td><input type="hidden" name="q_title" id="title" readOnly value="<%=bean.getQ_title() %>" size=60></td>
 			<td></td>
 		</tr>
 	
@@ -361,24 +436,18 @@ int quiznumtest=0;
 		String type=bean.getQ_quiz_type();
 		if(type.equals("100")){
 	%>
-	
-	        <tr>
-	          <td>
-	          <input type="text" name="q_subject<%=num %>" readOnly id="Word_subject<%=num %>" size="60" value="<%=bean.getQ_subject() %>">
-	          </td>
-	        </tr>
+
+	          <div class="subject" name="q_subject<%=num %>" readOnly id="Word_subject<%=num %>" value="<%=bean.getQ_subject() %>"></div>
+
+
+	          <div class="content" name="q_content<%=num %>" readOnly id="Word_content<%=num %>" size="60" value="<%=bean.getQ_content() %>"></div>
+	    
+	     
+	          <div class="img"><img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_content_img() %>" width="500px" height="500px" align="center"></div>
+
 	        
 	        <tr>
-	          <td>
-	          <input type="text" name="q_content<%=num %>" readOnly id="Word_content<%=num %>" size="60" value="<%=bean.getQ_content() %>">
-	          </td>
-	        </tr>
-	        <tr>
-	          <td><img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_content_img() %>" width="450" height="450"></td>
-	        </tr>
-	        
-	        <tr>
-	            <td><input type="text" name="q_real_reply<%=num %>1" id="Word_answer<%=num %>1" size="60" value="asd"></td>   
+	            <td><input type="text" name="q_real_reply<%=num %>1" id="Word_answer<%=num %>1" size="60" value=""></td>   
 	        </tr>
 	        <input type="hidden" name="q_quiz_type<%=num %>" value="100">
         
@@ -533,19 +602,16 @@ int quiznumtest=0;
 		}
    
 		%>
-		<tr>
-			<td>
-				<hr size='1' color='blue'>
-			</td>
-		</tr>
+
 		<input type="hidden" name="q_quiz_type<%=num %>" value="200">
 
 
-		</table>
+		</div><!-- test -->
+
 	<% 
 	}//vec get(i) for end
 	%>
-	<table align="center">
+	<div class="button">
 		<tr>
 			<td>
 			
@@ -560,8 +626,10 @@ int quiznumtest=0;
 			</td>
 		</tr>
 	</table>
-		
+	</div><!-- button -->		
 	</form>
+</div><!-- content -->
+</div><!-- container -->
 	
   </body>
   </html>

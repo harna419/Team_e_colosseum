@@ -31,7 +31,7 @@ String q_nickname2="admin"; //나중에 세션에서 받아 온 닉네임 or 아
 
 <html>
 	<head>
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
 	<script>
 	
 	function deleteCheck(){

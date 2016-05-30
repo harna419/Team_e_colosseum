@@ -11,7 +11,7 @@ MemberDto dto=dao.getMember(q_id);//dao 메서드 호출
 %> 
 <html>
 	<head>
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>--%>
 	<script type="text/javascript">
 	function checkIt(){
 		if($('#q_pwd').val()==""){
