@@ -7,7 +7,7 @@
 <%
 request.setCharacterEncoding("utf-8"); 
 Quiz_ScoreMgr quiz=Quiz_ScoreMgr.getInstance();
-String q_id="admin";
+String q_id=(String)session.getAttribute("mem_id");
 List quizMyList;
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -23,13 +23,17 @@ List quizMyList;
 	</div>
 	
 	<div>
-	<span>제목</span><span>문제</span>
+	<table>
+		<tr>
+		<th>제목<th><th>내용</th>
+		</tr>
 	<%
 	quizMyList = quiz.getMyQuizList(q_id);
 	if(quizMyList.isEmpty()){
 	%>
-	<br><br><br><br><br><br><br>
-		<center><h1 style=color:#FFC6C6>등록된 문제가 없습니다.</h1></center>
+	<tr>
+		<th><h1 style=color:#666>등록된 문제가 없습니다.</h1></th>
+		</tr>
 	<%
 	}else{
 	%>
@@ -39,17 +43,17 @@ List quizMyList;
 		Quiz_ScoreBean bean=(Quiz_ScoreBean)quizMyList.get(i);
 		%>
 		
-		<div>
-		
-		<span><%=bean.getQ_title() %></span>
-		<span> <%=bean.getQ_subject() %></span>
-		</div>
+		<tr>
+		<td align="center"><%=bean.getQ_title() %></td>
+		<td align="center"><%=bean.getQ_subject() %></td>
+		</tr>
 	<%
 	}//for
 	%>
 		<%  
 	}//else
 	%>
+	</table>
 	</div>
 	</div>
 

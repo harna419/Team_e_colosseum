@@ -286,7 +286,7 @@ function delMsg() {
     		out.println("쪽지가 없습니다");
     	}else{//등록한 글이 있으면
     		%>
-    		<table name="message_list" border=1 width="100%">
+    		<table name="message_list" width="100%">
     		<tr align="center">
     		<th width="5%"><input type="checkbox" id="selectAll"></th><th width="20%">보낸사람</th><th width="60%">내용</th><th width="15%">날짜</th>
     		</tr>
