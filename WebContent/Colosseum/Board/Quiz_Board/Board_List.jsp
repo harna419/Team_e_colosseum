@@ -304,7 +304,7 @@
 	   			    var messagebox2= $("#messagebox").width();
 	   			    if(messagebox2 <= 0){
 	   			    
-	   				$("#content").append('<div id="messagebox"><table><tr><td id="123">'+recname+'</td></tr><tr><td><textarea id="456" rows=15 cols=38></textarea></td></tr></table></div>');
+	   				$("#content").append('<div id="messagebox"><table><tr><td id="123">'+recname+'</td></tr><tr><td><textarea id="456" align="center" rows=15 cols=38></textarea></td></tr></table></div>');
 	   				$("#messagebox").css('left',x);
 	   				$("#messagebox").css('top',y);
 	   				$("#messagebox").append('<div align="center"><button id="msubmit">전송</button> <button id="mreset">취소</button></div>');

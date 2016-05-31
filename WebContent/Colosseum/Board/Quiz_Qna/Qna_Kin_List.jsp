@@ -86,6 +86,178 @@
     border-bottom:#d0d0d0;
     }
     
+    .container{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	margin: 0px; padding: 0px;
+    font-family:'돋움',Dotum;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.4;
+	}
+	.content{
+		
+		position: absolute;
+		width: 80%;
+		height: 100%;
+		left: 10%	
+	}
+	.content h3.title {
+		position: absolute;
+		top: 5%;
+		margin-left:-34.5%;	
+		width: 100%;
+		height: 26px;
+		padding: 0;    
+	    line-height: 18px;
+	    border-bottom: 3px solid #252525;
+	}
+	.content h3{
+		font-weight: bold;    
+	    font-size: 17px; 
+	    font-family: 맑은 고딕;
+	    color: 1d1d1d;   
+	    letter-spacing: 0;
+	}
+	.boardList{
+		padding: 0;
+		margin: 0;
+		border: 0;
+		width: 80%;
+		height: 43%;
+		position:absolute;
+		top:11.5%;
+		
+	}
+	.boardList table{
+		width: 100%;
+		height: 60%;
+	}
+	table{	
+		table-layout:static;
+		border: 0;
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+	thead{
+		vertical-align: middle;
+		border-color: inherit;
+	}
+	.boardList thead th{
+		height: 36px;
+	    text-align: center;
+	    vertical-align: middle;
+	    color: #444;
+	    font-size: 12px;
+	    font-family:'맑은고딕';
+	    font-weight: bold;
+	    background-color: #e5e5e5; 
+	}
+	tbody{
+		vertical-align: middle;
+		border-color: inherit;
+	}
+	.boardList tbody td{
+		height: 36px;
+	    text-align: center;
+	    vertical-align: middle;
+	    border-bottom: 1px solid #d9d9d9;
+	    font-size: 12px;
+	    font-family: '맑은고딕';
+	    color: #666;
+	    line-height: 1.4;
+	}
+	.boardList tbody td.title{
+	    text-align: left;
+	}
+	
+	.paging{
+		
+	    clear: both;
+	    text-align: center;
+	    position: absolute;
+	    width: 100%;
+	    height: 5%;
+	    top: 53%;	
+	    z-index: 1;
+	}
+	.paging a{
+	    display: inline-block;
+	    color: #767676;
+	    line-height: 15px;
+	    min-width: 14px;
+	    font-family: Verdana;
+	    vertical-align: middle;
+	}
+	a, a:link, a:active, a:visited {
+		text-decoration: none;
+		color: #666;
+	}
+	.paging a:hover,
+	.paging a.selected{
+		color: #111;
+		font-weight: bold;
+		text-decoration: none;
+	}
+	.boardBtn{
+		
+		position: absolute;
+		width: 29%;
+		line-height: 10%;
+		top: 85%;
+		text-align:right;    
+	}
+	.searchForm{
+		
+		position: absolute;
+		width: 80%;
+		height: 3%;
+		top: 62%;	
+	    text-align: center;
+	}
+	.searchForm select{
+		vertical-align: middle;
+		height: 23px;
+		line-height: 23px;
+		white-space: nowrap;
+		border: 1px solid #ccc;
+		font-family: '돋움', '굴림';
+		font-size : 12px;
+	}
+	option{
+		white-space: pre;
+		min-height: 1.2em;
+		padding: 0px 2px 1px;
+	}
+	.searchForm .keyWord{
+		vertical-align: middle;
+	    border: 1px solid #d9d9d9;
+	    height: 24px;
+	    line-height: 24px;
+	    width: 5%;
+	    padding: 0 5px;
+	}
+	.searchForm .keyWord input{
+		height: 23px;
+		border: 1px solid #d9d9d9;
+		font-family: '돋움', '굴림';
+		font-size: 12px;
+	}
+	.searchForm .btSearch{
+	    vertical-align: middle;
+	    display: inline-block;
+	    width: 42px;
+	    height: 23px;
+	    padding-top: 1px;
+	    line-height: 23px;
+	    text-align: center;
+	    font-weight: bold;
+	    font-size: 12px;
+	    color: #fff;
+	    text-decoration: none;
+	    background-color: #767676;
+	}
     </style>
     
     <script type="text/javascript">
@@ -130,22 +302,19 @@
     
     <body>
  
-    <div>
-    	<div>
+    <div class="container">
+    	<div class="content">
     		<table align="center" border=0 width=56%>
 	    		<tr>
-	    		<td><h3>묻고 답하기</h3></td>
-	    		<td align="right">
-	  	  			Total : <font color="red"><%=totalRecord %></font>
-	    			
-	    		</td>
+	    		<td><h3 class="title">묻고 답하기</h3></td>
+	    	
 	    		</tr>
     		</table>
     	</div> 
     	
 	    
-    	<div align="center" width="60%">
-    	<span>
+    	<div align="center" width="60%" class="boardList">
+    
     	
     	<%
     	if(vec.isEmpty()){
@@ -155,18 +324,18 @@
     		
     		<table id=test2 border=1 width="56%" cellpadding=2 cellspacing=0>
     	
-    		<div id="test3">
-    		<tr align=center height="120%">
-    		<td width="5%"></td>
-    		<td width="45%"></td>
-    		<td width="20%"></td>
-    		<td wdith="20%"></td>
-    		<td width="10%"></td>
+    		<thead>
+    		<tr>
+    		<th width="10%">번호</td>
+    		<th width="44%">제목</td>
+    		<th width="16%">아이디</td>
+    		<th wdith="15%">작성일</td>
+    		<th width="15%">조회수</td>
     		
   			</tr>
-    		</div>
+    		</thead>
    
-    		<div>
+    		<tbody>
     		<%
     		for(int i=beginPerPage; i<(beginPerPage + numPerPage);i++){
     			if(i==totalRecord){break;}//for 탈출
@@ -207,7 +376,7 @@
     			<td align=center><%=totalRecord-i %></td>
 
     			
-    			<td>  
+    			<td class="title">  
     			<a href="javascript:content('<%=q_num %>')"><%=q_subject %></a>
     			<%
 				if(hour<24){//new
@@ -225,6 +394,7 @@
     			<%
     		}//for
     		%>
+    		</tbody>
     		</table>
     		</div>
     	
@@ -233,13 +403,13 @@
     	}//else
     	%>
     	
-    	</span>
+
     	</div>
     	
     	<div></div>
     	<br>
     	
-    	<div align="center">
+    	<div class="paging">
     	<span>
     	<%
     	if(totalRecord!=0){//글이 존재하면
@@ -287,13 +457,13 @@
     	%>
     	</span>
     	
-    	<span id="test1">
+    	<span class="boardBtn">
     		
-    		<input type="button" value="글쓰기" onclick="javascript:clicked('<%=nickname%>')"></a>
+    		<img src="imgs/boardBtn01.png" onclick="javascript:clicked('<%=nickname%>')">
     		
     	</span>
     	</div>
-    	<div>
+    	<div class="searchForm">
     		<form name="searchForm" method="post" action="./Board/Quiz_Qna/Qna_Kin_List.jsp">
     		<table width="55%" border=0 align=center cellpadding=1 cellspacing=0>
     		<tr>
@@ -304,9 +474,9 @@
     			<option value="q_content">글내용</option>
     		</select>
     		
-    		<input type="text" name="keyWord" size=16>
+    		<input id="keyWord" type="text" name="keyWord" size=16>
     		<input type="hidden" name="page" value="0">
-    		<input type="button" value="검색" onClick="check()">
+    		<input type="button" id="btnSearch" class="btSearch" value="검색" onClick="check()">
     		</td>
     		</tr>    			
     		</table>
