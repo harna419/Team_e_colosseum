@@ -202,7 +202,7 @@ public class MemberDao {
 				dto.setQ_pw_question(rs.getString("q_pw_question"));
 				dto.setQ_pw_reply(rs.getString("q_pw_reply"));
 	
-									
+				
 			}//if
 				
 		}catch(Exception ex){
