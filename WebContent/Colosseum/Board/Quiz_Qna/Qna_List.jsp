@@ -84,16 +84,15 @@
     font-size: 12px;
     line-height: 1.4;
 }
-.content{
-	
+.content{	
 	position: absolute;
-	width: 80%;
+	width: 60%;
 	height: 100%;
-	left: 10%	
+	left: 15%	
 }
 .content h3.title {
 	position: absolute;
-	top: 5%;	
+	top: 10%;	
 	width: 100%;
 	height: 26px;
 	padding: 0;    
@@ -108,14 +107,14 @@
     letter-spacing: 0;
 }
 .boardList{
+	border-top: 1px solid #e5e5e5;
+	position:absolute;
+	top: 14.8%;
 	padding: 0;
 	margin: 0;
 	border: 0;
 	width: 100%;
 	height: 43%;
-	position:absolute;
-	top:11.5%;
-	
 }
 .boardList table{
 	width: 100%;
@@ -159,14 +158,13 @@ tbody{
     text-align: left;
 }
 
-.paging{
-	
+.paging{	
     clear: both;
     text-align: center;
     position: absolute;
     width: 100%;
     height: 5%;
-    top: 53%;	
+    top: 61.5%;	
     z-index: 1;
 }
 .paging a{
@@ -187,20 +185,18 @@ a, a:link, a:active, a:visited {
 	font-weight: bold;
 	text-decoration: none;
 }
-.boardBtn{
-	
+.boardBtn{	
 	position: absolute;
 	width: 100%;
 	line-height: 10%;
-	top: 85%;
+	top: 83%;
 	text-align:right;    
 }
-.searchForm{
-	
+.searchForm{	
 	position: absolute;
 	width: 100%;
 	height: 3%;
-	top: 62%;	
+	top: 70%;	
     text-align: center;
 }
 .searchForm select{

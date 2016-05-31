@@ -88,7 +88,7 @@ List quizList;
     padding: 5px 10px;
 }
 .regist:hover{
-border: 1px solid #fff;
+	background: #8DEEEF;
 }
 .list_title{
 	text-align: center;

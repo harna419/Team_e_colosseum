@@ -420,54 +420,26 @@ int quiznumtest=0;
 	border: 3px solid #fff;
 }
 
-.submitbutton{
+.btn{
 	border:0;
+	float: right;
+	margin-left: 10px;
     background: #ffffff;
     color: #4E94D4;
     cursor: pointer;
-    position: absolute;
     font-family: "museo-sans",sans-serif;
     font-size: 13px;
     font-weight: bold;
     letter-spacing: 1px;
-    left: 69.3%;
     text-transform: uppercase;
     opacity: 1;
     width: 80px;
     padding: 5px 10px;    
 }
-.updatebutton{
-	border:0;
- 	background: #ffffff;
-    color: #4E94D4;
-    cursor: pointer;
-    position: absolute;
-    font-family: "museo-sans",sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    left: 79.8%;
-    text-transform: uppercase;
-    opacity: 1;
-    width: 80px;
-    padding: 5px 10px;
+.btn:hover{
+	background: #8DEEEF
 }
-.deletebutton{
-	border:0;
- 	background: #ffffff;
-    color: #4E94D4;
-    cursor: pointer;
-    position: absolute;
-    font-family: "museo-sans",sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    left: 90.3%;
-    text-transform: uppercase;
-    opacity: 1;
-    width: 80px;
-    padding: 5px 10px;
-}
+
 .single1{
 	position:relative;
 	display:inline-block;
@@ -746,10 +718,10 @@ margin-right: 1%;
 			<td>
 			
 				
-				<input type="button" class="submitbutton" onclick="inputcheck()" value="FIN">
+				<input type="button" class="btn" onclick="inputcheck()" value="FIN">
 				
-				<input type="button" class="updatebutton" onclick="document.location.href='updateForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>'" value="MOD">
-				<input type="button" class="deletebutton" onclick="deletecheck(<%=q_dep_num%>,<%=q_dep_step%>)" value="DEL">
+				<input type="button" class="btn" onclick="document.location.href='updateForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>'" value="MOD">
+				<input type="button" class="btn" onclick="deletecheck(<%=q_dep_num%>,<%=q_dep_step%>)" value="DEL">
 				<%--<input type="button" onclick="document.location.href='delForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>'" value="삭제"> --%>
 				
 				
