@@ -75,6 +75,9 @@ function move(afternum){
 	if(afternum==10){
 		movePageUrl("Board/Quiz_Qna/Qna_List.jsp");
 	}
+	if(afternum==11){
+		movePageUrl("Board/Quiz_Qna/Qna_Kin_List.jsp");
+	}
 }//move()
 </script>
 

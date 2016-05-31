@@ -22,13 +22,13 @@ List quizList;
 		 
 		 function clicked(q_dep_num,q_dep_step){
 			 
-	         alert("클릭함")
+	         //alert("클릭함")
 	         movePageUrl('/Colosseum/Board/Quiz_view/Quiz_Study_View.jsp?q_dep_num='+q_dep_num+'&q_dep_step='+q_dep_step,$('#main').css("backgroundColor"),"#4E94D4");
 	         
 	      }
 		 
 		 function addbutton(){
-			 alert("문제추가")
+			 //alert("문제추가")
 			 movePageUrl('../Colosseum/Board/Quiz_input/Quiz_RegisterForm.jsp',$('#main').css("backgroundColor"),"#4E94D4");
 		 }
 		 

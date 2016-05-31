@@ -6,8 +6,8 @@ public class MemberDto {
 	private String q_id;
 	private String q_pwd;
 	private String q_name;
-	private int q_jumin1;
-	private int q_jumin2;
+	private String q_jumin1;
+	private String q_jumin2;
 	private String q_nickname;
 	private String q_sex;
 	private String q_pw_question;
@@ -15,6 +15,7 @@ public class MemberDto {
 	private Timestamp q_create_time;
 	private Timestamp q_modify_time;
 	private Timestamp q_access_time;
+	
 	public int getQ_num() {
 		return q_num;
 	}
@@ -39,16 +40,16 @@ public class MemberDto {
 	public void setQ_name(String q_name) {
 		this.q_name = q_name;
 	}
-	public int getQ_jumin1() {
+	public String getQ_jumin1() {
 		return q_jumin1;
 	}
-	public void setQ_jumin1(int q_jumin1) {
+	public void setQ_jumin1(String q_jumin1) {
 		this.q_jumin1 = q_jumin1;
 	}
-	public int getQ_jumin2() {
+	public String getQ_jumin2() {
 		return q_jumin2;
 	}
-	public void setQ_jumin2(int q_jumin2) {
+	public void setQ_jumin2(String q_jumin2) {
 		this.q_jumin2 = q_jumin2;
 	}
 	public String getQ_nickname() {
