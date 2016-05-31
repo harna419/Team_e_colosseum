@@ -1,10 +1,16 @@
+<%@page import="java.beans.beancontext.BeanContext"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-	import="java.util.*"
+	import="java.util.*" import="Member.*"
 	%>
 <%
 request.setCharacterEncoding("utf-8");
 String url22=request.getContextPath();
+MemberDao dao=MemberDao.getInstance();//dao 객체얻기
+String q_id=(String)session.getAttribute("mem_id");
+MemberDto dto=dao.getMember(q_id);
+System.out.println("ㅁㄴㅇ:"+dto.getQ_name());
+System.out.println("ㅁㄴㅇㄹ:"+dto.getQ_nickname());
 %>
 
 <html>
@@ -135,9 +141,9 @@ String url22=request.getContextPath();
 			<input type="hidden" name="check" id="check" value="개수구하기">
 			<input type="hidden" name="count" value="0">
 			<input type="hidden" name="q_user_num" value="<%=session.getAttribute("q_user_num")%>">
-			<input type="hidden" name="q_nickname" value="<%=session.getAttribute("q_nickname")%>">
-			<input type="hidden" name="q_id" value="<%=session.getAttribute("q_id")%>">
-			<input type="hidden" name="q_name" value="<%=session.getAttribute("q_name")%>">
+			<input type="hidden" name="q_nickname" value="<%=dto.getQ_nickname()%>">
+			<input type="hidden" name="q_id" value="<%=q_id%>">
+			<input type="hidden" name="q_name" value="<%=dto.getQ_name()%>">
 		</center>
 		
 

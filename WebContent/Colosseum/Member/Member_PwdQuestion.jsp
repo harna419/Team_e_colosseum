@@ -45,7 +45,7 @@ function check(){
 	String q_pw_reply2=dto.getQ_pw_reply();
 %>
 <div> 
-<form name="pwdQuestion" action="ResetPwd.jsp" method="post" onsubmit="return check()">
+<form name="pwdQuestion" action="Member_ResetPwd.jsp" method="post" onsubmit="return check()">
 <div align="center">
 	<div><p id="question"><%=q_pw_question %></p></div><br>
 	<div><p> 답 : <input type="text" name="q_pw_reply" id="q_pw_reply"></p></div>

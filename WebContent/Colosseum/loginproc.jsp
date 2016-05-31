@@ -14,9 +14,13 @@ System.out.println("로그인pwd:"+pwd);
 int count=0;
 
 MemberDao dao=MemberDao.getInstance();//dao 객체얻기
-int check=dao.userCheck(q_id, pwd);//da메서드 호출
+int check=dao.userCheck(q_id, pwd);//dao 메서드 호출
+
+
 if(check==1){//로그인 정상
+	
 	session.setAttribute("mem_id", q_id);
+	
     %>
     <script>
     alert("환영합니다")
@@ -52,15 +56,4 @@ if(check==1){//로그인 정상
 }//else
 %>
 
-</html><%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
 </html>

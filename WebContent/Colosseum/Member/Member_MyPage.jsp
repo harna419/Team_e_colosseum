@@ -24,12 +24,15 @@ vec=dao2.getMessageList(q_nickname_receive);
 Quiz_ScoreMgr quizMgr=Quiz_ScoreMgr.getInstance();
 Quiz_ScoreBean quizBean=quizMgr.quizScoreCount(q_id);
 
+
+
 int yescount=quizBean.getYescount();
 int nocount=quizBean.getNocount(); 
 int totalgame=yescount+nocount;
 double per=(double)yescount/totalgame*100;
 double percentage = Double.parseDouble(String.format("%.1f",per));
 String q_nickname=dto.getQ_nickname();
+
 
 System.out.println(yescount);
 System.out.println(nocount);
@@ -117,17 +120,17 @@ function checkIt(){
 
 }//checkIt() end 
 
-function findPwd(){
-	
-	 url="FindPwd.jsp?check=y";
-	 window.open(url,"FindPwd","width=500,height=300,status=yes,scrollbars=yes");
+function MyGame(){
+	 
+	 url="Member/Member_Mygame.jsp?check=y";
+	 window.open(url,"Mygame","width=500,height=300,status=yes,scrollbars=yes");
 }//zipCheck() end 
 
-function findId(){
-	
-	url="FindId.jsp?check=y";
-	window.open(url,"FindId","width=500,height=300,status=yes,scrollbars=yes");
-}
+function PlayGame(){
+	 
+	 url="Member/Member_Playgame.jsp?check=y";
+	 window.open(url,"playgame","width=500,height=300,status=yes,scrollbars=yes");
+}//zipCheck() end 
 
 function content(value){
 	url="../MyPage/Message_Content.jsp?q_num="+value;
@@ -283,7 +286,7 @@ function delMsg() {
     		out.println("쪽지가 없습니다");
     	}else{//등록한 글이 있으면
     		%>
-    		<table name="message_list" border=1 width="100%">
+    		<table name="message_list" width="100%">
     		<tr align="center">
     		<th width="5%"><input type="checkbox" id="selectAll"></th><th width="20%">보낸사람</th><th width="60%">내용</th><th width="15%">날짜</th>
     		</tr>
@@ -342,14 +345,14 @@ function delMsg() {
     		
     		<tr>
     		<td colspan=2>
-    		<p>내가 등록한 게임 : 최근 등록한 게임 하나만
-			<input type="button" value="상세보기" onclick=""><br>
+    		<p>내가 등록한 게임 :최근 등록한 게임 하나만
+			<input type="button" value="상세보기" onclick="MyGame()"><br>
 			
 			즐겨찾기 한 게임 : 최근 즐찾한 게임 하나만
 			<input type="button" value="상세보기" onclick=""><br>
 			
 			최근 플레이한 게임 : 최근 플레이한 게임 하나만
-			<input type="button" value="상세보기" onclick=""></p>
+			<input type="button" value="상세보기" onclick="PlayGame()"></p>
     		</td>
     		</tr>
     		

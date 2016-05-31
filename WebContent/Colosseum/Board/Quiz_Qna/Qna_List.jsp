@@ -258,7 +258,7 @@ option{
     		}
     		var kWord=document.searchForm.keyWord.value;
     		var kField=document.searchForm.keyField.value;	    		
-    		movePageUrl('./Qna/Qna_List.jsp?keyWord='+kWord+'&keyField='+kField);
+    		movePageUrl('./Board/Quiz_Qna/Qna_List.jsp?keyWord='+kWord+'&keyField='+kField);
     		
     		//document.searchForm.submit();
     	}//check() end
@@ -452,7 +452,8 @@ option{
 		    		
 		    		<input type="text" id="keyWord" name="keyWord" size=30>
 		    		<input type="hidden" name="page" value="0">
-		    		<a href="#Search" id="btnSearch" class="btSearch" onClick="check()">검색</a>
+		    		<input type="button" id="btnSearch" class="btSearch" value="검색" onClick="check()">
+		    		<%--<a href="#Search" id="btnSearch" class="btSearch" onClick="check()">검색</a> --%>
 		    		</td>
 	    		</tr>    			
     		</table>
