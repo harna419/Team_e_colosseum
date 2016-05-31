@@ -1,18 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" 
+    pageEncoding="UTF-8"
     import="quiz_colosseum.*" 
     import="java.util.*" 
-    import="java.text.*"%>
+    import="java.text.*"
+%>
+
+<%!
+List list;
+Vector vec;
+%>
+
 <%
-request.setCharacterEncoding("utf-8");
+
+request.setCharacterEncoding("UTF-8");
+
 java.util.Date date=new java.util.Date();
 java.text.SimpleDateFormat sdf=new java.text.SimpleDateFormat("yyyy-MM-dd H:mm:ss");
 Vector vec=null;
 
 int quiznumtest=0;
-
-
-
 %>    
 
 <html>
@@ -21,189 +27,7 @@ int quiznumtest=0;
     <link rel="stylesheet" href="style.css" type="text/css">
     <%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
     <script>
-   		<%--유효성체크 --%>
-   		
-    	var id
-   		function inputcheck(){
-    		<%-- 주관식 유형 --%>
-    		if($("#Word_answer1").val()==""){
-    			alert("주관식 답변을 입력하세요");
-	    		$("#Word_answer1").focus();
-	    		return;
-    		}
-    		if($("#Word_answer2").val()==""){
-    			alert("주관식 답변을 입력하세요");
-	    		$("#Word_answer2").focus();
-	    		return;
-    		}
-    		if($("#Word_answer3").val()==""){
-    			alert("주관식 답변을 입력하세요");
-	    		$("#Word_answer3").focus();
-	    		return;
-    		}
-    		if($("#Word_answer4").val()==""){
-    			alert("주관식 답변을 입력하세요");
-	    		$("#Word_answer4").focus();
-	    		return;
-    		}
-    		if($("#Word_answer5").val()==""){
-    			alert("주관식 답변을 입력하세요");
-	    		$("#Word_answer5").focus();
-	    		return;
-    		}
-    		if($("#Word_answer6").val()==""){
-    			alert("주관식 답변을 입력하세요");
-	    		$("#Word_answer6").focus();
-	    		return;
-    		}
-    		if($("#Word_answer7").val()==""){
-    			alert("주관식 답변을 입력하세요");
-	    		$("#Word_answer7").focus();
-	    		return;
-    		}
-    		if($("#Word_answer8").val()==""){
-    			alert("주관식 답변을 입력하세요");
-	    		$("#Word_answer8").focus();
-	    		return;
-    		}
-    		if($("#Word_answer9").val()==""){
-    			alert("주관식 답변을 입력하세요");
-	    		$("#Word_answer9").focus();
-	    		return;
-    		}
-    		if($("#Word_answer10").val()==""){
-    			alert("주관식 답변을 입력하세요");
-	    		$("#Word_answer10").focus();
-	    		return;
-    		}
-    		///////////////////////////////////
-
-    		<%-- 객관식 단일 유형 --%>
-			if($('#Single_option11').length){
-	    		if($('input:radio[name=q_real_reply11]:checked').length < 1){
-	    			alert("객관식 단일 선택해주세요");
-	    			$("input:radio[name=q_real_reply11]").focus();
-	    			return;
-	    		}//if 체크 확인
-			}//if tag 여부 확인
-			
-    		if($('#Single_option21').length){
-	    		if($('input:radio[name=q_real_reply21]:checked').length < 1){
-	    			alert("객관식 단일 선택해주세요");
-	    			$("input:radio[name=q_real_reply21]").focus();
-	    			return;
-	    		}//if 체크 확인
-			}//if tag 여부 확인
-			
-    		if($('#Single_option31').length){
-	    		if($('input:radio[name=q_real_reply31]:checked').length < 1){
-	    			alert("객관식 단일 선택해주세요");
-	    			$("input:radio[name=q_real_reply31]").focus();
-	    			return;
-	    		}//if 체크 확인
-			}//if tag 여부 확인
-			
-    		if($('#Single_option41').length){
-	    		if($('input:radio[name=q_real_reply41]:checked').length < 1){
-	    			alert("객관식 단일 선택해주세요");
-	    			$("input:radio[name=q_real_reply41]").focus();
-	    			return;
-	    		}//if 체크 확인
-			}//if tag 여부 확인
-			
-			if($('#Single_option51').length){
-	    		if($('input:radio[name=q_real_reply51]:checked').length < 1){
-	    			alert("객관식 단일 선택해주세요");
-	    			$("input:radio[name=q_real_reply51]").focus();
-	    			return;
-	    		}//if 체크 확인
-			}//if tag 여부 확인
-			
-			if($('#Single_option61').length){
-	    		if($('input:radio[name=q_real_reply61]:checked').length < 1){
-	    			alert("객관식 단일 선택해주세요");
-	    			$("input:radio[name=q_real_reply61]").focus();
-	    			return;
-	    		}//if 체크 확인
-			}//if tag 여부 확인
-			
-			if($('#Single_option71').length){
-	    		if($('input:radio[name=q_real_reply71]:checked').length < 1){
-	    			alert("객관식 단일 선택해주세요");
-	    			$("input:radio[name=q_real_reply71]").focus();
-	    			return;
-	    		}//if 체크 확인
-			}//if tag 여부 확인
-			
-			if($('#Single_option81').length){
-	    		if($('input:radio[name=q_real_reply81]:checked').length < 1){
-	    			alert("객관식 단일 선택해주세요");
-	    			$("input:radio[name=q_real_reply81]").focus();
-	    			return;
-	    		}//if 체크 확인
-			}//if tag 여부 확인
-			
-			if($('#Single_option91').length){
-	    		if($('input:radio[name=q_real_reply91]:checked').length < 1){
-	    			alert("객관식 단일 선택해주세요");
-	    			$("input:radio[name=q_real_reply91]").focus();
-	    			return;
-	    		}//if 체크 확인
-			}//if tag 여부 확인	
-			
-			if($('#Single_option101').length){
-	    		if($('input:radio[name=q_real_reply101]:checked').length < 1){
-	    			alert("객관식 단일 선택해주세요");
-	    			$("input:radio[name=q_real_reply101]").focus();
-	    			return;
-	    		}//if 체크 확인
-			}//if tag 여부 확인
-			
-    		Quiz_Study_View.submit();
-			
-			
-    	}//inputcheck() end
-    	
-   		function deletecheck(q_dep_num,q_dep_step){
-   			alert("퀴즈 삭제 진행합니다.")
-	         movePageUrl('/Colosseum/Board/Quiz_view/Quiz_DeleteForm.jsp?q_dep_num='+q_dep_num+'&q_dep_step='+q_dep_step);
-	         
-
-    	}
-
-    	
-    	
-/*
-      function back(a,b){
-    	  alert("뒤로가기 버튼")
-    	  
-    	  if(b==1){
-    		  //alert("처음페이지입니다")
-    		  return;
-    		  
-    	  }else{
-    		  b--;
-    		  location.href="Quiz_Study_View.jsp?q_dep_num="+a+"&q_dep_step="+b; 
-    		  
-    	  }//else
-      }//back(a,b) end
-      
-      function go(a,b,c){
-    	  //alert("앞으로가기 버튼")    	  
-    	  checked=$("#Single_option"+b+"1:checked").val();
-    	  alert("checked:"+checked)  
-
-    	  if(b<c){
-    		  b++;
-    		  location.href="Quiz_Study_View.jsp?q_dep_num="+a+"&q_dep_step="+b;
-    		  
-    	  }else{    
-    		  alert("마지막페이지입니다")
-    	  }//else
-    		  
-      }//goo(a,b,c) end
-      */
-      
+   	var id=1;
       $(function(){
     	 $("#test1").show()
     	 $("#test2").hide()
@@ -392,6 +216,14 @@ int quiznumtest=0;
 	font-family: '맑은고딕';
 	left:25%;
 }
+.reply1{
+	position: absolute;
+	width: 100%;
+	height: 3%;
+	top: 100%;
+	font-family: '맑은고딕';
+	left:25%;
+}
 .button{
 	position: absolute;
 	width: 60%;
@@ -494,60 +326,58 @@ margin-left: 1%;
 margin-right: 1%;
 
 }
-
-
-   
+.result{
+	position:absolute;
+	width: 100%;
+	height: 3%;
+	top: 30%;
+	margin-left:13%;
+	font-family: '맑은고딕';
+	font-size: 72pt;
+	color: white;
+	left:25%;
+}
 </style>
-
   </head>  
   <body topmargin="30">
-   <%
-   Quiz_StudyMgr study=Quiz_StudyMgr.getInstance();//DAO객체 얻기
-   
-   //Quiz_ListMgr listmgr=Quiz_ListMgr.getInstance();
-   
-   int q_dep_num=Integer.parseInt(request.getParameter("q_dep_num"));
-   session.setAttribute("q_dep_num",new Integer(q_dep_num));
-   
-   int q_dep_step=Integer.parseInt(request.getParameter("q_dep_step"));
-   //q_dep_step1=study.quizCount(q_dep_num);
-   
-   
-  
-   vec=study.quizSolve(q_dep_num,q_dep_step);//DAO메서드 호출
-   Quiz_StudyBean quiz = study.quizCount(q_dep_num);//DAO메서드 호출
-   
-   int quizcnt=quiz.getCnt();
-
-	
-  
-   
-   %>
 <div class="container">
 <div class="contentWrap">
 <h3 class="title"> QUIZ </h3>
-   <form name="Quiz_Study_View" id="Quiz_Study_View" method="post" action="./Board/Quiz_view/Quiz_Study_ViewProc.jsp">
-     <input type="hidden" name="q_dep_num" value="<%=q_dep_num %>">
-     <input type="hidden" name="q_dep_step" value="<%=vec.size()%>">
-   
-    
+<%
 
-    
+Quiz_StudyMgr studyMgr=Quiz_StudyMgr.getInstance();//dao객체얻기
+Quiz_ScoreMgr scoreMgr = Quiz_ScoreMgr.getInstance();//dao객체얻기
+
+//int q_dep_num=(Integer)session.getAttribute("q_dep_num");
+int q_dep_num=Integer.parseInt(request.getParameter("q_dep_num"));
+int q_dep_step=Integer.parseInt(request.getParameter("q_dep_step"));
+
+System.out.println("Result q_dep_num:"+q_dep_num);
+System.out.println("Result q_dep_step:"+q_dep_step);
+
+vec = studyMgr.quizView(q_dep_num);//메서드 호출 //vec
+studyMgr.quizView(q_dep_num);//메서드 호출 //vec
+list = scoreMgr.quizScore(q_dep_num);// 메서드 호출//list
+//--------------------------------------------------------------------
+
+
+Quiz_StudyBean count = studyMgr.quizCount(q_dep_num); //문제 개수구하기
+
+System.out.println(vec.size());
+System.out.println(list.size());
+%>
+<form>
+    <input type="hidden" name="q_dep_step" value="<%=vec.size()%>">
+   
 	<%
    for(int i=0;i<vec.size();i++){
 	   
 	   Quiz_StudyBean bean=(Quiz_StudyBean)vec.get(i);
+	   Quiz_ScoreBean score=(Quiz_ScoreBean)list.get(i);
+	   
 	   int num=i+1;
 	   
-	   
-		//String numint=num+"";//숫자를 문자열로 변환
-		//System.out.println("numint : "+numint);
-		
-	   //System.out.println(vec.size());
    %>
-   
-
-	
 		<div id="test<%=num%>" class="test">
 		
 		<tr>
@@ -569,8 +399,20 @@ margin-right: 1%;
 	          <div class="img"><img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_content_img() %>" width="100%" height="100%" align="center"></div>
 	        
 	        
-	          <p class="reply"><input type="text" name="q_real_reply<%=num %>1" id="Word_answer<%=num %>1" style="height:100%" size="53" required="required" value=""></p>
-	        
+	         <p class="reply1">당신의답 <input type="text" readonly style="height:100%" size="53" value="<%=score.getQ_custom_reply1() %>"></p>
+	         <p class="reply">실제정답 <input type="text" readonly style="height:100%" size="53" value="<%=bean.getQ_real_reply1() %>"></p>
+	         <%
+	         if(score.getQ_custom_reply1().equals(bean.getQ_real_reply1())){
+	        	 %>
+	        	 <p class="result">정답</p>
+	        	 <%
+	         }else{
+	        	 %>
+	        	 <p class="result">오답</p>
+	        	 <%
+	         }
+	         %>
+	          
 	        <input type="hidden" name="q_quiz_type<%=num %>" value="100">
            </div><!-- board -->
        
@@ -586,9 +428,6 @@ margin-right: 1%;
 	    
 	     
 	          <div class="img"><img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_content_img() %>" width="100%" height="60%" align="center"></div>
-	        
-	        
-           
 	        
 	          <%
 	         	//reply1~10까지 변수에 넣기
@@ -728,38 +567,20 @@ margin-right: 1%;
 	  			<input type="hidden" name="q_quiz_type<%=num %>" value="200">
 	  			</span><!-- board --> 
 	  		<%}//else if
-   
 		%>
-
 		<input type="hidden" name="q_quiz_type<%=num %>" value="200">
 		
 		<div class="pre"><img src="../Colosseum/imgs/left_key.png" onclick="prevquiz()" value="이전문제" width=100px height=100px></div>
-		<div class="next"><img src="../Colosseum/imgs/right_key.png" onclick="nextquiz(<%=quizcnt %>)" value="다음문제" width=100px height=100px></div>
+		<div class="next"><img src="../Colosseum/imgs/right_key.png" onclick="nextquiz(<%=count %>)" value="다음문제" width=100px height=100px></div>
 		</div><!-- test -->
 
 	<% 
 	}//vec get(i) for end
 	%>
-	<div class="button">
-		<tr> 
-			<td>
-			
-				
-				<input type="button" class="submitbutton" onclick="inputcheck()" value="FIN">
-				
-				<input type="button" class="updatebutton" onclick="document.location.href='updateForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>'" value="MOD">
-				<input type="button" class="deletebutton" onclick="deletecheck(<%=q_dep_num%>,<%=q_dep_step%>)" value="DEL">
-				<%--<input type="button" onclick="document.location.href='delForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>'" value="삭제"> --%>
-				
-				
-			</td>
-		</tr>
-	</table>
-	</div><!-- button -->		
+	
 	</form>
 </div><!-- contentWrap -->
 </div><!-- container -->
 	
   </body>
   </html>
-  
