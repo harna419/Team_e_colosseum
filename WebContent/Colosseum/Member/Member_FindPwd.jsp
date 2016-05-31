@@ -39,7 +39,7 @@ function checkIt(){
 </head>
 <body>
 	<div>
-		<form name="pwdCheck" action="PwdQuestion.jsp" method="post" onsubmit="return checkIt()">
+		<form name="pwdCheck" action="Member_PwdQuestion.jsp" method="post" onsubmit="return checkIt()">
 		<table align="center">
 			<tr>
 			<td>ID :</td> <td><input type="text" name="q_id" id="q_id" placeholder="아이디를 입력 해주세요"></td>

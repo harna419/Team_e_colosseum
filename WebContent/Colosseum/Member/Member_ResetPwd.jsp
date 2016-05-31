@@ -27,7 +27,7 @@ function check(){
 </head>
 <body>
 <div align="center">
-<form name="resetPwd" action="ResetPwdProc.jsp" method="post" onsubmit="return check()">
+<form name="resetPwd" action="Member_ResetPwdProc.jsp" method="post" onsubmit="return check()">
 	<div><p>변경 할 비밀번호 : <input type="password" name="q_pwd" id="q_pwd"></p></div>
 	<div><p>비밀번호 확인 : <input type="password" name="q_pwd2" id="q_pwd2"></p></div>
 	<input type="hidden" value="<%=q_id %>" name="q_id">

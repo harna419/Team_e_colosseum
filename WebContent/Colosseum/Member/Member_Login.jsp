@@ -24,7 +24,7 @@
 	<body topmargin="20">
 	
 		<form method="post" action="LoginProc.jsp">
-		<table width="50%" border="1" align="center">
+		<table width="50%" align="center">
 		  <tr>
 		  	<td width="47%" align="center">ID</td>
 		  	<td width="53%"><input type="text" name="q_id" id="q_id"></td>

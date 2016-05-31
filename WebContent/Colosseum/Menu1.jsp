@@ -30,6 +30,19 @@ function logout(){
 	alert('로그아웃')
 	movePageUrl("logout.jsp",$('#main').css("backgroundColor"), "#3D68A6");
 }
+
+function findPwd(){
+	 
+	 url="Member/Member_FindPwd.jsp?check=y";
+	 window.open(url,"FindPwd","width=500,height=300,status=yes,scrollbars=yes");
+}//zipCheck() end 
+
+function findId(){
+	
+	url="Member/Member_FindId.jsp?check=y";
+	window.open(url,"FindId","width=500,height=300,status=yes,scrollbars=yes");
+}
+
 </script>
 </head>
 <body>
@@ -41,10 +54,14 @@ if(q_id==null || q_id.equals("") || q_id.length()<=0){
 	%>
 	<h1>로그인하시겠어요?</h1>
 	<form name="loginForm" id="loginForm">
-	  <input type="text" name="id" id="id" value=""><br>
-	  <input type="password" name="pwd" id="pwd" value=""><br>
+	<br>
+	 ID:  &nbsp;&nbsp;<input type="text" name="id" id="id" value=""><br>
+	 PWD: <input type="password" name="pwd" id="pwd" value=""><br>
+	  <br><br>
 	  <input type="button" onclick="login()" value="로그인">
-	  <input type="button" value="회원가입">
+	  <input type="button" value="아이디찾기" onclick="findId()">
+   	<input type="button" value="비밀번호찾기" onclick="findPwd()">
+
 	</form>
 	<%
 }else{
