@@ -209,7 +209,7 @@ input{
 	<tr>
 	<td width="200"></td>
 	<td width="400">
-		E-mail
+		E-mail*
 		<tr>
 		<td></td>
 		<td>
@@ -221,7 +221,7 @@ input{
 	<tr>
 	<td width="200"></td>
 	<td width="400">
-		닉네임
+		닉네임*
 		<tr>
 		<td></td>
 		<td>
@@ -233,7 +233,7 @@ input{
 	<tr>
 	<td width="200"></td>
 	<td width="400">
-		비밀번호
+		비밀번호*
 		<tr>
 		<td></td>
 		<td>
@@ -244,7 +244,7 @@ input{
 	<tr>
 	<td width="200"></td>
 	<td width="400">
-		비밀번호 확인
+		비밀번호 확인*
 		<tr>
 		<td></td>
 		<td>
@@ -261,7 +261,7 @@ input{
 	<tr>
 	<td ></td>
 	<td>
-	사용자 이름
+	사용자 이름*
 	<tr>
 		<td></td>
 		<td>
@@ -272,7 +272,7 @@ input{
 		<tr>
 		<td></td>
 		<td>
-		주민번호
+		주민번호*
 		<tr>
 		<td></td>
 		<td>

@@ -386,7 +386,7 @@ int quiznumtest=0;
 	position: absolute;
 	width: 100%;
 	height: 84%;	
-}
+}	
 .reply{
 	position: absolute;
 	width: 100%;
