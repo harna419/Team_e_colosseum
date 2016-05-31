@@ -23,6 +23,14 @@
   catch(Exception ex) {
    out.println("exception occured");
   }
+  
+  String url22=request.getContextPath();
  %>
+ 
+ 
 </body>
 </html>
+
+<script>
+location.href="<%=url22%>/Colosseum/Main_template.jsp?afternum=13";
+</script>

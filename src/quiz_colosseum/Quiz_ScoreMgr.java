@@ -44,19 +44,18 @@ public class Quiz_ScoreMgr {
 			//  占쏙옙占쏙옙 占쏙옙占쏙옙占�
 			//---------------------------------------
 			
-			public List quizScore(int q_dep_num){
+			public List quizScore(int q_dep_num,String q_id){
 				List <Quiz_ScoreBean>list=new ArrayList<Quiz_ScoreBean>();
 				//Quiz_ScoreBean cnt=new Quiz_ScoreBean();
 				
 				
 				int nowcount=0;
-				String userid="admin";
-						
+				//String userid="admin";
+				
 	
 				try{
 					con=getConnection();//커占쌔쇽옙 占쏙옙占�
 					
-					//占쏙옙占�푼 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占싹깍옙 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占싹깍옙
 					String sql2="select count(*) as cnt from qz_quiz_info where q_dep_num="+q_dep_num;
 					stmt=con.createStatement();
 					rs=stmt.executeQuery(sql2);
@@ -66,8 +65,8 @@ public class Quiz_ScoreMgr {
 						nowcount=rs.getInt(1);
 					}//while end
 					
-					//占쏙옙占�占쏙옙占쏙옙占�占쏙옙占폪uery
-					sql="select * from qz_quiz_history where q_quiz_num="+q_dep_num+" and q_id='"+userid+"' order by q_quiz_step asc limit 0,"+nowcount;
+					
+					sql="select * from qz_quiz_history where q_quiz_num="+q_dep_num+" and q_id='"+q_id+"' order by q_quiz_step asc limit 0,"+nowcount;
 							
 					stmt=con.createStatement();
 					rs=stmt.executeQuery(sql);

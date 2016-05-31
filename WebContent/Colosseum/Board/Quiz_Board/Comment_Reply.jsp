@@ -16,6 +16,7 @@ int nowPage=Integer.parseInt(request.getParameter("page"));
 int q_num=Integer.parseInt(request.getParameter("q_num"));
 CmtDto dto=dao.getComment(q_num);//Dao 메서드 호출
 
+
 %>
 <html>
 	<body>

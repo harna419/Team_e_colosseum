@@ -29,7 +29,7 @@ String q_nickname2 = "이제훈";
 	  <script>
 	  	function check(){
 	  		
-	  			alert("수정?");
+	  		
 	
 	  		document.editForm.submit();//서버로 전송
 	  	}//check() end

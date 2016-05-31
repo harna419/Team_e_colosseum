@@ -501,6 +501,8 @@ margin-right: 1%;
    <form name="Quiz_Study_View" id="Quiz_Study_View" method="post" action="./Board/Quiz_view/Quiz_Study_ViewProc.jsp">
      <input type="hidden" name="q_dep_num" value="<%=q_dep_num %>">
      <input type="hidden" name="q_dep_step" value="<%=vec.size()%>">
+     <input type="hidden" name="q_id" value="<%=session.getAttribute("mem_id") %>">
+
    
     
 
@@ -517,9 +519,6 @@ margin-right: 1%;
 		
 	   //System.out.println(vec.size());
    %>
-   
-
-	
 		<div id="test<%=num%>" class="test">
 		
 		<tr>

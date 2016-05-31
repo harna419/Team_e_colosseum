@@ -1,7 +1,6 @@
 var multiCnt1=2
 		function multi_add1(){
-			//alert("dd");
-			alert("멀티11")
+		
 			$("<tr><td></td>"
 			+"<td><input type='checkbox' name='q_real_reply1"+multiCnt1+"' value="+multiCnt1+">"
 			+"<input type='text' name='q_reply1"+multiCnt1+"' value=''></td>"+
@@ -13,7 +12,7 @@ var multiCnt1=2
 		
 		var multiCnt2=2
 		function multi_add2(){
-			//alert("dd");
+			
 			
 			$("<tr><td></td>"
 			+"<td><input type='checkbox' name='q_real_reply2"+multiCnt2+"' value="+multiCnt2+">"
@@ -26,7 +25,7 @@ var multiCnt1=2
 		
 		var multiCnt3=2
 		function multi_add3(){
-			//alert("dd");
+			
 			
 			$("<tr><td></td>"
 			+"<td><input type='checkbox' name='q_real_reply3"+multiCnt3+"' value="+multiCnt3+">"
@@ -39,7 +38,7 @@ var multiCnt1=2
 		
 		var multiCnt4=2
 		function multi_add4(){
-			//alert("dd");
+		
 			
 			$("<tr><td></td>"
 			+"<td><input type='checkbox' name='q_real_reply4"+multiCnt4+"' value="+multiCnt4+">"

@@ -48,11 +48,11 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 	 }
 	 <%--
 	 $(function(){
-		//alert("ddd")
+		
 		 $("<div></div>").load("Comment_List.jsp?<%=q_num%>").appendTo("body");
 		
 		$(this).on('click','#test',function(){
-			alert('test');
+		
 			
 			var test111=$(this).attr('q_num');
 			$('#comentForm').val(t);
@@ -64,7 +64,7 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 	 });--%>
 	 
 	 function ddd(){
-			alert("zzz");
+		
 			
 		 }//deleteCheck() end 
 	 

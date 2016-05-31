@@ -138,7 +138,7 @@ function content(value){
 }
 
 function delMsg() {
-	  alert("삭제삭제");
+	 
 	  var chkList = document.getElementsByName('select');
 	  var arr = new Array();	
 	  var cnt = 0;
@@ -272,7 +272,7 @@ function delMsg() {
 		
     <div align="center">
     
-    <form name="msglist" method="post" action="Member_MsgDelete.jsp" id="msgList">
+    <form name="msglist" method="post" action="Member/Member_MsgDelete.jsp" id="msgList">
     <input type="button" value="삭제" onclick="delMsg()"> <input type="button" value="답장" onclick="">
     
 	<%

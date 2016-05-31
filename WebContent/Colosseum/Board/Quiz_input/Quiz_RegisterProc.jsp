@@ -11,10 +11,9 @@ boolean result=false;
 
 result=quizMgr.Quiz_insert(request);//dao메서드 호출
 //response.sendRedirect("../../Main_template.jsp?afternum=3");
-
 //String url22=config.getServletContext().getRealPath("/");
 String url22=request.getContextPath();
-System.out.print("url22="+url22);
+
 %>
  
 <script>

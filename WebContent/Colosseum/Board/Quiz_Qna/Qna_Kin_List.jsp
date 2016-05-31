@@ -261,7 +261,7 @@ option{
     
     <script type="text/javascript">
     	function check(){
-    		alert("test");
+    		
     		if(document.searchForm.keyWord.value==''){
     			alert("검색어를 입력 하시오");
     			document.searchForm.keyWord.focus();
@@ -280,7 +280,7 @@ option{
     	}//list() end
     	
     	function content(q_num){
-    		alert(q_num);
+    		
     		//document.readForm.action="Board/Quiz_Qna/Qna_Kin_Content.jsp";//글 내용 보기
     		document.readForm.q_num.value=q_num;
     		//document.readForm.submit();

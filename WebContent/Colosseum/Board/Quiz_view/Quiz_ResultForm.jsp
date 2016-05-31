@@ -42,8 +42,9 @@ int quiznumtest=0;
       });  
       
       var cnt=1;
-      function prevquiz(){  //문제상세보기에서 이전문제
-    	  if(cnt==1){
+      function prevquiz1(){  //문제상세보기에서 이전문제
+    	  
+    	   if(cnt==1){
     		  alert("첫번쨰문제입니다")
     		  return
     	  }else{
@@ -86,8 +87,8 @@ int quiznumtest=0;
     	  }    	  
       }//prevquiz()
       
-      function nextquiz(quizcnt){ //문제상세보기에서 다음문제    	  
-    	  
+      function nextquiz1(quizcnt){ //문제상세보기에서 다음문제    	  
+    	 
     	  if(quizcnt<=cnt){
     		  alert("마지막문제입니다")
     		  return
@@ -347,24 +348,18 @@ margin-right: 1%;
 
 Quiz_StudyMgr studyMgr=Quiz_StudyMgr.getInstance();//dao객체얻기
 Quiz_ScoreMgr scoreMgr = Quiz_ScoreMgr.getInstance();//dao객체얻기
-
+String q_id=(String)session.getAttribute("mem_id");
 //int q_dep_num=(Integer)session.getAttribute("q_dep_num");
 int q_dep_num=Integer.parseInt(request.getParameter("q_dep_num"));
 int q_dep_step=Integer.parseInt(request.getParameter("q_dep_step"));
 
-System.out.println("Result q_dep_num:"+q_dep_num);
-System.out.println("Result q_dep_step:"+q_dep_step);
-
 vec = studyMgr.quizView(q_dep_num);//메서드 호출 //vec
-studyMgr.quizView(q_dep_num);//메서드 호출 //vec
-list = scoreMgr.quizScore(q_dep_num);// 메서드 호출//list
+list = scoreMgr.quizScore(q_dep_num,q_id);// 메서드 호출//list
 //--------------------------------------------------------------------
-
 
 Quiz_StudyBean count = studyMgr.quizCount(q_dep_num); //문제 개수구하기
 
-System.out.println(vec.size());
-System.out.println(list.size());
+int quizcnt=count.getCnt();
 %>
 <form>
     <input type="hidden" name="q_dep_step" value="<%=vec.size()%>">
@@ -376,7 +371,6 @@ System.out.println(list.size());
 	   Quiz_ScoreBean score=(Quiz_ScoreBean)list.get(i);
 	   
 	   int num=i+1;
-	   
    %>
 		<div id="test<%=num%>" class="test">
 		
@@ -399,7 +393,7 @@ System.out.println(list.size());
 	          <div class="img"><img src="<%=request.getContextPath() %>/imgs/<%=bean.getQ_content_img() %>" width="100%" height="100%" align="center"></div>
 	        
 	        
-	         <p class="reply1">당신의답 <input type="text" readonly style="height:100%" size="53" value="<%=score.getQ_custom_reply1() %>"></p>
+	         <p class="reply1">당신의답 <input type="text" readonly style="height:100%" size="53" value="<%=score.getQ_custom_reply1()%>"></p>
 	         <p class="reply">실제정답 <input type="text" readonly style="height:100%" size="53" value="<%=bean.getQ_real_reply1() %>"></p>
 	         <%
 	         if(score.getQ_custom_reply1().equals(bean.getQ_real_reply1())){
@@ -570,8 +564,8 @@ System.out.println(list.size());
 		%>
 		<input type="hidden" name="q_quiz_type<%=num %>" value="200">
 		
-		<div class="pre"><img src="../Colosseum/imgs/left_key.png" onclick="prevquiz()" value="이전문제" width=100px height=100px></div>
-		<div class="next"><img src="../Colosseum/imgs/right_key.png" onclick="nextquiz(<%=count %>)" value="다음문제" width=100px height=100px></div>
+		<div class="pre"><img src="../Colosseum/imgs/left_key.png" onclick="prevquiz1()" value="이전문제" width=100px height=100px></div>
+		<div class="next"><img src="../Colosseum/imgs/right_key.png" onclick="nextquiz1(<%=quizcnt %>)" value="다음문제" width=100px height=100px></div>
 		</div><!-- test -->
 
 	<% 

@@ -9,7 +9,7 @@
 <script>
 
 function content2(q_num2){
-	alert(q_num2);
+	
 	movePageUrl("./Board/Quiz_Board/Board_Notice_Content.jsp?q_num2="+q_num2);
 }
 

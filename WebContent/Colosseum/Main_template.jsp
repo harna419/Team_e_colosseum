@@ -81,10 +81,13 @@ function move(afternum){
 	if(afternum==11){
 
 		movePageUrl("Board/Quiz_view/Quiz_ResultForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>");
-
 	}
 	if(afternum==12){
 		movePageUrl("Board/Quiz_Qna/Qna_Kin_List.jsp");
+	}
+	if(aFternum==13){
+		movePageUrl("home_wrap.jsp");
+	
 	}
 }//move()
 </script>
