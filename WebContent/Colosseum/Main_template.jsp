@@ -55,7 +55,7 @@ function move(afternum){
 		movePageUrl("")
 	}
 	if(afternum==4){//문제게시판
-		movePageUrl("Board/Quiz_view/Quiz_list.jsp")
+		movePageUrl("Board/Quiz_view/Quiz_list.jsp",$('#main').css("backgroundColor"), "#4E94D4")
 	}
 	if(afternum==5){//GROUP
 		movePageUrl("")
