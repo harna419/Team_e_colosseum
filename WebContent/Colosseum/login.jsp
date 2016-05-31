@@ -17,6 +17,7 @@ MemberDao dao=MemberDao.getInstance();//dao 객체얻기
 int check=dao.userCheck(q_id, pwd);//da메서드 호출
 if(check==1){//로그인 정상
 	session.setAttribute("mem_id", q_id);
+	
     %>
     <script>
     

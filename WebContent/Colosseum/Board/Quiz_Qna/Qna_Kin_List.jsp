@@ -381,7 +381,7 @@
     			<%
 				if(hour<24){//new
 				%>
-				<img src = "../imgs/ico_new.gif" width="10" height="10">
+				<img src = "imgs/ico_new.gif" width="10" height="10">
 				<%
 				}
 				%>

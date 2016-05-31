@@ -44,6 +44,15 @@ function findId(){
 }
 
 </script>
+<style type="text/css">
+.log{
+margin-left:20%;
+margin-top:10%;
+align:center;
+color:gray;
+}
+
+</style>
 </head>
 <body>
 
@@ -52,6 +61,7 @@ String q_id=(String)session.getAttribute("mem_id");
 //String q_id=null;
 if(q_id==null || q_id.equals("") || q_id.length()<=0){
 	%>
+	<div class="log">
 	<h1>로그인하시겠어요?</h1>
 	<form name="loginForm" id="loginForm">
 	<br>
@@ -63,12 +73,15 @@ if(q_id==null || q_id.equals("") || q_id.length()<=0){
    	<input type="button" value="비밀번호찾기" onclick="findPwd()">
 
 	</form>
+	</div>
 	<%
 }else{
 	%>
+	<div class="log">
 	<h1>로그아웃하시겠어요?</h1>
 	<button onclick="logout()">네</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<button>아니오</button>
+	</div>
 	<%
 }
 %>
