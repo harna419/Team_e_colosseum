@@ -25,7 +25,12 @@ System.out.println("pageFile:"+pageFile);
 
 
 String mem_id=(String)session.getAttribute("mem_id");
+String mem_name=(String)session.getAttribute("mem_name");
+String mem_nickname=(String)session.getAttribute("mem_nickname");
+
 System.out.println("세션id:"+mem_id);
+System.out.println("세션name:"+mem_name);
+System.out.println("세션닉네임:"+mem_nickname);
 %>
 
 <html>
