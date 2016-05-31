@@ -172,7 +172,6 @@
 			    min-width: 20px;
 			    font-family: Verdana;
 			    vertical-align: left;
-			    vspace:200px;
 			    
 			}
 			a, a:link, a:active, a:visited {
