@@ -48,7 +48,7 @@ function checkIt(){
 			<td>NAME :</td> <td><input type="text" name="q_name" id="q_name" placeholder="이름을 입력 해주세요"></td>
 			</tr>
 			<tr>
-			<td>BIRTH :</td> <td><input type="text" name="q_jumin1" id="q_jumin1" placeholder="주민번호 앞자리">-
+			<td>BIRTH :</td> <td><input id="q_jumin1" type="text" placeholder="주민번호 앞자리" name="q_jumin1" size="15" onkeyup="if(this.value.length==6) idCheck.q_jumin2.focus();">-
 			<input type="password" name="q_jumin2" id="q_jumin2" placeholder="주민번호 뒷자리"></td>
 			</tr>
 			<br><br>

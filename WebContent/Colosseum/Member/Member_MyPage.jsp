@@ -34,10 +34,6 @@ double percentage = Double.parseDouble(String.format("%.1f",per));
 String q_nickname=dto.getQ_nickname();
 
 
-System.out.println(yescount);
-System.out.println(nocount);
-System.out.println(totalgame);
-
 %> 
   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -124,13 +120,17 @@ function MyGame(){
 	 
 	 url="Member/Member_Mygame.jsp?check=y";
 	 window.open(url,"Mygame","width=500,height=300,status=yes,scrollbars=yes");
-}//zipCheck() end 
+}
 
 function PlayGame(){
 	 
 	 url="Member/Member_Playgame.jsp?check=y";
 	 window.open(url,"playgame","width=500,height=300,status=yes,scrollbars=yes");
-}//zipCheck() end 
+}
+function Favorite(){
+	url="Member/Member_Favorite_game.jsp?check=y";
+	window.open(url,"Favorite","width=500,height=300,status=yes,scrollbars=yes");
+}
 
 function content(value){
 	url="../MyPage/Message_Content.jsp?q_num="+value;
@@ -244,7 +244,7 @@ function delMsg() {
 		<!-- 성별 -->
 		
 		<tr>
-			<th width=200>주소</th>
+			<th width=200>성별</th>
 			<td width=400>
 			<%
 			im=dto.getQ_sex();
@@ -267,12 +267,6 @@ function delMsg() {
    
 	</table>
 	<br>
-	<span><input type="button" value="아이디찾기" onclick="findId()"></span>
-	<span>
-		 	<input type="button" value="비밀번호찾기" onclick="findPwd()">
-		 	<input type="button" value="비밀번호찾기" onclick="modi()">
-		 	
-		</span>
 	</form></div>
 	
 		
@@ -349,7 +343,7 @@ function delMsg() {
 			<input type="button" value="상세보기" onclick="MyGame()"><br>
 			
 			즐겨찾기 한 게임 : 최근 즐찾한 게임 하나만
-			<input type="button" value="상세보기" onclick=""><br>
+			<input type="button" value="상세보기" onclick="Favorite()"><br>
 			
 			최근 플레이한 게임 : 최근 플레이한 게임 하나만
 			<input type="button" value="상세보기" onclick="PlayGame()"></p>

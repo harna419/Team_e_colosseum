@@ -6,8 +6,8 @@
 <% 
 request.setCharacterEncoding("utf-8");
 String q_name=request.getParameter("q_name");
-int q_jumin1=Integer.parseInt(request.getParameter("q_jumin1"));
-int q_jumin2=Integer.parseInt(request.getParameter("q_jumin2"));
+String q_jumin1=request.getParameter("q_jumin1");
+String q_jumin2=request.getParameter("q_jumin2");
 MemberDao dao=MemberDao.getInstance();
 String q_id = dao.showId(q_name, q_jumin1, q_jumin2);
 %> 
