@@ -46,8 +46,8 @@ public class MemberDao {
 			pstmt.setString(1, dto.getQ_id());
 			pstmt.setString(2, dto.getQ_pwd());
 			pstmt.setString(3, dto.getQ_name());
-			pstmt.setInt(4, dto.getQ_jumin1());
-			pstmt.setInt(5, dto.getQ_jumin2());
+			pstmt.setString(4, dto.getQ_jumin1());
+			pstmt.setString(5, dto.getQ_jumin2());
 			
 			pstmt.setString(6, dto.getQ_nickname());
 			pstmt.setString(7, dto.getQ_sex());
@@ -194,8 +194,8 @@ public class MemberDao {
 				dto.setQ_pwd(rs.getString("q_pwd"));
 				dto.setQ_name(rs.getString("q_name"));
 				
-				dto.setQ_jumin1(rs.getInt("q_jumin1"));
-				dto.setQ_jumin2(rs.getInt("q_jumin2"));
+				dto.setQ_jumin1(rs.getString("q_jumin1"));
+				dto.setQ_jumin2(rs.getString("q_jumin2"));
 				dto.setQ_nickname(rs.getString("q_nickname"));
 				
 				dto.setQ_sex(rs.getString("q_sex"));
@@ -298,13 +298,13 @@ public class MemberDao {
 	//비밀번호 찾기
 	//---------------------------
 	
-	public int pwdFind(String q_id,String q_name,int q_jumin1, int q_jumin2) throws Exception{
+	public int pwdFind(String q_id,String q_name,String q_jumin1, String q_jumin2) throws Exception{
 		Connection con = null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		String dbq_name="";
-		int dbq_jumin1=0;
-		int dbq_jumin2=0;
+		String dbq_jumin1="";
+		String dbq_jumin2="";
 		int x=-1;
 			
 		try{
@@ -315,9 +315,9 @@ public class MemberDao {
 			
 			if(rs.next()){
 				dbq_name=rs.getString("q_name");
-				dbq_jumin1=rs.getInt("q_jumin1");
-				dbq_jumin2=rs.getInt("q_jumin2");
-				if(q_name.equals(dbq_name) && q_jumin1==(dbq_jumin1) && q_jumin2==(dbq_jumin2)){
+				dbq_jumin1=rs.getString("q_jumin1");
+				dbq_jumin2=rs.getString("q_jumin2");
+				if(q_name.equals(dbq_name) && q_jumin1.equals(dbq_jumin1) && q_jumin2.equals(dbq_jumin2)){
 					x=1;//인증성공
 				}else{
 					x=0;//암호가 틀림
@@ -373,6 +373,47 @@ public class MemberDao {
 		return dto;
 	}//pwdQuestion() end
 	
+	//------------------------------
+	//답 가져오기
+	//-----------------------------
+	public int pwdReply(String q_pw_reply, String q_id) throws Exception{
+		Connection con = null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String dbq_pw_reply="";
+		int x=-1;
+			
+		try{
+			con=getConnection();//커넥션 얻기
+			pstmt=con.prepareStatement("select q_pw_reply from qz_user_info where q_id=?");
+			pstmt.setString(1, q_id);
+			rs=pstmt.executeQuery();//쿼리 수행
+			
+			if(rs.next()){
+				dbq_pw_reply=rs.getString("q_pw_reply");
+				
+				if(dbq_pw_reply.equals(q_pw_reply)){
+					x=1;//인증성공
+				}else{
+					x=0;//암호가 틀림
+				}
+			}else{
+				x=-1;//해당 아이디 없음
+			}//else
+				
+		}catch(Exception ex){
+			System.out.println("pwdFind() 예외:"+ex);
+		}finally{
+			try{
+				if(rs!=null){rs.close();}
+				if(pstmt!=null){pstmt.close();}
+				if(con!=null){con.close();}
+			}catch(Exception exx){}
+			
+		}//finally end
+		return x;
+	}//pwdFind() end
+	
 	//-------------------------------
 	//비밀번호 재설정
 	//-------------------------------
@@ -401,7 +442,7 @@ public class MemberDao {
 	}//updatePwd() end
 	
 	
-	public String showId(String q_name,int q_jumin1,int q_jumin2) throws Exception{
+	public String showId(String q_name,String q_jumin1,String q_jumin2) throws Exception{
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -447,8 +488,8 @@ public class MemberDao {
 				dto.setQ_pwd(rs.getString("q_pwd"));
 				dto.setQ_name(rs.getString("q_name"));
 				
-				dto.setQ_jumin1(rs.getInt("q_jumin1"));
-				dto.setQ_jumin2(rs.getInt("q_jumin2"));
+				dto.setQ_jumin1(rs.getString("q_jumin1"));
+				dto.setQ_jumin2(rs.getString("q_jumin2"));
 				
 				dto.setQ_sex(rs.getString("q_sex"));
 									

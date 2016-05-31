@@ -67,12 +67,12 @@
 			alert("아이디 중복 확인 해주세요");
 			return false;
 		}
-		/*
+		
 		if(Nickname_Check!=1){
 			alert("닉네임 중복확인 해주세요");
 			return false;
 		}
-		*/
+		
 		alert("가입이 완료 되었습니다");
 	}//checkIt end
 	
@@ -91,7 +91,7 @@
 				cache:false,
 				async:true,
 				success:function(data){
-					alert(data.check); 
+					//alert(data.check); 
 					
 					if(data.check==1){
 						alert("사용중인 ID");
@@ -112,7 +112,7 @@
 			alert("닉네임을 입력하세요");
 			$('#q_nickname').focus();
 		}else{
-			alert("닉네임 중복체크 확인");
+			//alert("닉네임 중복체크 확인");
 			
 			$.ajax({
 				type:'POST',
@@ -122,7 +122,7 @@
 				cache:false,
 				async:true,
 				success:function(data){
-					alert(data.check); 
+					//alert(data.check); 
 					
 					if(data.check==1){
 						alert("사용중인 닉네임");
@@ -188,6 +188,7 @@ input{
     margin-bottom: 20px;
     padding: 5px 10px;
 }
+
 </style>
 </head>
 <body>
