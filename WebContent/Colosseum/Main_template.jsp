@@ -7,6 +7,9 @@ String pageFile=request.getParameter("pageUrl");
 String nowColor=request.getParameter("nowColor");
 String nextColor=request.getParameter("nextColor");
 
+String q_dep_num=request.getParameter("q_dep_num");
+String q_dep_step=request.getParameter("q_dep_step");
+
 System.out.println("nowColor: "+nowColor);
 System.out.println("nextColor: "+nextColor);
 
@@ -76,6 +79,11 @@ function move(afternum){
 		movePageUrl("Board/Quiz_Qna/Qna_List.jsp");
 	}
 	if(afternum==11){
+
+		movePageUrl("Board/Quiz_view/Quiz_ResultForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>");
+
+	}
+	if(afternum==12){
 		movePageUrl("Board/Quiz_Qna/Qna_Kin_List.jsp");
 	}
 }//move()
