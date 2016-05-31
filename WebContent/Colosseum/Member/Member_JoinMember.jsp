@@ -189,6 +189,43 @@ input{
     padding: 5px 10px;
 }
 
+.check{
+	border:0;
+ 	background: #ffffff;
+    color: #015DB2;
+    cursor: pointer;
+    font-family: "museo-sans",sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 1;
+    width: 80px;
+    padding: 5px 10px;
+}
+.check:hover{
+	background: #8DEEEF;
+}
+
+.Btn{
+    border:0;
+ 	background: #ffffff;
+    color: #015DB2;
+    cursor: pointer;
+    float: right;
+    font-family: "museo-sans",sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 1;
+    width: 80px;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+.Btn:hover{
+	background: #8DEEEF;
+}
 </style>
 </head>
 <body>
@@ -214,7 +251,7 @@ input{
 		<td></td>
 		<td>
 		<input type="text" name="q_id" size="30" id="q_id">
-		<input type="button" value="중복체크" onClick="ConfirmID()">
+		<input type="button" class="check" value="CHECK" onClick="ConfirmID()">
 		</td></tr>
 	<%--</tr>	 --%>
 	
@@ -226,7 +263,7 @@ input{
 		<td></td>
 		<td>
 		<input id="q_nickname" type="text" name="q_nickname" size="30">
-		<input type="button" value="중복체크" onClick="ConfirmNickname()">
+		<input type="button" class="check" value="CHECK" onClick="ConfirmNickname()">
 		</td></tr>
 	<%--</tr>	 --%>
 	
@@ -314,12 +351,10 @@ input{
 
 		<tr>
 		<td colspan="2" align="center" >
-		<input type="submit" value="회원가입">
-		<input type="reset" value="다시 쓰기">
 		
-		<input type="button"  value="가입 안함" onclick="window.location='./Main_template.jsp'">
-		
-		
+		<input type="button" class="Btn" value="CANCEL" onclick="window.location='./Main_template.jsp'">
+		<input type="reset" class="Btn" value="REWRITE">
+		<input type="submit" class="Btn" value="JOIN">
 		</td>
 		</tr>
 
