@@ -43,7 +43,7 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 	
 	 
 	 function updatecheck(q_num){
-		
+		 document.listForm.q_num.value=q_num;
 		 movePageUrl("/Board/Quiz_Qna/Qna_Kin_Update.jsp?q_num="+q_num);
 	 }
 	 <%--
@@ -63,8 +63,8 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 		
 	 });--%>
 	 
-	 function deleteCheck(q_num){
-			alert("zzz"+q_num);
+	 function ddd(){
+			alert("zzz");
 			
 		 }//deleteCheck() end 
 	 
@@ -112,7 +112,7 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 				<%
 				if(q_nickname.equals(q_nickname2)){
 				%>
-				<input type="button" value="삭제" onclick="deleteCheck(<%=q_num%>)">
+				<input type="button" value="삭제" onclick="ddd()">
 				<%
 				}
 				%>
