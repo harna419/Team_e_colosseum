@@ -69,29 +69,182 @@
 	    <head>
 		    <style type="text/css">
 		    
-		    span#test1{
-		    position: absolute;
-		    right:22.25%;
-		    
-		    }
-		    table#test2{
-		    border:0;
-		    border-collapse:collapse;
-		    border-spacing:0;
-		    empty-cells:show;
-		    border-color:#ffffff;
-		    border-bottom:#d0d0d0;
-		    }
-		    span.test{
-		    position: fixed;
-		    top:50%; right:50%;
-		    
-		    height:100px;
-		    width:50px;
-		    
-			background-color: black;
-		    
-		    }
+		    .container{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				margin: 0px; padding: 0px;
+			    font-family:'돋움',Dotum;
+			    color: #666;
+			    font-size: 12px;
+			    line-height: 1.4;
+			}
+			.content1{
+				
+				position: absolute;
+				width: 80%;
+				height: 100%;
+				left: 10%	
+			}
+			.content1 h3.title {
+				position: absolute;
+				margin-left:-34.5%;
+				top: 5%;	
+				width: 100%;
+				height: 26px;
+				padding: 0;    
+			    line-height: 18px;
+			    border-bottom: 3px solid #252525;
+			}
+			.content1 h3{
+				font-weight: bold;    
+			    font-size: 17px; 
+			    font-family: 맑은 고딕;
+			    color: 1d1d1d;   
+			    letter-spacing: 0;
+			}
+			.boardList{
+				padding: 0;
+				margin: 0;
+				border: 0;
+				width: 80%;
+				height: 43%;
+				position:absolute;
+				top:11.5%;
+				
+			}
+			.boardList table{
+				width: 100%;
+				height: 60%;
+			}
+			table{	
+				table-layout:static;
+				border: 0;
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+			thead{
+				vertical-align: middle;
+				border-color: inherit;
+			}
+			.boardList thead th{
+				height: 36px;
+			    text-align: center;
+			    vertical-align: middle;
+			    color: #444;
+			    font-size: 12px;
+			    font-family:'맑은고딕';
+			    font-weight: bold;
+			    background-color: #e5e5e5; 
+			}
+			tbody{
+				vertical-align: middle;
+				border-color: inherit;
+			}
+			.boardList tbody td{
+				height: 36px;
+			    text-align: center;
+			    vertical-align: middle;
+			    border-bottom: 1px solid #d9d9d9;
+			    font-size: 12px;
+			    font-family: '맑은고딕';
+			    color: #666;
+			    line-height: 1.4;
+			}
+			.boardList tbody td.title{
+			    text-align: center;
+			}
+			
+			.paging{
+				
+			    clear: both;
+			    text-align: center;
+			    position: absolute;
+			    width: 100%;
+			    height: 5%;
+			    top: 53%;	
+			    z-index: 1;
+			}
+			.paging a{
+			    display: inline-block;
+			    color: #767676;
+			    line-height: 15px;
+			    min-width: 20px;
+			    font-family: Verdana;
+			    vertical-align: left;
+			    vspace:200px;
+			    
+			}
+			a, a:link, a:active, a:visited {
+				text-decoration: none;
+				color: #666;
+			}
+			.paging a:hover,
+			.paging a.selected{
+				color: #111;
+				font-weight: bold;
+				text-decoration: none;
+			}
+			.boardBtn{
+				
+				position: absolute;
+				width: 29%;
+				line-height: 10%;
+				top: 85%;
+				text-align:right;
+	
+			}
+			.searchForm{
+				
+				position: absolute;
+				width: 80%;
+				height: 3%;
+				top: 62%;	
+			    text-align: center;
+			}
+			.searchForm select{
+				vertical-align: middle;
+				height: 23px;
+				line-height: 23px;
+				white-space: nowrap;
+				border: 1px solid #ccc;
+				font-family: '돋움', '굴림';
+				font-size : 12px;
+			}
+			option{
+				white-space: pre;
+				min-height: 1.2em;
+				padding: 0px 2px 1px;
+			}
+			.searchForm .keyWord{
+				vertical-align: middle;
+			    border: 1px solid #d9d9d9;
+			    height: 24px;
+			    line-height: 24px;
+			    width: 5%;
+			    padding: 0 5px;
+			}
+			.searchForm .keyWord input{
+				height: 23px;
+				border: 1px solid #d9d9d9;
+				font-family: '돋움', '굴림';
+				font-size: 12px;
+			}
+			.searchForm .btSearch{
+			    vertical-align: middle;
+			    display: inline-block;
+			    width: 42px;
+			    height: 23px;
+			    padding-top: 1px;
+			    line-height: 23px;
+			    text-align: center;
+			    font-weight: bold;
+			    font-size: 12px;
+			    color: #fff;
+			    text-decoration: none;
+			    background-color: #767676;
+			}
+
 		    #messagebox{
 		    background-color: pink;
 		    width: 300px;
@@ -103,7 +256,7 @@
 		    }
 		    a, a:link, a:active, a:visited{
 		    	text-decoration:none;
-		    	color:#FFB4FF;
+		    	color:#666;
 		    }
 		    
 		    </style>
@@ -151,7 +304,7 @@
 	   			    var messagebox2= $("#messagebox").width();
 	   			    if(messagebox2 <= 0){
 	   			    
-	   				$("#content").append('<div id="messagebox"><table><tr><td id="123">'+recname+'</td></tr><tr><td><textarea id="456" rows=15 cols=38></textarea></td></tr></table></div>');
+	   				$("#content").append('<div id="messagebox"><table><tr><td id="123">'+recname+'</td></tr><tr><td><textarea id="456" align="center" rows=15 cols=38></textarea></td></tr></table></div>');
 	   				$("#messagebox").css('left',x);
 	   				$("#messagebox").css('top',y);
 	   				$("#messagebox").append('<div align="center"><button id="msubmit">전송</button> <button id="mreset">취소</button></div>');
@@ -197,13 +350,12 @@
     
     <body id="content">
  
-    <div>
-    	<div>
+    <div class="container">
+    	<div class="content1">
     		<table align="center" border=0 width=56%>
 	    		<tr>
-	    		<td><h3 style=color:#FFB4FF>게시판</h3></td>
-	    		<td align="right">
-	  	  			<span style=color:#FFB4FF>Total:</span><font color="#FFBB00"><%=totalRecord %></font>
+	    		<td><h3 style=color:#666 class="title">게시판</h3></td>
+	    		<td align="right" >
 	    			
 	    		</td>
 	    		</tr>
@@ -213,24 +365,24 @@
     	<%-- 공지사항 테이블  
     	<div> <%@ include file="/Colosseum/Board/Quiz_Board/Board_Notice_List.jsp" %> </div>  --%>
 	    
-    	<div align="center" width="60%" id="content" class="asdf">	
-    	<span>
+    	<div align="center" width="60%" id="content" class="boardList">	
+    	
     	<%
     	if(vec.isEmpty()){
-    		out.println("<div style=color:#FFB4FF>등록한 글이 없습니다</div>");
+    		out.println("<div style=color:#666>등록한 글이 없습니다</div>");
     	}else{//등록한 글이 있으면
     		%>
     		
-    		<table id=test2 border=1 width="56%" cellpadding=2 cellspacing=0>
+    		<table id=listTable border=1 width="56%" cellpadding=2 cellspacing=0>
     	
-    		<div id="test3">
-	    		<tr align=center height="120%">
+    		<thead>
+	    		<tr align=center height="80%">
 	    		<!-- 이게 없으면 테이블 사이즈 조정이 안됩니다 -->
-	    		<td width="5%">번호</td> <td width="45%">제목</td><td width="20%">이름</td><td wdith="20%">날짜</td><td width="10%">조회수</td>	
+	    		<th width="5%">번호</th> <th width="45%">제목</th><th width="20%">이름</th><th width="20%">날짜</th><th width="10%">조회수</th>	
 	  			</tr>
-    		</div>
+    		</thead>
    
-    		<div>
+    		<tbody>
     		<%
     		for(int i=beginPerPage; i<(beginPerPage + numPerPage);i++){
     			if(i==totalRecord){break;}//for 탈출		
@@ -288,7 +440,7 @@
     			<tr>
     			<!--  번호를 역순으로, num와 다르다 -->
     			<td align=center><%=totalRecord-i %></td>
-    			<td>
+    			<td class="title">
     			<%-- 글 보기 --%>
     			<a href="javascript:content('<%=q_num%>')"><%=q_subject %></a>
     			
@@ -314,13 +466,22 @@
     	
     		<%}//else %>
     	
-    	</span>
-    	</div>
+    	</tbody>
     	
     	<div></div>
     	<br>
     	
-    	<div align="center">
+    	<div align="center" class="paging">
+
+    	
+    	<span class="boardBtn">
+    		<%--<a href="Board_Write.jsp?q_nickname=<%=nickname%>"> --%>
+    		<img src="imgs/boardBtn01.png" onclick="javascript:clicked('<%=nickname%>')">
+    	</span>
+    	</div>
+    	
+    	<div class="searchForm">
+    	
     	<span>
     	<%
     	if(totalRecord!=0){//글이 존재하면
@@ -366,14 +527,6 @@
     	}//if 글이 존재하면 끝
     	%>
     	</span>
-    	
-    	<span id="test1">
-    		<%--<a href="Board_Write.jsp?q_nickname=<%=nickname%>"> --%>
-    		<img src="imgs/boardBtn01.png" onclick="javascript:clicked('<%=nickname%>')">
-    	</span>
-    	</div>
-    	
-    	<div>
     		<form name="searchForm" method="post" action="./Board/Quiz_Board/Board_List.jsp">
 	    		<table width="55%" border=0 align=center cellpadding=1 cellspacing=0>
 	    		<tr>
@@ -384,9 +537,9 @@
 	    			<option value="q_content">글내용</option>
 	    		</select>
 	    		
-	    		<input type="text" name="keyWord" size=16>
+	    		<input type="text" id="keyWord" name="keyWord" size=16>
 	    		<input type="hidden" name="page" value="0">
-	    		<input type="button" value="검색" onClick="check()">
+	    		<input type="button" value="검색" id="btnSearch" class="btSearch" onClick="check()">
 	    		</td>
 	    		</tr>    			
 	    		</table>
