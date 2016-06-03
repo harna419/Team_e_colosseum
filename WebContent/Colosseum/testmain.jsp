@@ -39,7 +39,7 @@ margin-top: -150px;
 
 <div id="sec_wrap">
 <div id="sec1"><h1>Welcome To Colosseum</h1></div>
-<div id="sec2"><img id="main_img" src="./imgs/Colosseum1111.svg"/></div>
+<div id="sec2"><img id="main_img" src="./imgs/Menu_icon/colosseum.svg"/></div>
 
 </div>
 
