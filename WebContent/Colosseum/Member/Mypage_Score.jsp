@@ -20,7 +20,7 @@ System.out.println(totalgame);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Mypage score</title>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
 <script type="text/javascript">

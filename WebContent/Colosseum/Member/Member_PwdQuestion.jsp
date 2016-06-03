@@ -7,8 +7,8 @@
     request.setCharacterEncoding("utf-8");
     String q_id=request.getParameter("q_id");
     String q_name=request.getParameter("q_name");
-    int q_jumin1=Integer.parseInt(request.getParameter("q_jumin1"));
-    int q_jumin2=Integer.parseInt(request.getParameter("q_jumin2")); 
+    String q_jumin1=request.getParameter("q_jumin1");
+    String q_jumin2=request.getParameter("q_jumin2"); 
     MemberDao dao=MemberDao.getInstance();
     int check = dao.pwdFind(q_id, q_name, q_jumin1, q_jumin2);
 	MemberDto dto=new MemberDto();
@@ -18,7 +18,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>비밀번호 찾기</title>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
 <script type="text/javascript">
 function check(){
 	if($('#q_pw_reply').val()==''){
@@ -26,7 +26,7 @@ function check(){
 		$('#q_pw_reply').val('').focus();
 		return false;
 	}
-	if($('#q_pw_reply').val()!==$('#q_pw_reply2').val()){
+	if($('#q_pw_reply').val()!=$('#q_pw_reply2').val()){
 		alert("비밀번호 답이 일치하지 않습니다");
 		return false;
 	}
@@ -45,7 +45,7 @@ function check(){
 	String q_pw_reply2=dto.getQ_pw_reply();
 %>
 <div> 
-<form name="pwdQuestion" action="ResetPwd.jsp" method="post" onsubmit="return check()">
+<form name="pwdQuestion" action="Member_ResetPwd.jsp" method="post" onsubmit="return check()">
 <div align="center">
 	<div><p id="question"><%=q_pw_question %></p></div><br>
 	<div><p> 답 : <input type="text" name="q_pw_reply" id="q_pw_reply"></p></div>

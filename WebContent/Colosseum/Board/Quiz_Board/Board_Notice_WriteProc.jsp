@@ -15,6 +15,6 @@
 //dto.setIp(request.getRemoteAddr()); //ip setter 작업
 
 BoardDao dao = BoardDao.getInstance(); //dao객체 얻기
-dao.insertNotice(dto); //dao 메서드 호출
-response.sendRedirect("../../Main_template.jsp?afternum=4");
+dao.insertBoard(dto); //dao 메서드 호출
+response.sendRedirect("../../Main_template.jsp?afternum=9");
 %>

@@ -70,7 +70,7 @@
     
     <script type="text/javascript">
     	function check(){
-    		alert("test");
+    	
     		if(document.searchForm.keyWord.value==''){
     			alert("검색어를 입력 하시오");
     			document.searchForm.keyWord.focus();

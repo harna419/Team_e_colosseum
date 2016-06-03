@@ -1,3 +1,4 @@
+<%@page import="org.apache.catalina.ant.ReloadTask"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,6 +9,9 @@
 String pageFile=request.getParameter("pageUrl");
 String nowColor=request.getParameter("nowColor");
 String nextColor=request.getParameter("nextColor");
+
+String q_dep_num=request.getParameter("q_dep_num");
+String q_dep_step=request.getParameter("q_dep_step");
 
 System.out.println("nowColor: "+nowColor);
 System.out.println("nextColor: "+nextColor);
@@ -23,7 +27,16 @@ if(nowColor == null){
 if(nextColor == null){
 	nextColor="#3D68A6";
 }
-System.out.println(pageFile);
+System.out.println("pageFile:"+pageFile);
+
+
+String mem_id=(String)session.getAttribute("mem_id");
+String mem_name=(String)session.getAttribute("mem_name");
+String mem_nickname=(String)session.getAttribute("mem_nickname");
+
+System.out.println("세션id:"+mem_id);
+System.out.println("세션name:"+mem_name);
+System.out.println("세션닉네임:"+mem_nickname);
 %>
 
 <html>
@@ -48,7 +61,7 @@ function move(afternum){
 		movePageUrl("")
 	}
 	if(afternum==4){//문제게시판
-		movePageUrl("Board/Quiz_view/Quiz_list.jsp")
+		movePageUrl("Board/Quiz_view/Quiz_list.jsp",$('#main').css("backgroundColor"), "#4E94D4")
 	}
 	if(afternum==5){//GROUP
 		movePageUrl("")
@@ -61,6 +74,23 @@ function move(afternum){
 	}
 	if(afternum==8){//게시판
 		movePageUrl("Board/Quiz_Qna/Qna_Main.jsp?qnanum=1")
+	}
+	if(afternum==9){
+		movePageUrl("Board/Quiz_Board/Board_List.jsp");
+	}
+	if(afternum==10){
+		movePageUrl("Board/Quiz_Qna/Qna_List.jsp");
+	}
+	if(afternum==11){
+
+		movePageUrl("Board/Quiz_view/Quiz_ResultForm.jsp?q_dep_num=<%=q_dep_num%>&q_dep_step=<%=q_dep_step%>");
+	}
+	if(afternum==12){
+		movePageUrl("Board/Quiz_Qna/Qna_Kin_List.jsp");
+	}
+	if(aFternum==13){
+		movePageUrl("home_wrap.jsp");
+	
 	}
 }//move()
 </script>
@@ -125,7 +155,7 @@ position:absolute; height:100%; left:0px; width:60%; background-color: #ffffff; 
 .menu_button{ display:block; width:100%; position: relative; height: 50px; } 
 
 #menu1{ 
-background-image: url('./imgs/opti1-01.svg');
+background-image: url('./imgs/01_login.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
@@ -133,21 +163,21 @@ background-size: 60px 60px;
 
 
 #menu2{ 
-background-image: url('./imgs/opti1-02.svg');
+background-image: url('./imgs/07.whoweare.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
 }
 
 #menu3{ 
-background-image: url('./imgs/opti1-03.svg');
+background-image: url('./imgs/02.Joinus.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
 }
 
 #menu4{ 
-background-image: url('./imgs/opti1-04.svg');
+background-image: url('./imgs/03.Quiz.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
@@ -155,7 +185,7 @@ background-size: 60px 60px;
 }
 
 #menu5{ 
-background-image: url('./imgs/opti1-05.svg');
+background-image: url('./imgs/08.group.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
@@ -163,7 +193,7 @@ background-size: 60px 60px;
 }
 
 #menu6{ 
-background-image: url('./imgs/opti1-06.svg');
+background-image: url('./imgs/05.TheFallofFame.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
@@ -171,7 +201,7 @@ background-size: 60px 60px;
 }
 
 #menu7{ 
-background-image: url('./imgs/opti1-07.svg');
+background-image: url('./imgs/06.Learning.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
@@ -179,11 +209,10 @@ background-size: 60px 60px;
 }
 
 #menu8{ 
-background-image: url('./imgs/opti1-08.svg');
+background-image: url('./imgs/04.Board.svg');
 background-repeat: no-repeat;
 background-position: right;
 background-size: 60px 60px;
-
 }
 
 #whitebox{
@@ -194,7 +223,6 @@ display: block;
 background-color: white;
 width: 70%;
 height:100%;
-
 }
 
 </style>
@@ -214,7 +242,7 @@ height:100%;
 <div id="back_intro">
 <br>
 <%--<font size="5">마이페이지</font> --%>
-<img src="./imgs/colosseum_logo_20160527.png" width="250" height="60" >
+<img src="./imgs/colosseum_logo_20160530.png" width="250" height="60" >
 </div>
 </div><!-- main page end-->
 

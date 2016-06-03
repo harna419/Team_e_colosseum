@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="Message.*"%>
+    <%request.setCharacterEncoding("utf-8");%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,15 +14,23 @@
  	
   int checklen = selects.length;
   
-  try {
+  try { 
    for(int i=0; i<checklen; i++) {
 	   int q_num=Integer.parseInt(selects[i]);
 	 	dao.deleteMessage(q_num);
-   }
-  }
+   } 
+  } 
   catch(Exception ex) {
    out.println("exception occured");
   }
+  
+  String url22=request.getContextPath();
  %>
+ 
+ 
 </body>
 </html>
+
+<script>
+location.href="<%=url22%>/Colosseum/Main_template.jsp?afternum=13";
+</script>

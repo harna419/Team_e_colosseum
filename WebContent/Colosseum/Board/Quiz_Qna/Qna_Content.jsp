@@ -44,13 +44,13 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 }
 .content{
 	position: absolute;
-	width: 50%;
+	width: 60%;
 	height: 100%;
-	left: 25%
+	left: 15%
 }
 .content h3.title {
 	position: absolute;
-	top: 5%;
+	top: 10%;
 	width: 100%;
 	height: 26px;
 	padding: 0;    
@@ -69,7 +69,7 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	top: 9.8%;
+	top: 14.8%;
 	border-top: 1px solid #ccc;
 }
 .contentWrap .title_con{
@@ -162,6 +162,9 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 		 movePageUrl("Board/Quiz_Qna/Qna_Update.jsp?&q_num="+q_num);
 		 
 	 }
+	 function goList(){
+		 movePageUrl('./Board/Quiz_Qna/Qna_List.jsp');
+	 }
 	 <%--
 	 $(function(){
 		//alert("ddd")
@@ -223,7 +226,7 @@ String q_nickname2="test"; //나중에 세션에서 받아 온 닉네임 or 아�
 				<%	
 				}
 				%>
-				<a href="Board/Quiz_Qna/Qna_List.jsp"><img src="imgs/btn_vim2.png" class="btn_list"></a>
+				<%--<a href="Board/Quiz_Qna/Qna_List.jsp"> --%><img onclick="goList()" src="imgs/btn_vim2.png" class="btn_list"></a>
 
 			</div><!-- btn_con -->
 	<%

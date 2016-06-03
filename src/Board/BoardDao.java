@@ -172,7 +172,7 @@ public class BoardDao {
 			stmt=con.createStatement();
 			
 			if(keyWord.equals(null) || keyWord.equals("")){//ÀüÃ¼±Û
-				sql="select * from qz_board_free order by Q_NUM desc";
+				sql="select * from qz_board_free order by q_notice_group asc, q_create_time desc";
 			}else{
 				sql="select * from qz_board_free where "+keyField+" like '%"+keyWord+"%'"
 						+ " order by Q_NUM desc";
@@ -192,6 +192,7 @@ public class BoardDao {
 				dto.setQ_create_time(rs.getString("q_create_time"));
 				dto.setQ_modify_time(rs.getString("q_modify_time"));
 				dto.setQ_notice_num(rs.getInt("q_notice_num"));
+				dto.setQ_notice_group(rs.getInt("q_notice_group"));
 				dto.setQ_read_count(rs.getInt("q_read_count"));
 				
 				vec.add(dto);

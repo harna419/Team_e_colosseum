@@ -19,5 +19,5 @@ int q_num=Integer.parseInt(request.getParameter("q_num"));
 
 
 dao.updateQna(dto); 
-response.sendRedirect("Qna_Faq_List.jsp?page="+nowPage);
+response.sendRedirect("../Main_template.jsp?afternum=10");
 %>

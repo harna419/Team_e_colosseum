@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title></title>
 <%--<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>--%>
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<%--<script src="//code.jquery.com/jquery-1.11.0.min.js"></script> --%>
 <script>
 function check(){
 	if(document.postForm.q_subject.value==''){
@@ -35,7 +35,7 @@ function check(){
 		document.postForm.submit;
 		break;
 	case "2":
-		document.postForm.action="./Qna_Kin_WriteProc.jsp";
+		document.postForm.action="./Board/Quiz_Qna/Qna_Kin_WriteProc.jsp";
 		document.postForm.submit;
 	
 	}

@@ -3,12 +3,8 @@
 <%request.setCharacterEncoding("utf-8");%>
 <html>
 <head>
-<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
-<style type="text/css">
-td{
- color:#FFFFFF
-}
-</style>
+<!-- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>-->
+
 <script>
 	var Id_Check=-1;
 	var Nickname_Check=-1;
@@ -26,21 +22,21 @@ td{
 			return false;
 		}
 		
-		if($('#q_pwd').val()==""){
+		if($('#pwd').val()==""){
 			alert("비밀번호를 입력 해주세요");
-			$('#q_pwd').val('').focus();
+			$('#pwd').val('').focus();
 			return false;
 		}
 		
-		if($('#q_pwd2').val()==""){
+		if($('#pwd2').val()==""){
 			alert("비밀번호를 확인 해주세요");
-			$('#q_pwd2').val('').focus();
+			$('#pwd2').val('').focus();
 			return false;
 		}
 		
-		if($('#q_pwd').val() != $('#q_pwd2').val()){
+		if($('#pwd').val() != $('#pwd2').val()){
 			alert("비밀번호가 확인이 일치하지 않습니다");
-			$('#q_pwd2').val('').focus();
+			$('#pwd2').val('').focus();
 			return false;
 		}
 		
@@ -71,12 +67,12 @@ td{
 			alert("아이디 중복 확인 해주세요");
 			return false;
 		}
-		/*
+		
 		if(Nickname_Check!=1){
 			alert("닉네임 중복확인 해주세요");
 			return false;
 		}
-		*/
+		
 		alert("가입이 완료 되었습니다");
 	}//checkIt end
 	
@@ -95,7 +91,7 @@ td{
 				cache:false,
 				async:true,
 				success:function(data){
-					alert(data.check); 
+					//alert(data.check); 
 					
 					if(data.check==1){
 						alert("사용중인 ID");
@@ -116,7 +112,7 @@ td{
 			alert("닉네임을 입력하세요");
 			$('#q_nickname').focus();
 		}else{
-			alert("닉네임 중복체크 확인");
+			//alert("닉네임 중복체크 확인");
 			
 			$.ajax({
 				type:'POST',
@@ -126,7 +122,7 @@ td{
 				cache:false,
 				async:true,
 				success:function(data){
-					alert(data.check); 
+					//alert(data.check); 
 					
 					if(data.check==1){
 						alert("사용중인 닉네임");
@@ -142,19 +138,106 @@ td{
 		}//else
 	}//ConfirmNickname
 </script>
+<style type="text/css">
+   
+.container{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.contentWrap{
+	
+	position: absolute;
+	width: 80%;
+	height: 100%;
+	left: 6.5%;		
+}
+.contentWrap h3{
+	font-weight: bold;    
+    font-size: 20px; 
+    font-family: "museo-sans",sans-serif;
+    color: #fff;   
+    letter-spacing: 0;
+}
+.contentWrap h3.title {
+	position: absolute;
+	top: 6.5%;	
+	width: 100%;
+	height: 26px;
+	padding: 0;    
+    line-height: 18px;
+    border-bottom: 3px solid #fff;
+}
+.board{
+
+	position: absolute;
+	top: 15%;	
+	width: 100%;
+}
+
+td{
+	font-family: '맑은 고딕';
+	color: #fff;
+	font-size: 15px;
+	font-weight: bold;
+    letter-spacing: 1px;
+}
+input{
+	border: 0;
+	font-size: 13px;
+    margin-bottom: 20px;
+    padding: 5px 10px;
+}
+
+.check{
+	border:0;
+ 	background: #ffffff;
+    color: #015DB2;
+    cursor: pointer;
+    font-family: "museo-sans",sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 1;
+    width: 80px;
+    padding: 5px 10px;
+}
+.check:hover{
+	background: #8DEEEF;
+}
+
+.Btn{
+    border:0;
+ 	background: #ffffff;
+    color: #015DB2;
+    cursor: pointer;
+    float: right;
+    font-family: "museo-sans",sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 1;
+    width: 80px;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+.Btn:hover{
+	background: #8DEEEF;
+}
+</style>
 </head>
 <body>
+<div class="container">
+<div class="contentWrap">
+	<h3 class="title"> JOIN </h3>
 
 <form method="post" name="userForm" action="./Member/Member_JoinMemberPro.jsp" onSubmit="return checkIt()">
-<table width="650" cellpadding="3" cellspacing="0">
+<table class="board" width="650" cellpadding="3" cellspacing="0">
 	
-	<tr>
-	<td colspan="2" height="30" align="left">	
-	<h1 style=color:#FFFFFF><b><br>가입하기</b></h1><br>
 
-	</td>
-	</tr>	
-	
+
 	<tr>
 	<td width="200"><Strong>로그인 정보 입력</Strong></td>
 	<td width="400" >&nbsp;</td>
@@ -163,48 +246,48 @@ td{
 	<tr>
 	<td width="200"></td>
 	<td width="400">
-		E-mail
+		E-mail*
 		<tr>
 		<td></td>
 		<td>
 		<input type="text" name="q_id" size="30" id="q_id">
-		<input type="button" value="중복체크" onClick="ConfirmID()">
+		<input type="button" class="check" value="CHECK" onClick="ConfirmID()">
 		</td></tr>
-	</tr>	
+	<%--</tr>	 --%>
 	
 	<tr>
 	<td width="200"></td>
 	<td width="400">
-		닉네임
+		닉네임*
 		<tr>
 		<td></td>
 		<td>
 		<input id="q_nickname" type="text" name="q_nickname" size="30">
-		<input type="button" value="중복체크" onClick="ConfirmNickname()">
+		<input type="button" class="check" value="CHECK" onClick="ConfirmNickname()">
 		</td></tr>
-	</tr>
+	<%--</tr>	 --%>
 	
 	<tr>
 	<td width="200"></td>
 	<td width="400">
-		비밀번호
+		비밀번호*
 		<tr>
 		<td></td>
 		<td>
-		<input id="q_pwd" type="password" name="q_pwd" size="30">
+		<input id="pwd" type="password" name="q_pwd" size="30">
 		</td></tr>
-	</tr>	
+	<%--</tr>	 --%>	
 		
 	<tr>
 	<td width="200"></td>
 	<td width="400">
-		비밀번호 확인
+		비밀번호 확인*
 		<tr>
 		<td></td>
 		<td>
-	<input id="q_pwd2" type="password" name="q_pwd2" size="30">
+	<input id="pwd2" type="password" name="q_pwd2" size="30">
 		</td></tr>
-	</tr>
+	<%--</tr>	 --%>
 	
 	<tr>
 	<td width="200" ><strong>개인정보 입력</strong></td>
@@ -215,7 +298,7 @@ td{
 	<tr>
 	<td ></td>
 	<td>
-	사용자 이름
+	사용자 이름*
 	<tr>
 		<td></td>
 		<td>
@@ -226,7 +309,7 @@ td{
 		<tr>
 		<td></td>
 		<td>
-		주민번호
+		주민번호*
 		<tr>
 		<td></td>
 		<td>
@@ -268,17 +351,17 @@ td{
 
 		<tr>
 		<td colspan="2" align="center" >
-		<input type="submit" value="회원가입">
-		<input type="reset" value="다시 쓰기">
 		
-		<input type="button"  value="가입 안함" onclick="window.location='./Main_template.jsp'">
-		
-		
+		<input type="button" class="Btn" value="CANCEL" onclick="window.location='./Main_template.jsp'">
+		<input type="reset" class="Btn" value="REWRITE">
+		<input type="submit" class="Btn" value="JOIN">
 		</td>
 		</tr>
 
 	</table>
 
 </form>
+</div><!-- contentWrap -->
+</div><!-- container -->
 </body>
 </html>

@@ -11,7 +11,7 @@ request.setCharacterEncoding("utf-8");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>--%>
 <script type="text/javascript">
 function checkIt(){
 	if($('#q_id').val()==''){
@@ -39,7 +39,7 @@ function checkIt(){
 </head>
 <body>
 	<div>
-		<form name="pwdCheck" action="PwdQuestion.jsp" method="post" onsubmit="return checkIt()">
+		<form name="pwdCheck" action="Member_PwdQuestion.jsp" method="post" onsubmit="return checkIt()">
 		<table align="center">
 			<tr>
 			<td>ID :</td> <td><input type="text" name="q_id" id="q_id" placeholder="아이디를 입력 해주세요"></td>
@@ -48,7 +48,7 @@ function checkIt(){
 			<td>NAME :</td> <td><input type="text" name="q_name" id="q_name" placeholder="이름을 입력 해주세요"></td>
 			</tr>
 			<tr>
-			<td>BIRTH :</td> <td><input type="text" name="q_jumin1" id="q_jumin1" placeholder="주민번호 앞자리">-
+			<td>BIRTH :</td> <td><input id="q_jumin1" type="text" placeholder="주민번호 앞자리" name="q_jumin1" size="15" onkeyup="if(this.value.length==6) idCheck.q_jumin2.focus();">-
 			<input type="password" name="q_jumin2" id="q_jumin2" placeholder="주민번호 뒷자리"></td>
 			</tr>
 			<br><br>

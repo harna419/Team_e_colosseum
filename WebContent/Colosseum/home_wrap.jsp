@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%request.setCharacterEncoding("utf-8");%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <%
 //top.jsp 를 첫번째 메뉴로 바꿀려고 수정중.
+/*
 String q_id="admin";
 String q_name="admin";
 String q_user_num="01";
@@ -13,6 +15,8 @@ session.setAttribute("q_id", q_id);
 session.setAttribute("q_name", q_name);
 session.setAttribute("q_user_num", q_user_num);
 session.setAttribute("q_nickname", q_nickname);
+*/
+//String q_id=request.getParameter("id");
 
 %>
 
@@ -24,8 +28,17 @@ session.setAttribute("q_nickname", q_nickname);
 <font align=center><h1>Colosseum</h1></font>
 <%--<%=request.getContextPath() 
 <%@ include file="./Member/Member_MyPage.jsp" %>--%>
+<%
+
+if(session.getAttribute("mem_id")==null || session.getAttribute("mem_id").equals("")){
+	%>
+	<h1>로그인후 이용하세요</h1>
+	
+	<%
+}else{
+%>
 <jsp:include page="./Member/Member_MyPage.jsp"/>
- 
+ <%}%>
 </div> <!-- 마이페이지 들어 올 곳  -->
 
 

@@ -73,7 +73,7 @@ request.setCharacterEncoding("utf-8");
 			
 			$("#check").on("click",function(){
 				var $td_count = $("#col td").length;
-				alert($td_count);
+				
 			});
 			
 			

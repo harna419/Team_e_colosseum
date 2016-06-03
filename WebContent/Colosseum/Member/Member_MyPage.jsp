@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="java.util.*"
 	import="Member.*"
@@ -11,18 +11,20 @@
 <%
 request.setCharacterEncoding("utf-8");
  
-//String q_id=(String)session.getAttribute("q_id");
-String q_id="admin@admin.com";
+String q_id=(String)session.getAttribute("mem_id");
+//String q_id="admin@admin.com";
 MemberDao dao=MemberDao.getInstance();//dao 객체얻기
 MemberDto dto=dao.getMember(q_id);//dao 메서드 호출
 Vector vec=null;
 String q_nickname_receive=dto.getQ_nickname();
 MessageDao dao2=MessageDao.getInstance();
-//String q_nickname_receive="test";  
+
 vec=dao2.getMessageList(q_nickname_receive);
 
 Quiz_ScoreMgr quizMgr=Quiz_ScoreMgr.getInstance();
 Quiz_ScoreBean quizBean=quizMgr.quizScoreCount(q_id);
+
+
 
 int yescount=quizBean.getYescount();
 int nocount=quizBean.getNocount(); 
@@ -30,6 +32,7 @@ int totalgame=yescount+nocount;
 double per=(double)yescount/totalgame*100;
 double percentage = Double.parseDouble(String.format("%.1f",per));
 String q_nickname=dto.getQ_nickname();
+
 
 %> 
   
@@ -51,9 +54,7 @@ a { text-decoration:none; color:#000; }
 th { background-color: #eee; display: table-cell; vertical-align: inherit; }
 
 </style>
- 
-
- 
+<%-- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>--%>
 <script type="text/javascript">
 $(function () {	
 	tab('#tab',0);	
@@ -115,6 +116,21 @@ function checkIt(){
 
 }//checkIt() end 
 
+function MyGame(){
+	 
+	 url="Member/Member_Mygame.jsp?check=y";
+	 window.open(url,"Mygame","width=500,height=300,status=yes,scrollbars=yes");
+}
+
+function PlayGame(){
+	 
+	 url="Member/Member_Playgame.jsp?check=y";
+	 window.open(url,"playgame","width=500,height=300,status=yes,scrollbars=yes");
+}
+function Favorite(){
+	url="Member/Member_Favorite_game.jsp?check=y";
+	window.open(url,"Favorite","width=500,height=300,status=yes,scrollbars=yes");
+}
 
 function content(value){
 	url="../MyPage/Message_Content.jsp?q_num="+value;
@@ -122,7 +138,7 @@ function content(value){
 }
 
 function delMsg() {
-	  alert("삭제삭제");
+	 
 	  var chkList = document.getElementsByName('select');
 	  var arr = new Array();	
 	  var cnt = 0;
@@ -228,7 +244,7 @@ function delMsg() {
 		<!-- 성별 -->
 		
 		<tr>
-			<th width=200>주소</th>
+			<th width=200>성별</th>
 			<td width=400>
 			<%
 			im=dto.getQ_sex();
@@ -251,12 +267,6 @@ function delMsg() {
    
 	</table>
 	<br>
-	<span><input type="button" value="아이디찾기" onclick="findId()"></span>
-	<span>
-		 	<input type="button" value="비밀번호찾기" onclick="findPwd()">
-		 	<input type="button" value="비밀번호찾기" onclick="modi()">
-		 	
-		</span>
 	</form></div>
 	
 		
@@ -320,7 +330,7 @@ function delMsg() {
    
     	<table align="center">
     		<tr>
-    		<td><img src="../imgs/Bruce.jpg" width="200px" height="200px" style="position:relative"></td>
+    		<td><img src="../Colosseum/imgs/a2.jpg" width="200px" height="200px" style="position:relative"></td>
     		<td>
 				<p> ID : <%=q_id %></p>
 				<p> NickName : <%=q_nickname %></p>
@@ -329,14 +339,14 @@ function delMsg() {
     		
     		<tr>
     		<td colspan=2>
-    		<p>내가 등록한 게임 : 최근 등록한 게임 하나만
-			<input type="button" value="상세보기" onclick=""><br>
+    		<p>내가 등록한 게임 :최근 등록한 게임 하나만
+			<input type="button" value="상세보기" onclick="MyGame()"><br>
 			
 			즐겨찾기 한 게임 : 최근 즐찾한 게임 하나만
-			<input type="button" value="상세보기" onclick=""><br>
+			<input type="button" value="상세보기" onclick="Favorite()"><br>
 			
 			최근 플레이한 게임 : 최근 플레이한 게임 하나만
-			<input type="button" value="상세보기" onclick=""></p>
+			<input type="button" value="상세보기" onclick="PlayGame()"></p>
     		</td>
     		</tr>
     		

@@ -84,16 +84,15 @@
     font-size: 12px;
     line-height: 1.4;
 }
-.content{
-	
+.content{	
 	position: absolute;
-	width: 80%;
+	width: 60%;
 	height: 100%;
-	left: 10%	
+	left: 15%	
 }
 .content h3.title {
 	position: absolute;
-	top: 5%;	
+	top: 10%;	
 	width: 100%;
 	height: 26px;
 	padding: 0;    
@@ -108,14 +107,14 @@
     letter-spacing: 0;
 }
 .boardList{
+	border-top: 1px solid #e5e5e5;
+	position:absolute;
+	top: 14.8%;
 	padding: 0;
 	margin: 0;
 	border: 0;
 	width: 100%;
 	height: 43%;
-	position:absolute;
-	top:11.5%;
-	
 }
 .boardList table{
 	width: 100%;
@@ -159,14 +158,13 @@ tbody{
     text-align: left;
 }
 
-.paging{
-	
+.paging{	
     clear: both;
     text-align: center;
     position: absolute;
     width: 100%;
     height: 5%;
-    top: 53%;	
+    top: 61.5%;	
     z-index: 1;
 }
 .paging a{
@@ -187,20 +185,18 @@ a, a:link, a:active, a:visited {
 	font-weight: bold;
 	text-decoration: none;
 }
-.boardBtn{
-	
+.boardBtn{	
 	position: absolute;
 	width: 100%;
 	line-height: 10%;
-	top: 85%;
+	top: 83%;
 	text-align:right;    
 }
-.searchForm{
-	
+.searchForm{	
 	position: absolute;
 	width: 100%;
 	height: 3%;
-	top: 62%;	
+	top: 70%;	
     text-align: center;
 }
 .searchForm select{
@@ -258,14 +254,15 @@ option{
     		}
     		var kWord=document.searchForm.keyWord.value;
     		var kField=document.searchForm.keyField.value;	    		
-    		movePageUrl('./Qna/Qna_List.jsp?keyWord='+kWord+'&keyField='+kField);
+    		movePageUrl('./Board/Quiz_Qna/Qna_List.jsp?keyWord='+kWord+'&keyField='+kField);
     		
     		//document.searchForm.submit();
     	}//check() end
     	
     	function list(){
-    		document.listForm.action="Qna_List.jsp.jsp";
-    		document.listForm.submit();
+    		//document.listForm.action="./Board/Quiz_Qna/Qna_List.jsp.jsp";
+    		//document.listForm.submit();
+    		//movePageUrl('./Board/Quiz_Qna/Qna_List.jsp');
     	}//list() end
     	
     	function content(q_num){
@@ -273,12 +270,12 @@ option{
     		//document.readForm.action="Qna_Content.jsp";//글 내용 보기
     		//document.readForm.q_num.value=valuess;//글번호
     		//document.readForm.submit();
-    		movePageUrl('/Colosseum/Qna/Qna_Content.jsp?q_num='+q_num);
+    		movePageUrl('./Board/Quiz_Qna/Qna_Content.jsp?q_num='+q_num);
     		
     	}//read() end
     	
     	function clicked(nickname){
-	    	alert("clicked글쓰기");
+	    	
 	    	
 	    	movePageUrl('./Board/Quiz_Qna/Qna_Write.jsp?q_nickname='+nickname);
 	    	
@@ -451,7 +448,8 @@ option{
 		    		
 		    		<input type="text" id="keyWord" name="keyWord" size=30>
 		    		<input type="hidden" name="page" value="0">
-		    		<a href="#Search" id="btnSearch" class="btSearch" onClick="check()">검색</a>
+		    		<input type="button" id="btnSearch" class="btSearch" value="검색" onClick="check()">
+		    		<%--<a href="#Search" id="btnSearch" class="btSearch" onClick="check()">검색</a> --%>
 		    		</td>
 	    		</tr>    			
     		</table>

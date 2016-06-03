@@ -70,7 +70,7 @@ public class Quiz_RegisterMgr {
 			String upload_Dir=real_path+"/imgs/";//상품 등록 하려고
 			
 			//cos.jar 사용, 파일 업로드
-			MultipartRequest multi=new MultipartRequest(req, upload_Dir, 5*1024*1024, "utf-8", new DefaultFileRenamePolicy());
+			MultipartRequest multi=new MultipartRequest(req, upload_Dir, 512*1024*1024, "utf-8", new DefaultFileRenamePolicy());
 			int cnt=Integer.parseInt(multi.getParameter("count"));
 			for(int i=1;i<=cnt;i++){
 				
@@ -346,6 +346,7 @@ public class Quiz_RegisterMgr {
 			pstmt.setString(6, multi.getParameter("q_id"));//퀴즈출제자 아이디
 			pstmt.setString(7, multi.getParameter("q_nickname"));//퀴즈 출제자 닉네임
 			pstmt.setString(8, multi.getParameter("q_name"));//퀴즈 출제자이름
+			
 			pstmt.setString(9, multi.getParameter("q_guest_id"));//퀴즈 응시자
 			pstmt.setString(10, multi.getParameter("q_guest_nickname"));//퀴즈 응시자
 			pstmt.setString(11, multi.getParameter("q_guest_name"));//퀴즈 응시자

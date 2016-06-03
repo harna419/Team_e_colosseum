@@ -232,28 +232,51 @@ public class Quiz_StudyMgr {
 		
 		//-------------------------------------------
 		// 퀴즈 결과 hisotry 작성
-		public void quiz_ResultHistory (HttpServletRequest req,int q_dep_num,int q_dep_step){
+		public void quiz_ResultHistory (HttpServletRequest req,int q_dep_num,int q_dep_step,String q_id){
 			Quiz_StudyBean quiz=new Quiz_StudyBean();
 			
 			String real_reply="";
 			String q_event_type="";
+			String q_master_id="";
+			String q_nickname="";
+			String q_name="";
+			String q_guest_id="";//퀴즈 사용자 아이디
+			String q_guest_nickname="";//퀴즈 사용자 닉네임
+			String q_guest_name="";//퀴즈 사용자 이름
+			String q_subject="";
+			String q_content="";
+			
 			try{
 				//처리문
 				con=getConnection();//커넥션 얻기
-				
+				String sql3="select * from qz_user_info where q_id='"+q_id+"'";
+
+				stmt=con.createStatement();
+				rs=stmt.executeQuery(sql3);
+				if(rs.next()){
+					q_guest_id=rs.getString("q_id");
+					q_guest_nickname=rs.getString("q_nickname");
+					q_guest_name=rs.getString("q_name");
+					q_subject=rs.getString("q_subject");
+					q_content=rs.getString("q_content");		
+				}
+
 				//------------------------------------------------------------------------	
 				/*qz_quiz_history 퀴즈 결과 등록*/
 				for(int i=1;i<=q_dep_step;i++){
-					
+				
+				
 				String sql2="select * from qz_quiz_info where q_dep_num="+q_dep_num+" and q_dep_step="+i;
 				stmt=con.createStatement();
 				rs=stmt.executeQuery(sql2);
 				if(rs.next()){
 					real_reply=rs.getString("q_real_reply1");
+					q_master_id=rs.getString("q_id");
+					q_nickname=rs.getString("q_nickname");
+					q_name=rs.getString("q_name");
 					
 				}
-				
-				if(real_reply.equals(req.getParameter("q_real_reply11"))){
+				if(real_reply.equals(req.getParameter("q_real_reply"+i+"1"))){
 					q_event_type = "Y";
 					System.out.println("Q_event_type_YES="+q_event_type);
 				}else{
@@ -270,16 +293,16 @@ public class Quiz_StudyMgr {
 				pstmt=con.prepareStatement(sql);
 				
 				pstmt.setString(1, req.getParameter("q_title"));//타이틀
-				pstmt.setString(2, req.getParameter("q_subject"+i));//타이틀
-				pstmt.setString(3, req.getParameter("q_content"+i));//타이틀
+				pstmt.setString(2, q_subject);//타이틀
+				pstmt.setString(3, q_content);//타이틀
 				pstmt.setInt(4, q_dep_num);//퀴즈그룹 번호(Q_DEP_NUM)
 				pstmt.setInt(5, i);//퀴즈 그룹번호 스탭(Q_DEP_STEP);
-				pstmt.setString(6, req.getParameter("q_id"));//퀴즈출제자 아이디
-				pstmt.setString(7, req.getParameter("q_nickname"));//퀴즈 출제자 닉네임
-				pstmt.setString(8, req.getParameter("q_name"));//퀴즈 출제자이름
-				pstmt.setString(9, req.getParameter("q_guest_id"));//퀴즈 응시자
-				pstmt.setString(10, req.getParameter("q_guest_nickname"));//퀴즈 응시자
-				pstmt.setString(11, req.getParameter("q_guest_name"));//퀴즈 응시자
+				pstmt.setString(6, q_master_id);//퀴즈출제자 아이디
+				pstmt.setString(7, q_nickname);//퀴즈 출제자 닉네임
+				pstmt.setString(8, q_name);//퀴즈 출제자이름
+				pstmt.setString(9, q_guest_id);//퀴즈 응시자
+				pstmt.setString(10, q_guest_nickname);//퀴즈 응시자
+				pstmt.setString(11, q_guest_name);//퀴즈 응시자
 				pstmt.setString(12, q_event_type);//q_quiz_event: I(최초 등록), Y(정답), N(오답)
 				//q_event_time: NOW();
 				pstmt.setString(13, req.getParameter("q_group_type"));//퀴즈그룹 타입

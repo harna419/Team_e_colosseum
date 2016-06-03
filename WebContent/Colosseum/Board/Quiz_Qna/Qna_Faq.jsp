@@ -101,7 +101,7 @@ int totalRecord3=vec3.size();
 
 </style>
 
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<%--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script> --%>
 
 <script type="text/javascript">
 $(function(){
@@ -146,8 +146,8 @@ $('#css_tabs > div > p > a').hover(
     
 <div class="tab1_content">
 <%
-System.out.println(vec1.size());
-    		
+
+    /*	
 	 for(int i=0; i<vec1.size(); i++){
 		
 		QnaDto dto=(QnaDto)vec1.get(i);
@@ -155,20 +155,22 @@ System.out.println(vec1.size());
 		int q_num=dto.getQ_num();
 		int q_sort=dto.getQ_sort();
 		String q_subject=dto.getQ_subject();
-		String q_content=dto.getQ_content();
+		String q_content=dto.getQ_content();*/
+	 
 		
 		//int q_group2=dto.getQ_group();
 %>		
-    	<p><a href="#first">Q&nbsp;&nbsp;&nbsp;<%=q_subject %></a></p>
-		<p id="first">A&nbsp;&nbsp;&nbsp;<%=q_content %></p>
+    	<p><a href="#first">Q&nbsp;&nbsp;&nbsp;로그인이 작동 하지 않습니다</a></p>
+		<p id="first">A&nbsp;&nbsp;&nbsp;이메일로 문의 해 주세요 colosseum123@gmail.com</p>
 		
 	<%	
-	}//for
+	//}//for
 %>
 </div><!-- tab1_content -->
 
 <div class="tab2_content">
 <%
+/*
 System.out.println(vec2.size());
     		
 	 for(int i=0; i<vec2.size(); i++){
@@ -179,21 +181,21 @@ System.out.println(vec2.size());
 		int q_sort=dto.getQ_sort();
 		String q_subject=dto.getQ_subject();
 		String q_content=dto.getQ_content();
-		
+		*/
 		//int q_group2=dto.getQ_group();
 %>		
-    	<p><a href="#second">Q&nbsp;&nbsp;&nbsp;<%=q_subject %></a></p>
-		<p id="second">A&nbsp;&nbsp;&nbsp;<%=q_content %></p>
+    	<p><a href="#second">Q&nbsp;&nbsp;&nbsp;콜로세움 이름의 뜻은 무엇인가요</a></p>
+		<p id="second">A&nbsp;&nbsp;&nbsp;퀴즈로 서로의 지식을 경쟁하고자 만들어 졌습니다. 챌린지 모드를 기대 해주세요!</p>
 		
 	<%	
-	}//for
+	//}//for
 %>
 </div><!-- tab2_content -->
 
 
 <div class="tab3_content">
 <%
-System.out.println(vec3.size());
+/*System.out.println(vec3.size());
     		
 	 for(int i=0; i<vec3.size(); i++){
 		
@@ -202,15 +204,15 @@ System.out.println(vec3.size());
 		int q_num=dto.getQ_num();
 		int q_sort=dto.getQ_sort();
 		String q_subject=dto.getQ_subject();
-		String q_content=dto.getQ_content();
+		String q_content=dto.getQ_content();*/
 		
 		//int q_group2=dto.getQ_group();
 %>		
-    	<p><a href="#third">Q&nbsp;&nbsp;&nbsp;<%=q_subject %></a></p>
-		<p id="third">A&nbsp;&nbsp;&nbsp;<%=q_content %></p>
+    	<p><a href="#third">Q&nbsp;&nbsp;&nbsp;여기 왜 이런가요</a></p>
+		<p id="third">A&nbsp;&nbsp;&nbsp;그러게요</p>
 		
 	<%	
-	}//for
+	//}//for
 %>
 </div><!-- tab3_content -->
 
